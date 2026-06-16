@@ -1,0 +1,231 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: Georgia, "Times New Roman", serif;
+}
+
+@keyframes team-slide {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - 0.625rem));
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes ring-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes event-bg-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@layer utilities {
+  .animate-marquee {
+    display: inline-block;
+    animation: marquee 20s linear infinite;
+    white-space: nowrap;
+    padding-right: 2rem;
+  }
+
+  .animate-team-slide {
+    animation: team-slide 24s linear infinite;
+  }
+
+  .animate-team-slide-reverse {
+    animation: team-slide 24s linear infinite reverse;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float 6s ease-in-out 3s infinite;
+  }
+
+  .animate-ring-spin {
+    animation: ring-spin 20s linear infinite;
+  }
+
+  .animate-bg-shift {
+    animation: event-bg-shift 15s ease infinite;
+    background-size: 200% 200%;
+  }
+
+  .music-pulse {
+    animation: pulse-glow 2.4s ease-in-out infinite;
+  }
+
+  .soundwave-container {
+    position: relative;
+    display: inline-flex;
+  }
+
+  .soundwave-ring {
+    position: absolute;
+    inset: -6px;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.35) 0%, rgba(16, 185, 129, 0) 65%);
+    animation: sound-wave 2.4s linear infinite;
+    opacity: 0.9;
+    pointer-events: none;
+  }
+
+  .soundwave-ring.ring-2 {
+    animation-delay: 0.6s;
+  }
+
+  .soundwave-ring.ring-3 {
+    animation-delay: 1.2s;
+  }
+  
+  .glass-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes sound-wave {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.35);
+    opacity: 0.12;
+  }
+  100% {
+    transform: scale(1.45);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 132, 0, 0.32);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(255, 132, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 132, 0, 0);
+  }
+}
+
+@keyframes loader-bar {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-loader {
+  animation: loader-bar 1.6s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin 2.2s linear infinite;
+}
+
+
+/* Animated Floating Music Notes Background */
+.music-notes-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none; /* Isse notes par click nahi hoga, piche ka content click hoga */
+  z-index: 0;
+}
+
+.floating-note {
+  position: absolute;
+  color: #ea580c; /* Orange color */
+  opacity: 0.04; /* Bahut halka rakha hai taaki text padhne me dikkat na ho */
+  font-size: 2rem;
+  bottom: -10%;
+  animation: floatUp linear infinite;
+}
+
+/* Alag-alag notes ki speed aur timing */
+.floating-note:nth-child(1) { left: 10%; animation-duration: 15s; animation-delay: 0s; font-size: 3rem; }
+.floating-note:nth-child(2) { left: 30%; animation-duration: 12s; animation-delay: 2s; font-size: 2rem; }
+.floating-note:nth-child(3) { left: 50%; animation-duration: 18s; animation-delay: 4s; font-size: 4rem; }
+.floating-note:nth-child(4) { left: 70%; animation-duration: 14s; animation-delay: 1s; font-size: 2.5rem; }
+.floating-note:nth-child(5) { left: 90%; animation-duration: 20s; animation-delay: 5s; font-size: 3.5rem; }
+.floating-note:nth-child(6) { left: 20%; animation-duration: 16s; animation-delay: 8s; font-size: 2rem; }
+.floating-note:nth-child(7) { left: 80%; animation-duration: 19s; animation-delay: 3s; font-size: 3rem; }
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.06; /* Screen me aate hi thoda dikhega */
+  }
+  90% {
+    opacity: 0.06;
+  }
+  100% {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
