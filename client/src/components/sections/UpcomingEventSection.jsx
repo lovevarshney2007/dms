@@ -16,7 +16,7 @@ function UpcomingEventSection() {
       try {
         const data = await getJson("/api/events");
         setEvents(data || []);
-      } catch (error) {
+      } catch {
         // fallback to static data
       }
     })();

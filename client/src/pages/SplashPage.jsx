@@ -2,20 +2,16 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 function SplashPage() {
-  const [showIntro, setShowIntro] = useState(true);
+  const [showIntro, setShowIntro] = useState(() => !window.localStorage.getItem("dms_intro_seen"));
 
   useEffect(() => {
-    const hasSeen = window.localStorage.getItem("dms_intro_seen");
-    if (hasSeen) {
-      setShowIntro(false);
-      return;
-    }
+    if (!showIntro) return;
     const timer = window.setTimeout(() => {
       window.localStorage.setItem("dms_intro_seen", "1");
       setShowIntro(false);
     }, 5000);
     return () => window.clearTimeout(timer);
-  }, []);
+  }, [showIntro]);
 
   return (
     <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,rgba(171,63,45,0.22),transparent_38%),radial-gradient(circle_at_right_center,rgba(204,160,87,0.26),transparent_30%),linear-gradient(180deg,#f8f0e4_0%,#efe1cf_100%)] text-stone-900">

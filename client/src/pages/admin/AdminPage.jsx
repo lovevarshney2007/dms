@@ -11,6 +11,22 @@ import {
 import { renderInputClassNames } from "../../lib/formStyles";
 import FormNotice from "../../components/common/FormNotice";
 
+const downloadCSV = (data, filename, columns) => {
+  const headers = columns.map(col => col.label).join(',');
+  const rows = data.map(row => columns.map(col => `"${(row[col.key] || '').toString().replace(/"/g, '""')}"`).join(','));
+  const csv = [headers, ...rows].join('\n');
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const url = window.URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.style.display = 'none';
+  a.setAttribute('href', url);
+  a.setAttribute('download', filename);
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  window.URL.revokeObjectURL(url);
+};
+
 const defaultEvent = {
   title: "",
   description: "",

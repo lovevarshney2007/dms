@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App.jsx";
 import LogoLoader from "./components/common/LogoLoader";
 
+// eslint-disable-next-line react-refresh/only-export-components
 function Boot() {
   const [showLoader, setShowLoader] = useState(true);
 

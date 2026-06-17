@@ -7,7 +7,7 @@ async function handleResponse(response) {
   try {
     const text = await response.text();
     result = text ? JSON.parse(text) : {};
-  } catch (err) {
+  } catch {
     // Fallback when response isn't JSON
     result = {};
   }

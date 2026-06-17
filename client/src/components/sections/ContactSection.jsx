@@ -1,4 +1,3 @@
-import { contactDetails } from "../../data/siteContent";
 import SectionHeading from "../common/SectionHeading";
 import ContactForm from "../forms/ContactForm";
 

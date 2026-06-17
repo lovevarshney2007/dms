@@ -1,12 +1,10 @@
 import Footer from "./Footer";
 import Navbar from "./Navbar";
-import NgoNavbar from "./NgoNavbar";
 import MusicNavbar from "./MusicNavbar";
 import { useLocation } from "react-router-dom";
 
-function PageShell({ basePath = "/", children, isNgo = false, isMusic = false }) {
+function PageShell({ basePath = "/", children, isMusic = false }) {
   const location = useLocation();
-  const showNgoNavbar = isNgo || location.pathname.startsWith("/ngo");
   const showMusicNavbar =
     isMusic || location.pathname.startsWith("/music-society") || location.pathname.startsWith("/music");
   
@@ -28,7 +26,7 @@ function PageShell({ basePath = "/", children, isNgo = false, isMusic = false })
       </div>
 
       {/* Navbars */}
-      {showNgoNavbar ? <NgoNavbar /> : showMusicNavbar ? <MusicNavbar /> : <Navbar basePath={basePath} />}
+      {showMusicNavbar ? <MusicNavbar /> : <Navbar basePath={basePath} />}
       
       {/* Main Content */}
       <main className="relative z-10 flex flex-col gap-10 sm:gap-16 md:gap-20 flex-grow">

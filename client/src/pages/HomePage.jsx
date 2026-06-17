@@ -10,6 +10,7 @@ import {
   pastEvents,
   contactDetails
 } from "../data/siteContent";
+import ScrollReveal from "../components/common/ScrollReveal";
 
 const steps = [
   {
@@ -89,7 +90,7 @@ function HomePage() {
 
         <div className="relative z-10 grid lg:grid-cols-[1.1fr_0.9fr] gap-10 md:gap-12 items-center px-4 sm:px-6 max-w-7xl mx-auto pb-8">
           {/* Left: Informative Content */}
-          <div className="text-center lg:text-left mt-6 md:mt-0">
+          <ScrollReveal direction="left" className="text-center lg:text-left mt-6 md:mt-0">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/80 border border-orange-200 backdrop-blur-md mb-4 shadow-sm">
               <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
               <span className="text-[10px] sm:text-xs font-bold tracking-widest text-orange-800 uppercase">Delhi's Premier Singing Talent Hunt</span>
@@ -160,10 +161,10 @@ function HomePage() {
                 Already <br/> Registered
               </div>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Right: Visual Interactive Banner */}
-          <div className="relative w-full max-w-[320px] sm:max-w-md md:max-w-lg lg:max-w-none mx-auto mt-8 lg:mt-0">
+          <ScrollReveal direction="right" delay={0.2} className="relative w-full max-w-[320px] sm:max-w-md md:max-w-lg lg:max-w-none mx-auto mt-8 lg:mt-0">
             <div className="absolute inset-0 bg-gradient-to-tr from-orange-400 to-amber-300 rounded-[1.5rem] transform rotate-3 opacity-20 blur-lg"></div>
             <a 
               href="https://www.youtube.com/live/r2VYf94YPNU?si=JObK4t3qQ_0VOrxE" 
@@ -202,13 +203,13 @@ function HomePage() {
                 </div>
               </div>
             </a>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* 2. About Event Section */}
       <section id="about" className="scroll-mt-32 max-w-7xl mx-auto px-4 md:px-6 -mt-4 sm:-mt-8 lg:-mt-16 relative z-10">
-        <div className="glass-card rounded-[2.5rem] p-6 sm:p-8 lg:p-14 relative overflow-hidden border border-orange-100">
+        <ScrollReveal direction="up" className="glass-card rounded-[2.5rem] p-6 sm:p-8 lg:p-14 relative overflow-hidden border border-orange-100">
           <div className="absolute top-0 right-0 w-64 h-64 bg-amber-200/40 rounded-full blur-[80px]"></div>
           
           <div className="grid lg:grid-cols-[1fr_1.2fr] gap-8 lg:gap-16 items-center relative z-10">
@@ -256,24 +257,24 @@ function HomePage() {
               <div className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 w-32 h-32 sm:w-48 sm:h-48 bg-gradient-to-tr from-orange-400 to-amber-300 rounded-3xl -z-10 rotate-6 opacity-60 blur-sm"></div>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* 3. How to Participate */}
       <section id="participate" className="scroll-mt-32 max-w-7xl mx-auto px-4 md:px-6 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+        <ScrollReveal direction="up" className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
           <p className="text-xs sm:text-sm font-bold uppercase tracking-widest text-orange-600 mb-2 sm:mb-3">How To Participate</p>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-stone-900 leading-tight">
             Three Steps To Change Your Life
           </h2>
-        </div>
+        </ScrollReveal>
 
         <div className="grid md:grid-cols-3 gap-6 sm:gap-10 relative">
           {/* Connecting Line (Only visible on Desktop) */}
           <div className="hidden md:block absolute top-1/2 left-[15%] right-[15%] h-[2px] border-t-2 border-dashed border-orange-200 -z-10 -translate-y-12"></div>
 
           {steps.map((step, idx) => (
-            <div key={idx} className="relative bg-white/80 backdrop-blur-sm p-8 sm:p-10 rounded-3xl text-center group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(234,88,12,0.1)] transition-all duration-500 border border-stone-100 hover:border-orange-200 overflow-hidden shadow-sm">
+            <ScrollReveal key={idx} direction="up" delay={idx * 0.2} className="relative bg-white/80 backdrop-blur-sm p-8 sm:p-10 rounded-3xl text-center group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(234,88,12,0.1)] transition-all duration-500 border border-stone-100 hover:border-orange-200 overflow-hidden shadow-sm">
               {/* Background Large Number Watermark */}
               <div className="absolute -top-4 -right-2 text-[100px] sm:text-[120px] font-black text-stone-100 opacity-50 group-hover:text-orange-50 transition-colors duration-500 z-0 select-none pointer-events-none">
                 {step.num}
@@ -289,21 +290,21 @@ function HomePage() {
                 <h3 className="text-xl sm:text-2xl font-serif text-stone-900 mb-3 sm:mb-4 group-hover:text-orange-600 transition-colors">{step.title}</h3>
                 <p className="text-sm sm:text-base text-stone-600 leading-relaxed font-medium">{step.desc}</p>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
         
-        <div className="text-center mt-10 sm:mt-16">
+        <ScrollReveal direction="up" delay={0.6} className="text-center mt-10 sm:mt-16">
           <Link to="/music/register" className="inline-block w-full sm:w-auto px-8 sm:px-10 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold text-base sm:text-lg hover:shadow-[0_10px_25px_rgba(234,88,12,0.35)] hover:-translate-y-1 transition-all duration-300">
             Start Your Journey
           </Link>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* 4. Events & Leaderboard Split */}
       <section className="grid lg:grid-cols-[1.2fr_0.8fr] gap-8 max-w-7xl mx-auto px-4 md:px-6">
         {/* Left: Events */}
-        <div className="space-y-10 sm:space-y-12">
+        <ScrollReveal direction="up" className="space-y-10 sm:space-y-12">
           {/* Upcoming Events */}
           <div>
             <div className="flex items-end justify-between mb-6 sm:mb-8">
@@ -356,10 +357,10 @@ function HomePage() {
               ))}
             </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Right: Leaderboard */}
-        <div id="leaderboard" className="scroll-mt-32 glass-card rounded-3xl sm:rounded-[2.5rem] p-5 sm:p-8 h-fit border-orange-100 shadow-[0_15px_40px_rgba(255,132,0,0.08)] bg-white/80 mt-6 lg:mt-0">
+        <ScrollReveal direction="up" delay={0.2} id="leaderboard" className="scroll-mt-32 glass-card rounded-3xl sm:rounded-[2.5rem] p-5 sm:p-8 h-fit border-orange-100 shadow-[0_15px_40px_rgba(255,132,0,0.08)] bg-white/80 mt-6 lg:mt-0">
           <div className="flex items-center gap-3 mb-6 sm:mb-8">
             <div className="p-2 sm:p-3 bg-amber-100 text-amber-600 rounded-xl">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="sm:w-6 sm:h-6"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
@@ -394,25 +395,25 @@ function HomePage() {
           <Link to="/music/talents" className="block w-full text-center mt-5 sm:mt-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-orange-50 text-orange-700 font-bold hover:bg-orange-100 transition-colors text-sm sm:text-base">
             View Full Rankings
           </Link>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* 5. Team/Jury Section */}
       <section id="jury" className="scroll-mt-32 max-w-7xl mx-auto px-4 md:px-6">
-        <div className="flex flex-col gap-2 sm:gap-3 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between mb-6 sm:mb-8 text-center sm:text-left">
+        <ScrollReveal direction="up" className="flex flex-col gap-2 sm:gap-3 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between mb-6 sm:mb-8 text-center sm:text-left">
           <SectionHeading
             eyebrow="Our Mentors"
             title="Meet the Jury & Mentors."
             text="Learn from the best. Our panel consists of industry experts and renowned artists."
           />
-        </div>
-        <div className="mt-6 sm:mt-8">
+        </ScrollReveal>
+        <ScrollReveal direction="up" delay={0.2} className="mt-6 sm:mt-8">
           <TeamSliderRow members={teamMembers.slice(0, 5)} />
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* 6. Contact Section */}
-      <section
+      <ScrollReveal direction="up"
         id="contact"
         className="scroll-mt-32 rounded-3xl sm:rounded-[2.5rem] glass-card border-orange-100 shadow-xl p-5 sm:p-10 lg:p-14 bg-white/60 max-w-7xl mx-4 md:mx-6 xl:mx-auto"
       >
@@ -454,10 +455,10 @@ function HomePage() {
             />
           </div>
         </div>
-      </section>
+      </ScrollReveal>
 
       {/* 7. Final CTA */}
-      <section className="mb-10 rounded-3xl sm:rounded-[2.5rem] bg-stone-900 text-white p-8 sm:p-16 text-center relative overflow-hidden max-w-7xl mx-4 md:mx-6 xl:mx-auto">
+      <ScrollReveal direction="up" className="mb-10 rounded-3xl sm:rounded-[2.5rem] bg-stone-900 text-white p-8 sm:p-16 text-center relative overflow-hidden max-w-7xl mx-4 md:mx-6 xl:mx-auto">
         <div className="absolute inset-0 z-0 opacity-20">
           <div className="absolute -top-10 -left-10 sm:-top-20 sm:-left-20 w-40 h-40 sm:w-64 sm:h-64 bg-orange-500 rounded-full blur-[60px] sm:blur-[100px]"></div>
           <div className="absolute -bottom-10 -right-10 sm:-bottom-20 sm:-right-20 w-40 h-40 sm:w-64 sm:h-64 bg-amber-500 rounded-full blur-[60px] sm:blur-[100px]"></div>
@@ -472,7 +473,7 @@ function HomePage() {
             Register For Auditions
           </Link>
         </div>
-      </section>
+      </ScrollReveal>
 
     </PageShell>
   );

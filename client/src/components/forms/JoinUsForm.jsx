@@ -4,6 +4,7 @@ import { submitForm } from "../../lib/api";
 import { renderInputClassNames } from "../../lib/formStyles";
 import FormNotice from "../common/FormNotice";
 
+// eslint-disable-next-line no-unused-vars
 function JoinUsForm({ onClose, onStatusChange, showClose = true }) {
   const [form, setForm] = useState(defaultJoinUsForm);
   const [status, setStatus] = useState({ type: "", message: "" });
