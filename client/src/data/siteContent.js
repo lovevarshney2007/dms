@@ -118,3 +118,43 @@ export const defaultJoinUsForm = {
   videoLink: "",
   shortIntroduction: ""
 };
+
+export const testimonials = [
+  {
+    name: "Ravi Kumar",
+    season: "Season 3 Winner",
+    quote: "DMS Aarohi gave me the stage I always dreamt of. Performing in front of such amazing judges boosted my confidence to another level.",
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&h=150&q=80"
+  },
+  {
+    name: "Simran Kaur",
+    season: "Season 4 First Runner-Up",
+    quote: "The mentorship provided during the competition is unparalleled. I grew not just as a singer, but as a performer.",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&h=150&q=80"
+  },
+  {
+    name: "Aditya Verma",
+    season: "Season 2 Finalist",
+    quote: "From online auditions to the grand finale at Talkatora stadium, the entire journey was magical and extremely transparent.",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&h=150&q=80"
+  }
+];
+
+export const faqs = [
+  {
+    question: "Is there any registration fee for the auditions?",
+    answer: "No, the initial online audition is completely free of cost. If you are selected for the live studio rounds, a nominal processing fee may apply."
+  },
+  {
+    question: "What is the age limit for participation?",
+    answer: "We have two categories: Junior Category (8-15 years) and Senior Category (16-35 years). Anyone falling in this age group can participate."
+  },
+  {
+    question: "Can I sing a song of my own choice?",
+    answer: "Yes, for the first round, you are free to sing any song (Bollywood, Classical, Folk, or Original) that best showcases your voice."
+  },
+  {
+    question: "Will the auditions be online or offline?",
+    answer: "The first round of auditions is strictly online. You just need to upload your unedited singing video. Shortlisted candidates will be invited for offline live battles."
+  }
+];

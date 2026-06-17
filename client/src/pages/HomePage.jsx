@@ -11,6 +11,8 @@ import {
   contactDetails
 } from "../data/siteContent";
 import ScrollReveal from "../components/common/ScrollReveal";
+import FaqSection from "../components/sections/FaqSection";
+import TestimonialsSlider from "../components/sections/TestimonialsSlider";
 
 const steps = [
   {
@@ -411,6 +413,16 @@ function HomePage() {
           <TeamSliderRow members={teamMembers.slice(0, 5)} />
         </ScrollReveal>
       </section>
+
+      {/* Testimonials */}
+      <ScrollReveal direction="up" className="mt-1 mb-0">
+        <TestimonialsSlider />
+      </ScrollReveal>
+      
+      {/* FAQ Section */}
+      <ScrollReveal direction="up" className="mt-2 sm:mt-5 mb-5">
+        <FaqSection />
+      </ScrollReveal>
 
       {/* 6. Contact Section */}
       <ScrollReveal direction="up"
