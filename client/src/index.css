@@ -182,7 +182,6 @@ body {
   animation: spin 2.2s linear infinite;
 }
 
-
 /* Animated Floating Music Notes Background */
 .music-notes-container {
   position: fixed;
@@ -191,20 +190,20 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  pointer-events: none; /* Isse notes par click nahi hoga, piche ka content click hoga */
+  pointer-events: none;
   z-index: 0;
 }
 
 .floating-note {
   position: absolute;
   color: #ea580c; /* Orange color */
-  opacity: 0.04; /* Bahut halka rakha hai taaki text padhne me dikkat na ho */
+  opacity: 0.10; /* INCREASED: Ab base visibility 15% hai */
   font-size: 2rem;
   bottom: -10%;
   animation: floatUp linear infinite;
 }
 
-/* Alag-alag notes ki speed aur timing */
+/* Alag-alag notes ki speed aur timing same rahenge */
 .floating-note:nth-child(1) { left: 10%; animation-duration: 15s; animation-delay: 0s; font-size: 3rem; }
 .floating-note:nth-child(2) { left: 30%; animation-duration: 12s; animation-delay: 2s; font-size: 2rem; }
 .floating-note:nth-child(3) { left: 50%; animation-duration: 18s; animation-delay: 4s; font-size: 4rem; }
@@ -219,10 +218,10 @@ body {
     opacity: 0;
   }
   10% {
-    opacity: 0.06; /* Screen me aate hi thoda dikhega */
+    opacity: 0.20; /* INCREASED: Animation ke beech visibility 30% ho jayegi */
   }
   90% {
-    opacity: 0.06;
+    opacity: 0.20; /* INCREASED */
   }
   100% {
     transform: translateY(-110vh) rotate(360deg);
