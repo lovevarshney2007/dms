@@ -1,30 +1,27 @@
-import { teamMembers } from "../../data/siteContent";
+import { teamData } from "../../data/siteContent";
 import SectionHeading from "../common/SectionHeading";
 import TeamSliderRow from "../common/TeamSliderRow";
 
 function TeamSection() {
-  const teamTopRow = teamMembers.slice(0, 5);
-  // const teamBottomRow = teamMembers.slice(5);
+  const teamTopRow = teamData.slice(0, 5);
 
   return (
-    <section
-      id="team"
-      className="rounded-[2rem] border border-white/40 bg-[#fff8ef] p-6 shadow-[0_24px_80px_rgba(84,42,24,0.14)] sm:p-7 md:p-10"
-    >
-      <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between">
+    <section id="jury" className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16 md:mb-24">
+      <div className="flex flex-col gap-2 sm:gap-3 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between mb-8 sm:mb-12">
         <SectionHeading
-          eyebrow="Our Team"
-          title="Leadership and core members behind the society."
-          text="Expanded with the real member data carried over from the legacy DMS Aarohi site."
+          eyebrow="Our Mentors"
+          title="Meet the Jury & Mentors."
+          text="Learn from the best. Our panel consists of industry experts and renowned artists."
         />
-        <div className="w-full rounded-2xl border border-stone-200 bg-white/80 px-4 py-2 text-sm font-semibold text-stone-600 sm:w-auto sm:rounded-full sm:px-5">
-          {teamMembers.length} Team Members
+        <div className="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-100/50 border border-orange-200">
+          <span className="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+          <span className="text-[10px] sm:text-xs font-bold tracking-widest text-orange-800 uppercase">
+            {teamData.length} Team Members
+          </span>
         </div>
       </div>
-      <div className="mt-6 space-y-4 sm:mt-8 sm:space-y-5">
-        <TeamSliderRow members={teamTopRow} />
-        {/* <TeamSliderRow members={teamBottomRow} reverse /> */}
-      </div>
+
+      <TeamSliderRow members={teamTopRow} />
     </section>
   );
 }

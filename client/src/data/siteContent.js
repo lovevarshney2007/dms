@@ -26,17 +26,27 @@ export const objectives = [
   "Guide and mentor participants for professional musical careers."
 ];
 
-export const teamMembers = [
-  { name: "Pankaj Mathur", role: "Founder President", image: "/legacy/pp.jpg" },
-  { name: "Rakesh Kala", role: "Vice President", image: "/legacy/bd1.jpg" },
-  { name: "Bhawna Bhatt", role: "General Secretary", image: "/legacy/Bhawna Bhatt.jpg" },
-  { name: "Pratibha Asthana", role: "Secretary", image: "/legacy/pa.jpg" },
-  { name: "RB Mathur", role: "Treasurer", image: "/legacy/RB Mathur.jpg" },
-  { name: "Mohit Data", role: "Executive Member", image: "/legacy/Mohit Data.jpg" },
-  { name: "Rahul Yadav", role: "Executive Member", image: "/legacy/Rahul Yadav.jpg" },
-  { name: "Saurabh Gangal", role: "Executive Member", image: "/legacy/Saurabh Gangal.jpg" },
-  { name: "Kapil Tiwari", role: "Executive Member", image: "/legacy/KT.jpg" },
-  { name: "Swati Tamahne", role: "Executive Member", image: "/legacy/ST.jpg" }
+export const patronsData = [
+  { name: "Ashok Srivastava", role: "Chief Patron", image: "/patrons/Ashok_Srivastava (Chief Patron).png" },
+  { name: "Adv. Rajeev Sharma", role: "Patron", image: "/patrons/Adv. Rajeev Sharma (Patron).png" },
+  { name: "CA Soumil Rajpal", role: "Patron", image: "/patrons/CA-SOUMIL RAJPAL (Patron).png" },
+  { name: "G.B. Mathur", role: "Patron", image: "/patrons/G.B. Mathur (Patron).png" },
+  { name: "Kuldeep Bhardwaj", role: "Patron", image: "/patrons/Kuldeep Bhardwaj (Patron).jpg" },
+  { name: "Vinay Gupta", role: "Patron", image: "/patrons/Vinay Gupta (Patron).png" },
+  { name: "Kumar Vishu", role: "Patron", image: "/patrons/KUMAR VISHU.jpg" },
+  { name: "Nalini Kamalni", role: "Patron", image: "/patrons/NALINI KAMALNI.jpg" },
+  { name: "Radhika Chopra", role: "Patron", image: "/patrons/RADHIKA CHOPRA.jpg" }
+];
+
+export const teamData = [
+  { name: "Pankaj Mathur", role: "Founder & President", image: "/team/Pankaj Mathur (Founder & President).JPG" },
+  { name: "Dr. Bhawna Bhat", role: "General Secretary", image: "/team/Dr Bhawna Bhat (General Secretary).jpg" },
+  { name: "Kapil Tiwari", role: "Vice President", image: "/team/Kapil Tiwari (Vice President).jpg" },
+  { name: "Shalinder Kumar", role: "Vice President", image: "/team/Shalinder Kumar (Vice President).jpg" },
+  { name: "Pratibha Asthana", role: "Secretary", image: "/team/Pratibha Asthana (Seceratry).jpg" },
+  { name: "Sumit Kumar", role: "Legal Advisor", image: "/team/Sumit Kumar (Legal Advisor).jpg" },
+  { name: "Shalini Lal", role: "Executive Member", image: "/team/Shalini Lal (Executive Member).png" },
+  { name: "Peehu Srivastava", role: "Brand Ambassador", image: "/team/Peehu Srivastava (Brand Ambassador).png" }
 ];
 
 // New data for Leaderboard

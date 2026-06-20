@@ -6,7 +6,8 @@ export default function ScrollReveal({
   direction = "up", 
   delay = 0, 
   duration = 0.6,
-  className = "" 
+  className = "",
+  id
 }) {
   const directions = {
     up: { y: 50, x: 0 },
@@ -34,6 +35,7 @@ export default function ScrollReveal({
         ease: "easeOut" 
       }}
       className={className}
+      id={id}
     >
       {children}
     </motion.div>

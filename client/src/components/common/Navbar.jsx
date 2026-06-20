@@ -27,8 +27,9 @@ function Navbar({ basePath = "/" }) {
 
   const navItems = [
     { id: "hero", label: "Home", href: `${basePath}#hero` },
-    { id: "about", label: "About", href: `${basePath}#about` },
+    { id: "music", label: "Music", href: `/music` },
     { id: "participate", label: "Participate", href: `${basePath}#participate` },
+    { id: "about", label: "About", href: `${basePath}#about` },
     { id: "leaderboard", label: "Leaderboard", href: `${basePath}#leaderboard` }, 
     { id: "jury", label: "Jury", href: `${basePath}#jury` },
     { id: "contact", label: "Contact", href: `${basePath}#contact` }
@@ -86,26 +87,47 @@ function Navbar({ basePath = "/" }) {
               menuOpen ? "flex" : "hidden"
             } absolute left-0 top-full w-full flex-col gap-4 border-t border-stone-200 bg-white/95 px-5 py-6 text-sm font-semibold text-stone-700 shadow-xl max-h-[80vh] overflow-y-auto md:max-h-none md:static md:flex md:w-auto md:flex-row md:items-center md:gap-5 md:border-none md:bg-transparent md:p-0 md:shadow-none`}
           >
-            {navItems.map((item) => (
-              <a
-                key={item.id}
-                href={item.href}
-                onClick={() => setMenuOpen(false)}
-                className={`relative py-2 md:py-1 text-[15px] font-semibold transition-colors duration-300 group block ${
-                  activeSection === item.id || (activeSection === "" && item.id === "hero")
-                    ? "text-orange-600"
-                    : "text-stone-700 hover:text-orange-500"
-                }`}
-              >
-                {item.label}
-                <span className={`absolute left-0 bottom-0 md:-bottom-1 h-[2px] bg-orange-500 transition-all duration-300 ${activeSection === item.id || (activeSection === "" && item.id === "hero") ? "w-12 md:w-full" : "w-0 group-hover:w-12 md:group-hover:w-full"}`}></span>
-              </a>
-            ))}
+            {navItems.map((item) => {
+              const isPageNavigation = item.href === "/music" || item.id === "music";
+              const commonClasses = `relative py-2 md:py-1 text-[15px] font-semibold transition-colors duration-300 group block ${
+                activeSection === item.id || (activeSection === "" && item.id === "hero")
+                  ? "text-orange-600"
+                  : "text-stone-700 hover:text-orange-500"
+              }`;
+              const underlineClasses = `absolute left-0 bottom-0 md:-bottom-1 h-[2px] bg-orange-500 transition-all duration-300 ${
+                activeSection === item.id || (activeSection === "" && item.id === "hero") 
+                  ? "w-12 md:w-full" 
+                  : "w-0 group-hover:w-12 md:group-hover:w-full"
+              }`;
+
+              if (isPageNavigation) {
+                return (
+                  <Link
+                    key={item.id}
+                    to={item.href}
+                    onClick={() => setMenuOpen(false)}
+                    className={commonClasses}
+                  >
+                    {item.label}
+                    <span className={underlineClasses}></span>
+                  </Link>
+                );
+              }
+
+              return (
+                <a
+                  key={item.id}
+                  href={item.href}
+                  onClick={() => setMenuOpen(false)}
+                  className={commonClasses}
+                >
+                  {item.label}
+                  <span className={underlineClasses}></span>
+                </a>
+              );
+            })}
 
             <div className="flex flex-col md:flex-row items-stretch md:items-center gap-3 mt-4 md:mt-0 md:ml-2 pt-4 md:pt-0 border-t md:border-none border-stone-200">
-              <Link to="/login" onClick={() => setMenuOpen(false)} className="text-[15px] font-bold text-stone-700 hover:text-orange-600 transition-colors text-center md:text-left py-2 md:py-0">
-                Login
-              </Link>
               <Link to="/music/register" onClick={() => setMenuOpen(false)} className="bg-gradient-to-r from-orange-500 to-amber-500 text-white px-5 py-3 md:py-2.5 rounded-full hover:shadow-[0_4px_15px_rgba(234,88,12,0.3)] hover:-translate-y-0.5 text-[15px] font-bold transition-all text-center">
                 Register
               </Link>

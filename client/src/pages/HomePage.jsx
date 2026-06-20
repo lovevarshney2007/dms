@@ -4,7 +4,8 @@ import SectionHeading from "../components/common/SectionHeading";
 import TeamSliderRow from "../components/common/TeamSliderRow";
 import ContactForm from "../components/forms/ContactForm";
 import { 
-  teamMembers, 
+  patronsData,
+  teamData, 
   leaderboardData, 
   upcomingEvents, 
   pastEvents,
@@ -401,17 +402,24 @@ function HomePage() {
       </section>
 
       {/* 5. Team/Jury Section */}
-      <section id="jury" className="scroll-mt-32 max-w-7xl mx-auto px-4 md:px-6">
-        <ScrollReveal direction="up" className="flex flex-col gap-2 sm:gap-3 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between mb-6 sm:mb-8 text-center sm:text-left">
-          <SectionHeading
-            eyebrow="Our Mentors"
-            title="Meet the Jury & Mentors."
-            text="Learn from the best. Our panel consists of industry experts and renowned artists."
-          />
-        </ScrollReveal>
-        <ScrollReveal direction="up" delay={0.2} className="mt-6 sm:mt-8">
-          <TeamSliderRow members={teamMembers.slice(0, 5)} />
-        </ScrollReveal>
+      {/* Meet The Core Team Section */}
+      <section id="team" className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-0 md:mb-2">
+        <SectionHeading
+          eyebrow="Core Committee"
+          title="Meet Our Team."
+          text="The dedicated individuals working tirelessly behind the scenes to make DMS Aarohi a grand success."
+        />
+        <TeamSliderRow members={teamData} />
+      </section>
+
+      {/* Meet The Jury Section */}
+      <section id="jury" className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-0 md:mt-2 mb-4 md:mb-8">
+        <SectionHeading
+          eyebrow="Expert Panel & Patrons"
+          title="Meet Our Esteemed Patrons."
+          text="Learn from the best in the industry. Our patrons and judges bring decades of musical experience."
+        />
+        <TeamSliderRow members={patronsData} />
       </section>
 
       {/* Testimonials */}

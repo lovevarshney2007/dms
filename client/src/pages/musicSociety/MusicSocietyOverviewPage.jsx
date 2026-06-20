@@ -1,84 +1,361 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import SectionHeading from "../../components/common/SectionHeading";
 import PerformancesSection from "../../components/sections/PerformancesSection";
 import HeroSection from "../../components/sections/HeroSection";
+import TeamSliderRow from "../../components/common/TeamSliderRow";
+import { patronsData, teamData } from "../../data/siteContent";
 
 function MusicSocietyOverviewPage() {
-  const cards = [
+  const [contactForm, setContactForm] = useState({ name: "", email: "", phone: "", message: "" });
+
+
+
+  const upcomingEvents = [
     {
-      title: "Talents",
-      text: "Highlighting emerging voices, mentoring, and the society’s focus on creating stage opportunities.",
-      to: "/music-society/talents"
+      id: 1,
+      title: "Voice of Delhi-NCR Talent Hunt",
+      date: "March 30-31, 2026",
+      location: "Delhi NCR",
+      description: "Showcase your singing talent and win exciting prizes. Open to all age groups and singing styles.",
+      type: "Talent Hunt"
     },
     {
-      title: "Events",
-      text: "Upcoming programs, event flow, and participation details for the talent hunt and music evenings.",
-      to: "/music-society/events"
+      id: 2,
+      title: "Classical Music Workshop",
+      date: "April 15, 2026",
+      location: "DMS Studio",
+      description: "Learn classical music techniques from experienced maestros. Limited participants - register now!",
+      type: "Workshop"
     },
     {
-      title: "Shows",
-      text: "A view of concerts, performances, and musical showcases curated by DMS Aarohi.",
-      to: "/music-society/shows"
+      id: 3,
+      title: "Golden Era Music Evening",
+      date: "May 5, 2026",
+      location: "Open Air Theater",
+      description: "Experience timeless melodies performed by renowned artists. A night of pure musical bliss.",
+      type: "Concert"
     },
     {
-      title: "Join Us",
-      text: "Join as singer, volunteer, sponsor, coordinator, or audience for upcoming events.",
-      to: "/music-society/join-us"
+      id: 4,
+      title: "Youth Music Mentorship Program",
+      date: "Starting April 1, 2026",
+      location: "Virtual",
+      description: "One-on-one mentoring sessions with professional musicians. Help shape the future of music.",
+      type: "Mentorship"
     }
   ];
 
+  const galleryImages = [
+    { id: 1, image: "/legacy/current_event.jpg", alt: "Music Performance" },
+    { id: 2, image: "/legacy/Joinus.jpg", alt: "Join Us Event" },  
+    { id: 3, image: "/legacy/image1.jpeg", alt: "Event Crowd" },
+    { id: 4, image: "/legacy/KT.jpg", alt: "Artists Performing" },
+    { id: 5, image: "/legacy/patrons.jpg", alt: "Audience Engaged" },
+    { id: 6, image: "/legacy/patrons.jpg", alt: "Team Gathering" }
+  ];
+
+  const handleContactSubmit = (e) => {
+    e.preventDefault();
+    alert("Thank you! We'll contact you soon.");
+    setContactForm({ name: "", email: "", phone: "", message: "" });
+  };
+
   return (
-    <div className="space-y-7">
+    <div className="space-y-12 pb-16 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <HeroSection />
 
-      <section className="rounded-[2rem] border border-white/40 bg-[#fff8ef] p-8 shadow-[0_24px_80px_rgba(84,42,24,0.14)] md:p-10">
-        <div className="grid gap-7 md:grid-cols-[1.05fr_0.95fr]">
+      {/* Quick Actions Grid */}
+      <section className="mt-8 rounded-[2.5rem] border border-orange-100 bg-gradient-to-b from-white/90 to-orange-50/50 p-8 shadow-[0_20px_60px_rgba(234,88,12,0.05)] md:p-12 backdrop-blur-sm">
+        <div className="mb-10 text-center max-w-3xl mx-auto">
           <SectionHeading
-            eyebrow="Music Society"
-            title="Programs built around talent, stage experience, and golden-era music."
-            text="Explore talents, events, shows, and the join-us flow under the Music Society section."
+            eyebrow="Explore Music Society"
+            title="Everything you need in one place."
+            text="Jump into our latest events, discover rising talents, watch past shows, or join our growing musical community."
           />
-          <div className="rounded-[1.75rem] border border-stone-200 bg-white/80 p-6">
-            <p className="text-xs font-bold uppercase tracking-[0.28em] text-orange-700">Quick Actions</p>
-            <div className="mt-4 grid gap-3 sm:grid-cols-2">
-              {cards.map((card) => (
-                <Link
-                  key={card.title}
-                  to={card.to}
-                  className="rounded-2xl border border-stone-200 bg-orange-50/70 px-4 py-4 text-sm font-semibold text-stone-800 transition hover:-translate-y-0.5 hover:bg-orange-50"
-                >
-                  {card.title}
-                </Link>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            { title: "Talents", text: "Discover emerging voices & leaderboards.", to: "/music/talents", icon: "🌟", color: "from-amber-400 to-orange-500", shadow: "shadow-orange-500/20" },
+            { title: "Events", text: "Upcoming auditions and talent hunts.", to: "/music/events", icon: "📅", color: "from-emerald-400 to-teal-500", shadow: "shadow-teal-500/20" },
+            { title: "Shows", text: "Watch past concerts & performances.", to: "/music/shows", icon: "🎭", color: "from-blue-400 to-indigo-500", shadow: "shadow-indigo-500/20" },
+            { title: "Join Us", text: "Register as a singer or volunteer.", to: "/music/register", icon: "🎶", color: "from-rose-400 to-pink-500", shadow: "shadow-pink-500/20" }
+          ].map((card) => (
+            <Link key={card.title} to={card.to} className="group relative flex flex-col justify-between overflow-hidden rounded-[2rem] border border-white bg-white/60 p-6 shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl backdrop-blur-md">
+              <div className={`absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-to-br opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-20 ${card.color}`}></div>
+              <div>
+                <div className={`mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br shadow-lg ${card.color} ${card.shadow}`}>
+                  <span className="text-2xl drop-shadow-md">{card.icon}</span>
+                </div>
+                <h3 className="font-serif text-2xl font-bold text-stone-900 mb-2">{card.title}</h3>
+                <p className="text-sm leading-relaxed text-stone-600 font-medium">{card.text}</p>
+              </div>
+              <div className="mt-8 flex items-center justify-between border-t border-stone-100 pt-4">
+                <span className="text-sm font-bold text-stone-900 group-hover:text-orange-600 transition-colors">Explore</span>
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-stone-100 text-stone-600 transition-all group-hover:bg-orange-100 group-hover:text-orange-600">
+                  <svg className="h-4 w-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* About Us Section */}
+      <section id="about" className="scroll-mt-28 relative overflow-hidden rounded-[2.5rem] border border-white/60 bg-gradient-to-br from-white/90 via-[#fff8ef] to-orange-50/60 p-8 shadow-[0_20px_60px_rgba(234,88,12,0.06)] md:p-14">
+        {/* Decorative background circle */}
+        <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-orange-400/10 blur-[80px]"></div>
+        
+        <div className="relative z-10 grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-center">
+          <div>
+            <SectionHeading
+              eyebrow="About DMS Aarohi Music"
+              title="Cultural Heritage and Musical Excellence"
+              text="Founded in 2013, DMS Aarohi is dedicated to preserving and promoting Indian classical music while nurturing modern musical talents. We believe in music's power to unite communities and inspire generations."
+            />
+            
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {[
+                { number: "13+", text: "Years of Service" },
+                { number: "500+", text: "Talents Trained" },
+                { number: "100+", text: "Events Held" },
+                { number: "1000+", text: "Audience Reached" }
+              ].map((stat, index) => (
+                <div key={index} className="flex items-center gap-4 rounded-2xl border border-white bg-white/60 p-4 shadow-sm backdrop-blur-md">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-orange-100 text-xl font-bold text-orange-600">
+                    ✨
+                  </div>
+                  <div>
+                    <p className="font-serif text-2xl font-bold text-stone-900">{stat.number}</p>
+                    <p className="text-[10px] font-semibold uppercase tracking-wider text-stone-500">{stat.text}</p>
+                  </div>
+                </div>
               ))}
             </div>
-            <p className="mt-4 text-sm leading-7 text-stone-600">
-              Use these shortcuts to jump into the section you need. The same forms (Join Us, Contact, Donation) are
-              stored in MongoDB.
-            </p>
+          </div>
+
+          <div className="grid gap-6">
+            {[
+              { icon: "🎵", title: "Our Mission", desc: "Promote Indian classical music and provide platform for emerging talents to showcase their abilities.", color: "from-amber-400 to-orange-500" },
+              { icon: "🌟", title: "Our Vision", desc: "Create a vibrant musical community where tradition meets innovation and talent thrives.", color: "from-rose-400 to-orange-500" },
+              { icon: "❤️", title: "Our Values", desc: "Excellence, authenticity, community engagement, and social responsibility through music.", color: "from-pink-400 to-rose-500" }
+            ].map((item, index) => (
+              <div key={index} className="group relative overflow-hidden rounded-2xl border border-white bg-white/80 p-6 shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl backdrop-blur-md">
+                <div className={`absolute left-0 top-0 h-full w-1.5 bg-gradient-to-b ${item.color}`}></div>
+                <div className="flex gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-stone-100 text-2xl shadow-sm transition-transform group-hover:scale-110">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h3 className="font-serif text-xl font-bold text-stone-900">{item.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-stone-600">{item.desc}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
+      {/* Events Section */}
+      <section id="events" className="scroll-mt-28">
+        <div className="mb-10 text-center max-w-3xl mx-auto">
+          <SectionHeading
+            eyebrow="Upcoming"
+            title="Events & Programs"
+            text="Join us for various music events, workshops, and talent showcases throughout the year. Don't miss out on these opportunities!"
+          />
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {upcomingEvents.map((event) => (
+            <div key={event.id} className="group relative flex flex-col justify-between overflow-hidden rounded-[2rem] border border-stone-200 bg-white p-6 shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-50/50 to-transparent opacity-0 transition-opacity group-hover:opacity-100"></div>
+              
+              <div className="relative z-10">
+                <div className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-xs font-bold uppercase tracking-wider text-orange-700">
+                  <span className="h-1.5 w-1.5 rounded-full bg-orange-500 animate-pulse"></span>
+                  {event.type}
+                </div>
+                <h3 className="font-serif text-xl font-bold text-stone-900 leading-tight">{event.title}</h3>
+                
+                <div className="mt-4 space-y-2 border-l-2 border-orange-200 pl-4 text-sm font-medium text-stone-600">
+                  <p className="flex items-center gap-2 text-stone-800"><svg className="h-4 w-4 text-orange-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> {event.date}</p>
+                  <p className="flex items-center gap-2"><svg className="h-4 w-4 text-orange-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> {event.location}</p>
+                </div>
+                <p className="mt-4 text-sm leading-relaxed text-stone-500 line-clamp-3">{event.description}</p>
+              </div>
+
+              <button
+                onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
+                className="relative z-10 mt-6 w-full rounded-xl bg-stone-900 px-4 py-3 text-sm font-bold text-white transition-all hover:bg-orange-600 hover:shadow-lg hover:shadow-orange-500/30"
+              >
+                Register Now
+              </button>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Performances Section */}
       <PerformancesSection />
 
-      {/* <section className="grid gap-5 md:grid-cols-2">
-        {cards.map((card) => (
-          <article
-            key={card.title}
-            className="rounded-[1.75rem] border border-stone-200 bg-[#fff8ef]/90 p-7 shadow-[0_18px_60px_rgba(84,42,24,0.10)]"
-          >
-            <p className="text-xs font-bold uppercase tracking-[0.28em] text-orange-700">Music Society</p>
-            <h3 className="mt-3 font-serif text-3xl text-stone-900">{card.title}</h3>
-            <p className="mt-4 text-base leading-7 text-stone-600">{card.text}</p>
-            <Link
-              to={card.to}
-              className="mt-6 inline-flex rounded-full bg-orange-700 px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-orange-600"
+      {/* Gallery Section */}
+      <section id="gallery" className="scroll-mt-28 rounded-[2.5rem] bg-stone-950 p-8 shadow-2xl md:p-14">
+        <div className="mb-10 text-center max-w-3xl mx-auto">
+          <SectionHeading
+            eyebrow="Gallery"
+            title={<span className="text-white">Moments & Memories</span>}
+            text={<span className="text-stone-400">A glimpse into the magical moments from our past concerts and talent hunts.</span>}
+          />
+        </div>
+
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-4 lg:grid-cols-4">
+          {galleryImages.map((item, idx) => (
+            <div
+              key={item.id}
+              className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-stone-900 ${
+                idx === 0 || idx === 3 ? "col-span-2 row-span-2 aspect-square sm:aspect-auto sm:h-full" : "aspect-square"
+              }`}
             >
-              Open {card.title}
-            </Link>
-          </article>
-        ))}
-      </section> */}
+              <img
+                src={item.image}
+                alt={item.alt}
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                <p className="text-sm font-bold text-white drop-shadow-md">{item.alt}</p>
+                <p className="text-[10px] font-semibold uppercase tracking-wider text-orange-400 mt-1">View Full</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Meet Our Team */}
+      <section id="team" className="mt-16 rounded-[2.5rem] border border-orange-100 bg-white p-8 shadow-[0_20px_60px_rgba(234,88,12,0.05)] md:p-12">
+        <div className="mb-10 text-center max-w-2xl mx-auto">
+          <SectionHeading
+            eyebrow="Core Committee"
+            title="Meet Our Team."
+            text="The dedicated individuals working tirelessly behind the scenes."
+          />
+        </div>
+        <TeamSliderRow members={teamData} />
+      </section>
+
+      {/* Meet Our Mentors / Patrons */}
+      <section id="mentors" className="mt-8 rounded-[2.5rem] border border-orange-100 bg-white p-8 shadow-[0_20px_60px_rgba(234,88,12,0.05)] md:p-12">
+        <div className="mb-10 text-center max-w-2xl mx-auto">
+          <SectionHeading
+            eyebrow="Our Patrons"
+            title="Learn from the maestros."
+            text="Our experienced patrons and directors are here to guide you."
+          />
+        </div>
+        <TeamSliderRow members={patronsData} />
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="scroll-mt-28 relative overflow-hidden rounded-[2.5rem] border border-orange-200/50 bg-gradient-to-br from-orange-50/90 to-[#fff8ef] p-8 shadow-[0_20px_60px_rgba(234,88,12,0.06)] md:p-14">
+        <div className="absolute -left-20 -bottom-20 h-64 w-64 rounded-full bg-amber-400/20 blur-[80px]"></div>
+        
+        <div className="relative z-10 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div className="space-y-8">
+            <SectionHeading
+              eyebrow="Contact Us"
+              title="Get in Touch."
+              text="Have questions or want to collaborate? Reach out to us and let's create magic through music!"
+            />
+            
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+              {[
+                { label: "Email Us", value: "dmsaarohi@gmail.com", icon: "✉️" },
+                { label: "Call Us", value: "+91-9810225442", icon: "📞" },
+                { label: "Location", value: "A5, 272, Paschim Vihar, New Delhi - 110063", icon: "📍" }
+              ].map((item) => (
+                <div key={item.label} className="group flex flex-col justify-center rounded-2xl border border-white bg-white/70 p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl backdrop-blur-md">
+                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-orange-100 text-lg shadow-inner group-hover:bg-orange-500 group-hover:text-white transition-colors">
+                    {item.icon}
+                  </div>
+                  <p className="text-xs font-bold uppercase tracking-wider text-orange-800">{item.label}</p>
+                  <p className="mt-1 text-sm font-semibold text-stone-700">{item.value}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <form className="relative overflow-hidden rounded-[2rem] border border-white bg-white/80 p-8 shadow-2xl backdrop-blur-xl" onSubmit={handleContactSubmit}>
+            <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-orange-400 via-amber-500 to-orange-600"></div>
+            
+            <div className="mb-8 text-center">
+              <h3 className="font-serif text-3xl font-bold text-stone-900">Send a Message</h3>
+              <p className="text-sm text-stone-500 mt-2">We typically reply within 24 hours.</p>
+            </div>
+
+            <div className="grid gap-5">
+              <div className="grid gap-1.5">
+                <label className="text-[10px] font-bold uppercase tracking-wider text-stone-700 pl-1">Full Name</label>
+                <input
+                  type="text"
+                  value={contactForm.name}
+                  onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
+                  placeholder="Enter your name"
+                  required
+                  className="rounded-xl border-2 border-stone-100 bg-stone-50 px-4 py-3.5 text-sm font-semibold text-stone-900 transition-all placeholder:font-normal focus:border-orange-400 focus:bg-white focus:outline-none focus:ring-4 focus:ring-orange-400/10"
+                />
+              </div>
+              
+              <div className="grid gap-1.5">
+                <label className="text-[10px] font-bold uppercase tracking-wider text-stone-700 pl-1">Email Address</label>
+                <input
+                  type="email"
+                  value={contactForm.email}
+                  onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
+                  placeholder="Enter your email"
+                  required
+                  className="rounded-xl border-2 border-stone-100 bg-stone-50 px-4 py-3.5 text-sm font-semibold text-stone-900 transition-all placeholder:font-normal focus:border-orange-400 focus:bg-white focus:outline-none focus:ring-4 focus:ring-orange-400/10"
+                />
+              </div>
+              
+              <div className="grid gap-1.5">
+                <label className="text-[10px] font-bold uppercase tracking-wider text-stone-700 pl-1">Phone Number</label>
+                <input
+                  type="tel"
+                  value={contactForm.phone}
+                  onChange={(e) => setContactForm({ ...contactForm, phone: e.target.value })}
+                  placeholder="Enter your phone"
+                  required
+                  className="rounded-xl border-2 border-stone-100 bg-stone-50 px-4 py-3.5 text-sm font-semibold text-stone-900 transition-all placeholder:font-normal focus:border-orange-400 focus:bg-white focus:outline-none focus:ring-4 focus:ring-orange-400/10"
+                />
+              </div>
+              
+              <div className="grid gap-1.5">
+                <label className="text-[10px] font-bold uppercase tracking-wider text-stone-700 pl-1">Message</label>
+                <textarea
+                  value={contactForm.message}
+                  onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
+                  placeholder="How can we help you?"
+                  required
+                  rows="3"
+                  className="resize-none rounded-xl border-2 border-stone-100 bg-stone-50 px-4 py-3.5 text-sm font-semibold text-stone-900 transition-all placeholder:font-normal focus:border-orange-400 focus:bg-white focus:outline-none focus:ring-4 focus:ring-orange-400/10"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                className="group relative mt-2 flex w-full items-center justify-center gap-2 overflow-hidden rounded-xl bg-stone-900 px-6 py-4 text-sm font-bold text-white transition-all hover:bg-orange-600 hover:shadow-lg hover:shadow-orange-500/30"
+              >
+                <span>Send Message</span>
+                <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
     </div>
   );
 }
