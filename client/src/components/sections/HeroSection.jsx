@@ -69,7 +69,7 @@ function HeroSection() {
           {/* Back Image */}
           <div className="absolute right-0 top-0 h-[350px] xl:h-[400px] w-[250px] xl:w-[300px] rotate-6 overflow-hidden rounded-3xl border-8 border-stone-900 shadow-2xl transition-transform duration-700 hover:rotate-12 hover:scale-105">
             <div className="absolute inset-0 bg-orange-900/20 mix-blend-overlay z-10"></div>
-            <img src="/legacy/Joinus.jpg" alt="Join us" className="h-full w-full object-cover grayscale-[20%] transition-all hover:grayscale-0" />
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_d-cAaMOstMI-r4LRHce0Cyzfg9QSouEkjua172KH0w&s=10" alt="Join us" className="h-full w-full object-cover grayscale-[20%] transition-all hover:grayscale-0" />
           </div>
           {/* Front Image */}
           <div className="absolute bottom-10 left-0 h-[300px] xl:h-[350px] w-[320px] xl:w-[380px] -rotate-3 overflow-hidden rounded-3xl border-8 border-stone-900 shadow-[0_30px_60px_rgba(0,0,0,0.6)] transition-transform duration-700 hover:-rotate-6 hover:scale-105">

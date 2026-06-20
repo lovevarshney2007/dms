@@ -9,8 +9,6 @@ import { patronsData, teamData } from "../../data/siteContent";
 function MusicSocietyOverviewPage() {
   const [contactForm, setContactForm] = useState({ name: "", email: "", phone: "", message: "" });
 
-
-
   const upcomingEvents = [
     {
       id: 1,
@@ -62,12 +60,13 @@ function MusicSocietyOverviewPage() {
   };
 
   return (
-    <div className="space-y-12 pb-16 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="space-y-16 pb-16 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <HeroSection />
 
-      {/* Quick Actions Grid */}
-      <section className="mt-8 rounded-[2.5rem] border border-orange-100 bg-gradient-to-b from-white/90 to-orange-50/50 p-8 shadow-[0_20px_60px_rgba(234,88,12,0.05)] md:p-12 backdrop-blur-sm">
-        <div className="mb-10 text-center max-w-3xl mx-auto">
+      {/* --- QUICK ACTIONS GRID (Upgraded to look more Attractive & Premium) --- */}
+     {/* --- QUICK ACTIONS GRID (Upgraded to Uniform Amber Theme & Better Image Ratio) --- */}
+     <section className="relative z-10 -mt-6">
+        <div className="mb-12 text-center max-w-3xl mx-auto">
           <SectionHeading
             eyebrow="Explore Music Society"
             title="Everything you need in one place."
@@ -75,27 +74,53 @@ function MusicSocietyOverviewPage() {
           />
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {/* Card Data: Ab hume alag-alag colors pass karne ki zaroorat nahi hai */}
           {[
-            { title: "Talents", text: "Discover emerging voices & leaderboards.", to: "/music/talents", icon: "🌟", color: "from-amber-400 to-orange-500", shadow: "shadow-orange-500/20" },
-            { title: "Events", text: "Upcoming auditions and talent hunts.", to: "/music/events", icon: "📅", color: "from-emerald-400 to-teal-500", shadow: "shadow-teal-500/20" },
-            { title: "Shows", text: "Watch past concerts & performances.", to: "/music/shows", icon: "🎭", color: "from-blue-400 to-indigo-500", shadow: "shadow-indigo-500/20" },
-            { title: "Join Us", text: "Register as a singer or volunteer.", to: "/music/register", icon: "🎶", color: "from-rose-400 to-pink-500", shadow: "shadow-pink-500/20" }
+            { title: "Talents", text: "Discover emerging voices & leaderboards.", to: "/music/talents", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUkhbi87LZqZDv8fRrlbVhGI4ddbPk-B7r_XjrVvygGA&s" },
+            { title: "Events", text: "Upcoming auditions and talent hunts.", to: "/music/events", image: "/legacy/current_event.jpg" },
+            { title: "Shows", text: "Watch past concerts & performances.", to: "/music/shows", image: "/legacy/show.png" },
+            { title: "Join Us", text: "Register as a singer or volunteer.", to: "/music/register", image: "/legacy/poster.png" }
           ].map((card) => (
-            <Link key={card.title} to={card.to} className="group relative flex flex-col justify-between overflow-hidden rounded-[2rem] border border-white bg-white/60 p-6 shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl backdrop-blur-md">
-              <div className={`absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-to-br opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-20 ${card.color}`}></div>
-              <div>
-                <div className={`mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br shadow-lg ${card.color} ${card.shadow}`}>
-                  <span className="text-2xl drop-shadow-md">{card.icon}</span>
-                </div>
-                <h3 className="font-serif text-2xl font-bold text-stone-900 mb-2">{card.title}</h3>
-                <p className="text-sm leading-relaxed text-stone-600 font-medium">{card.text}</p>
+            <Link 
+              key={card.title} 
+              to={card.to} 
+              // Uniform Amber Glow for all cards
+              className="group relative flex flex-col overflow-hidden rounded-[2rem] bg-white shadow-lg ring-1 ring-stone-100 transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_20px_40px_-15px_rgba(245,158,11,0.5)] hover:ring-amber-500"
+            >
+              {/* Cover Image (Height increased: h-60/64) */}
+              <div className="relative h-60 sm:h-64 w-full overflow-hidden bg-stone-900">
+                <img 
+                  src={card.image} 
+                  alt={card.title} 
+                  className="h-full w-full object-cover opacity-95 transition-transform duration-700 group-hover:scale-110 group-hover:opacity-100" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
               </div>
-              <div className="mt-8 flex items-center justify-between border-t border-stone-100 pt-4">
-                <span className="text-sm font-bold text-stone-900 group-hover:text-orange-600 transition-colors">Explore</span>
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-stone-100 text-stone-600 transition-all group-hover:bg-orange-100 group-hover:text-orange-600">
-                  <svg className="h-4 w-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+
+              {/* Card Content (Padding reduced to take less height) */}
+              <div className="relative flex flex-col flex-grow px-5 py-5 sm:px-6 sm:py-6 bg-white z-10 rounded-t-[1.5rem] -mt-4 transition-transform duration-500 group-hover:-translate-y-1">
+                
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-stone-900 mb-1.5 transition-colors duration-300 group-hover:text-amber-600">
+                  {card.title}
+                </h3>
+                <p className="text-[13px] sm:text-[14px] leading-relaxed text-stone-500 font-medium">
+                  {card.text}
+                </p>
+                
+                {/* Explore Now Button Section (Now highlighted by default) */}
+                <div className="mt-5 flex items-center justify-between mt-auto pt-3 border-t border-stone-100">
+                  <span className="text-[12px] sm:text-[13px] uppercase tracking-wider font-extrabold text-amber-600 transition-colors duration-300 group-hover:text-amber-700">
+                    Explore Now
+                  </span>
+                  {/* Default Amber Background, solid on hover */}
+                  <div className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-amber-50 text-amber-600 transition-all duration-500 group-hover:shadow-md group-hover:bg-amber-500 group-hover:text-white">
+                    <svg className="h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-500 group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="m9 18 6-6-6-6"/>
+                    </svg>
+                  </div>
                 </div>
+
               </div>
             </Link>
           ))}
@@ -104,7 +129,6 @@ function MusicSocietyOverviewPage() {
 
       {/* About Us Section */}
       <section id="about" className="scroll-mt-28 relative overflow-hidden rounded-[2.5rem] border border-white/60 bg-gradient-to-br from-white/90 via-[#fff8ef] to-orange-50/60 p-8 shadow-[0_20px_60px_rgba(234,88,12,0.06)] md:p-14">
-        {/* Decorative background circle */}
         <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-orange-400/10 blur-[80px]"></div>
         
         <div className="relative z-10 grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-center">

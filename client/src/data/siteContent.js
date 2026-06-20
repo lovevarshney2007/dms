@@ -58,6 +58,19 @@ export const leaderboardData = [
   { rank: 5, name: "Vikram Desai", score: 85, city: "New Delhi", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&h=150&q=80" }
 ];
 
+export const successStories = [
+  { name: "Kavita Ram", achievement: "Winner of Season 3", description: "After winning Voice of Delhi-NCR, Kavita went on to record her first playback song for a major regional film.", image: "/legacy/Bhawna Bhatt.jpg" },
+  { name: "Rahul Yadav", achievement: "Runner Up Season 2", description: "Rahul formed his own classical fusion band and now performs globally, representing Indian heritage.", image: "/legacy/Rahul Yadav.jpg" },
+  { name: "Sneha & Team", achievement: "Best Group Performance", description: "This talented group from Noida was selected for national television auditions after their DMS Aarohi showcase.", image: "/legacy/about_group.png" }
+];
+
+export const performancesGallery = [
+  { title: "Grand Finale Performance", type: "Video", image: "/legacy/bd2.jpg" },
+  { title: "Classical Solo Act", type: "Video", image: "/legacy/current_event.jpg" },
+  { title: "Group Fusion", type: "Video", image: "/legacy/bd1.jpg" },
+  { title: "Audience Favorites", type: "Gallery", image: "/legacy/bd3.jpg" }
+];
+
 // New data for Upcoming Events
 
 export const upcomingEvents = [
