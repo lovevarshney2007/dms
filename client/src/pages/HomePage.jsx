@@ -267,7 +267,7 @@ function HomePage() {
 
 
       {/* 3. Current Competition */}
-      <section id="current-competition" className="max-w-7xl mx-auto px-4 md:px-6 relative z-10 my-12 lg:my-16">
+      <section id="current-competition" className="max-w-7xl mx-auto px-4 md:px-6 relative z-10 mt-4 lg:mt-6 mb-4 lg:mb-6">
         <ScrollReveal direction="up" className="bg-gradient-to-br from-white to-orange-50/50 rounded-[2.5rem] p-8 md:p-12 overflow-hidden relative shadow-[0_20px_60px_rgba(234,88,12,0.05)] border border-orange-100">
           <div className="absolute top-0 right-0 w-96 h-96 bg-orange-400/10 rounded-full blur-[80px]"></div>
           <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-amber-400/10 rounded-full blur-[60px]"></div>

@@ -42,9 +42,9 @@ function Footer() {
             <ul className="space-y-2 text-sm font-medium">
               <li><Link to="/#about" className="hover:text-orange-400 transition-colors flex items-center gap-2 group"><span className="text-stone-700 group-hover:text-orange-500 transition-colors">›</span> About Event</Link></li>
               <li><Link to="/#participate" className="hover:text-orange-400 transition-colors flex items-center gap-2 group"><span className="text-stone-700 group-hover:text-orange-500 transition-colors">›</span> How to Participate</Link></li>
-              <li><Link to="/music/talents" className="hover:text-orange-400 transition-colors flex items-center gap-2 group"><span className="text-stone-700 group-hover:text-orange-500 transition-colors">›</span> Leaderboard</Link></li>
+              <li><Link to="/success-stories" className="hover:text-orange-400 transition-colors flex items-center gap-2 group"><span className="text-stone-700 group-hover:text-orange-500 transition-colors">›</span> Qualified Contestants</Link></li>
               <li><Link to="/#jury" className="hover:text-orange-400 transition-colors flex items-center gap-2 group"><span className="text-stone-700 group-hover:text-orange-500 transition-colors">›</span> Meet the Jury</Link></li>
-              <li><Link to="/music/register" className="text-orange-400 hover:text-orange-300 transition-colors flex items-center gap-2 group font-bold"><span className="text-orange-500 transition-colors">›</span> Register Now</Link></li>
+              <li><Link to="/register" className="text-orange-400 hover:text-orange-300 transition-colors flex items-center gap-2 group font-bold"><span className="text-orange-500 transition-colors">›</span> Register Now</Link></li>
             </ul>
           </div>
 

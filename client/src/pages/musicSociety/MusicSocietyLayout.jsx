@@ -3,7 +3,7 @@ import PageShell from "../../components/common/PageShell";
 
 function MusicSocietyLayout() {
   return (
-    <PageShell isMusic={true}>
+    <PageShell>
       <Outlet />
     </PageShell>
   );
