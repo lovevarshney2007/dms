@@ -28,14 +28,10 @@ export const objectives = [
 
 export const patronsData = [
   { name: "Ashok Srivastava", role: "Chief Patron", image: "/patrons/Ashok_Srivastava (Chief Patron).png" },
-  { name: "Adv. Rajeev Sharma", role: "Patron", image: "/patrons/Adv. Rajeev Sharma (Patron).png" },
-  { name: "CA Soumil Rajpal", role: "Patron", image: "/patrons/CA-SOUMIL RAJPAL (Patron).png" },
-  { name: "G.B. Mathur", role: "Patron", image: "/patrons/G.B. Mathur (Patron).png" },
-  { name: "Kuldeep Bhardwaj", role: "Patron", image: "/patrons/Kuldeep Bhardwaj (Patron).jpg" },
-  { name: "Vinay Gupta", role: "Patron", image: "/patrons/Vinay Gupta (Patron).png" },
-  { name: "Kumar Vishu", role: "Patron", image: "/patrons/KUMAR VISHU.jpg" },
   { name: "Nalini Kamalni", role: "Patron", image: "/patrons/NALINI KAMALNI.jpg" },
-  { name: "Radhika Chopra", role: "Patron", image: "/patrons/RADHIKA CHOPRA.jpg" }
+  { name: "Radhika Chopra", role: "Patron", image: "/patrons/RADHIKA CHOPRA.jpg" },
+  { name: "Kumar Vishu", role: "Patron", image: "/patrons/KUMAR VISHU.jpg" },
+  { name: "G.B. Mathur", role: "Patron", image: "/patrons/G.B. Mathur (Patron).png" }
 ];
 
 export const teamData = [
@@ -49,13 +45,13 @@ export const teamData = [
   { name: "Peehu Srivastava", role: "Brand Ambassador", image: "/team/Peehu Srivastava (Brand Ambassador).png" }
 ];
 
-// New data for Leaderboard
-export const leaderboardData = [
-  { rank: 1, name: "Aarav Sharma", score: 98, city: "New Delhi", image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&h=150&q=80" },
-  { rank: 2, name: "Priya Singh", score: 95, city: "Gurgaon", image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&h=150&q=80" },
-  { rank: 3, name: "Rohan Kapoor", score: 92, city: "Noida", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150&q=80" },
-  { rank: 4, name: "Neha Verma", score: 89, city: "Faridabad", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&h=150&q=80" },
-  { rank: 5, name: "Vikram Desai", score: 85, city: "New Delhi", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&h=150&q=80" }
+// New data for Leaderboard / Qualified Contestants
+export const qualifiedContestants = [
+  { rank: 1, name: "Aarav Sharma", status: "Grand Finalist", city: "New Delhi", image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&h=150&q=80" },
+  { rank: 2, name: "Priya Singh", status: "Semi Finalist", city: "Gurgaon", image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&h=150&q=80" },
+  { rank: 3, name: "Rohan Kapoor", status: "Round 1 Qualified", city: "Noida", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150&q=80" },
+  { rank: 4, name: "Neha Verma", status: "Round 1 Qualified", city: "Faridabad", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&h=150&q=80" },
+  { rank: 5, name: "Vikram Desai", status: "Audition Selected", city: "New Delhi", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&h=150&q=80" }
 ];
 
 export const successStories = [
@@ -76,7 +72,7 @@ export const performancesGallery = [
 export const upcomingEvents = [
   {
     id: 1,
-    title: "🎤 Voice of Delhi-NCR Season 4 Grand Finale",
+    title: "🎤 Voice of Delhi-NCR Season 5 Grand Finale",
     date: "July 4, 2026 • 5:00 PM Onwards",
     location: "Pearey Lal Bhawan (Gandhi Memorial Hall), ITO, New Delhi",
     image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80",

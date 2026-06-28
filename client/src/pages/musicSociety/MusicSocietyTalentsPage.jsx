@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { leaderboardData, successStories, performancesGallery } from "../../data/siteContent";
+import { qualifiedContestants, successStories, performancesGallery } from "../../data/siteContent";
 import SectionHeading from "../../components/common/SectionHeading";
 
 function MusicSocietyTalentsPage() {
-  const topTalent = leaderboardData[0]; // Aarav Sharma
+  const topTalent = qualifiedContestants[0]; // Aarav Sharma
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 space-y-24">
@@ -54,11 +54,11 @@ function MusicSocietyTalentsPage() {
         <div className="max-w-4xl mx-auto">
           <div className="bg-white rounded-[2rem] border border-orange-100 shadow-[0_20px_60px_rgba(234,88,12,0.05)] p-6 sm:p-10">
             <div className="space-y-4">
-              {leaderboardData.map((user, idx) => (
+              {qualifiedContestants.map((user, idx) => (
                 <div key={idx} className="flex items-center justify-between p-4 sm:p-6 bg-stone-50 hover:bg-orange-50/50 rounded-2xl border border-stone-100 hover:border-orange-200 transition-all group">
                   <div className="flex items-center gap-4 sm:gap-6">
                     <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center font-bold text-lg ${idx === 0 ? 'bg-amber-100 text-amber-700 shadow-inner' : idx === 1 ? 'bg-stone-200 text-stone-700 shadow-inner' : idx === 2 ? 'bg-orange-100 text-orange-800 shadow-inner' : 'bg-white text-stone-400 border border-stone-200'}`}>
-                      #{user.rank}
+                      #{idx + 1}
                     </div>
                     <img src={user.image} alt={user.name} className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover border-4 border-white shadow-sm" />
                     <div>
@@ -67,8 +67,8 @@ function MusicSocietyTalentsPage() {
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="font-bold text-xl sm:text-2xl text-orange-600">{user.score}</div>
-                    <div className="text-xs uppercase tracking-wider text-stone-400 font-bold">Points</div>
+                    <div className="font-bold text-lg sm:text-xl text-emerald-600">{user.status}</div>
+                    <div className="text-xs uppercase tracking-wider text-stone-400 font-bold">Status</div>
                   </div>
                 </div>
               ))}

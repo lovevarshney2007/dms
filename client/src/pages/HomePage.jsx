@@ -6,10 +6,11 @@ import ContactForm from "../components/forms/ContactForm";
 import { 
   patronsData,
   teamData, 
-  leaderboardData, 
+  qualifiedContestants, 
   upcomingEvents, 
   pastEvents,
-  contactDetails
+  contactDetails,
+  successStories
 } from "../data/siteContent";
 import ScrollReveal from "../components/common/ScrollReveal";
 import FaqSection from "../components/sections/FaqSection";
@@ -153,7 +154,7 @@ function HomePage() {
                 to="/music/register"
                 className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold text-base shadow-[0_8px_15px_rgba(234,88,12,0.2)] hover:-translate-y-1 text-center"
               >
-                Apply For Auditions
+                Register Now
               </Link>
               <div className="flex items-center gap-2 text-[13px] font-bold text-stone-500 justify-center">
                 <div className="flex -space-x-2">
@@ -190,19 +191,19 @@ function HomePage() {
               </div>
               
               <div className="absolute bottom-4 left-4 right-4 text-white">
-                <h3 className="text-lg sm:text-xl font-black mb-1">Season 4 Grand Finale</h3>
+                <h3 className="text-lg sm:text-xl font-black mb-1">Voice of Delhi NCR</h3>
                 <p className="text-[10px] sm:text-xs text-white/80 font-medium flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span> Watch the highlights
                 </p>
               </div>
 
               <div className="absolute -left-2 top-6 sm:top-8 lg:-left-6 lg:top-12 glass-card px-3 py-1.5 sm:px-4 sm:py-2 rounded-2xl shadow-xl flex items-center gap-2 sm:gap-3 animate-float border border-white/40 z-10 scale-90 lg:scale-100">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-yellow-300 to-amber-500 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-inner">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="sm:w-5 sm:h-5"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-orange-400 to-red-500 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-inner">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="sm:w-5 sm:h-5"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
                 </div>
                 <div>
-                  <p className="text-[8px] sm:text-[9px] text-stone-500 uppercase font-black tracking-wider">Winner Prize</p>
-                  <p className="text-sm sm:text-base font-black text-stone-900 leading-none mt-0.5">₹1,00,000</p>
+                  <p className="text-[8px] sm:text-[9px] text-stone-500 uppercase font-black tracking-wider">Grand Finale</p>
+                  <p className="text-sm sm:text-base font-black text-stone-900 leading-none mt-0.5">July 4, 2026</p>
                 </div>
               </div>
             </a>
@@ -244,7 +245,7 @@ function HomePage() {
               </div>
 
               <Link to="/music/register" className="inline-flex items-center justify-center w-full sm:w-auto gap-2 text-white bg-stone-900 px-6 py-3 rounded-full font-bold hover:bg-orange-600 transition shadow-md text-sm sm:text-base">
-                Read Competition Guidelines 
+                Read More 
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </Link>
             </div>
@@ -263,44 +264,64 @@ function HomePage() {
         </ScrollReveal>
       </section>
 
-      {/* 3. How to Participate */}
-      <section id="participate" className="scroll-mt-32 max-w-7xl mx-auto px-4 md:px-6 relative z-10">
-        <ScrollReveal direction="up" className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
-          <p className="text-xs sm:text-sm font-bold uppercase tracking-widest text-orange-600 mb-2 sm:mb-3">How To Participate</p>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-stone-900 leading-tight">
-            Three Steps To Change Your Life
-          </h2>
-        </ScrollReveal>
 
-        <div className="grid md:grid-cols-3 gap-6 sm:gap-10 relative">
-          {/* Connecting Line (Only visible on Desktop) */}
-          <div className="hidden md:block absolute top-1/2 left-[15%] right-[15%] h-[2px] border-t-2 border-dashed border-orange-200 -z-10 -translate-y-12"></div>
 
-          {steps.map((step, idx) => (
-            <ScrollReveal key={idx} direction="up" delay={idx * 0.2} className="relative bg-white/80 backdrop-blur-sm p-8 sm:p-10 rounded-3xl text-center group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(234,88,12,0.1)] transition-all duration-500 border border-stone-100 hover:border-orange-200 overflow-hidden shadow-sm">
-              {/* Background Large Number Watermark */}
-              <div className="absolute -top-4 -right-2 text-[100px] sm:text-[120px] font-black text-stone-100 opacity-50 group-hover:text-orange-50 transition-colors duration-500 z-0 select-none pointer-events-none">
-                {step.num}
+      {/* 3. Current Competition */}
+      <section id="current-competition" className="max-w-7xl mx-auto px-4 md:px-6 relative z-10 my-12 lg:my-16">
+        <ScrollReveal direction="up" className="bg-gradient-to-br from-white to-orange-50/50 rounded-[2.5rem] p-8 md:p-12 overflow-hidden relative shadow-[0_20px_60px_rgba(234,88,12,0.05)] border border-orange-100">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-orange-400/10 rounded-full blur-[80px]"></div>
+          <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-amber-400/10 rounded-full blur-[60px]"></div>
+          <div className="grid lg:grid-cols-2 gap-10 items-center relative z-10">
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100 text-orange-700 border border-orange-200 mb-5 text-[11px] sm:text-xs font-bold uppercase tracking-widest shadow-sm">
+                <span className="w-2.5 h-2.5 rounded-full bg-orange-500 animate-pulse"></span>
+                Currently Running Season
               </div>
-
-              <div className="relative z-10">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-full bg-orange-50 text-orange-600 flex items-center justify-center mb-6 sm:mb-8 shadow-inner group-hover:bg-gradient-to-br group-hover:from-orange-500 group-hover:to-amber-500 group-hover:text-white transition-all duration-500">
-                  <div className="scale-110 sm:scale-125 transition-transform duration-500 group-hover:scale-100 sm:group-hover:scale-110">
-                    {step.icon}
+              <h2 className="font-serif text-3xl md:text-5xl text-stone-900 mb-6 drop-shadow-sm">Voice of Delhi NCR <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">Season 5</span></h2>
+              
+              <div className="space-y-5 mb-10">
+                <div className="flex items-center gap-4 text-stone-700 bg-white/60 p-3 rounded-2xl border border-white/40 shadow-sm backdrop-blur-sm hover:border-orange-200 transition-colors">
+                  <div className="p-2.5 bg-orange-100 rounded-xl text-orange-600 shrink-0">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                   </div>
+                  <span><strong className="text-stone-900">Event Date:</strong> 4 July 2026</span>
                 </div>
-                
-                <h3 className="text-xl sm:text-2xl font-serif text-stone-900 mb-3 sm:mb-4 group-hover:text-orange-600 transition-colors">{step.title}</h3>
-                <p className="text-sm sm:text-base text-stone-600 leading-relaxed font-medium">{step.desc}</p>
+                <div className="flex items-center gap-4 text-stone-700 bg-white/60 p-3 rounded-2xl border border-white/40 shadow-sm backdrop-blur-sm hover:border-orange-200 transition-colors">
+                  <div className="p-2.5 bg-orange-100 rounded-xl text-orange-600 shrink-0">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  </div>
+                  <span><strong className="text-stone-900">Venue:</strong> Pearey Lal Bhawan, ITO, New Delhi</span>
+                </div>
+                <div className="flex items-center gap-4 text-stone-700 bg-white/60 p-3 rounded-2xl border border-white/40 shadow-sm backdrop-blur-sm hover:border-orange-200 transition-colors">
+                  <div className="p-2.5 bg-emerald-100 rounded-xl text-emerald-600 shrink-0">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  </div>
+                  <span><strong className="text-stone-900">Registration Status:</strong> <span className="text-emerald-600 font-bold">Open</span></span>
+                </div>
               </div>
-            </ScrollReveal>
-          ))}
-        </div>
-        
-        <ScrollReveal direction="up" delay={0.6} className="text-center mt-10 sm:mt-16">
-          <Link to="/music/register" className="inline-block w-full sm:w-auto px-8 sm:px-10 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold text-base sm:text-lg hover:shadow-[0_10px_25px_rgba(234,88,12,0.35)] hover:-translate-y-1 transition-all duration-300">
-            Start Your Journey
-          </Link>
+
+              <Link to="/music/register" className="inline-block px-8 py-4 rounded-full bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold hover:shadow-[0_10px_20px_rgba(234,88,12,0.3)] hover:-translate-y-1 transition-all">
+                Register Now
+              </Link>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-4 sm:gap-6">
+              <div className="bg-white border border-orange-100 rounded-[2rem] p-6 sm:p-8 text-center shadow-[0_10px_30px_rgba(234,88,12,0.05)] hover:border-orange-200 transition-colors">
+                <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500 mb-2">25</div>
+                <div className="text-[10px] sm:text-xs text-stone-500 font-bold uppercase tracking-widest">Days Left</div>
+              </div>
+              <div className="bg-white border border-orange-100 rounded-[2rem] p-6 sm:p-8 text-center shadow-[0_10px_30px_rgba(234,88,12,0.05)] hover:border-orange-200 transition-colors">
+                <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500 mb-2">500+</div>
+                <div className="text-[10px] sm:text-xs text-stone-500 font-bold uppercase tracking-widest">Registrations</div>
+              </div>
+              <div className="col-span-2 bg-stone-900 rounded-[2rem] p-6 relative overflow-hidden group h-40 sm:h-48 shadow-xl">
+                <img src="/legacy/bd1.jpg" className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700" alt="Event Highlights" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="px-5 py-2.5 bg-white/20 backdrop-blur-md rounded-full text-white font-bold text-sm border border-white/40 shadow-[0_4px_20px_rgba(0,0,0,0.3)]">View Event Highlights</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </ScrollReveal>
       </section>
 
@@ -347,6 +368,9 @@ function HomePage() {
           <div>
             <div className="flex items-end justify-between mb-6 sm:mb-8">
               <h2 className="font-serif text-2xl sm:text-3xl text-stone-900">Past Events</h2>
+              <Link to="/music/shows" className="text-xs sm:text-sm font-bold text-stone-500 hover:text-orange-600 transition flex items-center gap-1">
+                View All <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="sm:w-4 sm:h-4"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </Link>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
               {pastEvents.map(event => (
@@ -369,17 +393,17 @@ function HomePage() {
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="sm:w-6 sm:h-6"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
             </div>
             <div>
-              <p className="text-xs sm:text-sm font-bold uppercase tracking-widest text-stone-500">Rankings</p>
-              <h2 className="font-serif text-2xl sm:text-3xl text-stone-900">Leaderboard</h2>
+              <p className="text-xs sm:text-sm font-bold uppercase tracking-widest text-stone-500">Results</p>
+              <h2 className="font-serif text-2xl sm:text-3xl text-stone-900">Qualified Contestants</h2>
             </div>
           </div>
 
           <div className="space-y-3 sm:space-y-4">
-            {leaderboardData.map((user, idx) => (
+            {qualifiedContestants.map((user, idx) => (
               <Link key={idx} to="/music/talents" className="flex items-center justify-between p-3 sm:p-4 bg-white/80 hover:bg-white rounded-xl sm:rounded-2xl border border-stone-100 hover:border-orange-200 shadow-sm hover:shadow-md transition-all group">
                 <div className="flex items-center gap-3 sm:gap-4">
                   <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-xs sm:text-sm ${idx === 0 ? 'bg-amber-100 text-amber-700 shadow-inner' : idx === 1 ? 'bg-stone-200 text-stone-700 shadow-inner' : idx === 2 ? 'bg-orange-100 text-orange-800 shadow-inner' : 'bg-stone-50 text-stone-400 border border-stone-100'}`}>
-                    #{user.rank}
+                    #{idx + 1}
                   </div>
                   <img src={user.image} alt={user.name} className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-white shadow-sm" />
                   <div>
@@ -388,8 +412,8 @@ function HomePage() {
                   </div>
                 </div>
                 <div className="text-right">
-                  <div className="font-bold text-sm sm:text-base text-orange-600">{user.score}</div>
-                  <div className="text-[8px] sm:text-[10px] uppercase tracking-wider text-stone-400 font-bold">Points</div>
+                  <div className="font-bold text-xs sm:text-sm text-emerald-600">{user.status}</div>
+                  <div className="text-[8px] sm:text-[10px] uppercase tracking-wider text-stone-400 font-bold">Status</div>
                 </div>
               </Link>
             ))}
@@ -401,15 +425,76 @@ function HomePage() {
         </ScrollReveal>
       </section>
 
-      {/* 5. Team/Jury Section */}
-      {/* Meet The Core Team Section */}
-      <section id="team" className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-0 md:mb-2">
-        <SectionHeading
-          eyebrow="Core Committee"
-          title="Meet Our Team."
-          text="The dedicated individuals working tirelessly behind the scenes to make DMS Aarohi a grand success."
-        />
-        <TeamSliderRow members={teamData} />
+      {/* 5. Success Stories */}
+      <section className="max-w-7xl mx-auto px-4 md:px-6 my-12 lg:my-16">
+        <div className="text-center mb-10">
+          <SectionHeading
+            eyebrow="Hall of Fame"
+            title="Success Stories"
+            text="Meet our past winners who are now making waves in the music industry."
+          />
+        </div>
+        <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
+          {successStories.map((story, idx) => (
+            <ScrollReveal key={idx} direction="up" delay={idx * 0.1} className="group rounded-[2rem] bg-white border border-stone-100 p-6 sm:p-8 shadow-md hover:shadow-xl hover:border-orange-200 transition-all duration-300">
+              <div className="w-20 h-20 rounded-full overflow-hidden mb-6 border-4 border-orange-50 mx-auto group-hover:border-orange-100 transition-colors">
+                <img src={story.image} alt={story.name} className="w-full h-full object-cover" />
+              </div>
+              <h3 className="text-center font-serif text-xl sm:text-2xl font-bold text-stone-900 mb-1">{story.name}</h3>
+              <p className="text-center text-xs sm:text-sm font-bold text-orange-600 uppercase tracking-widest mb-4">{story.achievement}</p>
+              <p className="text-center text-stone-600 leading-relaxed text-sm">{story.description}</p>
+            </ScrollReveal>
+          ))}
+        </div>
+      </section>
+
+      {/* 6. Team/Jury Section */}
+      {/* 5. Brand Ambassador Section */}
+      <section id="ambassador" className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-16">
+        <ScrollReveal direction="up" className="group bg-gradient-to-br from-orange-50 to-amber-50 rounded-[2.5rem] overflow-hidden shadow-[0_20px_60px_rgba(234,88,12,0.08)] flex flex-col md:flex-row items-center border border-orange-100 relative">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-orange-400/10 rounded-full blur-[80px] pointer-events-none"></div>
+          
+          <div className="w-full md:w-2/5 h-80 md:h-[450px] relative overflow-hidden">
+            <img 
+              src="/team/Peehu Srivastava (Brand Ambassador).png" 
+              alt="Peehu Srivastava" 
+              className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" 
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-orange-50 md:bg-gradient-to-r md:from-transparent md:to-orange-50"></div>
+          </div>
+          
+          <div className="p-8 md:p-12 lg:p-16 w-full md:w-3/5 text-center md:text-left relative z-10">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100 text-orange-700 border border-orange-200 mb-6 text-[11px] sm:text-xs font-bold uppercase tracking-widest shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
+              Brand Ambassador
+            </div>
+            
+            <h3 className="text-3xl md:text-5xl font-serif text-stone-900 mb-4 drop-shadow-sm">Peehu Srivastava</h3>
+            
+            <p className="text-stone-600 text-sm md:text-base leading-relaxed max-w-xl mx-auto md:mx-0 mb-8 font-medium">
+              Proudly representing the Voice of Delhi NCR talent hunt across the nation. Peehu inspires thousands of young singers to step onto the grand stage and pursue their musical dreams with DMS Aarohi.
+            </p>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto md:mx-0">
+              <div className="bg-white/80 backdrop-blur border border-white p-4 rounded-2xl shadow-sm hover:shadow-md hover:border-orange-200 transition-all group/card">
+                <div className="w-10 h-10 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center mb-3 group-hover/card:scale-110 transition-transform">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12h10"/><path d="M9 4v16"/><path d="m3 9 3 3-3 3"/></svg>
+                </div>
+                <h4 className="font-bold text-stone-900 text-sm mb-1">Reality TV Star</h4>
+                <p className="text-xs text-stone-500 font-medium">Rising Star (Colors TV) & The Voice India Kids (&TV)</p>
+              </div>
+              
+              <div className="bg-white/80 backdrop-blur border border-white p-4 rounded-2xl shadow-sm hover:shadow-md hover:border-orange-200 transition-all group/card">
+                <div className="w-10 h-10 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mb-3 group-hover/card:scale-110 transition-transform">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                </div>
+                <h4 className="font-bold text-stone-900 text-sm mb-1">Our Proud Winner</h4>
+                <p className="text-xs text-stone-500 font-medium">Winner of Voice of Delhi-NCR Competition</p>
+              </div>
+            </div>
+            
+          </div>
+        </ScrollReveal>
       </section>
 
       {/* Meet The Jury Section */}
@@ -490,7 +575,7 @@ function HomePage() {
             Join hundreds of talented singers across Delhi. Registrations for Season 5 are now open for a limited time.
           </p>
           <Link to="/music/register" className="inline-block w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold text-base sm:text-lg hover:scale-105 transition-transform shadow-[0_10px_30px_rgba(249,115,22,0.4)]">
-            Register For Auditions
+            Register Now
           </Link>
         </div>
       </ScrollReveal>

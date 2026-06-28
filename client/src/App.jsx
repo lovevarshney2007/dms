@@ -9,6 +9,7 @@ const MusicSocietyTalentsPage = lazy(() => import("./pages/musicSociety/MusicSoc
 const MusicSocietyEventsPage = lazy(() => import("./pages/musicSociety/MusicSocietyEventsPage"));
 const MusicSocietyShowsPage = lazy(() => import("./pages/musicSociety/MusicSocietyShowsPage"));
 const MusicSocietyJoinUsPage = lazy(() => import("./pages/musicSociety/MusicSocietyJoinUsPage"));
+
 const AdminPage = lazy(() => import("./pages/admin/AdminPage"));
 const AdminLoginPage = lazy(() => import("./pages/admin/AdminLoginPage"));
 const AdminGuard = lazy(() => import("./pages/admin/AdminGuard"));
@@ -21,21 +22,22 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/home" element={<Navigate to="/" replace />} />
 
-          <Route path="/music-society" element={<MusicSocietyLayout />}>
-            <Route index element={<MusicSocietyOverviewPage />} />
-            <Route path="talents" element={<MusicSocietyTalentsPage />} />
-            <Route path="events" element={<MusicSocietyEventsPage />} />
-            <Route path="shows" element={<MusicSocietyShowsPage />} />
-            <Route path="join-us" element={<MusicSocietyJoinUsPage />} />
+          {/* New Top-Level Routes mapping to existing pages */}
+          <Route element={<MusicSocietyLayout />}>
+            <Route path="/about" element={<MusicSocietyOverviewPage />} />
+            <Route path="/competitions" element={<MusicSocietyEventsPage />} />
+            <Route path="/shows" element={<MusicSocietyShowsPage />} />
+            <Route path="/success-stories" element={<MusicSocietyTalentsPage />} />
+            <Route path="/gallery" element={<MusicSocietyEventsPage />} />
+            <Route path="/contact" element={<MusicSocietyJoinUsPage />} />
+            <Route path="/register" element={<MusicSocietyJoinUsPage />} />
           </Route>
 
-          <Route path="/music" element={<MusicSocietyLayout />}>
-            <Route index element={<MusicSocietyOverviewPage />} />
-            <Route path="talents" element={<MusicSocietyTalentsPage />} />
-            <Route path="events" element={<MusicSocietyEventsPage />} />
-            <Route path="shows" element={<MusicSocietyShowsPage />} />
-            <Route path="register" element={<MusicSocietyJoinUsPage />} />
-          </Route>
+          {/* Legacy Routes Redirects */}
+          <Route path="/music" element={<Navigate to="/" replace />} />
+          <Route path="/music-society" element={<Navigate to="/" replace />} />
+          <Route path="/music-society/*" element={<Navigate to="/" replace />} />
+          <Route path="/music/*" element={<Navigate to="/" replace />} />
 
           <Route path="/admin/login" element={<AdminLoginPage />} />
           <Route path="/admin" element={<AdminGuard />}>
