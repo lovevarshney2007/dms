@@ -21,7 +21,7 @@ const stats = [
 
 function MusicSocietyOverviewPage() {
   return (
-    <div className="space-y-20 pb-16 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="space-y-12 pb-12 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       {/* Page Hero */}
       <ScrollReveal direction="up">

@@ -22,7 +22,7 @@ function PageShell({ basePath = "/", children }) {
       <MusicNavbar />
 
       {/* Main Content */}
-      <main className="relative z-10 flex flex-col gap-10 sm:gap-16 md:gap-20 flex-grow">
+      <main className="relative z-10 flex flex-col gap-6 sm:gap-10 md:gap-14 flex-grow">
         {children}
       </main>
 

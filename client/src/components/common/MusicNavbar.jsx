@@ -33,6 +33,7 @@ function MusicNavbar() {
       "success-stories",
       "ambassador",
       "jury",
+      "sponsors",
       "contact",
     ];
     const onScroll = () => {
@@ -91,16 +92,16 @@ function MusicNavbar() {
     },
     {
       label: "Success Stories",
-      href: "/success-stories",
-      type: "route",
-      isActive: location.pathname === "/success-stories" || (isHomePage && activeSection === "success-stories"),
+      href: isHomePage ? "#success-stories" : "/success-stories",
+      type: isHomePage ? "anchor" : "route",
+      isActive: location.pathname === "/success-stories" || (isHomePage && (activeSection === "success-stories" || activeSection === "ambassador" || activeSection === "jury")),
     },
     {
       label: "Contact",
       href: isHomePage ? "#contact" : "/contact",
       type: isHomePage ? "anchor" : "route",
       isActive:
-        location.pathname === "/contact" || (isHomePage && (activeSection === "contact" || activeSection === "ambassador" || activeSection === "jury")),
+        location.pathname === "/contact" || (isHomePage && (activeSection === "contact" || activeSection === "sponsors")),
     },
   ];
 
@@ -113,25 +114,18 @@ function MusicNavbar() {
       >
         <div className="mx-auto flex w-full max-w-7xl flex-nowrap items-center justify-between gap-2 md:gap-4 px-4 py-3 md:px-6 md:py-4">
           {/* Logo */}
-          <Link to="/" className="relative flex items-center gap-2 md:gap-3 shrink-0">
-            <div className="soundwave-container scale-[0.7] sm:scale-75 md:scale-100 origin-left">
-              <span className="soundwave-ring ring-1" />
-              <span className="soundwave-ring ring-2" />
-              <span className="soundwave-ring ring-3" />
+          <Link to="/" className="relative flex items-center shrink-0 group">
+            <div className="relative flex items-center justify-center py-1 px-2">
+              {/* Soundwave Rings Animation */}
+              <div className="absolute inset-0 border-2 border-orange-600 rounded-full animate-ping opacity-40"></div>
+              <div className="absolute inset-[-4px] border-2 border-orange-500 rounded-full animate-pulse opacity-60 delay-75"></div>
+              
               <img
-                className="relative z-10 h-10 w-10 md:h-11 md:w-11 object-contain drop-shadow-sm"
-                src="/legacy/tal_logo1.png"
-                alt="DMS Aarohi Musical Society logo"
+                className="h-9 w-auto md:h-11 object-contain brightness-0 relative z-10 group-hover:scale-105 transition-transform duration-300"
+                src="/images/logo.png"
+                alt="DMS Aarohi Musical Society"
                 decoding="async"
               />
-            </div>
-            <div className="flex flex-col shrink-0">
-              <p className="font-serif text-base md:text-xl font-bold text-stone-900 leading-tight">
-                DMS Aarohi
-              </p>
-              <p className="text-[10px] md:text-sm text-stone-600 leading-tight whitespace-nowrap">
-                Music Society
-              </p>
             </div>
           </Link>
 

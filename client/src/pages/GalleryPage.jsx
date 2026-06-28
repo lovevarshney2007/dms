@@ -6,24 +6,24 @@ const categories = ["All", "Photos", "Videos", "Stage Performances", "Event High
 
 const galleryItems = [
   // Photos
-  { id: 1, type: "Photos", title: "Grand Finale Moments", image: "/legacy/bd1.jpg", season: "Season 4" },
-  { id: 2, type: "Photos", title: "Stage Performances", image: "/legacy/bd2.jpg", season: "Season 4" },
-  { id: 3, type: "Photos", title: "Artists Backstage", image: "/legacy/bd3.jpg", season: "Season 3" },
-  { id: 4, type: "Photos", title: "Crowd Energy", image: "/legacy/bd4.jpg", season: "Season 2" },
+  { id: 1, type: "Photos", title: "Grand Finale Moments", image: "/legacy/show.png", season: "Season 4" },
+  { id: 2, type: "Photos", title: "Stage Performances", image: "/legacy/patrons.jpg", season: "Season 4" },
+  { id: 3, type: "Photos", title: "Artists Backstage", image: "/legacy/current_event.jpg", season: "Season 3" },
+  { id: 4, type: "Photos", title: "Crowd Energy", image: "/legacy/about_group.png", season: "Season 2" },
   { id: 5, type: "Photos", title: "Award Ceremony", image: "/legacy/patrons.jpg", season: "Season 1" },
   { id: 6, type: "Photos", title: "Opening Night", image: "/legacy/image1.jpeg", season: "Season 4" },
   // Stage Performances
   { id: 7, type: "Stage Performances", title: "Solo Performance", image: "/legacy/current_event.jpg", season: "Season 5" },
   { id: 8, type: "Stage Performances", title: "Voice of Rajasthan", image: "/legacy/KT.jpg", season: "Season 3" },
-  { id: 9, type: "Stage Performances", title: "Group Fusion Act", image: "/legacy/bd1.jpg", season: "Season 2" },
+  { id: 9, type: "Stage Performances", title: "Group Fusion Act", image: "/legacy/show.png", season: "Season 2" },
   // Event Highlights
   { id: 10, type: "Event Highlights", title: "Grand Finale 2024", image: "/legacy/Joinus.jpg", season: "Season 4" },
   { id: 11, type: "Event Highlights", title: "Registration Launch", image: "/legacy/poster.png", season: "Season 5" },
   { id: 12, type: "Event Highlights", title: "Winners Felicitation", image: "/legacy/about_group.png", season: "Season 3" },
   // Videos
-  { id: 13, type: "Videos", title: "Season 4 Highlights", image: "/legacy/bd2.jpg", season: "Season 4", isVideo: true, videoUrl: "https://www.youtube.com/live/r2VYf94YPNU?si=JObK4t3qQ_0VOrxE" },
+  { id: 13, type: "Videos", title: "Season 4 Highlights", image: "/legacy/show.png", season: "Season 4", isVideo: true, videoUrl: "https://www.youtube.com/live/r2VYf94YPNU?si=JObK4t3qQ_0VOrxE" },
   { id: 14, type: "Videos", title: "Season 3 Grand Finale", image: "/legacy/KT.jpg", season: "Season 3", isVideo: true, videoUrl: "https://youtu.be/kom0cU5fUFE" },
-  { id: 15, type: "Videos", title: "DMS Aarohi Channel", image: "/legacy/bd1.jpg", season: "All Seasons", isVideo: true, videoUrl: "https://www.youtube.com/channel/UCFmS_dMuj8yvCUcR-X2NdYQ" },
+  { id: 15, type: "Videos", title: "DMS Aarohi Channel", image: "/legacy/current_event.jpg", season: "All Seasons", isVideo: true, videoUrl: "https://www.youtube.com/channel/UCFmS_dMuj8yvCUcR-X2NdYQ" },
 ];
 
 function GalleryPage() {
@@ -35,7 +35,7 @@ function GalleryPage() {
 
   return (
     <>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
         
         {/* Page Header */}
         <ScrollReveal direction="up">

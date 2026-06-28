@@ -35,7 +35,7 @@ const seasons = [
     lightBg: "from-orange-50 to-red-50",
     borderColor: "border-orange-200",
     winner: "Grand Finale Champion",
-    winnerImg: "/legacy/bd2.jpg",
+    winnerImg: "/legacy/about_group.png",
     description:
       "Season 2 expanded the competition to reach more cities and localities within Delhi NCR, featuring bigger stages and more competitive rounds than ever before.",
     highlights: [
@@ -44,7 +44,7 @@ const seasons = [
       "Bigger prize pool",
     ],
     youtube: "https://youtu.be/kom0cU5fUFE",
-    poster: "/legacy/bd2.jpg",
+    poster: "/legacy/current_event.jpg",
   },
   {
     id: "season-3",
@@ -77,7 +77,7 @@ const seasons = [
     lightBg: "from-violet-50 to-purple-50",
     borderColor: "border-violet-200",
     winner: "Grand Finale Champion",
-    winnerImg: "/legacy/bd1.jpg",
+    winnerImg: "/legacy/patrons.jpg",
     description:
       "Season 4 returned to Delhi NCR with unprecedented scale — featuring online auditions, multi-city live battles, and a spectacular Grand Finale that brought together the finest voices of the region.",
     highlights: [
@@ -86,7 +86,7 @@ const seasons = [
       "Spectacular Grand Finale",
     ],
     youtube: "https://www.youtube.com/channel/UCFmS_dMuj8yvCUcR-X2NdYQ",
-    poster: "/legacy/bd1.jpg",
+    poster: "/legacy/patrons.jpg",
   },
   {
     id: "season-5",
@@ -126,7 +126,7 @@ function VoiceOfDelhiNCRPage() {
 
   return (
     <>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
         {/* Page Header */}
         <ScrollReveal direction="up">
           <div className="text-center max-w-4xl mx-auto">
@@ -197,23 +197,26 @@ function VoiceOfDelhiNCRPage() {
                 delay={idx * 0.08}
                 className="group relative bg-white rounded-[2rem] overflow-hidden border border-stone-100 shadow-[0_10px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(234,88,12,0.12)] hover:-translate-y-1 transition-all duration-300 flex flex-col"
               >
-                {/* Header Gradient */}
-                <div className={`bg-gradient-to-b ${season.color} pt-6 px-6 pb-16 relative overflow-hidden shrink-0`}>
-                  <div className="flex items-center justify-between mb-8 relative z-10">
-                    <span className={`text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full flex items-center gap-1.5 backdrop-blur-sm shadow-sm ${season.status === 'upcoming' ? 'bg-white text-orange-600' : 'bg-white/20 text-white'}`}>
-                      {season.status === "upcoming" ? (
-                        <><span className="text-orange-500 text-xs">🔥</span> UPCOMING</>
-                      ) : (
-                        <><span className="text-emerald-300 text-xs">✔</span> COMPLETED</>
-                      )}
-                    </span>
-                    <span className="text-white font-bold text-xs tracking-wider">{season.year}</span>
-                  </div>
-                  <div className="relative z-10">
-                    <h2 className="text-white font-serif text-3xl font-bold leading-tight mb-1">
-                      Voice of<br />{season.title.includes("Delhi") ? "Delhi/NCR" : "Rajasthan"}
-                    </h2>
-                    <p className="text-white/90 text-sm font-bold tracking-wide">{season.subtitle}</p>
+                {/* Poster Image */}
+                <div className="h-56 sm:h-64 w-full relative overflow-hidden shrink-0">
+                  <img src={season.poster} alt={season.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 flex flex-col justify-between p-5">
+                    <div className="flex items-start justify-between">
+                      <span className={`text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full flex items-center gap-1.5 backdrop-blur-md shadow-sm ${season.status === 'upcoming' ? 'bg-orange-500 text-white' : 'bg-white/20 text-white border border-white/30'}`}>
+                        {season.status === "upcoming" ? (
+                          <><span className="text-white text-xs animate-pulse">🔥</span> UPCOMING</>
+                        ) : (
+                          <><span className="text-emerald-400 text-xs">✔</span> COMPLETED</>
+                        )}
+                      </span>
+                      <span className="text-white font-bold text-xs tracking-wider bg-black/40 px-2.5 py-1.5 rounded-lg backdrop-blur-md border border-white/10">{season.year}</span>
+                    </div>
+                    <div>
+                      <h2 className="text-white font-serif text-2xl font-bold leading-tight drop-shadow-lg mb-1">
+                        Voice of {season.title.includes("Delhi") ? "Delhi NCR" : "Rajasthan"}
+                      </h2>
+                      <p className="text-orange-400 text-xs font-bold tracking-widest uppercase drop-shadow-md">{season.subtitle}</p>
+                    </div>
                   </div>
                 </div>
 

@@ -20,7 +20,7 @@ function MusicSocietyShowsPage() {
   ];
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 space-y-24">
+    <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 space-y-14">
       
       {/* 1. Page Header & About Our Shows */}
       <ScrollReveal direction="up" className="relative grid lg:grid-cols-2 gap-12 items-center bg-gradient-to-br from-stone-900 to-stone-800 rounded-[3rem] p-8 sm:p-12 shadow-[0_20px_60px_rgba(0,0,0,0.3)] overflow-hidden">
@@ -39,7 +39,7 @@ function MusicSocietyShowsPage() {
           </Link>
         </div>
         <div className="relative h-80 lg:h-[500px] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/10 group">
-          <img src="/legacy/bd2.jpg" alt="Our Shows" className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+          <img src="/legacy/show.png" alt="Our Shows" className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
           <div className="absolute inset-0 bg-gradient-to-t from-stone-900 via-stone-900/40 to-transparent flex items-end p-8">
             <div className="text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
               <div className="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-bold uppercase tracking-wider mb-3 border border-white/20">Featured Highlight</div>
@@ -125,11 +125,7 @@ function MusicSocietyShowsPage() {
             {glimpses.map((img, idx) => (
               <div key={idx} className={`relative group rounded-3xl overflow-hidden shadow-lg ${idx === 0 || idx === 3 ? 'md:col-span-2 md:row-span-2' : ''}`}>
                 <img src={img} alt="Stage Glimpse" className="w-full h-full object-cover min-h-[200px] group-hover:scale-110 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/40 transition-colors duration-300 flex items-center justify-center">
-                  <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md opacity-0 group-hover:opacity-100 scale-50 group-hover:scale-100 transition-all duration-300 flex items-center justify-center text-white">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                  </div>
-                </div>
+                <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/10 transition-colors duration-300" />
               </div>
             ))}
           </div>

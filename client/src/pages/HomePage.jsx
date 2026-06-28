@@ -67,21 +67,21 @@ function HomePage() {
         {/* Top Marquee */}
         <div className="w-full bg-orange-600 text-white overflow-hidden py-1.5 md:py-2 absolute top-0 left-0 z-40">
           <div className="animate-marquee font-bold text-[10px] md:text-xs tracking-widest uppercase flex items-center whitespace-nowrap">
-            <span>🔥 SEASON 5 REGISTRATIONS NOW OPEN</span>
+            <span>🎤 VOICE OF DELHI NCR — SEASON 4 GRAND FINALE</span>
             <span className="mx-3 md:mx-4">•</span>
-            <span>ROUND 1: ONLINE AUDITIONS ACTIVE</span>
+            <span>4 JULY 2026 • PEAREY LAL BHAWAN, ITO, NEW DELHI</span>
             <span className="mx-3 md:mx-4">•</span>
-            <span>WIN CASH PRIZES UP TO ₹1 LAKH</span>
+            <span>🎵 FREE ENTRY FOR ALL MUSIC LOVERS</span>
             <span className="mx-3 md:mx-4">•</span>
-            <span>GET MENTORED BY INDUSTRY EXPERTS</span>
+            <span>LIVE PERFORMANCES BY FINALISTS & CELEBRITY GUESTS</span>
             <span className="mx-3 md:mx-4">•</span>
-            <span>🔥 SEASON 5 REGISTRATIONS NOW OPEN</span>
+            <span>🎤 VOICE OF DELHI NCR — SEASON 4 GRAND FINALE</span>
             <span className="mx-3 md:mx-4">•</span>
-            <span>ROUND 1: ONLINE AUDITIONS ACTIVE</span>
+            <span>4 JULY 2026 • PEAREY LAL BHAWAN, ITO, NEW DELHI</span>
             <span className="mx-3 md:mx-4">•</span>
-            <span>WIN CASH PRIZES UP TO ₹1 LAKH</span>
+            <span>🎵 FREE ENTRY FOR ALL MUSIC LOVERS</span>
             <span className="mx-3 md:mx-4">•</span>
-            <span>GET MENTORED BY INDUSTRY EXPERTS</span>
+            <span>LIVE PERFORMANCES BY FINALISTS & CELEBRITY GUESTS</span>
           </div>
         </div>
 
@@ -106,7 +106,7 @@ function HomePage() {
             </h1>
 
             <p className="text-base md:text-lg text-stone-700 mb-6 max-w-xl leading-relaxed font-medium mx-auto lg:mx-0">
-              Don't let your talent go unheard. DMS Aarohi brings you the ultimate singing battle. Perform in front of celebrity judges, win massive cash prizes, and launch your musical career.
+              Don't let your talent go unheard. DMS Aarohi brings you the ultimate singing talent hunt. Perform in front of celebrity judges, earn recognition, and launch your musical career.
             </p>
 
             {/* Key Highlights / Why Participate */}
@@ -116,8 +116,8 @@ function HomePage() {
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
                 </div>
                 <div>
-                  <h4 className="font-bold text-stone-900 text-[15px] mb-0.5">Mega Prizes</h4>
-                  <p className="text-[13px] text-stone-500 font-medium">Cash rewards & trophies</p>
+                  <h4 className="font-bold text-stone-900 text-[15px] mb-0.5">Trophies & Honours</h4>
+                  <p className="text-[13px] text-stone-500 font-medium">Certificates & recognition</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -151,7 +151,7 @@ function HomePage() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <Link
-                to="/music/register"
+                to="/register"
                 className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold text-base shadow-[0_8px_15px_rgba(234,88,12,0.2)] hover:-translate-y-1 text-center"
               >
                 Register Now
@@ -244,7 +244,7 @@ function HomePage() {
                 </div>
               </div>
 
-              <Link to="/music/register" className="inline-flex items-center justify-center w-full sm:w-auto gap-2 text-white bg-stone-900 px-6 py-3 rounded-full font-bold hover:bg-orange-600 transition shadow-md text-sm sm:text-base">
+              <Link to="/register" className="inline-flex items-center justify-center w-full sm:w-auto gap-2 text-white bg-stone-900 px-6 py-3 rounded-full font-bold hover:bg-orange-600 transition shadow-md text-sm sm:text-base">
                 Read More 
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </Link>
@@ -275,9 +275,9 @@ function HomePage() {
             <div>
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100 text-orange-700 border border-orange-200 mb-5 text-[11px] sm:text-xs font-bold uppercase tracking-widest shadow-sm">
                 <span className="w-2.5 h-2.5 rounded-full bg-orange-500 animate-pulse"></span>
-                Currently Running Season
+                Currently Running Event
               </div>
-              <h2 className="font-serif text-3xl md:text-5xl text-stone-900 mb-6 drop-shadow-sm">Voice of Delhi NCR <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">Season 5</span></h2>
+              <h2 className="font-serif text-3xl md:text-5xl text-stone-900 mb-6 drop-shadow-sm">Voice of Delhi NCR <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">Season 4 Grand Finale</span></h2>
               
               <div className="space-y-5 mb-10">
                 <div className="flex items-center gap-4 text-stone-700 bg-white/60 p-3 rounded-2xl border border-white/40 shadow-sm backdrop-blur-sm hover:border-orange-200 transition-colors">
@@ -300,7 +300,7 @@ function HomePage() {
                 </div>
               </div>
 
-              <Link to="/music/register" className="inline-block px-8 py-4 rounded-full bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold hover:shadow-[0_10px_20px_rgba(234,88,12,0.3)] hover:-translate-y-1 transition-all">
+              <Link to="/register" className="inline-block px-8 py-4 rounded-full bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold hover:shadow-[0_10px_20px_rgba(234,88,12,0.3)] hover:-translate-y-1 transition-all">
                 Register Now
               </Link>
             </div>
@@ -315,7 +315,7 @@ function HomePage() {
                 <div className="text-[10px] sm:text-xs text-stone-500 font-bold uppercase tracking-widest">Registrations</div>
               </div>
               <div className="col-span-2 bg-stone-900 rounded-[2rem] p-6 relative overflow-hidden group h-40 sm:h-48 shadow-xl">
-                <img src="/legacy/bd1.jpg" className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700" alt="Event Highlights" />
+                <img src="/legacy/show.png" className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700" alt="Event Highlights" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <span className="px-5 py-2.5 bg-white/20 backdrop-blur-md rounded-full text-white font-bold text-sm border border-white/40 shadow-[0_4px_20px_rgba(0,0,0,0.3)]">View Event Highlights</span>
                 </div>
@@ -426,7 +426,7 @@ function HomePage() {
       </section>
 
       {/* 5. Success Stories */}
-      <section className="max-w-7xl mx-auto px-4 md:px-6 my-12 lg:my-16">
+      <section id="success-stories" className="scroll-mt-24 max-w-7xl mx-auto px-4 md:px-6 my-6 lg:my-10">
         <div className="text-center mb-10">
           <SectionHeading
             eyebrow="Hall of Fame"
@@ -446,11 +446,16 @@ function HomePage() {
             </ScrollReveal>
           ))}
         </div>
+        
+        {/* Testimonials */}
+        <div className="mt-16 sm:mt-24">
+          <TestimonialsSlider />
+        </div>
       </section>
 
       {/* 6. Team/Jury Section */}
       {/* 5. Brand Ambassador Section */}
-      <section id="ambassador" className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-16">
+      <section id="ambassador" className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-8">
         <ScrollReveal direction="up" className="group bg-gradient-to-br from-orange-50 to-amber-50 rounded-[2.5rem] overflow-hidden shadow-[0_20px_60px_rgba(234,88,12,0.08)] flex flex-col md:flex-row items-center border border-orange-100 relative">
           <div className="absolute top-0 right-0 w-96 h-96 bg-orange-400/10 rounded-full blur-[80px] pointer-events-none"></div>
           
@@ -498,7 +503,7 @@ function HomePage() {
       </section>
 
       {/* Meet The Jury Section */}
-      <section id="jury" className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-0 md:mt-2 mb-4 md:mb-8">
+      <section id="jury" className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-0 md:mt-2 mb-2 md:mb-4">
         <SectionHeading
           eyebrow="Expert Panel & Patrons"
           title="Meet Our Esteemed Patrons."
@@ -507,15 +512,44 @@ function HomePage() {
         <TeamSliderRow members={patronsData} />
       </section>
 
-      {/* Testimonials */}
-      <ScrollReveal direction="up" className="mt-1 mb-0">
-        <TestimonialsSlider />
-      </ScrollReveal>
-      
       {/* FAQ Section */}
-      <ScrollReveal direction="up" className="mt-2 sm:mt-5 mb-5">
+      <ScrollReveal direction="up" className="mt-2 sm:mt-4 mb-4">
         <FaqSection />
       </ScrollReveal>
+
+      {/* Sponsors Section */}
+      <section id="sponsors" className="scroll-mt-24 max-w-7xl mx-auto px-4 md:px-6 my-10 lg:my-16">
+        <ScrollReveal direction="up">
+          <div className="text-center mb-10">
+            <SectionHeading
+              eyebrow="Our Sponsors"
+              title="Powered By Great Partners"
+              text="We thank our sponsors for making the Voice of Delhi NCR competition a grand success year after year."
+            />
+          </div>
+
+          {/* Sponsor Image */}
+          <div className="w-full mb-12">
+            <img 
+              src="/images/sponsor.jpg" 
+              alt="Our Esteemed Sponsors" 
+              className="w-full h-auto object-cover rounded-[2rem] shadow-lg border border-stone-100" 
+            />
+          </div>
+
+          {/* Become a Sponsor CTA */}
+          <div className="text-center max-w-2xl mx-auto bg-orange-50 rounded-[2rem] p-8 sm:p-10 border border-orange-100 shadow-sm">
+            <p className="text-stone-600 text-sm sm:text-base mb-6 font-medium leading-relaxed">Interested in sponsoring and supporting the next generation of Indian classical and light music talent?</p>
+            <a
+              href="mailto:dmsaarohi@gmail.com"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-orange-600 text-white font-bold shadow-md hover:bg-orange-700 hover:scale-105 transition-all duration-300 text-sm"
+            >
+              Become a Sponsor
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </ScrollReveal>
+      </section>
 
       {/* 6. Contact Section */}
       <ScrollReveal direction="up"
@@ -563,7 +597,7 @@ function HomePage() {
       </ScrollReveal>
 
       {/* 7. Final CTA */}
-      <ScrollReveal direction="up" className="mb-10 rounded-3xl sm:rounded-[2.5rem] bg-stone-900 text-white p-8 sm:p-16 text-center relative overflow-hidden max-w-7xl mx-4 md:mx-6 xl:mx-auto">
+      <ScrollReveal direction="up" className="mb-6 rounded-3xl sm:rounded-[2.5rem] bg-stone-900 text-white p-8 sm:p-14 text-center relative overflow-hidden max-w-7xl mx-4 md:mx-6 xl:mx-auto">
         <div className="absolute inset-0 z-0 opacity-20">
           <div className="absolute -top-10 -left-10 sm:-top-20 sm:-left-20 w-40 h-40 sm:w-64 sm:h-64 bg-orange-500 rounded-full blur-[60px] sm:blur-[100px]"></div>
           <div className="absolute -bottom-10 -right-10 sm:-bottom-20 sm:-right-20 w-40 h-40 sm:w-64 sm:h-64 bg-amber-500 rounded-full blur-[60px] sm:blur-[100px]"></div>
@@ -574,7 +608,7 @@ function HomePage() {
           <p className="text-sm sm:text-lg text-stone-300 mb-8 sm:mb-10 px-2 sm:px-0">
             Join hundreds of talented singers across Delhi. Registrations for Season 5 are now open for a limited time.
           </p>
-          <Link to="/music/register" className="inline-block w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold text-base sm:text-lg hover:scale-105 transition-transform shadow-[0_10px_30px_rgba(249,115,22,0.4)]">
+          <Link to="/register" className="inline-block w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold text-base sm:text-lg hover:scale-105 transition-transform shadow-[0_10px_30px_rgba(249,115,22,0.4)]">
             Register Now
           </Link>
         </div>

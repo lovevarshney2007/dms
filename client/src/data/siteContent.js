@@ -61,10 +61,10 @@ export const successStories = [
 ];
 
 export const performancesGallery = [
-  { title: "Grand Finale Performance", type: "Video", image: "/legacy/bd2.jpg" },
+  { title: "Grand Finale Performance", type: "Video", image: "/legacy/show.png" },
   { title: "Classical Solo Act", type: "Video", image: "/legacy/current_event.jpg" },
-  { title: "Group Fusion", type: "Video", image: "/legacy/bd1.jpg" },
-  { title: "Audience Favorites", type: "Gallery", image: "/legacy/bd3.jpg" }
+  { title: "Group Fusion", type: "Video", image: "/legacy/patrons.jpg" },
+  { title: "Audience Favorites", type: "Gallery", image: "/legacy/about_group.png" }
 ];
 
 // New data for Upcoming Events
@@ -126,14 +126,15 @@ export const defaultContactForm = {
 
 export const defaultJoinUsForm = {
   fullName: "",
-  stageName: "",
   age: "",
   gender: "Male",
+  state: "",
   city: "",
-  phone: "",
+  whatsapp: "",
   email: "",
-  talentCategory: "Singer",
   languagePreference: "Hindi",
+  stageName: "",
+  talentCategory: "Singer",
   videoLink: "",
   shortIntroduction: ""
 };

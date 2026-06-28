@@ -7,7 +7,7 @@ function MusicSocietyTalentsPage() {
   const topTalent = qualifiedContestants[0]; // Aarav Sharma
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 space-y-24">
+    <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 space-y-14">
       
       {/* 1. Featured Talent of the Month */}
       <ScrollReveal direction="up" className="relative rounded-[3rem] bg-gradient-to-br from-stone-900 to-stone-950 overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.4)] border border-white/5">
