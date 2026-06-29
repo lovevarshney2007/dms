@@ -336,14 +336,14 @@ function HomePage() {
                 <p className="text-xs sm:text-sm font-bold uppercase tracking-widest text-orange-600 mb-1 sm:mb-2">Upcoming</p>
                 <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-stone-900">Music Events</h2>
               </div>
-              <Link to="/music/events" className="text-xs sm:text-sm font-bold text-stone-500 hover:text-orange-600 transition flex items-center gap-1">
+              <Link to="/voice-of-delhi-ncr" className="text-xs sm:text-sm font-bold text-stone-500 hover:text-orange-600 transition flex items-center gap-1">
                 View All <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="sm:w-4 sm:h-4"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </Link>
             </div>
             
             <div className="grid gap-4 sm:gap-6">
               {upcomingEvents.map(event => (
-                <Link key={event.id} to="/music/events" className="group glass-card rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col sm:flex-row hover:shadow-[0_10px_30px_rgba(234,88,12,0.15)] transition-all duration-300 border border-stone-200">
+                <Link key={event.id} to="/voice-of-delhi-ncr" className="group glass-card rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col sm:flex-row hover:shadow-[0_10px_30px_rgba(234,88,12,0.15)] transition-all duration-300 border border-stone-200">
                   <div className="sm:w-2/5 aspect-video relative overflow-hidden">
                     <img src={event.image} alt={event.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                     <div className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-white/90 backdrop-blur px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg text-[10px] sm:text-xs font-bold text-orange-700 shadow-sm">
@@ -368,13 +368,13 @@ function HomePage() {
           <div>
             <div className="flex items-end justify-between mb-6 sm:mb-8">
               <h2 className="font-serif text-2xl sm:text-3xl text-stone-900">Past Events</h2>
-              <Link to="/music/shows" className="text-xs sm:text-sm font-bold text-stone-500 hover:text-orange-600 transition flex items-center gap-1">
+              <Link to="/shows" className="text-xs sm:text-sm font-bold text-stone-500 hover:text-orange-600 transition flex items-center gap-1">
                 View All <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="sm:w-4 sm:h-4"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </Link>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
               {pastEvents.map(event => (
-                <Link key={event.id} to="/music/shows" className="group relative rounded-xl sm:rounded-2xl overflow-hidden aspect-square border border-stone-200 shadow-sm">
+                <Link key={event.id} to="/shows" className="group relative rounded-xl sm:rounded-2xl overflow-hidden aspect-square border border-stone-200 shadow-sm">
                   <img src={event.image} alt={event.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-3 sm:p-4">
                     <p className="text-white font-bold text-xs sm:text-sm leading-tight">{event.title}</p>
@@ -400,7 +400,7 @@ function HomePage() {
 
           <div className="space-y-3 sm:space-y-4">
             {qualifiedContestants.map((user, idx) => (
-              <Link key={idx} to="/music/talents" className="flex items-center justify-between p-3 sm:p-4 bg-white/80 hover:bg-white rounded-xl sm:rounded-2xl border border-stone-100 hover:border-orange-200 shadow-sm hover:shadow-md transition-all group">
+              <Link key={idx} to="/success-stories" className="flex items-center justify-between p-3 sm:p-4 bg-white/80 hover:bg-white rounded-xl sm:rounded-2xl border border-stone-100 hover:border-orange-200 shadow-sm hover:shadow-md transition-all group">
                 <div className="flex items-center gap-3 sm:gap-4">
                   <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-xs sm:text-sm ${idx === 0 ? 'bg-amber-100 text-amber-700 shadow-inner' : idx === 1 ? 'bg-stone-200 text-stone-700 shadow-inner' : idx === 2 ? 'bg-orange-100 text-orange-800 shadow-inner' : 'bg-stone-50 text-stone-400 border border-stone-100'}`}>
                     #{idx + 1}
@@ -419,7 +419,7 @@ function HomePage() {
             ))}
           </div>
           
-          <Link to="/music/talents" className="block w-full text-center mt-5 sm:mt-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-orange-50 text-orange-700 font-bold hover:bg-orange-100 transition-colors text-sm sm:text-base">
+          <Link to="/success-stories" className="block w-full text-center mt-5 sm:mt-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-orange-50 text-orange-700 font-bold hover:bg-orange-100 transition-colors text-sm sm:text-base">
             View Full Rankings
           </Link>
         </ScrollReveal>
