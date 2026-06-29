@@ -15,6 +15,9 @@ import {
 import ScrollReveal from "../components/common/ScrollReveal";
 import FaqSection from "../components/sections/FaqSection";
 import TestimonialsSlider from "../components/sections/TestimonialsSlider";
+import { getDaysUntilEvent } from "../lib/eventDates";
+
+const daysUntilFinale = getDaysUntilEvent();
 
 const steps = [
   {
@@ -244,7 +247,7 @@ function HomePage() {
                 </div>
               </div>
 
-              <Link to="/register" className="inline-flex items-center justify-center w-full sm:w-auto gap-2 text-white bg-stone-900 px-6 py-3 rounded-full font-bold hover:bg-orange-600 transition shadow-md text-sm sm:text-base">
+              <Link to="/about" className="inline-flex items-center justify-center w-full sm:w-auto gap-2 text-white bg-stone-900 px-6 py-3 rounded-full font-bold hover:bg-orange-600 transition shadow-md text-sm sm:text-base">
                 Read More 
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </Link>
@@ -307,8 +310,8 @@ function HomePage() {
             
             <div className="grid grid-cols-2 gap-4 sm:gap-6">
               <div className="bg-white border border-orange-100 rounded-[2rem] p-6 sm:p-8 text-center shadow-[0_10px_30px_rgba(234,88,12,0.05)] hover:border-orange-200 transition-colors">
-                <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500 mb-2">25</div>
-                <div className="text-[10px] sm:text-xs text-stone-500 font-bold uppercase tracking-widest">Days Left</div>
+                <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500 mb-2">{daysUntilFinale}</div>
+                <div className="text-[10px] sm:text-xs text-stone-500 font-bold uppercase tracking-widest">{daysUntilFinale === 0 ? "Event Day" : "Days Left"}</div>
               </div>
               <div className="bg-white border border-orange-100 rounded-[2rem] p-6 sm:p-8 text-center shadow-[0_10px_30px_rgba(234,88,12,0.05)] hover:border-orange-200 transition-colors">
                 <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500 mb-2">500+</div>

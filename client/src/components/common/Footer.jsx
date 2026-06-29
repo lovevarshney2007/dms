@@ -94,8 +94,8 @@ function Footer() {
         <div className="border-t border-stone-800/60 pt-4 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] font-medium text-stone-500">
           <p>© {new Date().getFullYear()} DMS Aarohi. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-stone-300 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-stone-300 transition-colors">Terms of Service</a>
+            <Link to="/privacy" className="hover:text-stone-300 transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-stone-300 transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>
