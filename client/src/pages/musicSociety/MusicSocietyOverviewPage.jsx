@@ -95,7 +95,7 @@ function MusicSocietyOverviewPage() {
       </ScrollReveal>
 
       {/* Mission, Vision, Values */}
-      <div className="grid sm:grid-cols-3 gap-6">
+      <div className="grid sm:grid-cols-3 gap-6 items-stretch">
         {[
           {
             icon: "🎵",
@@ -116,14 +116,14 @@ function MusicSocietyOverviewPage() {
             color: "from-pink-400 to-rose-500",
           },
         ].map((item, i) => (
-          <ScrollReveal key={i} direction="up" delay={i * 0.1}>
-            <div className="group relative overflow-hidden rounded-[2rem] border border-white bg-white p-7 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all backdrop-blur-md">
+          <ScrollReveal key={i} direction="up" delay={i * 0.1} className="flex">
+            <div className="group relative overflow-hidden rounded-[2rem] border border-white bg-white p-7 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all backdrop-blur-md w-full flex flex-col">
               <div className={`absolute left-0 top-0 h-full w-1.5 bg-gradient-to-b ${item.color}`}></div>
-              <div className="flex items-start gap-4">
+              <div className="flex items-start gap-4 flex-1">
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-stone-100 text-3xl shadow-sm transition-transform group-hover:scale-110">
                   {item.icon}
                 </div>
-                <div>
+                <div className="flex flex-col flex-1">
                   <h3 className="font-serif text-xl font-bold text-stone-900 mb-3">{item.title}</h3>
                   <p className="text-stone-600 text-sm leading-relaxed">{item.desc}</p>
                 </div>

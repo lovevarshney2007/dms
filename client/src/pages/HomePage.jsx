@@ -314,7 +314,7 @@ function HomePage() {
                 <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500 mb-2">500+</div>
                 <div className="text-[10px] sm:text-xs text-stone-500 font-bold uppercase tracking-widest">Registrations</div>
               </div>
-              <div className="col-span-2 bg-stone-900 rounded-[2rem] p-6 relative overflow-hidden group h-40 sm:h-48 shadow-xl">
+              <div className="col-span-2 bg-stone-900 rounded-[2rem] p-6 relative overflow-hidden group h-56 sm:h-72 shadow-xl">
                 <img src="/legacy/show.png" className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700" alt="Event Highlights" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <span className="px-5 py-2.5 bg-white/20 backdrop-blur-md rounded-full text-white font-bold text-sm border border-white/40 shadow-[0_4px_20px_rgba(0,0,0,0.3)]">View Event Highlights</span>
@@ -453,9 +453,19 @@ function HomePage() {
         </div>
       </section>
 
-      {/* 6. Team/Jury Section */}
-      {/* 5. Brand Ambassador Section */}
-      <section id="ambassador" className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-8">
+      {/* 5b. Transition Heading — Brand Ambassador */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-2 pb-6">
+        <div className="inline-flex items-center gap-3">
+          <div className="h-px w-16 bg-gradient-to-r from-transparent to-orange-300"></div>
+          <span className="text-xs font-bold uppercase tracking-widest text-orange-600 px-4 py-2 rounded-full bg-orange-50 border border-orange-100">
+            🎤 Meet Our Brand Ambassador
+          </span>
+          <div className="h-px w-16 bg-gradient-to-l from-transparent to-orange-300"></div>
+        </div>
+      </div>
+
+      {/* 6. Brand Ambassador Section */}
+      <section id="ambassador" className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
         <ScrollReveal direction="up" className="group bg-gradient-to-br from-orange-50 to-amber-50 rounded-[2.5rem] overflow-hidden shadow-[0_20px_60px_rgba(234,88,12,0.08)] flex flex-col md:flex-row items-center border border-orange-100 relative">
           <div className="absolute top-0 right-0 w-96 h-96 bg-orange-400/10 rounded-full blur-[80px] pointer-events-none"></div>
           

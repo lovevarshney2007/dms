@@ -3,13 +3,85 @@ import PlaylistsSection from "../../components/sections/PlaylistsSection";
 import SectionHeading from "../../components/common/SectionHeading";
 import ScrollReveal from "../../components/common/ScrollReveal";
 
+// Real shows from dmsaarohi.com website
+const pastShows = [
+  {
+    id: 1,
+    title: "Rafi Saab — The Very Best",
+    subtitle: "94th Birth Anniversary",
+    date: "23rd December, 2013",
+    location: "India Islamic Cultural Centre, Lodhi Road, New Delhi",
+    description: "Tribute to the Singer of the millennium — Mohammad Rafi Sahab by DMS AAROHI Singers on his 94th Birth Anniversary. A soulful evening celebrating the golden era of Indian music.",
+    image: "/legacy/patrons.jpg",
+    tag: "Tribute Concert"
+  },
+  {
+    id: 2,
+    title: "Dostana-2",
+    subtitle: "Tribute to Kishore Kumar",
+    date: "4th August, 2018",
+    location: "India Islamic Cultural Centre, Lodhi Road, New Delhi",
+    description: "Dedicated to Gurudev, the immeasurable depth of many of Kishore Da's songs is what has tugged at the hearts of listeners for decades & continues to do so.",
+    image: "/legacy/current_event.jpg",
+    tag: "Musical Evening"
+  },
+  {
+    id: 3,
+    title: "Main Hu Jhumroo — Kishore Sings for Kishore",
+    subtitle: "Special Edition",
+    date: "30th April, 2016",
+    location: "India Islamic Cultural Centre, Lodhi Road, New Delhi",
+    description: "Dedicated to Gurudev Kishore Da, the immeasurable depth of many of Kishore Da's songs is what has tugged at the hearts of listeners for decades & continues to do so.",
+    image: "/legacy/KT.jpg",
+    tag: "Kishore Tribute"
+  },
+  {
+    id: 4,
+    title: "Voice of Delhi-NCR",
+    subtitle: "Talent Hunt — Season 1",
+    date: "2018",
+    location: "Multiple Venues, Delhi NCR",
+    description: "DMS Aarohi's flagship singing talent hunt that discovered hundreds of emerging voices from across the Delhi NCR region. The event that started it all.",
+    image: "/legacy/poster.png",
+    tag: "Talent Hunt"
+  },
+  {
+    id: 5,
+    title: "Voice of Delhi-NCR",
+    subtitle: "Talent Hunt — Season 2",
+    date: "2019",
+    location: "Multiple Venues, Delhi NCR",
+    description: "Season 2 expanded to more cities, featuring celebrity judges and bigger prize pools for talented singers from the Delhi NCR region.",
+    image: "/legacy/about_group.png",
+    tag: "Talent Hunt"
+  },
+  {
+    id: 6,
+    title: "Voice of Rajasthan",
+    subtitle: "Season 3 — Special Edition",
+    date: "2021",
+    location: "Rajasthan",
+    description: "A special edition — Voice of Rajasthan — expanded DMS Aarohi's reach beyond Delhi NCR, celebrating the rich musical heritage of Rajasthan.",
+    image: "/legacy/image1.jpeg",
+    tag: "Special Edition"
+  }
+];
+
+const tagColors = {
+  "Tribute Concert": "bg-amber-100 text-amber-800",
+  "Musical Evening": "bg-blue-100 text-blue-800",
+  "Kishore Tribute": "bg-purple-100 text-purple-800",
+  "Talent Hunt": "bg-orange-100 text-orange-800",
+  "Special Edition": "bg-rose-100 text-rose-800"
+};
+
 function MusicSocietyShowsPage() {
   const upcomingShow = {
-    title: "Musical Evening & Alumni Meet",
-    date: "August 15, 2026 • 6:30 PM",
-    location: "Dilli Haat, INA, New Delhi",
-    description: "Join us for an exclusive evening of soulful melodies and energetic band performances featuring our top talents and returning alumni.",
-    image: "/legacy/current_event.jpg"
+    title: "Voice of Delhi NCR — Season 5 Grand Finale",
+    date: "4th July 2026 • 5:00 PM Onwards",
+    location: "Pearey Lal Bhawan (Gandhi Memorial Hall), ITO, New Delhi",
+    description: "Join us for an unforgettable evening as the finest voices of Delhi-NCR, including our Junior & Senior Category Finalists, compete for the ultimate title! Features live music by the DO-RE-MI band. FREE ENTRY for all music lovers!",
+    image: "/legacy/show.png"
   };
 
   const glimpses = [
@@ -20,7 +92,7 @@ function MusicSocietyShowsPage() {
   ];
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 space-y-14">
+    <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 space-y-12">
       
       {/* 1. Page Header & About Our Shows */}
       <ScrollReveal direction="up" className="relative grid lg:grid-cols-2 gap-12 items-center bg-gradient-to-br from-stone-900 to-stone-800 rounded-[3rem] p-8 sm:p-12 shadow-[0_20px_60px_rgba(0,0,0,0.3)] overflow-hidden">
@@ -30,12 +102,12 @@ function MusicSocietyShowsPage() {
           <h1 className="font-serif text-5xl sm:text-6xl font-bold text-white mb-6 leading-tight">
             Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-500">Shows</span>
           </h1>
-          <div className="space-y-4 text-stone-300 text-lg leading-relaxed">
-            <p>Welcome to the heart of DMS Aarohi's musical journey. Throughout the year, we host a variety of musical evenings, live concerts, and grand stage programs.</p>
-            <p>Our shows are meticulously curated to give emerging talents a premium stage to shine. From classical solo acts to electrifying group fusions, every show is designed to mesmerize our audience and create unforgettable memories.</p>
+          <div className="space-y-4 text-stone-300 text-base sm:text-lg leading-relaxed">
+            <p>Welcome to the heart of DMS Aarohi's musical journey. Throughout the year, we host a variety of musical evenings, tribute concerts, live stage programs, and grand talent hunts.</p>
+            <p>From classical tributes to Rafi Sahab, soulful evenings for Kishore Da, to the flagship Voice of Delhi NCR competition — every show is designed to celebrate music and create unforgettable memories.</p>
           </div>
           <Link to="/register" className="inline-block mt-8 px-8 py-4 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold rounded-xl hover:scale-105 transition-transform shadow-[0_10px_30px_rgba(249,115,22,0.3)]">
-            Perform in our next show
+            Perform in Our Next Show
           </Link>
         </div>
         <div className="relative h-80 lg:h-[500px] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/10 group">
@@ -43,10 +115,10 @@ function MusicSocietyShowsPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-stone-900 via-stone-900/40 to-transparent flex items-end p-8">
             <div className="text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
               <div className="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-bold uppercase tracking-wider mb-3 border border-white/20">Featured Highlight</div>
-              <p className="font-serif font-bold text-3xl mb-1">Grand Finale 2024</p>
+              <p className="font-serif font-bold text-3xl mb-1">Grand Finale 2026</p>
               <p className="text-stone-300 text-sm font-medium flex items-center gap-2">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                Talkatora Stadium, New Delhi
+                Pearey Lal Bhawan, ITO, New Delhi
               </p>
             </div>
           </div>
@@ -56,7 +128,7 @@ function MusicSocietyShowsPage() {
       {/* 2. Upcoming Shows */}
       <section>
         <ScrollReveal direction="up">
-          <div className="text-center mb-12">
+          <div className="text-center mb-10">
             <SectionHeading
               eyebrow="Mark your calendars"
               title="Upcoming Shows"
@@ -76,7 +148,7 @@ function MusicSocietyShowsPage() {
               </div>
             </div>
             <div className="w-full sm:w-3/5 relative z-10 sm:pr-8">
-              <h3 className="font-serif text-3xl sm:text-4xl font-bold text-stone-900 mb-4 leading-tight">{upcomingShow.title}</h3>
+              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-stone-900 mb-4 leading-tight">{upcomingShow.title}</h3>
               
               <div className="space-y-3 mb-6 bg-stone-50 rounded-2xl p-4 border border-stone-100">
                 <p className="text-stone-700 font-bold flex items-center gap-3">
@@ -93,28 +165,73 @@ function MusicSocietyShowsPage() {
                 </p>
               </div>
               
-              <p className="text-stone-500 text-sm leading-relaxed mb-8">{upcomingShow.description}</p>
+              <p className="text-stone-500 text-sm leading-relaxed mb-6">{upcomingShow.description}</p>
               
-              <button className="w-full sm:w-auto px-8 py-3.5 bg-stone-900 text-white font-bold rounded-xl hover:bg-orange-600 transition-colors shadow-lg flex items-center justify-center gap-2">
-                Get Free Passes
+              <Link to="/register" className="w-full sm:w-auto inline-flex justify-center items-center gap-2 px-8 py-3.5 bg-stone-900 text-white font-bold rounded-xl hover:bg-orange-600 transition-colors shadow-lg">
+                Register for Free Entry
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </button>
+              </Link>
             </div>
           </div>
         </ScrollReveal>
       </section>
 
-      {/* 3. Past Shows (PlaylistsSection with YouTube links) */}
+      {/* 3. Past Shows — DMS Aarohi Real Shows */}
+      <section>
+        <ScrollReveal direction="up">
+          <div className="text-center mb-10">
+            <SectionHeading
+              eyebrow="Our Legacy"
+              title="Past Shows & Events"
+              text="A journey through our most memorable musical evenings and talent hunts."
+            />
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {pastShows.map((show, idx) => (
+              <ScrollReveal key={show.id} direction="up" delay={idx * 0.07}>
+                <div className="group bg-white rounded-[2rem] overflow-hidden border border-stone-100 shadow-[0_8px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(234,88,12,0.1)] hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                  {/* Image */}
+                  <div className="h-52 relative overflow-hidden">
+                    <img src={show.image} alt={show.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                    {/* Tag */}
+                    <div className={`absolute top-3 left-3 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-sm ${tagColors[show.tag] || "bg-stone-100 text-stone-700"}`}>
+                      {show.tag}
+                    </div>
+                    {/* Date */}
+                    <div className="absolute bottom-3 left-3 text-white">
+                      <p className="text-[10px] font-bold text-white/80 uppercase tracking-wider">{show.date}</p>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-5 flex flex-col flex-1">
+                    <h3 className="font-serif text-lg font-bold text-stone-900 mb-0.5 group-hover:text-orange-600 transition-colors leading-tight">{show.title}</h3>
+                    <p className="text-orange-600 text-xs font-bold uppercase tracking-wider mb-3">{show.subtitle}</p>
+                    <p className="text-stone-500 text-xs leading-relaxed mb-4 flex-1">{show.description}</p>
+                    <div className="flex items-center gap-2 text-stone-400 text-[11px] font-medium">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                      {show.location}
+                    </div>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </ScrollReveal>
+      </section>
+
+      {/* 4. YouTube Playlists */}
       <ScrollReveal direction="up" delay={0.1}>
         <div className="max-w-6xl mx-auto">
           <PlaylistsSection />
         </div>
       </ScrollReveal>
 
-      {/* 4. Stage Glimpses (Gallery to fill page) */}
+      {/* 5. Stage Glimpses */}
       <section>
         <ScrollReveal direction="up">
-          <div className="text-center mb-12">
+          <div className="text-center mb-10">
             <SectionHeading
               eyebrow="Behind the scenes"
               title="Stage Glimpses"
@@ -123,8 +240,8 @@ function MusicSocietyShowsPage() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {glimpses.map((img, idx) => (
-              <div key={idx} className={`relative group rounded-3xl overflow-hidden shadow-lg ${idx === 0 || idx === 3 ? 'md:col-span-2 md:row-span-2' : ''}`}>
-                <img src={img} alt="Stage Glimpse" className="w-full h-full object-cover min-h-[200px] group-hover:scale-110 transition-transform duration-700" />
+              <div key={idx} className={`relative group rounded-3xl overflow-hidden shadow-lg ${idx === 0 || idx === 3 ? 'md:col-span-2' : ''}`}>
+                <img src={img} alt="Stage Glimpse" className="w-full h-full object-cover min-h-[180px] group-hover:scale-110 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/10 transition-colors duration-300" />
               </div>
             ))}

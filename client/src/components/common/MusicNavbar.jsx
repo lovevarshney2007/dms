@@ -92,14 +92,14 @@ function MusicNavbar() {
     },
     {
       label: "Success Stories",
-      href: isHomePage ? "#success-stories" : "/success-stories",
-      type: isHomePage ? "anchor" : "route",
+      href: "/success-stories",
+      type: "route",
       isActive: location.pathname === "/success-stories" || (isHomePage && (activeSection === "success-stories" || activeSection === "ambassador" || activeSection === "jury")),
     },
     {
       label: "Contact",
-      href: isHomePage ? "#contact" : "/contact",
-      type: isHomePage ? "anchor" : "route",
+      href: "/contact",
+      type: "route",
       isActive:
         location.pathname === "/contact" || (isHomePage && (activeSection === "contact" || activeSection === "sponsors")),
     },

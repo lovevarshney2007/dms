@@ -173,7 +173,7 @@ function VoiceOfDelhiNCRPage() {
         </ScrollReveal>
 
         {/* Quick Links Nav */}
-        <div className="pt-10">
+        <div className="pt-4">
           <QuickLinksSection />
         </div>
 
@@ -195,84 +195,78 @@ function VoiceOfDelhiNCRPage() {
                 key={season.id}
                 direction="up"
                 delay={idx * 0.08}
-                className="group relative bg-white rounded-[2rem] overflow-hidden border border-stone-100 shadow-[0_10px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(234,88,12,0.12)] hover:-translate-y-1 transition-all duration-300 flex flex-col"
               >
-                {/* Poster Image */}
-                <div className="h-56 sm:h-64 w-full relative overflow-hidden shrink-0">
-                  <img src={season.poster} alt={season.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 flex flex-col justify-between p-5">
-                    <div className="flex items-start justify-between">
-                      <span className={`text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full flex items-center gap-1.5 backdrop-blur-md shadow-sm ${season.status === 'upcoming' ? 'bg-orange-500 text-white' : 'bg-white/20 text-white border border-white/30'}`}>
+                <Link
+                  to={`/voice-of-delhi-ncr/${season.id}`}
+                  className="group relative bg-white rounded-[2rem] overflow-hidden border border-stone-100 shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_24px_60px_rgba(234,88,12,0.18)] hover:-translate-y-2 transition-all duration-300 flex flex-col"
+                >
+                  {/* Poster Image */}
+                  <div className="h-60 sm:h-72 w-full relative overflow-hidden shrink-0">
+                    <img src={season.poster} alt={season.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-stone-950/95 via-stone-900/50 to-stone-900/10"></div>
+
+                    {/* Status badge */}
+                    <div className="absolute top-4 left-4">
+                      <span className={`text-[11px] font-black uppercase tracking-widest px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shadow-md ${season.status === 'upcoming' ? 'bg-gradient-to-r from-orange-500 to-amber-400 text-white' : 'bg-white/15 text-white border border-white/25 backdrop-blur-sm'}`}>
                         {season.status === "upcoming" ? (
-                          <><span className="text-white text-xs animate-pulse">🔥</span> UPCOMING</>
+                          <><span className="animate-pulse">🔥</span> Registrations Open</>
                         ) : (
-                          <><span className="text-emerald-400 text-xs">✔</span> COMPLETED</>
+                          <><span className="text-emerald-400">✔</span> Completed</>
                         )}
                       </span>
-                      <span className="text-white font-bold text-xs tracking-wider bg-black/40 px-2.5 py-1.5 rounded-lg backdrop-blur-md border border-white/10">{season.year}</span>
                     </div>
-                    <div>
-                      <h2 className="text-white font-serif text-2xl font-bold leading-tight drop-shadow-lg mb-1">
-                        Voice of {season.title.includes("Delhi") ? "Delhi NCR" : "Rajasthan"}
+                    <span className="absolute top-4 right-4 text-white font-black text-xs tracking-wider bg-black/40 px-2.5 py-1.5 rounded-lg backdrop-blur-md border border-white/10">{season.year}</span>
+
+                    {/* Title at bottom of image */}
+                    <div className="absolute bottom-0 left-0 right-0 p-5">
+                      <p className="text-orange-400 text-[11px] font-bold tracking-widest uppercase mb-1">{season.subtitle}</p>
+                      <h2 className="text-white font-serif text-2xl font-bold leading-tight drop-shadow-lg">
+                        {season.title.includes("Delhi") ? "Voice of Delhi NCR" : "Voice of Rajasthan"}
                       </h2>
-                      <p className="text-orange-400 text-xs font-bold tracking-widest uppercase drop-shadow-md">{season.subtitle}</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="bg-white flex-1 px-6 pb-6 relative flex flex-col">
-                  {/* Divider overlapping the two sections */}
-                  <div className="absolute top-0 left-0 w-full flex justify-center -translate-y-1/2">
-                    <div className="bg-white px-3 text-[10px] font-bold text-stone-400 uppercase tracking-widest flex items-center gap-2">
-                      🏆 HALL OF FAME
                     </div>
                   </div>
 
-                  {season.status === "upcoming" ? (
-                    <div className="flex flex-col items-center text-center w-full pt-10 mb-6 flex-1">
-                      <div className="w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mb-4 text-2xl shadow-sm">
-                        🎤
+                  {/* Content */}
+                  <div className="bg-white flex-1 p-5 flex flex-col gap-4">
+                    {/* Winner / Upcoming Info */}
+                    {season.status === "upcoming" ? (
+                      <div className="flex items-center gap-3 bg-orange-50 border border-orange-100 rounded-2xl p-3.5">
+                        <div className="w-10 h-10 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-lg shrink-0">🎤</div>
+                        <div>
+                          <p className="text-[10px] text-stone-500 uppercase font-bold tracking-wider">Grand Finale</p>
+                          <p className="text-orange-600 font-black text-base leading-tight">{season.grandFinale}</p>
+                        </div>
                       </div>
-                      <h4 className="font-bold text-stone-900 text-base mb-1">Grand Finale</h4>
-                      <p className="text-orange-600 font-black text-xl mb-1">{season.grandFinale}</p>
-                      <p className="text-stone-400 text-xs font-medium">Registrations Open!</p>
-                    </div>
-                  ) : (
-                    <div className="flex flex-col flex-1 pt-10 mb-6">
-                      <div className="bg-stone-50/80 border border-stone-100 rounded-[1.25rem] p-3 w-full flex items-center gap-4 shadow-sm hover:shadow-md transition-shadow">
-                        <div className="w-12 h-12 rounded-full bg-white shadow-sm overflow-hidden border border-stone-100 shrink-0 p-0.5">
-                          <img src={season.winnerImg} alt={season.winner} className="w-full h-full object-cover object-top rounded-full" />
+                    ) : (
+                      <div className="flex items-center gap-3 bg-amber-50/70 border border-amber-100 rounded-2xl p-3.5">
+                        <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow shrink-0">
+                          <img src={season.winnerImg} alt={season.winner} className="w-full h-full object-cover object-top" />
                         </div>
                         <div>
-                          <h4 className="font-bold text-stone-900 text-sm truncate">{season.winner}</h4>
-                          <p className="text-orange-500 font-bold text-[10px] uppercase tracking-wider mt-0.5">{season.winner === 'Grand Finale Champion' ? 'CHAMPION' : 'WINNER'}</p>
+                          <p className="text-[10px] text-stone-400 uppercase font-bold tracking-wider">🏆 Winner</p>
+                          <p className="font-bold text-stone-900 text-sm truncate">{season.winner}</p>
                         </div>
                       </div>
-                    </div>
-                  )}
-
-                  <div className="w-full mt-auto">
-                    {season.youtube ? (
-                      <a
-                        href={season.youtube}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="w-full flex items-center justify-center gap-2 py-3 bg-red-50 text-red-600 font-bold text-xs rounded-xl hover:bg-red-100 hover:text-red-700 transition-colors"
-                      >
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="white"/></svg>
-                        Watch Highlights
-                      </a>
-                    ) : (
-                      <Link
-                        to="/register"
-                        className="w-full flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold text-xs rounded-xl hover:shadow-lg hover:opacity-90 transition-all"
-                      >
-                        Register Now →
-                      </Link>
                     )}
+
+                    {/* Description snippet */}
+                    <p className="text-stone-500 text-xs leading-relaxed line-clamp-2">{season.description}</p>
+
+                    {/* CTA Button */}
+                    <div className="mt-auto">
+                      {season.youtube ? (
+                        <span className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-gradient-to-r from-red-600 to-red-500 text-white font-bold text-xs rounded-xl group-hover:shadow-md transition-all">
+                          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="white"/></svg>
+                          Watch Highlights
+                        </span>
+                      ) : (
+                        <span className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold text-xs rounded-xl group-hover:shadow-[0_8px_20px_rgba(234,88,12,0.3)] transition-all">
+                          🎤 Register Now — Free Entry
+                        </span>
+                      )}
+                    </div>
                   </div>
-                </div>
+                </Link>
               </ScrollReveal>
             ))}
           </div>
