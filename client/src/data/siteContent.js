@@ -1,6 +1,7 @@
 export const highlights = [
-  "Registered under the Societies Registration Act, 1860",
-  "Dedicated to discovering and nurturing singing talent",
+  "Registered under the Societies Registration Act, 1860 (Registration No. Society/West/2013/8900890)",
+  "Registered under section 12A & 80G of the Income Tax Act, 1961",
+  "Dedicated to discovering and nurturing singing talent across the nation",
   "Runs talent hunt, live shows, and stage competitions"
 ];
 
@@ -45,19 +46,43 @@ export const teamData = [
   { name: "Peehu Srivastava", role: "Brand Ambassador", image: "/team/Peehu Srivastava (Brand Ambassador).png" }
 ];
 
-// New data for Leaderboard / Qualified Contestants
+// Season 4 Finalists — Senior Category (from official poster)
 export const qualifiedContestants = [
-  { rank: 1, name: "Aarav Sharma", status: "Grand Finalist", city: "New Delhi", image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&h=150&q=80" },
-  { rank: 2, name: "Priya Singh", status: "Semi Finalist", city: "Gurgaon", image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&h=150&q=80" },
-  { rank: 3, name: "Rohan Kapoor", status: "Round 1 Qualified", city: "Noida", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150&q=80" },
-  { rank: 4, name: "Neha Verma", status: "Round 1 Qualified", city: "Faridabad", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&h=150&q=80" },
-  { rank: 5, name: "Vikram Desai", status: "Audition Selected", city: "New Delhi", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&h=150&q=80" }
+  { name: "Adaa", status: "Grand Finalist", city: "Delhi NCR", category: "Junior", image: "/seasons/adaa.png" },
+  { name: "Arijit", status: "Grand Finalist", city: "Delhi NCR", category: "Senior", image: "/seasons/arijit.png" },
+  { name: "Ayaami", status: "Grand Finalist", city: "Delhi NCR", category: "Junior", image: "/seasons/ayaami.png" },
+  { name: "Deepshikha", status: "Grand Finalist", city: "Delhi NCR", category: "Senior", image: "/seasons/deepshikha.png" },
+  { name: "Kuvam", status: "Grand Finalist", city: "Delhi NCR", category: "Senior", image: "/seasons/kuvam.png" },
+  { name: "Mandeep", status: "Grand Finalist", city: "Delhi NCR", category: "Senior", image: "/seasons/mandeep.png" },
+  { name: "Pritika", status: "Grand Finalist", city: "Delhi NCR", category: "Senior", image: "/seasons/pratikia.png" },
+  { name: "Rahul", status: "Grand Finalist", city: "Delhi NCR", category: "Senior", image: "/seasons/rahul.png" },
+  { name: "Rajesh", status: "Grand Finalist", city: "Delhi NCR", category: "Senior", image: "/seasons/rajesh.png" },
+  { name: "Srishti", status: "Grand Finalist", city: "Delhi NCR", category: "Senior", image: "/seasons/sristi.png" },
+  { name: "Vineet", status: "Grand Finalist", city: "Delhi NCR", category: "Senior", image: "/seasons/vineet.png" },
+  { name: "Chetan", status: "Grand Finalist", city: "Delhi NCR", category: "Senior", image: "/legacy/pp.jpg" },
+  { name: "Khushjit", status: "Grand Finalist", city: "Delhi NCR", category: "Senior", image: "/legacy/pa.jpg" },
 ];
+// Junior Category finalists to be added — data pending from client
 
 export const successStories = [
-  { name: "Kavita Ram", achievement: "Winner of Season 3", description: "After winning Voice of Delhi-NCR, Kavita went on to record her first playback song for a major regional film.", image: "/legacy/Bhawna Bhatt.jpg" },
-  { name: "Rahul Yadav", achievement: "Runner Up Season 2", description: "Rahul formed his own classical fusion band and now performs globally, representing Indian heritage.", image: "/legacy/Rahul Yadav.jpg" },
-  { name: "Sneha & Team", achievement: "Best Group Performance", description: "This talented group from Noida was selected for national television auditions after their DMS Aarohi showcase.", image: "/legacy/about_group.png" }
+  {
+    name: "Peehu Srivastava",
+    achievement: "Winner — Season 1 (2018)",
+    description: "Voice of Delhi NCR Season 1 Winner. Rising Star on Colors TV and Indian Idol Jr. Mega Finalist on Sony TV. Now Brand Ambassador of DMS Aarohi.",
+    image: "/team/Peehu Srivastava (Brand Ambassador).png"
+  },
+  {
+    name: "Season 2 Champion",
+    achievement: "Voice of Delhi NCR — Season 2",
+    description: "Season 2 brought even bigger talent from across Delhi NCR. The champion's journey inspired hundreds to pursue their musical dreams.",
+    image: "/legacy/about_group.png"
+  },
+  {
+    name: "Season 3 Champion",
+    achievement: "Voice of Rajasthan — Season 3",
+    description: "In a special edition — Voice of Rajasthan — DMS Aarohi expanded its reach and discovered extraordinary talent from Rajasthan.",
+    image: "/legacy/current_event.jpg"
+  }
 ];
 
 export const performancesGallery = [
@@ -80,28 +105,28 @@ export const upcomingEvents = [
   }
 ];
 
-// New data for Past Events (Logically corrected & updated with working images)
+// Real past events from dmsaarohi.com
 export const pastEvents = [
   {
     id: 1,
-    title: "Season 3 Grand Finale",
-    date: "December 10, 2024",
-    location: "Talkatora Stadium",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtyVP6J7j966N7KGncoNrvMdmLeErmSHUKog&s"
+    title: "Rafi Saab — The Very Best",
+    date: "23rd December, 2013",
+    location: "India Islamic Cultural Centre, New Delhi",
+    image: "/legacy/patrons.jpg"
   },
   {
     id: 2,
-    title: "Monsoon Melodies Unplugged",
-    date: "July 05, 2024",
-    location: "Dilli Haat",
-    image: "https://tennews.in/wp-content/uploads/2018/02/DSC01780.jpg"
+    title: "Dostana-2 — Kishore Kumar Tribute",
+    date: "4th August, 2018",
+    location: "India Islamic Cultural Centre, New Delhi",
+    image: "/legacy/current_event.jpg"
   },
   {
     id: 3,
-    title: "Sufi Night Special",
-    date: "March 22, 2024",
-    location: "India Habitat Centre",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaWV-zJ1zZLggeh25DE_JjDiDwqrtaJEVg6Q&s"
+    title: "Bollywood Dhamaka",
+    date: "2015",
+    location: "Amphitheatre, Gurgaon",
+    image: "/legacy/show.png"
   }
 ];
 export const contactDetails = [
@@ -141,33 +166,33 @@ export const defaultJoinUsForm = {
 
 export const testimonials = [
   {
-    name: "Ravi Kumar",
-    season: "Season 3 Winner",
+    name: "A Season 1 Participant",
+    season: "Voice of Delhi NCR — Season 1",
     quote: "DMS Aarohi gave me the stage I always dreamt of. Performing in front of such amazing judges boosted my confidence to another level.",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&h=150&q=80"
+    image: "/legacy/pa.jpg"
   },
   {
-    name: "Simran Kaur",
-    season: "Season 4 First Runner-Up",
+    name: "A Season 2 Finalist",
+    season: "Voice of Delhi NCR — Season 2",
     quote: "The mentorship provided during the competition is unparalleled. I grew not just as a singer, but as a performer.",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&h=150&q=80"
+    image: "/legacy/pp.jpg"
   },
   {
-    name: "Aditya Verma",
-    season: "Season 2 Finalist",
-    quote: "From online auditions to the grand finale at Talkatora stadium, the entire journey was magical and extremely transparent.",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&h=150&q=80"
+    name: "A Season 3 Participant",
+    season: "Voice of Rajasthan — Season 3",
+    quote: "From online auditions to the grand finale stage, the entire journey was magical and extremely transparent.",
+    image: "/legacy/pa.jpg"
   }
 ];
 
 export const faqs = [
   {
     question: "Is there any registration fee for the auditions?",
-    answer: "No, the initial online audition is completely free of cost. If you are selected for the live studio rounds, a nominal processing fee may apply."
+    answer: "No, the initial online audition is completely free of cost. If you are selected for the live rounds, a nominal processing fee may apply."
   },
   {
-    question: "What is the age limit for participation?",
-    answer: "We have two categories: Junior Category (8-15 years) and Senior Category (16-35 years). Anyone falling in this age group can participate."
+    question: "What are the age categories for participation?",
+    answer: "We have three categories: Junior Category (8–15 years), Senior Category (16–45 years), and Super Senior Category (46–65 years). Anyone within these age groups can participate."
   },
   {
     question: "Can I sing a song of my own choice?",
@@ -175,6 +200,10 @@ export const faqs = [
   },
   {
     question: "Will the auditions be online or offline?",
-    answer: "The first round of auditions is strictly online. You just need to upload your unedited singing video. Shortlisted candidates will be invited for offline live battles."
+    answer: "Auditions are conducted both online and offline. Online: upload your unedited singing video. Offline: walk-in auditions are also held at select venues across Delhi NCR. Shortlisted candidates are invited for live battle rounds."
+  },
+  {
+    question: "Is the Season 4 Grand Finale open to the public?",
+    answer: "Yes! The Voice of Delhi NCR Season 4 Grand Finale on 4th July 2026 at Pearey Lal Bhawan (Gandhi Memorial Hall), ITO, New Delhi is open for public attendance. Entry is FREE."
   }
 ];

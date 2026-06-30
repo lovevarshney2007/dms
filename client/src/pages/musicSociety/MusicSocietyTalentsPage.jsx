@@ -52,9 +52,9 @@ function MusicSocietyTalentsPage() {
         <ScrollReveal direction="up">
           <div className="text-center mb-12">
             <SectionHeading
-              eyebrow="Season 5 Results"
+              eyebrow="Season 4 Finalists"
               title="Qualified Contestants"
-              text="Contestants who have qualified for the next round of Voice of Delhi NCR Season 5."
+              text="Season 4 Senior Category Finalists — competing at the Grand Finale on 4 July 2026."
             />
           </div>
           <div className="max-w-4xl mx-auto">
@@ -63,9 +63,6 @@ function MusicSocietyTalentsPage() {
                 {qualifiedContestants.map((user, idx) => (
                   <div key={idx} className="flex items-center justify-between p-4 sm:p-5 bg-stone-50/80 hover:bg-white rounded-2xl border border-stone-100 hover:border-orange-200 transition-all duration-300 group hover:shadow-[0_10px_30px_rgba(234,88,12,0.1)] hover:-translate-y-1">
                     <div className="flex items-center gap-4 sm:gap-6">
-                      <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center font-black text-lg sm:text-xl transition-colors ${idx === 0 ? 'bg-gradient-to-br from-amber-200 to-amber-400 text-amber-900 shadow-lg' : idx === 1 ? 'bg-gradient-to-br from-stone-200 to-stone-400 text-stone-800 shadow-md' : idx === 2 ? 'bg-gradient-to-br from-orange-200 to-orange-400 text-orange-900 shadow-md' : 'bg-white text-stone-400 border-2 border-stone-200 group-hover:border-orange-200 group-hover:text-orange-500'}`}>
-                        #{idx + 1}
-                      </div>
                       <div className="relative">
                         <img src={user.image} alt={user.name} className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover border-4 border-white shadow-sm" />
                         {idx < 3 && (
@@ -83,9 +80,9 @@ function MusicSocietyTalentsPage() {
                       </div>
                     </div>
                     <div className="text-right">
-                      <div className="inline-block px-3 py-1 bg-emerald-50 text-emerald-600 border border-emerald-100 rounded-full font-bold text-xs sm:text-sm mb-1">{user.status}</div>
-                      <div className="text-[10px] sm:text-xs uppercase tracking-widest text-stone-400 font-bold text-center">Score: {user.score}</div>
-                    </div>
+                       <div className="inline-block px-3 py-1 bg-emerald-50 text-emerald-600 border border-emerald-100 rounded-full font-bold text-xs sm:text-sm mb-1">{user.status}</div>
+                       <div className="text-[10px] sm:text-xs uppercase tracking-widest text-stone-400 font-bold text-center">{user.category}</div>
+                     </div>
                   </div>
                 ))}
               </div>

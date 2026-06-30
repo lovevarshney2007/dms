@@ -13,12 +13,12 @@ const galleryItems = [
   { id: 5, type: "Photos", title: "Award Ceremony", image: "/legacy/patrons.jpg", season: "Season 1" },
   { id: 6, type: "Photos", title: "Opening Night", image: "/legacy/image1.jpeg", season: "Season 4" },
   // Stage Performances
-  { id: 7, type: "Stage Performances", title: "Solo Performance", image: "/legacy/current_event.jpg", season: "Season 5" },
+  { id: 7, type: "Stage Performances", title: "Solo Performance", image: "/legacy/current_event.jpg", season: "Season 4" },
   { id: 8, type: "Stage Performances", title: "Voice of Rajasthan", image: "/legacy/KT.jpg", season: "Season 3" },
   { id: 9, type: "Stage Performances", title: "Group Fusion Act", image: "/legacy/show.png", season: "Season 2" },
   // Event Highlights
   { id: 10, type: "Event Highlights", title: "Grand Finale 2024", image: "/legacy/Joinus.jpg", season: "Season 4" },
-  { id: 11, type: "Event Highlights", title: "Registration Launch", image: "/legacy/poster.png", season: "Season 5" },
+  { id: 11, type: "Event Highlights", title: "Registration Launch", image: "/legacy/poster.png", season: "Season 4" },
   { id: 12, type: "Event Highlights", title: "Winners Felicitation", image: "/legacy/about_group.png", season: "Season 3" },
   // Videos
   { id: 13, type: "Videos", title: "Season 4 Highlights", image: "/legacy/show.png", season: "Season 4", isVideo: true, videoUrl: "https://www.youtube.com/live/r2VYf94YPNU?si=JObK4t3qQ_0VOrxE" },

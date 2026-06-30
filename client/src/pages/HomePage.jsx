@@ -98,19 +98,42 @@ function HomePage() {
         <div className="relative z-10 grid lg:grid-cols-[1.1fr_0.9fr] gap-10 md:gap-12 items-center px-4 sm:px-6 max-w-7xl mx-auto pb-8">
           {/* Left: Informative Content */}
           <ScrollReveal direction="left" className="text-center lg:text-left mt-6 md:mt-0">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/80 border border-orange-200 backdrop-blur-md mb-4 shadow-sm">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/80 border border-orange-200 backdrop-blur-md mb-3 shadow-sm">
               <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
-              <span className="text-[10px] sm:text-xs font-bold tracking-widest text-orange-800 uppercase">Delhi's Premier Singing Talent Hunt</span>
+              <span className="text-[10px] sm:text-xs font-bold tracking-widest text-orange-800 uppercase">Voice of Delhi NCR — Season 4</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black font-serif text-stone-900 leading-[1.1] mb-4 drop-shadow-sm">
-              Your Voice. <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">Our Grand Stage.</span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black font-serif text-stone-900 leading-[1.1] mb-3 drop-shadow-sm">
+              Delhi's Premier <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">Singing Talent Hunt</span>
             </h1>
 
-            <p className="text-base md:text-lg text-stone-700 mb-6 max-w-xl leading-relaxed font-medium mx-auto lg:mx-0">
-              Don't let your talent go unheard. DMS Aarohi brings you the ultimate singing talent hunt. Perform in front of celebrity judges, earn recognition, and launch your musical career.
+            <p className="text-base md:text-lg text-stone-700 mb-5 max-w-xl leading-relaxed font-medium mx-auto lg:mx-0">
+              Voice of Delhi NCR Season 4 Grand Finale — witness Delhi's finest voices compete for the ultimate title. Don't let your talent go unheard.
             </p>
+
+            {/* Season 4 Grand Finale Info Block */}
+            <div className="mb-6 bg-gradient-to-r from-orange-50 to-amber-50 border border-orange-200 rounded-2xl p-4 max-w-xl mx-auto lg:mx-0">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
+                <span className="text-[11px] font-black tracking-widest text-orange-700 uppercase">Season 4 Grand Finale</span>
+                <span className="ml-auto px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[10px] font-black rounded-full uppercase tracking-wide border border-emerald-200">FREE ENTRY</span>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                <div className="flex items-center gap-2 text-stone-700">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-orange-500 shrink-0"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  <span className="text-xs font-bold">4 July 2026</span>
+                </div>
+                <div className="flex items-center gap-2 text-stone-700">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-orange-500 shrink-0"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <span className="text-xs font-bold">5:00 PM Onwards</span>
+                </div>
+                <div className="flex items-center gap-2 text-stone-700">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-orange-500 shrink-0"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <span className="text-xs font-bold">Pearey Lal Bhawan, ITO</span>
+                </div>
+              </div>
+            </div>
 
             {/* Key Highlights / Why Participate */}
             <div className="grid grid-cols-2 gap-x-4 gap-y-6 mb-8 text-left max-w-xl mx-auto lg:mx-0">
@@ -129,44 +152,26 @@ function HomePage() {
                 </div>
                 <div>
                   <h4 className="font-bold text-stone-900 text-[15px] mb-0.5">Live Concerts</h4>
-                  <p className="text-[13px] text-stone-500 font-medium">Perform in stadiums</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="p-2.5 bg-emerald-100 rounded-xl text-emerald-600 shrink-0 shadow-sm">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                </div>
-                <div>
-                  <h4 className="font-bold text-stone-900 text-[15px] mb-0.5">Mentorship</h4>
-                  <p className="text-[13px] text-stone-500 font-medium">Learn from top singers</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="p-2.5 bg-blue-100 rounded-xl text-blue-600 shrink-0 shadow-sm">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="15" x="2" y="7" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg>
-                </div>
-                <div>
-                  <h4 className="font-bold text-stone-900 text-[15px] mb-0.5">Media Coverage</h4>
-                  <p className="text-[13px] text-stone-500 font-medium">Get featured on TV</p>
+                  <p className="text-[13px] text-stone-500 font-medium">Perform at grand venues</p>
                 </div>
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
               <Link
                 to="/register"
-                className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold text-base shadow-[0_8px_15px_rgba(234,88,12,0.2)] hover:-translate-y-1 text-center"
+                id="hero-register-btn"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold text-base shadow-[0_8px_15px_rgba(234,88,12,0.2)] hover:-translate-y-1 text-center transition-transform"
               >
                 Register Now
               </Link>
-              <div className="flex items-center gap-2 text-[13px] font-bold text-stone-500 justify-center">
-                <div className="flex -space-x-2">
-                  <img className="w-8 h-8 rounded-full border-2 border-white object-cover" src="/legacy/pa.jpg" alt="participant" />
-                  <img className="w-8 h-8 rounded-full border-2 border-white object-cover" src="/legacy/pp.jpg" alt="participant" />
-                  <div className="w-8 h-8 rounded-full border-2 border-white bg-stone-100 flex items-center justify-center text-[9px] font-black text-stone-600 shadow-sm">+5k</div>
-                </div>
-                Already <br/> Registered
-              </div>
+              <Link
+                to="/voice-of-delhi-ncr"
+                id="hero-explore-btn"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-full border-2 border-stone-300 text-stone-800 font-bold text-base hover:border-orange-500 hover:text-orange-600 text-center transition-all"
+              >
+                Explore Now
+              </Link>
             </div>
           </ScrollReveal>
 
@@ -180,9 +185,9 @@ function HomePage() {
               className="relative rounded-[1.5rem] overflow-hidden shadow-2xl border-[3px] border-white group cursor-pointer w-full h-[350px] sm:h-[400px] lg:h-[500px] mx-auto block"
             >
               <img 
-                src="https://images.stockcake.com/public/a/9/a/a9a4c56e-55a2-45fd-827a-f7f5fa8bf8f0_large/energetic-crowd-vibe-stockcake.jpg" 
+                src="/legacy/show.png" 
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
-                alt="Singer on Grand Stage"
+                alt="Voice of Delhi NCR — Grand Finale"
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
@@ -229,35 +234,41 @@ function HomePage() {
                 DMS Aarohi is more than just a talent hunt; it is a meticulously structured pathway designed to discover, nurture, and elevate raw singing talent from across the nation.
               </p>
               <p className="text-sm sm:text-base text-stone-600 leading-relaxed mb-6 sm:mb-8">
-                With highly transparent online digital auditions, rigorous constituency-level live battles, and a spectacular grand finale, we ensure every deserving participant gets a fair chance to shine under the spotlight.
+                With transparent online and offline auditions, rigorous live battles, and a spectacular grand finale, we ensure every deserving participant gets a fair chance to shine under the spotlight.
               </p>
               
               <div className="flex flex-wrap gap-3 sm:gap-4 mb-6 sm:mb-8">
                 <div className="px-3 py-2 sm:px-4 sm:py-2 bg-orange-50 rounded-lg border border-orange-100 flex flex-col flex-1 sm:flex-none">
-                  <span className="text-xl sm:text-2xl font-black text-orange-600">4+</span>
-                  <span className="text-[10px] sm:text-xs font-bold text-stone-500 uppercase">Successful Seasons</span>
+                  <span className="text-xl sm:text-2xl font-black text-orange-600">13+</span>
+                  <span className="text-[10px] sm:text-xs font-bold text-stone-500 uppercase">Years of Service</span>
                 </div>
                 <div className="px-3 py-2 sm:px-4 sm:py-2 bg-orange-50 rounded-lg border border-orange-100 flex flex-col flex-1 sm:flex-none">
-                  <span className="text-xl sm:text-2xl font-black text-orange-600">50K+</span>
-                  <span className="text-[10px] sm:text-xs font-bold text-stone-500 uppercase">Total Auditions</span>
+                  <span className="text-xl sm:text-2xl font-black text-orange-600">5,000+</span>
+                  <span className="text-[10px] sm:text-xs font-bold text-stone-500 uppercase">Participants</span>
                 </div>
                 <div className="px-3 py-2 sm:px-4 sm:py-2 bg-orange-50 rounded-lg border border-orange-100 flex flex-col flex-1 sm:flex-none">
-                  <span className="text-xl sm:text-2xl font-black text-orange-600">100+</span>
-                  <span className="text-[10px] sm:text-xs font-bold text-stone-500 uppercase">Live Shows</span>
+                  <span className="text-xl sm:text-2xl font-black text-orange-600">4</span>
+                  <span className="text-[10px] sm:text-xs font-bold text-stone-500 uppercase">Seasons</span>
                 </div>
               </div>
 
-              <Link to="/about" className="inline-flex items-center justify-center w-full sm:w-auto gap-2 text-white bg-stone-900 px-6 py-3 rounded-full font-bold hover:bg-orange-600 transition shadow-md text-sm sm:text-base">
-                Read More 
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-              </Link>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Link to="/voice-of-delhi-ncr" className="inline-flex items-center justify-center gap-2 text-white bg-stone-900 px-6 py-3 rounded-full font-bold hover:bg-orange-600 transition shadow-md text-sm sm:text-base">
+                  Explore Now
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </Link>
+                <Link to="/register" className="inline-flex items-center justify-center gap-2 text-orange-600 border-2 border-orange-300 px-6 py-3 rounded-full font-bold hover:bg-orange-50 transition text-sm sm:text-base">
+                  Register Now
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </Link>
+              </div>
             </div>
             
             <div className="relative mt-4 lg:mt-0">
               <div className="aspect-video sm:aspect-square lg:aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl relative z-10 border-4 border-white">
                 <img 
-                  src="https://images.stockcake.com/public/6/8/f/68f72f62-5672-4755-9821-223596df9fb0_large/singer-under-spotlights-stockcake.jpg" 
-                  alt="Singer performing on stage" 
+                  src="/talenthunt/91.jpg" 
+                  alt="DMS Aarohi Musical Society" 
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -402,12 +413,10 @@ function HomePage() {
           </div>
 
           <div className="space-y-3 sm:space-y-4">
-            {qualifiedContestants.map((user, idx) => (
+            {qualifiedContestants.slice(0, 6).map((user, idx) => (
               <Link key={idx} to="/success-stories" className="flex items-center justify-between p-3 sm:p-4 bg-white/80 hover:bg-white rounded-xl sm:rounded-2xl border border-stone-100 hover:border-orange-200 shadow-sm hover:shadow-md transition-all group">
                 <div className="flex items-center gap-3 sm:gap-4">
-                  <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-xs sm:text-sm ${idx === 0 ? 'bg-amber-100 text-amber-700 shadow-inner' : idx === 1 ? 'bg-stone-200 text-stone-700 shadow-inner' : idx === 2 ? 'bg-orange-100 text-orange-800 shadow-inner' : 'bg-stone-50 text-stone-400 border border-stone-100'}`}>
-                    #{idx + 1}
-                  </div>
+
                   <img src={user.image} alt={user.name} className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-white shadow-sm" />
                   <div>
                     <h4 className="font-bold text-sm sm:text-base text-stone-900 group-hover:text-orange-600 transition-colors">{user.name}</h4>
@@ -423,7 +432,7 @@ function HomePage() {
           </div>
           
           <Link to="/success-stories" className="block w-full text-center mt-5 sm:mt-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-orange-50 text-orange-700 font-bold hover:bg-orange-100 transition-colors text-sm sm:text-base">
-            View Full Rankings
+            View All Contestants
           </Link>
         </ScrollReveal>
       </section>
@@ -469,48 +478,57 @@ function HomePage() {
 
       {/* 6. Brand Ambassador Section */}
       <section id="ambassador" className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-        <ScrollReveal direction="up" className="group bg-gradient-to-br from-orange-50 to-amber-50 rounded-[2.5rem] overflow-hidden shadow-[0_20px_60px_rgba(234,88,12,0.08)] flex flex-col md:flex-row items-center border border-orange-100 relative">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-orange-400/10 rounded-full blur-[80px] pointer-events-none"></div>
+        <ScrollReveal direction="up" className="group bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100/50 rounded-[3rem] overflow-hidden shadow-[0_20px_60px_rgba(234,88,12,0.12)] flex flex-col md:flex-row items-center border-2 border-orange-200 relative">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-400/20 rounded-full blur-[100px] pointer-events-none"></div>
           
-          <div className="w-full md:w-2/5 h-80 md:h-[450px] relative overflow-hidden">
+          <div className="w-full md:w-2/5 h-96 md:h-[500px] relative overflow-hidden">
             <img 
               src="/team/Peehu Srivastava (Brand Ambassador).png" 
               alt="Peehu Srivastava" 
               className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" 
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-orange-50 md:bg-gradient-to-r md:from-transparent md:to-orange-50"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-orange-50 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-orange-50"></div>
           </div>
           
           <div className="p-8 md:p-12 lg:p-16 w-full md:w-3/5 text-center md:text-left relative z-10">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100 text-orange-700 border border-orange-200 mb-6 text-[11px] sm:text-xs font-bold uppercase tracking-widest shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
-              Brand Ambassador
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-orange-700 border border-orange-200 mb-6 text-xs font-black uppercase tracking-widest shadow-md">
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500 animate-pulse"></span>
+              Official Brand Ambassador
             </div>
             
-            <h3 className="text-3xl md:text-5xl font-serif text-stone-900 mb-4 drop-shadow-sm">Peehu Srivastava</h3>
+            <h3 className="text-4xl md:text-5xl lg:text-6xl font-serif text-stone-900 mb-4 drop-shadow-sm font-black">
+              Peehu Srivastava
+            </h3>
             
-            <p className="text-stone-600 text-sm md:text-base leading-relaxed max-w-xl mx-auto md:mx-0 mb-8 font-medium">
-              Proudly representing the Voice of Delhi NCR talent hunt across the nation. Peehu inspires thousands of young singers to step onto the grand stage and pursue their musical dreams with DMS Aarohi.
+            <p className="text-stone-700 text-sm md:text-base lg:text-lg leading-relaxed max-w-2xl mx-auto md:mx-0 mb-8 font-medium">
+              From winning the very first season of <strong className="text-orange-600">Voice of Delhi NCR</strong> to becoming a national television sensation. Peehu proudly represents DMS Aarohi, inspiring thousands of young singers across India to step onto the grand stage and pursue their musical dreams.
             </p>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto md:mx-0">
-              <div className="bg-white/80 backdrop-blur border border-white p-4 rounded-2xl shadow-sm hover:shadow-md hover:border-orange-200 transition-all group/card">
-                <div className="w-10 h-10 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center mb-3 group-hover/card:scale-110 transition-transform">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12h10"/><path d="M9 4v16"/><path d="m3 9 3 3-3 3"/></svg>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto md:mx-0">
+              <div className="bg-white backdrop-blur border border-stone-100 p-5 rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-orange-300 transition-all group/card">
+                <div className="w-12 h-12 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center mb-4 group-hover/card:scale-110 transition-transform shadow-inner">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12h10"/><path d="M9 4v16"/><path d="m3 9 3 3-3 3"/></svg>
                 </div>
-                <h4 className="font-bold text-stone-900 text-sm mb-1">Reality TV Star</h4>
-                <p className="text-xs text-stone-500 font-medium">Rising Star (Colors TV) & The Voice India Kids (&TV)</p>
+                <h4 className="font-bold text-stone-900 text-sm mb-1.5">Indian Idol Jr.</h4>
+                <p className="text-xs text-stone-500 font-medium">Mega Finalist (Sony TV)</p>
+              </div>
+
+              <div className="bg-white backdrop-blur border border-stone-100 p-5 rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-amber-300 transition-all group/card">
+                <div className="w-12 h-12 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mb-4 group-hover/card:scale-110 transition-transform shadow-inner">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <h4 className="font-bold text-stone-900 text-sm mb-1.5">Rising Star</h4>
+                <p className="text-xs text-stone-500 font-medium">Contestant (Colors TV)</p>
               </div>
               
-              <div className="bg-white/80 backdrop-blur border border-white p-4 rounded-2xl shadow-sm hover:shadow-md hover:border-orange-200 transition-all group/card">
-                <div className="w-10 h-10 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mb-3 group-hover/card:scale-110 transition-transform">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+              <div className="bg-white backdrop-blur border border-stone-100 p-5 rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-emerald-300 transition-all group/card">
+                <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mb-4 group-hover/card:scale-110 transition-transform shadow-inner">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
                 </div>
-                <h4 className="font-bold text-stone-900 text-sm mb-1">Our Proud Winner</h4>
-                <p className="text-xs text-stone-500 font-medium">Winner of Voice of Delhi-NCR Competition</p>
+                <h4 className="font-bold text-stone-900 text-sm mb-1.5">Our Champion</h4>
+                <p className="text-xs text-stone-500 font-medium">Winner of Season 1</p>
               </div>
             </div>
-            
           </div>
         </ScrollReveal>
       </section>

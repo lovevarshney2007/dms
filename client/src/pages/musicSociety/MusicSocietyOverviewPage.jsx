@@ -37,9 +37,23 @@ function MusicSocietyOverviewPage() {
             </span>{" "}
             Musical Society
           </h1>
-          <p className="text-lg text-stone-600 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-lg text-stone-600 leading-relaxed max-w-2xl mx-auto mb-8">
             A registered musical society dedicated to discovering, nurturing, and elevating singing talent across Delhi NCR and beyond.
           </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Link
+              to="/register"
+              className="px-6 py-3 rounded-full bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold text-sm hover:-translate-y-1 transition-transform shadow-md"
+            >
+              Register Now
+            </Link>
+            <Link
+              to="/voice-of-delhi-ncr"
+              className="px-6 py-3 rounded-full border-2 border-stone-300 text-stone-800 font-bold text-sm hover:border-orange-500 hover:text-orange-600 transition-all"
+            >
+              Explore Now
+            </Link>
+          </div>
         </div>
       </ScrollReveal>
 
@@ -247,7 +261,7 @@ function MusicSocietyOverviewPage() {
               to="/voice-of-delhi-ncr"
               className="px-8 py-4 rounded-full border-2 border-stone-300 text-stone-700 font-bold hover:border-orange-400 hover:text-orange-600 transition-all"
             >
-              View All Seasons
+              Explore Seasons
             </Link>
           </div>
         </div>

@@ -7,7 +7,7 @@ const quickLinks = [
     desc: "Discover emerging voices & leaderboards.",
     to: "/success-stories",
     img: "/legacy/talents_bg.png",
-    badge: "Season 5",
+    badge: "Season 4",
     badgeColor: "bg-orange-500"
   },
   {
