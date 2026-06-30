@@ -74,7 +74,7 @@ function HomePage() {
             <span className="mx-3 md:mx-4">•</span>
             <span>4 JULY 2026 • PEAREY LAL BHAWAN, ITO, NEW DELHI</span>
             <span className="mx-3 md:mx-4">•</span>
-            <span>🎵 FREE ENTRY FOR ALL MUSIC LOVERS</span>
+            <span>🎵 REGISTER NOW — PEAREY LAL BHAWAN, ITO</span>
             <span className="mx-3 md:mx-4">•</span>
             <span>LIVE PERFORMANCES BY FINALISTS & CELEBRITY GUESTS</span>
             <span className="mx-3 md:mx-4">•</span>
@@ -82,7 +82,7 @@ function HomePage() {
             <span className="mx-3 md:mx-4">•</span>
             <span>4 JULY 2026 • PEAREY LAL BHAWAN, ITO, NEW DELHI</span>
             <span className="mx-3 md:mx-4">•</span>
-            <span>🎵 FREE ENTRY FOR ALL MUSIC LOVERS</span>
+            <span>🎵 REGISTER NOW — PEAREY LAL BHAWAN, ITO</span>
             <span className="mx-3 md:mx-4">•</span>
             <span>LIVE PERFORMANCES BY FINALISTS & CELEBRITY GUESTS</span>
           </div>
@@ -619,7 +619,7 @@ function HomePage() {
         <div className="relative z-10 max-w-2xl mx-auto">
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">Ready to take the stage?</h2>
           <p className="text-sm sm:text-lg text-stone-300 mb-8 sm:mb-10 px-2 sm:px-0">
-            Join hundreds of talented singers across Delhi. Registrations for Season 5 are now open for a limited time.
+            Join hundreds of talented singers across Delhi. Registrations for the Season 4 Grand Finale are now open — 4th July 2026.
           </p>
           <Link to="/register" className="inline-block w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold text-base sm:text-lg hover:scale-105 transition-transform shadow-[0_10px_30px_rgba(249,115,22,0.4)]">
             Register Now

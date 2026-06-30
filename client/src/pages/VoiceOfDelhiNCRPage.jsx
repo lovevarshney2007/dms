@@ -71,43 +71,22 @@ const seasons = [
     id: "season-4",
     title: "Voice of Delhi NCR",
     subtitle: "Season 4",
-    year: "2023",
-    status: "completed",
-    color: "from-violet-500 to-purple-600",
-    lightBg: "from-violet-50 to-purple-50",
-    borderColor: "border-violet-200",
-    winner: "Grand Finale Champion",
-    winnerImg: "/legacy/patrons.jpg",
-    description:
-      "Season 4 returned to Delhi NCR with unprecedented scale — featuring online auditions, multi-city live battles, and a spectacular Grand Finale that brought together the finest voices of the region.",
-    highlights: [
-      "Online auditions for the first time",
-      "Multi-city live battles",
-      "Spectacular Grand Finale",
-    ],
-    youtube: "https://www.youtube.com/channel/UCFmS_dMuj8yvCUcR-X2NdYQ",
-    poster: "/legacy/patrons.jpg",
-  },
-  {
-    id: "season-5",
-    title: "Voice of Delhi NCR",
-    subtitle: "Season 5",
     year: "2026",
-    status: "upcoming",
+    status: "grand-finale",
     color: "from-orange-500 to-amber-400",
     lightBg: "from-orange-50 to-amber-50",
     borderColor: "border-orange-300",
     winner: null,
     winnerImg: null,
     grandFinale: "4th July 2026",
-    venue: "Pearey Lal Bhawan, ITO, New Delhi",
+    venue: "Pearey Lal Bhawan (Gandhi Memorial Hall), ITO, New Delhi",
     description:
-      "The most anticipated season is here! Voice of Delhi NCR Season 5 is bringing back the magic with online auditions, live competitions, and the Grand Finale on 4th July 2026. Registrations are now open!",
+      "The most anticipated Grand Finale is here! Voice of Delhi NCR Season 4 culminates in a spectacular Grand Finale on 4th July 2026. Watch the finest voices of Delhi-NCR, including Junior & Senior Category Finalists, compete for the ultimate title. Live music by the DO-RE-MI band!",
     highlights: [
-      "Grand Finale: 4th July 2026",
+      "Grand Finale: 4th July 2026 • 5:00 PM Onwards",
       "Venue: Pearey Lal Bhawan, ITO, New Delhi",
-      "Registrations: OPEN",
       "Junior & Senior Categories",
+      "Live music by DO-RE-MI Band",
     ],
     youtube: null,
     poster: "/legacy/poster.png",
@@ -152,7 +131,7 @@ function VoiceOfDelhiNCRPage() {
         <ScrollReveal direction="up">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
-              { num: "5", label: "Seasons Completed / Running" },
+              { num: "4", label: "Successful Seasons" },
               { num: "5,000+", label: "Total Participants" },
               { num: "4+", label: "States Covered" },
               { num: "₹1L+", label: "Total Prize Money" },
@@ -207,9 +186,13 @@ function VoiceOfDelhiNCRPage() {
 
                     {/* Status badge */}
                     <div className="absolute top-4 left-4">
-                      <span className={`text-[11px] font-black uppercase tracking-widest px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shadow-md ${season.status === 'upcoming' ? 'bg-gradient-to-r from-orange-500 to-amber-400 text-white' : 'bg-white/15 text-white border border-white/25 backdrop-blur-sm'}`}>
-                        {season.status === "upcoming" ? (
-                          <><span className="animate-pulse">🔥</span> Registrations Open</>
+                      <span className={`text-[11px] font-black uppercase tracking-widest px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shadow-md ${
+                        season.status === 'grand-finale'
+                          ? 'bg-gradient-to-r from-orange-500 to-amber-400 text-white'
+                          : 'bg-white/15 text-white border border-white/25 backdrop-blur-sm'
+                      }`}>
+                        {season.status === "grand-finale" ? (
+                          <><span className="animate-pulse">🔥</span> Grand Finale — 4 July 2026</>
                         ) : (
                           <><span className="text-emerald-400">✔</span> Completed</>
                         )}
@@ -228,13 +211,13 @@ function VoiceOfDelhiNCRPage() {
 
                   {/* Content */}
                   <div className="bg-white flex-1 p-5 flex flex-col gap-4">
-                    {/* Winner / Upcoming Info */}
-                    {season.status === "upcoming" ? (
+                    {/* Winner / Grand Finale / Completed Info */}
+                    {season.status === "grand-finale" ? (
                       <div className="flex items-center gap-3 bg-orange-50 border border-orange-100 rounded-2xl p-3.5">
-                        <div className="w-10 h-10 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-lg shrink-0">🎤</div>
+                        <div className="w-10 h-10 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-lg shrink-0 animate-pulse">🎤</div>
                         <div>
                           <p className="text-[10px] text-stone-500 uppercase font-bold tracking-wider">Grand Finale</p>
-                          <p className="text-orange-600 font-black text-base leading-tight">{season.grandFinale}</p>
+                          <p className="text-orange-600 font-black text-base leading-tight">{season.grandFinale} • 5:00 PM</p>
                         </div>
                       </div>
                     ) : (
@@ -254,14 +237,18 @@ function VoiceOfDelhiNCRPage() {
 
                     {/* CTA Button */}
                     <div className="mt-auto">
-                      {season.youtube ? (
+                      {season.status === "grand-finale" ? (
+                        <span className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold text-xs rounded-xl group-hover:shadow-[0_8px_20px_rgba(234,88,12,0.3)] transition-all">
+                          🎤 Register Now
+                        </span>
+                      ) : season.youtube ? (
                         <span className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-gradient-to-r from-red-600 to-red-500 text-white font-bold text-xs rounded-xl group-hover:shadow-md transition-all">
                           <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="white"/></svg>
                           Watch Highlights
                         </span>
                       ) : (
                         <span className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold text-xs rounded-xl group-hover:shadow-[0_8px_20px_rgba(234,88,12,0.3)] transition-all">
-                          🎤 Register Now — Free Entry
+                          🎤 View Season Details
                         </span>
                       )}
                     </div>
@@ -281,17 +268,16 @@ function VoiceOfDelhiNCRPage() {
             </div>
             <div className="relative z-10 max-w-xl mx-auto">
               <h2 className="font-serif text-3xl sm:text-4xl text-white font-bold mb-4">
-                Ready to be the next champion?
+                The Grand Finale is on 4th July 2026!
               </h2>
               <p className="text-stone-300 mb-8">
-                Season 5 registrations are open. Grand Finale: 4th July 2026 at
-                Pearey Lal Bhawan, ITO, New Delhi.
+                Season 4 Grand Finale registrations are open. Join us at Pearey Lal Bhawan (Gandhi Memorial Hall), ITO, New Delhi — 5:00 PM Onwards.
               </p>
               <Link
                 to="/register"
                 className="inline-block px-8 py-4 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold hover:scale-105 transition-transform shadow-[0_10px_30px_rgba(249,115,22,0.4)]"
               >
-                Register for Season 5
+                Register for Season 4 Grand Finale
               </Link>
             </div>
           </div>
@@ -334,12 +320,12 @@ function SeasonDetailPage({ season }) {
               <div>
                 <span
                   className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest mb-6 ${
-                    season.status === "upcoming"
+                    season.status === "grand-finale"
                       ? "bg-orange-500 text-white animate-pulse"
                       : "bg-stone-900 text-white"
                   }`}
                 >
-                  {season.status === "upcoming" ? "🔥 Live Now" : "✅ Season Completed"}
+                  {season.status === "grand-finale" ? "🔥 Grand Finale — Live Now" : "✅ Season Completed"}
                 </span>
                 <h1 className="font-serif text-4xl sm:text-5xl text-stone-900 mb-2 font-bold">
                   {season.title}
@@ -350,7 +336,7 @@ function SeasonDetailPage({ season }) {
                 <p className="text-stone-600 leading-relaxed text-lg">
                   {season.description}
                 </p>
-                {season.status === "upcoming" && (
+                {season.status === "grand-finale" && (
                   <Link
                     to="/register"
                     className="mt-8 inline-block px-8 py-4 rounded-full bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold hover:shadow-[0_10px_20px_rgba(234,88,12,0.3)] hover:-translate-y-1 transition-all"
@@ -423,24 +409,24 @@ function SeasonDetailPage({ season }) {
           </ScrollReveal>
         )}
 
-        {season.status === "upcoming" && (
+        {season.status === "grand-finale" && (
           <ScrollReveal direction="up">
             <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-[2.5rem] p-10 border border-orange-200 text-center">
               <p className="text-xs font-bold uppercase tracking-widest text-orange-600 mb-4 animate-pulse">
-                🔥 Season 5 is Live!
+                🔥 Season 4 Grand Finale — Live Now!
               </p>
               <h2 className="font-serif text-3xl text-stone-900 mb-4">
                 Grand Finale Details
               </h2>
               <p className="font-black text-4xl text-orange-600 mb-2">
-                {season.grandFinale}
+                {season.grandFinale} • 5:00 PM Onwards
               </p>
               <p className="text-stone-600 mb-8">{season.venue}</p>
               <Link
                 to="/register"
                 className="inline-block px-10 py-4 rounded-full bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold text-lg hover:scale-105 transition-transform shadow-[0_10px_30px_rgba(234,88,12,0.3)]"
               >
-                Register Now — Free Entry
+                Register Now
               </Link>
             </div>
           </ScrollReveal>

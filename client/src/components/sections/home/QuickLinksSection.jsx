@@ -31,7 +31,7 @@ const quickLinks = [
     desc: "Register as a singer or volunteer.",
     to: "/register",
     img: "/legacy/Joinus.jpg",
-    badge: "Free Entry",
+    badge: "Register Now",
     badgeColor: "bg-amber-500"
   }
 ];

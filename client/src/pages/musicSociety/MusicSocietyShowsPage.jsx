@@ -77,10 +77,10 @@ const tagColors = {
 
 function MusicSocietyShowsPage() {
   const upcomingShow = {
-    title: "Voice of Delhi NCR — Season 5 Grand Finale",
+    title: "Voice of Delhi NCR — Season 4 Grand Finale",
     date: "4th July 2026 • 5:00 PM Onwards",
     location: "Pearey Lal Bhawan (Gandhi Memorial Hall), ITO, New Delhi",
-    description: "Join us for an unforgettable evening as the finest voices of Delhi-NCR, including our Junior & Senior Category Finalists, compete for the ultimate title! Features live music by the DO-RE-MI band. FREE ENTRY for all music lovers!",
+    description: "Join us for an unforgettable evening as the finest voices of Delhi-NCR, including our Junior & Senior Category Finalists, compete for the ultimate title! Features live music by the DO-RE-MI band. Register now to attend!",
     image: "/legacy/show.png"
   };
 
@@ -168,7 +168,7 @@ function MusicSocietyShowsPage() {
               <p className="text-stone-500 text-sm leading-relaxed mb-6">{upcomingShow.description}</p>
               
               <Link to="/register" className="w-full sm:w-auto inline-flex justify-center items-center gap-2 px-8 py-3.5 bg-stone-900 text-white font-bold rounded-xl hover:bg-orange-600 transition-colors shadow-lg">
-                Register for Free Entry
+                Register Now
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </Link>
             </div>

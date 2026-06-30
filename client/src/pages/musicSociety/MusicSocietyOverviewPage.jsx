@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import SectionHeading from "../../components/common/SectionHeading";
 import ScrollReveal from "../../components/common/ScrollReveal";
-import { objectives, highlights } from "../../data/siteContent";
+import { objectives, highlights, teamData } from "../../data/siteContent";
 
 const milestones = [
   { year: "2013", title: "Society Founded", desc: "DMS Aarohi Musical Society was registered under the Societies Registration Act, 1860 with a vision to promote Indian music." },
@@ -9,13 +9,13 @@ const milestones = [
   { year: "2019", title: "Season 2", desc: "Season 2 expanded to more localities, featuring celebrity judges and bigger prize pools." },
   { year: "2021", title: "Voice of Rajasthan — Season 3", desc: "A special edition — Voice of Rajasthan — expanded DMS Aarohi's reach beyond Delhi NCR." },
   { year: "2023", title: "Season 4 — Online Auditions", desc: "Season 4 introduced online auditions for the first time, significantly expanding participant reach." },
-  { year: "2026", title: "Season 5 — Grand Finale", desc: "Voice of Delhi NCR Season 5 — Grand Finale on 4th July 2026 at Pearey Lal Bhawan, ITO, New Delhi." },
+  { year: "2026", title: "Season 4 — Grand Finale", desc: "Voice of Delhi NCR Season 4 — Grand Finale on 4th July 2026 at Pearey Lal Bhawan (Gandhi Memorial Hall), ITO, New Delhi." },
 ];
 
 const stats = [
   { number: "13+", label: "Years of Service" },
   { number: "5,000+", label: "Total Participants" },
-  { number: "5", label: "Successful Seasons" },
+  { number: "4", label: "Successful Seasons" },
   { number: "100+", label: "Events Organized" },
 ];
 
@@ -199,6 +199,34 @@ function MusicSocietyOverviewPage() {
         </div>
       </div>
 
+      {/* Team Section */}
+      <ScrollReveal direction="up">
+        <div className="text-center mb-12">
+          <SectionHeading
+            eyebrow="The People Behind DMS Aarohi"
+            title="Meet Our Team"
+            text="Passionate individuals dedicated to nurturing musical talent and celebrating India's rich musical heritage."
+          />
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+          {teamData.map((member, i) => (
+            <ScrollReveal key={i} direction="up" delay={i * 0.07}>
+              <div className="group text-center bg-white rounded-[2rem] p-6 border border-stone-100 shadow-[0_8px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(234,88,12,0.12)] hover:-translate-y-1 transition-all duration-300">
+                <div className="relative mx-auto mb-4 w-24 h-24 rounded-full overflow-hidden border-4 border-orange-50 shadow-md group-hover:border-orange-200 transition-colors">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <h3 className="font-serif font-bold text-stone-900 text-base leading-tight mb-1">{member.name}</h3>
+                <p className="text-orange-600 text-xs font-bold uppercase tracking-wider">{member.role}</p>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </ScrollReveal>
+
       {/* CTA */}
       <ScrollReveal direction="up">
         <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-[2.5rem] p-10 text-center border border-orange-100">
@@ -206,14 +234,14 @@ function MusicSocietyOverviewPage() {
             Be Part of Our Journey
           </h2>
           <p className="text-stone-600 mb-8 max-w-lg mx-auto">
-            Season 5 is here! Register now for a chance to perform on Delhi's biggest musical stage.
+            Season 4 Grand Finale is here! Register now for a chance to attend Delhi's biggest musical event on 4th July 2026.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/register"
               className="px-8 py-4 rounded-full bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold hover:shadow-[0_10px_20px_rgba(234,88,12,0.3)] hover:-translate-y-1 transition-all"
             >
-              Register for Season 5
+              Register for Season 4 Grand Finale
             </Link>
             <Link
               to="/voice-of-delhi-ncr"

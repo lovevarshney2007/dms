@@ -72,11 +72,11 @@ export const performancesGallery = [
 export const upcomingEvents = [
   {
     id: 1,
-    title: "🎤 Voice of Delhi-NCR Season 5 Grand Finale",
+    title: "🎤 Voice of Delhi-NCR Season 4 Grand Finale",
     date: "July 4, 2026 • 5:00 PM Onwards",
     location: "Pearey Lal Bhawan (Gandhi Memorial Hall), ITO, New Delhi",
     image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80",
-    description: "Join us for an unforgettable evening as the finest voices of Delhi-NCR, including our Junior Category Finalists, compete for the ultimate title! Features live music by the DO-RE-MI band. FREE ENTRY for all music lovers!"
+    description: "Join us for an unforgettable evening as the finest voices of Delhi-NCR, including our Junior & Senior Category Finalists, compete for the ultimate title! Features live music by the DO-RE-MI band. Register now to attend!"
   }
 ];
 
