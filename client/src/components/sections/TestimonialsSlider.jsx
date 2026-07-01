@@ -1,9 +1,32 @@
-import { useState } from "react";
-import { testimonials } from "../../data/siteContent";
+import { useState, useEffect } from "react";
+import { testimonials as fallbackTestimonials } from "../../data/siteContent";
 import SectionHeading from "../common/SectionHeading";
 
 export default function TestimonialsSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [testimonials, setTestimonials] = useState(fallbackTestimonials);
+
+  useEffect(() => {
+    const fetchTestimonials = async () => {
+      try {
+        const res = await fetch(import.meta.env.VITE_API_URL + '/api/content/testimonial');
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data.length > 0) {
+            setTestimonials(data.map(d => ({
+              name: d.title,
+              season: d.subtitle,
+              quote: d.description,
+              image: d.imageUrl
+            })));
+          }
+        }
+      } catch (err) {
+        console.error("Failed to fetch testimonials:", err);
+      }
+    };
+    fetchTestimonials();
+  }, []);
 
   const next = () => setCurrentIndex((prev) => (prev + 1) % testimonials.length);
   const prev = () => setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
