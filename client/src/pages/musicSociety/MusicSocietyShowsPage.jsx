@@ -229,7 +229,7 @@ const tagColors = {
 };
 
 function MusicSocietyShowsPage() {
-  const [shows, setShows] = useState(fallbackShows);
+  const [shows, setShows] = useState([]);
 
   useEffect(() => {
     fetch(import.meta.env.VITE_API_URL + "/api/content/competition")
@@ -246,11 +246,8 @@ function MusicSocietyShowsPage() {
             date: d.meta?.date || "TBD",
             location: d.meta?.location || "Delhi NCR"
           }));
-          const cmsOnlyShows = mapped.filter((cmsShow) => {
-            const cmsKey = cmsShow.title?.trim().toLowerCase();
-            return cmsKey && !fallbackShows.some((show) => show.title.trim().toLowerCase() === cmsKey);
-          });
-          setShows([...fallbackShows, ...cmsOnlyShows]);
+          // Sort by order or date if needed, but we'll just set it
+          setShows(mapped);
         }
       })
       .catch(console.error);

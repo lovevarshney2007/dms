@@ -42,6 +42,7 @@ const ICONS = {
 
 const NAV_ITEMS = [
   { id: "dashboard",    label: "Dashboard",           icon: "dashboard" },
+  { id: "pages_content",label: "Pages Content",       icon: "edit" },
   { id: "home",         label: "Home Page",           icon: "patrons" },
   { id: "competitions", label: "Competitions Page",   icon: "competition" },
   { id: "shows",        label: "Shows Page",          icon: "videos" },
@@ -71,6 +72,7 @@ const StatusBadge = ({ status }) => {
 
 // ─── Generic CRUD section ─────────────────────────────────────────────────────
 const CONTENT_TYPE_MAP = {
+  pages: "page-meta",
   competitions: "competition",
   seasons:      "season",
   contestants:  "qualified-contestant",
@@ -84,6 +86,13 @@ const CONTENT_TYPE_MAP = {
 };
 
 const FIELDS_MAP = {
+  pages: [
+    { key: "name",        label: "Page Identifier (e.g. about, home)", type: "text", required: true },
+    { key: "title",       label: "Title",       type: "text", required: true },
+    { key: "subtitle",    label: "Subtitle/Eyebrow", type: "text" },
+    { key: "description", label: "Description", type: "textarea" },
+    { key: "imageUrl",    label: "Image URL",   type: "text" }
+  ],
   competitions: [
     { key: "title",       label: "Title",       type: "text", required: true },
     { key: "subtitle",    label: "Subtitle",    type: "text" },
@@ -801,6 +810,7 @@ function AdminPage() {
   function renderContent() {
     switch (active) {
       case "dashboard": return <DashboardSection />;
+      case "pages_content": return <CmsSection section="pages" title="Pages Metadata" />;
       case "home":
         return (
           <div className="space-y-12">

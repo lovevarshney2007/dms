@@ -11,7 +11,8 @@ const VALID_TYPES = [
   "patron",
   "sponsor",
   "testimonial",
-  "website-setting"
+  "website-setting",
+  "page-meta"
 ];
 
 async function listContent(req, res, next) {

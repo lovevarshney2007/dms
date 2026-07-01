@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import SectionHeading from "../../components/common/SectionHeading";
 import ScrollReveal from "../../components/common/ScrollReveal";
 import { objectives, highlights, teamData } from "../../data/siteContent";
+import { usePageMeta } from "../../hooks/usePageMeta";
 
 const milestones = [
   { year: "2013", title: "Society Founded", desc: "DMS Aarohi Musical Society was registered under the Societies Registration Act, 1860 with a vision to promote Indian music." },
@@ -20,6 +21,13 @@ const stats = [
 ];
 
 function MusicSocietyOverviewPage() {
+  const pageMeta = usePageMeta("about", {
+    title: "Promoting Music & Nurturing Talent Since 2013",
+    subtitle: "Our Story",
+    description: "DMS Aarohi Musical Society was founded with a singular vision — to create a transparent, merit-based platform where raw singing talent gets the recognition it deserves.\n\nRegistered under the Societies Registration Act, 1860, the society has organized multiple seasons of its flagship competition **\"Voice of Delhi NCR\"**, along with live concerts, cultural evenings, and musical workshops.",
+    imageUrl: "/legacy/about_group.png"
+  });
+
   return (
     <div className="space-y-12 pb-12 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -76,17 +84,16 @@ function MusicSocietyOverviewPage() {
           
           <div className="grid lg:grid-cols-2 gap-12 items-center relative z-10">
             <div>
-              <p className="text-xs sm:text-sm font-bold uppercase tracking-widest text-orange-600 mb-3">Our Story</p>
+              <p className="text-xs sm:text-sm font-bold uppercase tracking-widest text-orange-600 mb-3">{pageMeta.subtitle}</p>
               <h2 className="font-serif text-3xl sm:text-4xl text-stone-900 mb-6 leading-tight">
-                Promoting Music & Nurturing Talent Since 2013
+                {pageMeta.title}
               </h2>
-              <p className="text-stone-600 leading-relaxed mb-4">
-                DMS Aarohi Musical Society was founded with a singular vision — to create a transparent, merit-based platform where raw singing talent gets the recognition it deserves.
-              </p>
-              <p className="text-stone-600 leading-relaxed mb-6">
-                Registered under the Societies Registration Act, 1860, the society has organized multiple seasons of its flagship competition <strong>"Voice of Delhi NCR"</strong>, along with live concerts, cultural evenings, and musical workshops.
-              </p>
-              <div className="space-y-3">
+              {pageMeta.description.split('\\n').map((paragraph, index) => (
+                <p key={index} className="text-stone-600 leading-relaxed mb-4">
+                  {paragraph}
+                </p>
+              ))}
+              <div className="space-y-3 mt-6">
                 {highlights.map((h, i) => (
                   <div key={i} className="flex items-center gap-3">
                     <div className="w-5 h-5 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center shrink-0">
@@ -100,7 +107,7 @@ function MusicSocietyOverviewPage() {
             
             <div className="relative">
               <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-                <img src="/legacy/about_group.png" alt="DMS Aarohi Musical Society" className="w-full h-80 object-cover" />
+                <img src={pageMeta.imageUrl} alt={pageMeta.title} className="w-full h-80 object-cover" />
               </div>
               <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-tr from-orange-400 to-amber-300 rounded-3xl -z-10 rotate-6 opacity-60 blur-sm"></div>
             </div>

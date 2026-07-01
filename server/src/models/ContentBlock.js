@@ -14,7 +14,8 @@ const contentBlockSchema = new mongoose.Schema(
         "patron",
         "sponsor",
         "testimonial",
-        "website-setting"
+        "website-setting",
+        "page-meta"
       ],
       required: true,
       index: true
