@@ -1,8 +1,30 @@
-import { teamData } from "../../data/siteContent";
+import { useState, useEffect } from "react";
 import SectionHeading from "../common/SectionHeading";
 import TeamSliderRow from "../common/TeamSliderRow";
 
+const fallbackTeam = [
+  { name: "Pankaj Mathur", role: "Founder & President", image: "/team/Pankaj Mathur (Founder & President).JPG" },
+  { name: "Dr. Bhawna Bhat", role: "General Secretary", image: "/team/Dr Bhawna Bhat (General Secretary).jpg" }
+];
+
 function TeamSection() {
+  const [teamData, setTeamData] = useState(fallbackTeam);
+
+  useEffect(() => {
+    fetch(import.meta.env.VITE_API_URL + "/api/content/patron")
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.length > 0) {
+          setTeamData(data.filter(d => d.meta?.isTeam).map(d => ({
+            name: d.title,
+            role: d.meta?.role || d.subtitle,
+            image: d.imageUrl
+          })));
+        }
+      })
+      .catch(console.error);
+  }, []);
+
   const teamTopRow = teamData.slice(0, 5);
 
   return (

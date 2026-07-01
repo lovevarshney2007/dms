@@ -1,5 +1,7 @@
 const express = require("express");
 const submissionController = require("../controllers/submissionController");
+const eventController = require("../controllers/eventController");
+const contentController = require("../controllers/contentController");
 const asyncHandler = require("../middleware/asyncHandler");
 const validateBody = require("../middleware/validateBody");
 const {
@@ -9,7 +11,6 @@ const {
   talentShowSubmissionRules,
   ngoContactSubmissionRules
 } = require("../validators/submissionValidators");
-const eventController = require("../controllers/eventController");
 
 const router = express.Router();
 
@@ -45,5 +46,6 @@ router.post(
 
 router.get("/submissions", asyncHandler(submissionController.getSubmissions));
 router.get("/events", asyncHandler(eventController.listEvents));
+router.get("/content/:type", asyncHandler(contentController.listContent));
 
 module.exports = router;

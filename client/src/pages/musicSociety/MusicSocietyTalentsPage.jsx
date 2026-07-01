@@ -1,9 +1,49 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { qualifiedContestants, successStories, performancesGallery } from "../../data/siteContent";
+import {
+  performancesGallery,
+  qualifiedContestants as defaultQualifiedContestants,
+  successStories as defaultSuccessStories
+} from "../../data/siteContent";
 import SectionHeading from "../../components/common/SectionHeading";
 import ScrollReveal from "../../components/common/ScrollReveal";
 
+const fallbackQC = defaultQualifiedContestants.map((contestant, index) => ({
+  score: index === 0 ? "98.5" : "96.0",
+  ...contestant
+}));
+const fallbackSS = defaultSuccessStories;
+
 function MusicSocietyTalentsPage() {
+  const [qualifiedContestants, setQualifiedContestants] = useState(fallbackQC);
+  const [successStories, setSuccessStories] = useState(fallbackSS);
+
+  useEffect(() => {
+    Promise.all([
+      fetch(import.meta.env.VITE_API_URL + "/api/content/qualified-contestant").then(res => res.json()),
+      fetch(import.meta.env.VITE_API_URL + "/api/content/success-story").then(res => res.json())
+    ]).then(([qcData, ssData]) => {
+      if (qcData && qcData.length > 0) {
+        setQualifiedContestants(qcData.map(d => ({
+          name: d.title,
+          image: d.imageUrl || "/legacy/pa.jpg",
+          status: d.meta?.status || "Contestant",
+          city: d.meta?.city || "Delhi NCR",
+          category: d.meta?.category || "Open",
+          score: d.meta?.score || "0"
+        })));
+      }
+      if (ssData && ssData.length > 0) {
+        setSuccessStories(ssData.map(d => ({
+          name: d.title,
+          achievement: d.subtitle,
+          description: d.description,
+          image: d.imageUrl || "/legacy/about_group.png"
+        })));
+      }
+    }).catch(console.error);
+  }, []);
+
   const topTalent = qualifiedContestants[0]; // Aarav Sharma
 
   return (
@@ -21,14 +61,14 @@ function MusicSocietyTalentsPage() {
               Featured Talent
             </div>
             <h1 className="font-serif text-5xl sm:text-6xl text-white font-bold mb-4 drop-shadow-lg">
-              {topTalent.name}
+              {topTalent?.name}
             </h1>
             <p className="text-orange-400 font-bold tracking-widest uppercase text-sm mb-6 flex items-center gap-2 justify-center lg:justify-start">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              {topTalent.city}
+              {topTalent?.city}
             </p>
             <p className="text-stone-300 text-lg leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0">
-              With a mesmerizing voice and an unmatched score of <span className="font-bold text-white bg-white/10 px-2 py-0.5 rounded">{topTalent.score} points</span>, {topTalent.name} has captured the hearts of our judges and audience alike.
+              With a mesmerizing voice and an unmatched score of <span className="font-bold text-white bg-white/10 px-2 py-0.5 rounded">{topTalent?.score} points</span>, {topTalent?.name} has captured the hearts of our judges and audience alike.
             </p>
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
               <button className="px-8 py-4 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold rounded-xl hover:scale-105 transition-transform shadow-[0_10px_30px_rgba(249,115,22,0.4)]">
@@ -41,7 +81,7 @@ function MusicSocietyTalentsPage() {
           </div>
           <div className="order-1 lg:order-2 flex justify-center">
             <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full p-2 bg-gradient-to-br from-orange-400 via-amber-500 to-rose-600 shadow-[0_0_60px_rgba(249,115,22,0.4)] group">
-              <img src={topTalent.image} alt={topTalent.name} className="w-full h-full object-cover rounded-full border-4 border-stone-900 group-hover:scale-[1.02] transition-transform duration-500" />
+              <img src={topTalent?.image} alt={topTalent?.name} className="w-full h-full object-cover rounded-full border-4 border-stone-900 group-hover:scale-[1.02] transition-transform duration-500" />
             </div>
           </div>
         </div>

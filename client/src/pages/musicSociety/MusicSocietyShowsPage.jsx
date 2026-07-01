@@ -1,10 +1,11 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import PlaylistsSection from "../../components/sections/PlaylistsSection";
 import SectionHeading from "../../components/common/SectionHeading";
 import ScrollReveal from "../../components/common/ScrollReveal";
 
 // All real shows from dmsaarohi.com website
-const pastShows = [
+const fallbackShows = [
   {
     id: 1,
     title: "100 Years of Indian Cinema",
@@ -222,10 +223,39 @@ const tagColors = {
   "Musical Evening": "bg-blue-100 text-blue-800",
   "Kishore Tribute": "bg-purple-100 text-purple-800",
   "Talent Hunt": "bg-orange-100 text-orange-800",
-  "Special Edition": "bg-rose-100 text-rose-800"
+  "Special Edition": "bg-rose-100 text-rose-800",
+  "Cultural Event": "bg-teal-100 text-teal-800",
+  "Bollywood Night": "bg-pink-100 text-pink-800"
 };
 
 function MusicSocietyShowsPage() {
+  const [shows, setShows] = useState(fallbackShows);
+
+  useEffect(() => {
+    fetch(import.meta.env.VITE_API_URL + "/api/content/competition")
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.length > 0) {
+          const mapped = data.map((d, i) => ({
+            id: d._id || `cms-${i}`,
+            title: d.title,
+            subtitle: d.subtitle,
+            description: d.description,
+            image: d.imageUrl || "/legacy/patrons.jpg",
+            tag: d.meta?.tag || "Cultural Event",
+            date: d.meta?.date || "TBD",
+            location: d.meta?.location || "Delhi NCR"
+          }));
+          const cmsOnlyShows = mapped.filter((cmsShow) => {
+            const cmsKey = cmsShow.title?.trim().toLowerCase();
+            return cmsKey && !fallbackShows.some((show) => show.title.trim().toLowerCase() === cmsKey);
+          });
+          setShows([...fallbackShows, ...cmsOnlyShows]);
+        }
+      })
+      .catch(console.error);
+  }, []);
+
   const upcomingShow = {
     title: "Voice of Delhi NCR — Season 4 Grand Finale",
     date: "4th July 2026 • 5:00 PM Onwards",
@@ -337,7 +367,7 @@ function MusicSocietyShowsPage() {
             />
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {pastShows.map((show, idx) => (
+            {shows.map((show, idx) => (
               <ScrollReveal key={show.id} direction="up" delay={idx * 0.07}>
                 <div className="group bg-white rounded-[2rem] overflow-hidden border border-stone-100 shadow-[0_8px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(234,88,12,0.1)] hover:-translate-y-1 transition-all duration-300 flex flex-col">
                   {/* Image */}

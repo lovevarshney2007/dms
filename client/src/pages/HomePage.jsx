@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import PageShell from "../components/common/PageShell";
 import SectionHeading from "../components/common/SectionHeading";
@@ -59,7 +60,47 @@ const steps = [
   }
 ];
 
+
+const fallbackPatrons = [
+  { name: "Ashok Srivastava", role: "Chief Patron", image: "/patrons/Ashok_Srivastava (Chief Patron).png" },
+  { name: "Nalini Kamalni", role: "Patron", image: "/patrons/NALINI KAMALNI.jpg" },
+  { name: "Radhika Chopra", role: "Patron", image: "/patrons/RADHIKA CHOPRA.jpg" },
+  { name: "Kumar Vishu", role: "Patron", image: "/patrons/KUMAR VISHU.jpg" },
+  { name: "G.B. Mathur", role: "Patron", image: "/patrons/G.B. Mathur (Patron).png" }
+];
+const fallbackQC = [
+  { name: "Adaa", status: "Grand Finalist", city: "Delhi NCR", category: "Junior", image: "/seasons/adaa.png" },
+  { name: "Arijit", status: "Grand Finalist", city: "Delhi NCR", category: "Senior", image: "/seasons/arijit.png" }
+];
+
 function HomePage() {
+  const [patrons, setPatrons] = useState(fallbackPatrons);
+  const [qContestants, setQContestants] = useState(fallbackQC);
+
+  useEffect(() => {
+    Promise.all([
+      fetch(import.meta.env.VITE_API_URL + '/api/content/patron').then(res => res.json()),
+      fetch(import.meta.env.VITE_API_URL + '/api/content/qualified-contestant').then(res => res.json())
+    ]).then(([pData, qcData]) => {
+      if (pData && pData.length > 0) {
+        setPatrons(pData.filter(d => !d.meta?.isTeam).map(d => ({
+          name: d.title,
+          role: d.subtitle,
+          image: d.imageUrl
+        })));
+      }
+      if (qcData && qcData.length > 0) {
+        setQContestants(qcData.map(d => ({
+          name: d.title,
+          image: d.imageUrl,
+          status: d.meta?.status || 'Contestant',
+          city: d.meta?.city || 'Delhi NCR',
+          category: d.meta?.category || 'Open'
+        })));
+      }
+    }).catch(console.error);
+  }, []);
+
   return (
     <PageShell basePath="/">
       {/* 1. Enhanced Hero Section */}

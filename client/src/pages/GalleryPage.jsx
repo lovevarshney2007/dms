@@ -1,32 +1,77 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SectionHeading from "../components/common/SectionHeading";
 import ScrollReveal from "../components/common/ScrollReveal";
 
 const categories = ["All", "Photos", "Videos", "Stage Performances", "Event Highlights"];
 
-const galleryItems = [
-  // Photos
-  { id: 1, type: "Photos", title: "Grand Finale Moments", image: "/legacy/show.png", season: "Season 4" },
-  { id: 2, type: "Photos", title: "Stage Performances", image: "/legacy/patrons.jpg", season: "Season 4" },
-  { id: 3, type: "Photos", title: "Artists Backstage", image: "/legacy/current_event.jpg", season: "Season 3" },
-  { id: 4, type: "Photos", title: "Crowd Energy", image: "/legacy/about_group.png", season: "Season 2" },
-  { id: 5, type: "Photos", title: "Award Ceremony", image: "/legacy/patrons.jpg", season: "Season 1" },
-  { id: 6, type: "Photos", title: "Opening Night", image: "/legacy/image1.jpeg", season: "Season 4" },
-  // Stage Performances
-  { id: 7, type: "Stage Performances", title: "Solo Performance", image: "/legacy/current_event.jpg", season: "Season 4" },
-  { id: 8, type: "Stage Performances", title: "Voice of Rajasthan", image: "/legacy/KT.jpg", season: "Season 3" },
-  { id: 9, type: "Stage Performances", title: "Group Fusion Act", image: "/legacy/show.png", season: "Season 2" },
-  // Event Highlights
-  { id: 10, type: "Event Highlights", title: "Grand Finale 2024", image: "/legacy/Joinus.jpg", season: "Season 4" },
-  { id: 11, type: "Event Highlights", title: "Registration Launch", image: "/legacy/poster.png", season: "Season 4" },
-  { id: 12, type: "Event Highlights", title: "Winners Felicitation", image: "/legacy/about_group.png", season: "Season 3" },
-  // Videos
-  { id: 13, type: "Videos", title: "Season 4 Highlights", image: "/legacy/show.png", season: "Season 4", isVideo: true, videoUrl: "https://www.youtube.com/live/r2VYf94YPNU?si=JObK4t3qQ_0VOrxE" },
-  { id: 14, type: "Videos", title: "Season 3 Grand Finale", image: "/legacy/KT.jpg", season: "Season 3", isVideo: true, videoUrl: "https://youtu.be/kom0cU5fUFE" },
-  { id: 15, type: "Videos", title: "DMS Aarohi Channel", image: "/legacy/current_event.jpg", season: "All Seasons", isVideo: true, videoUrl: "https://www.youtube.com/channel/UCFmS_dMuj8yvCUcR-X2NdYQ" },
+const talentHuntPhotos = Array.from({ length: 52 }, (_, index) => {
+  const photoNumber = index + 45;
+  const groups = ["Photos", "Stage Performances", "Event Highlights"];
+  const type = groups[index % groups.length];
+
+  return {
+    id: photoNumber,
+    type,
+    title: `Talent Hunt Moment ${index + 1}`,
+    image: `/talenthunt/${photoNumber}.jpg`,
+    season: "Talent Hunt"
+  };
+});
+
+const fallbackGalleryItems = [
+  ...talentHuntPhotos,
+  {
+    id: "video-season-4",
+    type: "Videos",
+    title: "Season 4 Highlights",
+    image: "/talenthunt/poster.jpg",
+    season: "Season 4",
+    isVideo: true,
+    videoUrl: "https://www.youtube.com/live/r2VYf94YPNU?si=JObK4t3qQ_0VOrxE"
+  },
+  {
+    id: "video-season-3",
+    type: "Videos",
+    title: "Season 3 Grand Finale",
+    image: "/talenthunt/slide-one.jpg",
+    season: "Season 3",
+    isVideo: true,
+    videoUrl: "https://youtu.be/kom0cU5fUFE"
+  },
+  {
+    id: "video-channel",
+    type: "Videos",
+    title: "DMS Aarohi Channel",
+    image: "/talenthunt/slide-three.jpg",
+    season: "All Seasons",
+    isVideo: true,
+    videoUrl: "https://www.youtube.com/channel/UCFmS_dMuj8yvCUcR-X2NdYQ"
+  }
 ];
 
 function GalleryPage() {
+  const [galleryItems, setGalleryItems] = useState(fallbackGalleryItems);
+
+  useEffect(() => {
+    fetch(import.meta.env.VITE_API_URL + "/api/content/gallery")
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.length > 0) {
+          const cmsItems = data.map(d => ({
+            id: d._id,
+            type: d.meta?.type || "Photos",
+            title: d.title,
+            image: d.imageUrl,
+            season: d.meta?.season || "All Seasons",
+            isVideo: d.meta?.type === "Video" || d.meta?.type === "Videos" || !!d.meta?.youtubeLink,
+            videoUrl: d.meta?.youtubeLink || ""
+          }));
+          setGalleryItems([...fallbackGalleryItems, ...cmsItems]);
+        }
+      })
+      .catch(console.error);
+  }, []);
+
   const [activeCategory, setActiveCategory] = useState("All");
 
   const filtered = activeCategory === "All"
