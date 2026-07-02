@@ -340,7 +340,7 @@ function HomePage() {
                 <div className="text-[10px] sm:text-xs text-stone-500 font-bold uppercase tracking-widest">Participants</div>
               </div>
               <div className="col-span-2 bg-stone-900 rounded-[2rem] p-6 relative overflow-hidden group h-56 sm:h-72 shadow-xl">
-                <img src="/legacy/show.png" className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700" alt="Event Highlights" />
+                <img src="/legacy/image1.jpeg " className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700" alt="Event Highlights" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <span className="px-5 py-2.5 bg-white/20 backdrop-blur-md rounded-full text-white font-bold text-sm border border-white/40 shadow-[0_4px_20px_rgba(0,0,0,0.3)]">View Event Highlights</span>
                 </div>
@@ -393,7 +393,7 @@ function HomePage() {
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
               {pastEvents.map(event => (
                 <Link key={event.id} to="/shows" onClick={scrollToTop} className="group relative rounded-xl sm:rounded-2xl overflow-hidden aspect-square border border-stone-200 shadow-sm">
-                  <img src={event.image} alt={event.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                  <img src={event.image} alt={event.title} className="w-full h-full group-hover:scale-110 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-3 sm:p-4">
                     <p className="text-white font-bold text-xs sm:text-sm leading-tight">{event.title}</p>
                     <p className="text-white/70 text-[10px] sm:text-xs mt-0.5 sm:mt-1">{event.date}</p>
@@ -515,8 +515,8 @@ function HomePage() {
       {/* ===== FAQ SECTION COMMENTED OUT =====
       <ScrollReveal direction="up" className="mb-6">
         <FaqSection />
-      </ScrollReveal>
-      */}
+      </ScrollReveal> */}
+     
 
       {/* ===== 8. SPONSORS SECTION ===== */}
       <section id="sponsors" className="scroll-mt-24 max-w-7xl mx-auto px-4 md:px-6 mb-6">

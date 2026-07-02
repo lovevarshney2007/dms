@@ -169,7 +169,7 @@ function MusicSocietyOverviewPage() {
             
             <div className="relative">
               <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-                <img src={pageMeta.imageUrl} alt={pageMeta.title} className="w-full h-80 object-cover" />
+                <img src={pageMeta.imageUrl} alt={pageMeta.title} className="w-full h-80 " />
               </div>
               <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-tr from-orange-400 to-amber-300 rounded-3xl -z-10 rotate-6 opacity-60 blur-sm"></div>
             </div>

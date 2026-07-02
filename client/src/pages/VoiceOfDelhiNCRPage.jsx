@@ -161,7 +161,7 @@ const fallbackSeasons = [
       "Grand Finale at a prestigious Delhi venue",
     ],
     youtube: "https://www.youtube.com/watch?v=r2VYf94YPNU&t=617s",
-    poster: "/legacy/poster.png",
+    poster: "seasons/season_2_poster.jpeg",
     winners: {
       littleStars: [
         { position: "Winner", name: "Peehu Srivastava" },

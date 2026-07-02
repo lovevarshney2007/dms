@@ -114,21 +114,21 @@ export const pastEvents = [
     title: "Rafi Saab — The Very Best",
     date: "23rd December, 2013",
     location: "India Islamic Cultural Centre, New Delhi",
-    image: "/legacy/patrons.jpg"
+    image: "/images/card_rafi.jpeg"
   },
   {
     id: 2,
-    title: "Dostana-2 — Kishore Kumar Tribute",
+    title: "Dostana-2 — Kishore Kumar",
     date: "4th August, 2018",
     location: "India Islamic Cultural Centre, New Delhi",
-    image: "/legacy/current_event.jpg"
+    image: "images/krm.jpg"
   },
   {
     id: 3,
     title: "Bollywood Dhamaka",
     date: "2015",
     location: "Amphitheatre, Gurgaon",
-    image: "/legacy/show.png"
+    image: "images/img12.jpg"
   }
 ];
 export const contactDetails = [
