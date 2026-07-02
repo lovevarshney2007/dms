@@ -189,7 +189,7 @@ function MusicNavbar() {
                 <Link
                   key={item.label}
                   to={item.href}
-                  onClick={() => setMenuOpen(false)}
+                  onClick={() => { setMenuOpen(false); window.scrollTo({ top: 0, behavior: 'instant' }); }}
                   className={linkClass}
                 >
                   {item.label}
@@ -202,7 +202,7 @@ function MusicNavbar() {
             <div className="flex flex-col md:flex-row items-stretch md:items-center gap-3 mt-4 md:mt-0 md:ml-2 pt-4 md:pt-0 border-t md:border-none border-stone-200">
               <Link
                 to="/register"
-                onClick={() => setMenuOpen(false)}
+                onClick={() => { setMenuOpen(false); window.scrollTo({ top: 0, behavior: 'instant' }); }}
                 className="bg-gradient-to-r from-orange-500 to-amber-500 text-white px-5 py-3 md:py-2.5 rounded-full hover:shadow-[0_4px_15px_rgba(234,88,12,0.3)] hover:-translate-y-0.5 text-[15px] font-bold transition-all text-center whitespace-nowrap"
               >
                 Register

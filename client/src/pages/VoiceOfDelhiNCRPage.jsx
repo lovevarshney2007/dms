@@ -4,6 +4,8 @@ import SectionHeading from "../components/common/SectionHeading";
 import ScrollReveal from "../components/common/ScrollReveal";
 import QuickLinksSection from "../components/sections/home/QuickLinksSection";
 
+const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'instant' });
+
 const fallbackSeasons = [
   {
     id: "season-1",
@@ -84,7 +86,7 @@ const fallbackSeasons = [
     description:
       "The most anticipated Grand Finale is here! Voice of Delhi NCR Season 4 culminates in a spectacular Grand Finale on 4th July 2026. Watch the finest voices of Delhi-NCR, including Junior & Senior Category Finalists, compete for the ultimate title. Live music by the DO-RE-MI band!",
     highlights: [
-      "Grand Finale: 4th July 2026 • 5:00 PM Onwards",
+      "Grand Finale: 4th July 2026 • 5:00 PM – 9:30 PM",
       "Venue: Pearey Lal Bhawan, ITO, New Delhi",
       "Junior & Senior Categories",
       "Live music by DO-RE-MI Band",
@@ -120,7 +122,6 @@ function VoiceOfDelhiNCRPage() {
             venue: d.meta?.venue || null,
             highlights: d.meta?.highlights || []
           }));
-          setSeasons(mappedSeasons.reverse()); // Because we sort by order ascending in DB, wait, no, the DB lists them in order 1, 2, 3, 4. In UI, Season 1 is first. So we don't reverse unless needed.
           setSeasons(mappedSeasons);
         }
       })
@@ -164,7 +165,7 @@ function VoiceOfDelhiNCRPage() {
         <ScrollReveal direction="up">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
-              { num: "4", label: "Successful Seasons" },
+              { num: "5", label: "Successful Seasons" },
               { num: "5,000+", label: "Total Participants" },
               { num: "4+", label: "States Covered" },
               { num: "₹1L+", label: "Total Prize Money" },
@@ -210,6 +211,7 @@ function VoiceOfDelhiNCRPage() {
               >
                 <Link
                   to={`/voice-of-delhi-ncr/${season.id}`}
+                  onClick={scrollToTop}
                   className="group relative bg-white rounded-[2rem] overflow-hidden border border-stone-100 shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_24px_60px_rgba(234,88,12,0.18)] hover:-translate-y-2 transition-all duration-300 flex flex-col"
                 >
                   {/* Poster Image */}
@@ -250,7 +252,7 @@ function VoiceOfDelhiNCRPage() {
                         <div className="w-10 h-10 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-lg shrink-0 animate-pulse">🎤</div>
                         <div>
                           <p className="text-[10px] text-stone-500 uppercase font-bold tracking-wider">Grand Finale</p>
-                          <p className="text-orange-600 font-black text-base leading-tight">{season.grandFinale} • 5:00 PM</p>
+                          <p className="text-orange-600 font-black text-base leading-tight">{season.grandFinale} • 5:00 PM – 9:30 PM</p>
                         </div>
                       </div>
                     ) : (
@@ -272,7 +274,7 @@ function VoiceOfDelhiNCRPage() {
                     <div className="mt-auto">
                       {season.status === "grand-finale" ? (
                         <span className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold text-xs rounded-xl group-hover:shadow-[0_8px_20px_rgba(234,88,12,0.3)] transition-all">
-                          🎤 Register Now
+                          🎟️ Free Entry — Explore
                         </span>
                       ) : season.youtube ? (
                         <span className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-gradient-to-r from-red-600 to-red-500 text-white font-bold text-xs rounded-xl group-hover:shadow-md transition-all">
@@ -304,13 +306,14 @@ function VoiceOfDelhiNCRPage() {
                 The Grand Finale is on 4th July 2026!
               </h2>
               <p className="text-stone-300 mb-8">
-                Season 4 Grand Finale registrations are open. Join us at Pearey Lal Bhawan (Gandhi Memorial Hall), ITO, New Delhi — 5:00 PM Onwards.
+                Join us at Pearey Lal Bhawan (Gandhi Memorial Hall), ITO, New Delhi — 5:00 PM to 9:30 PM. <strong className="text-orange-400">Entry is FREE!</strong>
               </p>
               <Link
-                to="/register"
+                to="/voice-of-delhi-ncr/season-4"
+                onClick={scrollToTop}
                 className="inline-block px-8 py-4 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold hover:scale-105 transition-transform shadow-[0_10px_30px_rgba(249,115,22,0.4)]"
               >
-                Register for Season 4 Grand Finale
+                🎟️ Free Entry — Explore Season 4
               </Link>
             </div>
           </div>
@@ -328,6 +331,7 @@ function SeasonDetailPage({ season }) {
         {/* Back Link */}
         <Link
           to="/voice-of-delhi-ncr"
+          onClick={scrollToTop}
           className="inline-flex items-center gap-2 text-stone-600 hover:text-orange-600 transition font-bold text-sm"
         >
           <svg
@@ -371,10 +375,11 @@ function SeasonDetailPage({ season }) {
                 </p>
                 {season.status === "grand-finale" && (
                   <Link
-                    to="/register"
+                    to="/contact"
+                    onClick={scrollToTop}
                     className="mt-8 inline-block px-8 py-4 rounded-full bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold hover:shadow-[0_10px_20px_rgba(234,88,12,0.3)] hover:-translate-y-1 transition-all"
                   >
-                    Register Now
+                    🎟️ Free Entry — Join Us
                   </Link>
                 )}
               </div>
@@ -452,14 +457,15 @@ function SeasonDetailPage({ season }) {
                 Grand Finale Details
               </h2>
               <p className="font-black text-4xl text-orange-600 mb-2">
-                {season.grandFinale} • 5:00 PM Onwards
+                {season.grandFinale} • 5:00 PM – 9:30 PM
               </p>
               <p className="text-stone-600 mb-8">{season.venue}</p>
               <Link
-                to="/register"
+                to="/contact"
+                onClick={scrollToTop}
                 className="inline-block px-10 py-4 rounded-full bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold text-lg hover:scale-105 transition-transform shadow-[0_10px_30px_rgba(234,88,12,0.3)]"
               >
-                Register Now
+                🎟️ Free Entry — Contact Us
               </Link>
             </div>
           </ScrollReveal>

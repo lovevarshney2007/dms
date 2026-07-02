@@ -16,6 +16,7 @@ const ContactPage = lazy(() => import("./pages/ContactPage"));
 const RegisterPage = lazy(() => import("./pages/musicSociety/MusicSocietyJoinUsPage"));
 const PrivacyPolicyPage = lazy(() => import("./pages/PrivacyPolicyPage"));
 const TermsOfServicePage = lazy(() => import("./pages/TermsOfServicePage"));
+const BecomeASponsorPage = lazy(() => import("./pages/BecomeASponsorPage"));
 const OldMusicHome = lazy(() => import("./pages/musicSociety/MusicSocietyMainPage")); // Temp route for user reference
 
 // Admin
@@ -44,6 +45,7 @@ function App() {
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/privacy" element={<PrivacyPolicyPage />} />
             <Route path="/terms" element={<TermsOfServicePage />} />
+            <Route path="/become-a-sponsor" element={<BecomeASponsorPage />} />
           </Route>
 
           {/* Temporary Route to view Old Music Home Page */}
