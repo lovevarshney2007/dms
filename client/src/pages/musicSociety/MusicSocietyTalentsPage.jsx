@@ -15,49 +15,49 @@ const fallbackQC = defaultQualifiedContestants.map((contestant, index) => ({
 const fallbackSS = defaultSuccessStories;
 
 // DMS Aarohi logo fallback for contestants without images
-const DMS_LOGO = "/images/logo.png";
+const DMS_LOGO = "/images/looth.png";
 
 // Season 4 finalists with images (from /seasons/ folder if available, else logo)
 const season4Finalists = [
   // Junior
-  { name: "Aarna Agrawal", category: "Junior", image: "/seasons/adaa.png" },
+  { name: "Aarna Agrawal", category: "Junior", image: "/images/looth.png" },
   { name: "Adaa Srivastava", category: "Junior", image: "/seasons/adaa.png" },
   { name: "Ayami Aadhya", category: "Junior", image: "/seasons/ayaami.png" },
-  { name: "Devarsh Sharma", category: "Junior", image: "/images/logo.png" },
-  { name: "Dhruv Pandit", category: "Junior", image: "/images/logo.png" },
-  { name: "Lavishka Sharma", category: "Junior", image: "/images/logo.png" },
-  { name: "Mandeep Singh", category: "Junior", image: "/images/logo.png" },
-  { name: "Netra Singh", category: "Junior", image: "/images/logo.png" },
-  { name: "Praharsh Kashyap", category: "Junior", image: "/images/logo.png" },
-  { name: "Priyanshi", category: "Junior", image: "/images/logo.png" },
-  { name: "Shreyas Thakur", category: "Junior", image: "/images/logo.png" },
+  { name: "Devarsh Sharma", category: "Junior", image: "/images/looth.png" },
+  { name: "Dhruv Pandit", category: "Junior", image: "/images/looth.png" },
+  { name: "Lavishka Sharma", category: "Junior", image: "/images/looth.png" },
+  { name: "Mandeep Singh", category: "Junior", image: "/images/looth.png" },
+  { name: "Netra Singh", category: "Junior", image: "/images/looth.png" },
+  { name: "Praharsh Kashyap", category: "Junior", image: "/images/looth.png" },
+  { name: "Priyanshi", category: "Junior", image: "/images/looth.png" },
+  { name: "Shreyas Thakur", category: "Junior", image: "/images/looth.png" },
   { name: "Varin Kakkar", category: "Junior", image: "/seasons/kuvam.png" },
-  { name: "Advita Mittal", category: "Junior", image: "/images/logo.png" },
-  { name: "Keshav Pandit", category: "Junior", image: "/images/logo.png" },
+  { name: "Advita Mittal", category: "Junior", image: "/images/looth.png" },
+  { name: "Keshav Pandit", category: "Junior", image: "/images/looth.png" },
   // Senior
   { name: "Arijit Roy", category: "Senior", image: "/seasons/arijit.png" },
-  { name: "Bhoomi Tyagi", category: "Senior", image: "/images/logo.png" },
-  { name: "Chandreyi Banerjee", category: "Senior", image: "/images/logo.png" },
+  { name: "Bhoomi Tyagi", category: "Senior", image: "/images/looth.png" },
+  { name: "Chandreyi Banerjee", category: "Senior", image: "/images/looth.png" },
   { name: "Deepshikha Mitra", category: "Senior", image: "/seasons/deepshikha.png" },
   { name: "Kuvam Sethi", category: "Senior", image: "/seasons/kuvam.png" },
   { name: "Maanvi Dwivedi", category: "Senior", image: "/seasons/mandeep.png" },
-  { name: "Manoneet Munesha", category: "Senior", image: "/images/logo.png" },
-  { name: "Nagma Ali", category: "Senior", image: "/images/logo.png" },
-  { name: "Nitin Mishra", category: "Senior", image: "/images/logo.png" },
-  { name: "Ruchika Chatterjee", category: "Senior", image: "/images/logo.png" },
-  { name: "Sakshi Kumari", category: "Senior", image: "/images/logo.png" },
-  { name: "Soumava Mukhopadhyay", category: "Senior", image: "/images/logo.png" },
+  { name: "Manoneet Munesha", category: "Senior", image: "/images/looth.png" },
+  { name: "Nagma Ali", category: "Senior", image: "/images/looth.png" },
+  { name: "Nitin Mishra", category: "Senior", image: "/images/looth.png" },
+  { name: "Ruchika Chatterjee", category: "Senior", image: "/images/looth.png" },
+  { name: "Sakshi Kumari", category: "Senior", image: "/images/looth.png" },
+  { name: "Soumava Mukhopadhyay", category: "Senior", image: "/images/looth.png" },
   { name: "Srishti Sargam", category: "Senior", image: "/seasons/sristi.png" },
   // Super Senior
-  { name: "Chetan P. Barodia (Dr.)", category: "Super Senior", image: "/images/logo.png" },
-  { name: "Khushjit Singh", category: "Super Senior", image: "/images/logo.png" },
-  { name: "Mandeep Negi", category: "Super Senior", image: "/images/logo.png" },
-  { name: "P. Kumar (Dr.)", category: "Super Senior", image: "/images/logo.png" },
+  { name: "Chetan P. Barodia (Dr.)", category: "Super Senior", image: "/images/looth.png" },
+  { name: "Khushjit Singh", category: "Super Senior", image: "/images/looth.png" },
+  { name: "Mandeep Negi", category: "Super Senior", image: "/images/looth.png" },
+  { name: "P. Kumar (Dr.)", category: "Super Senior", image: "/images/looth.png" },
   { name: "Pritika Singh Gupta", category: "Super Senior", image: "/seasons/pratikia.png" },
   { name: "Rahul Agarwal", category: "Super Senior", image: "/seasons/rahul.png" },
-  { name: "Rajat Chakraborthy", category: "Super Senior", image: "/images/logo.png" },
+  { name: "Rajat Chakraborthy", category: "Super Senior", image: "/images/looth.png" },
   { name: "Rajesh Kapoor", category: "Super Senior", image: "/seasons/rajesh.png" },
-  { name: "Rajesh Laxmi Chand", category: "Super Senior", image: "/images/logo.png" },
+  { name: "Rajesh Laxmi Chand", category: "Super Senior", image: "/images/looth.png" },
   { name: "Vineet Sharma", category: "Super Senior", image: "/seasons/vineet.png" },
 ];
 
@@ -211,41 +211,28 @@ function MusicSocietyTalentsPage() {
         </ScrollReveal>
       </section>
 
-      {/* 4. Stage Performances — with YouTube links */}
+      {/* 4. Stage Performances — Image Gallery */}
       <section>
         <ScrollReveal direction="up">
           <div className="text-center mb-12">
             <SectionHeading
               eyebrow="Gallery"
               title="Stage Performances"
-              text="Relive the magic of our most memorable stage performances — click to watch on YouTube."
+              text="Relive the magic of our most memorable stage performances through these snapshots."
             />
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {performancesGallery.map((item, idx) => (
-              <a
+              <div
                 key={idx}
-                href={item.youtube || "https://www.youtube.com/@dmsaarohi"}
-                target="_blank"
-                rel="noreferrer"
-                className="group relative h-64 rounded-3xl overflow-hidden shadow-lg cursor-pointer block"
+                className="group relative h-64 rounded-3xl overflow-hidden shadow-lg block"
               >
                 <img
                   src={item.image}
                   alt={item.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-stone-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center">
-                  <div className="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white mb-4 scale-75 group-hover:scale-100 group-hover:bg-red-600 transition-all duration-300 shadow-lg">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                  </div>
-                  <h4 className="text-white font-bold text-center px-4 text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300">{item.title}</h4>
-                </div>
-                {/* Always-visible play indicator */}
-                <div className="absolute top-4 right-4 w-8 h-8 rounded-full bg-red-600/80 flex items-center justify-center shadow-lg">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-                </div>
-              </a>
+              </div>
             ))}
           </div>
         </ScrollReveal>

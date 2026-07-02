@@ -88,10 +88,10 @@ export const successStories = [
 ];
 
 export const performancesGallery = [
-  { title: "Voice of Delhi NCR Season 1 & 2", type: "Video", image: "/legacy/show.png", youtube: "https://www.youtube.com/watch?v=r2VYf94YPNU&t=617s" },
-  { title: "Voice of Delhi NCR Season 3 — Grand Finale", type: "Video", image: "/legacy/current_event.jpg", youtube: "https://www.youtube.com/watch?v=RCOXwxmZ9ik&t=5527s" },
-  { title: "Pankaj Mathur & Neha Jad Live", type: "Video", image: "/legacy/patrons.jpg", youtube: "https://www.youtube.com/watch?v=F14ZS93PEB0" },
-  { title: "Muskan Srivastava — Season 2 Winner", type: "Video", image: "/legacy/about_group.png", youtube: "https://www.facebook.com/reel/1344361294136213" }
+  { title: "Voice of Delhi NCR Season 1 & 2", type: "Video", image: "/talenthunt/53.jpg", youtube: "https://www.youtube.com/watch?v=r2VYf94YPNU&t=617s" },
+  { title: "Voice of Delhi NCR Season 3 — Grand Finale", type: "Video", image: "/talenthunt/54.jpg", youtube: "https://www.youtube.com/watch?v=RCOXwxmZ9ik&t=5527s" },
+  { title: "Pankaj Mathur & Neha Jad Live", type: "Video", image: "/talenthunt/55.jpg", youtube: "https://www.youtube.com/watch?v=F14ZS93PEB0" },
+  { title: "Muskan Srivastava — Season 2 Winner", type: "Video", image: "/talenthunt/56.jpg", youtube: "https://www.facebook.com/reel/1344361294136213" }
 ];
 
 // New data for Upcoming Events
