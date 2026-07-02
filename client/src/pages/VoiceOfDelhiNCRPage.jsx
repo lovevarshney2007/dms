@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import SectionHeading from "../components/common/SectionHeading";
 import ScrollReveal from "../components/common/ScrollReveal";
-import QuickLinksSection from "../components/sections/home/QuickLinksSection";
 
 const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'instant' });
 
@@ -275,11 +274,6 @@ function VoiceOfDelhiNCRPage() {
             ))}
           </div>
         </ScrollReveal>
-
-        {/* Quick Links Nav */}
-        <div className="pt-4">
-          <QuickLinksSection />
-        </div>
 
         {/* Seasons Grid */}
         <div>

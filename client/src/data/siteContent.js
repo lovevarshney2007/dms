@@ -188,10 +188,10 @@ export const testimonials = [
 ];
 
 export const faqs = [
-  {
-    question: "Is there any registration fee for the auditions?",
-    answer: "No, the initial online audition is completely free of cost. If you are selected for the live rounds, a nominal processing fee may apply."
-  },
+  // {
+  //   question: "Is there any registration fee for the auditions?",
+  //   answer: "No, the initial online audition is completely free of cost. If you are selected for the live rounds, a nominal processing fee may apply."
+  // },
   {
     question: "What are the age categories for participation?",
     answer: "We have three categories: Junior Category (8–15 years), Senior Category (16–45 years), and Super Senior Category (46–65 years). Anyone within these age groups can participate."

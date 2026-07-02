@@ -12,6 +12,7 @@ import {
 } from "../data/siteContent";
 import ScrollReveal from "../components/common/ScrollReveal";
 import TestimonialsSlider from "../components/sections/TestimonialsSlider";
+import FaqSection from "../components/sections/FaqSection";
 import { getDaysUntilEvent } from "../lib/eventDates";
 
 const daysUntilFinale = getDaysUntilEvent();
@@ -339,11 +340,8 @@ function HomePage() {
                 <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500 mb-2">500+</div>
                 <div className="text-[10px] sm:text-xs text-stone-500 font-bold uppercase tracking-widest">Participants</div>
               </div>
-              <div className="col-span-2 bg-stone-900 rounded-[2rem] p-6 relative overflow-hidden group h-56 sm:h-72 shadow-xl">
-                <img src="/legacy/image1.jpeg " className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700" alt="Event Highlights" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="px-5 py-2.5 bg-white/20 backdrop-blur-md rounded-full text-white font-bold text-sm border border-white/40 shadow-[0_4px_20px_rgba(0,0,0,0.3)]">View Event Highlights</span>
-                </div>
+              <div className="col-span-2 bg-stone-900 rounded-[2rem] overflow-hidden h-56 sm:h-72 shadow-xl">
+                <img src="/legacy/show.png" className="w-full h-full object-cover" alt="Event Highlights" />
               </div>
             </div>
           </div>
@@ -512,10 +510,10 @@ function HomePage() {
         <TeamSliderRow members={patronsData} />
       </section>
 
-      {/* ===== FAQ SECTION COMMENTED OUT =====
+      {/* ===== FAQ SECTION ===== */}
       <ScrollReveal direction="up" className="mb-6">
         <FaqSection />
-      </ScrollReveal> */}
+      </ScrollReveal>
      
 
       {/* ===== 8. SPONSORS SECTION ===== */}

@@ -5,6 +5,8 @@ import { objectives, teamData } from "../../data/siteContent";
 import { usePageMeta } from "../../hooks/usePageMeta";
 import { useState } from "react";
 
+const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'instant' });
+
 // Updated milestones with corrected season names
 const milestones = [
   { year: "2013", title: "Society Founded", desc: "DMS Aarohi Musical Society was registered under the Societies Registration Act, 1860 with a vision to promote Indian music." },
@@ -145,11 +147,21 @@ function MusicSocietyOverviewPage() {
                   </div>
                 </div>
               </div>
-
+            </div>
+            
+            {/* Right Column */}
+            <div className="relative flex flex-col gap-8">
+              <div className="relative">
+                <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                  <img src={pageMeta.imageUrl} alt={pageMeta.title} className="w-full h-80 object-cover" />
+                </div>
+                <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-tr from-orange-400 to-amber-300 rounded-3xl -z-10 rotate-6 opacity-60 blur-sm"></div>
+              </div>
+              
               {/* What We Do */}
-              <div>
+              <div className="bg-white/50 backdrop-blur rounded-2xl p-5 border border-orange-100 shadow-[0_10px_30px_rgba(234,88,12,0.05)]">
                 <h3 className="font-serif font-bold text-stone-900 text-lg mb-3">What We Do</h3>
-                <div className="space-y-2">
+                <div className="space-y-3">
                   {[
                     "Organize Voice of Delhi NCR singing competition",
                     "Promote Indian music and emerging talent",
@@ -157,21 +169,14 @@ function MusicSocietyOverviewPage() {
                     "Provide a professional platform for aspiring singers"
                   ].map((item, i) => (
                     <div key={i} className="flex items-center gap-3">
-                      <div className="w-5 h-5 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center shrink-0">
-                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
+                      <div className="w-6 h-6 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center shrink-0 shadow-inner">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
                       </div>
                       <p className="text-stone-700 text-sm font-medium">{item}</p>
                     </div>
                   ))}
                 </div>
               </div>
-            </div>
-            
-            <div className="relative">
-              <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-                <img src={pageMeta.imageUrl} alt={pageMeta.title} className="w-full h-80 " />
-              </div>
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-tr from-orange-400 to-amber-300 rounded-3xl -z-10 rotate-6 opacity-60 blur-sm"></div>
             </div>
           </div>
         </div>
@@ -320,12 +325,14 @@ function MusicSocietyOverviewPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/register"
+              onClick={scrollToTop}
               className="px-8 py-4 rounded-full bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold hover:shadow-[0_10px_20px_rgba(234,88,12,0.3)] hover:-translate-y-1 transition-all"
             >
               Register for Upcoming Season
             </Link>
             <Link
               to="/voice-of-delhi-ncr"
+              onClick={scrollToTop}
               className="px-8 py-4 rounded-full border-2 border-stone-300 text-stone-700 font-bold hover:border-orange-400 hover:text-orange-600 transition-all"
             >
               Explore Seasons
