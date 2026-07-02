@@ -17,7 +17,7 @@ const fallbackSeasons = [
     lightBg: "from-orange-50 to-amber-50",
     borderColor: "border-orange-300",
     winner: null,
-    winnerImg: null,
+     winnerImg: "/images/logoth.png",
     grandFinale: "4th July 2026",
     venue: "Pearey Lal Bhawan (Gandhi Memorial Hall), ITO, New Delhi",
     description:
@@ -29,7 +29,7 @@ const fallbackSeasons = [
       "Live music by DO-RE-MI Band",
     ],
     youtube: null,
-    poster: "/legacy/poster.png",
+    poster: "/seasons/season_4_poster.png",
     finalists: {
       junior: [
         "Aarna Agrawal","Adaa Srivastava","Ayami Aadhya","Devarsh Sharma","Dhruv Pandit",
@@ -57,8 +57,8 @@ const fallbackSeasons = [
     color: "from-rose-500 to-orange-500",
     lightBg: "from-rose-50 to-orange-50",
     borderColor: "border-rose-200",
-    winner: "Khushi Singh",
-    winnerImg: "/legacy/KT.jpg",
+    winner: "Multiple Category Winners",
+    winnerImg: "/images/logoth.png",
     description:
       "Voice of Delhi NCR Season 3 delivered spectacular performances and discovered incredible singing talent from across Delhi NCR. The Grand Finale was a memorable celebration of music and artistry.",
     highlights: [
@@ -68,7 +68,7 @@ const fallbackSeasons = [
       "Winner: Khushi Singh",
     ],
     youtube: "https://www.youtube.com/watch?v=RCOXwxmZ9ik&t=5527s",
-    poster: "/legacy/current_event.jpg",
+    poster: "/seasons/season_3_poster.jpeg",
     winners: {
       overall: [
         { category: "Winner", name: "Khushi Singh" }
@@ -85,7 +85,7 @@ const fallbackSeasons = [
     lightBg: "from-purple-50 to-pink-50",
     borderColor: "border-purple-200",
     winner: "Grand Finale Champion",
-    winnerImg: "/legacy/KT.jpg",
+    winnerImg: "/images/logoth.png",
     description:
       "A special edition — Voice of Rajasthan Season 1 — expanded DMS Aarohi's reach beyond Delhi, celebrating the rich musical heritage of Rajasthan and discovering incredible talent from the region.",
     highlights: [
@@ -94,7 +94,7 @@ const fallbackSeasons = [
       "Celebrated Rajasthani musical heritage",
     ],
     youtube: "https://www.youtube.com/channel/UCFmS_dMuj8yvCUcR-X2NdYQ",
-    poster: "/legacy/KT.jpg",
+    poster: "/seasons/season_3_poster_rajsathan.png",
   },
   {
     id: "season-2",
@@ -106,7 +106,7 @@ const fallbackSeasons = [
     lightBg: "from-orange-50 to-red-50",
     borderColor: "border-orange-200",
     winner: "Multiple Category Winners",
-    winnerImg: "/legacy/about_group.png",
+    winnerImg: "/images/logoth.png",
     description:
       "Season 2 expanded the competition to reach more cities and localities within Delhi NCR, featuring bigger stages, more competitive rounds, and multiple categories including a special Specially Abled category.",
     highlights: [
@@ -116,7 +116,7 @@ const fallbackSeasons = [
       "Bigger prize pool",
     ],
     youtube: "https://www.youtube.com/watch?v=r2VYf94YPNU&t=617s",
-    poster: "/legacy/about_group.png",
+    poster: "/seasons/season_2_poster.png",
     winners: {
       littleStars: [
         { position: "Winner", name: "Adya Mishra" },
@@ -150,8 +150,8 @@ const fallbackSeasons = [
     color: "from-amber-500 to-orange-600",
     lightBg: "from-amber-50 to-orange-50",
     borderColor: "border-amber-200",
-    winner: "Peehu Srivastava (Little Stars)",
-    winnerImg: "/team/Peehu Srivastava (Brand Ambassador).png",
+    winner: "Multiple Category Winners",
+     winnerImg: "/images/logoth.png",
     description:
       "The first edition of Voice of Delhi NCR launched DMS Aarohi's flagship competition, bringing together hundreds of singing talents from across the Delhi NCR region for the very first time.",
     highlights: [
@@ -160,7 +160,7 @@ const fallbackSeasons = [
       "Grand Finale at a prestigious Delhi venue",
     ],
     youtube: "https://www.youtube.com/watch?v=r2VYf94YPNU&t=617s",
-    poster: "seasons/season_2_poster.jpeg",
+    poster: "/seasons/season_1_poster.jpeg",
     winners: {
       littleStars: [
         { position: "Winner", name: "Peehu Srivastava" },
@@ -194,24 +194,29 @@ function VoiceOfDelhiNCRPage() {
       .then(res => res.json())
       .then(data => {
         if (data && data.length > 0) {
-          const mappedSeasons = data.map((d, i) => ({
-            id: `season-${i+1}`,
-            title: d.title,
-            subtitle: d.subtitle,
-            year: d.year,
-            description: d.meta?.description || d.description,
-            status: d.meta?.status || "completed",
-            color: d.meta?.color || "from-amber-500 to-orange-600",
-            lightBg: d.meta?.lightBg || "from-amber-50 to-orange-50",
-            borderColor: d.meta?.borderColor || "border-amber-200",
-            winner: d.meta?.winner || null,
-            winnerImg: d.meta?.winnerImg || null,
-            youtube: d.meta?.youtube || null,
-            poster: d.meta?.poster || d.imageUrl || "/legacy/poster.png",
-            grandFinale: d.meta?.grandFinale || null,
-            venue: d.meta?.venue || null,
-            highlights: d.meta?.highlights || []
-          }));
+          const mappedSeasons = fallbackSeasons.map(fallback => {
+            const d = data.find(item => String(item.year) === String(fallback.year)) || {};
+            return {
+              id: fallback.id,
+              title: d.title || fallback.title,
+              subtitle: d.subtitle || fallback.subtitle,
+              year: fallback.year, // Priority to fallback year
+              description: d.meta?.description || d.description || fallback.description,
+              status: d.meta?.status || fallback.status || "completed",
+              color: d.meta?.color || fallback.color,
+              lightBg: d.meta?.lightBg || fallback.lightBg,
+              borderColor: d.meta?.borderColor || fallback.borderColor,
+              winner: fallback.winner || d.meta?.winner || null,
+              winnerImg: fallback.winnerImg || d.meta?.winnerImg || null,
+              youtube: fallback.youtube || d.meta?.youtube || null,
+              poster: fallback.poster || d.meta?.poster || d.imageUrl || "/legacy/poster.png",
+              grandFinale: d.meta?.grandFinale || fallback.grandFinale || null,
+              venue: d.meta?.venue || fallback.venue || null,
+              highlights: d.meta?.highlights || fallback.highlights || [],
+              winners: fallback.winners || d.meta?.winners || null,
+              finalists: fallback.finalists || d.meta?.finalists || null,
+            };
+          });
           setSeasons(mappedSeasons);
         }
       })

@@ -229,23 +229,26 @@ const tagColors = {
 };
 
 function MusicSocietyShowsPage() {
-  const [shows, setShows] = useState([]);
+  const [shows, setShows] = useState(fallbackShows);
 
   useEffect(() => {
     fetch(import.meta.env.VITE_API_URL + "/api/content/competition")
       .then(res => res.json())
       .then(data => {
         if (data && data.length > 0) {
-          const mapped = data.map((d, i) => ({
-            id: d._id || `cms-${i}`,
-            title: d.title,
-            subtitle: d.subtitle,
-            description: d.description,
-            image: d.imageUrl || "/legacy/patrons.jpg",
-            tag: d.meta?.tag || "Cultural Event",
-            date: d.meta?.date || "TBD",
-            location: d.meta?.location || "Delhi NCR"
-          }));
+          const mapped = data.map((d, i) => {
+            const fallback = fallbackShows.find(f => f.title === d.title);
+            return {
+              id: d._id || `cms-${i}`,
+              title: d.title,
+              subtitle: d.subtitle,
+              description: d.description || fallback?.description || "An unforgettable musical evening organized by DMS Aarohi Musical Society, bringing talented artists and music lovers together.",
+              image: d.imageUrl || fallback?.image || "/legacy/patrons.jpg",
+              tag: d.meta?.tag || fallback?.tag || "Cultural Event",
+              date: d.meta?.date || fallback?.date || "TBD",
+              location: d.meta?.location || fallback?.location || "Delhi NCR"
+            };
+          });
           // Sort by order or date if needed, but we'll just set it
           setShows(mapped);
         }
@@ -289,15 +292,15 @@ function MusicSocietyShowsPage() {
           </Link>
         </div>
         <div className="relative h-80 lg:h-[500px] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/10 group">
-          <img src="/legacy/show.png" alt="Our Shows" className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+          <img src="/images/image1.jpeg" alt="Our Shows" className="absolute inset-0 w-full h-full  group-hover:scale-110 transition-transform duration-700" />
           <div className="absolute inset-0 bg-gradient-to-t from-stone-900 via-stone-900/40 to-transparent flex items-end p-8">
             <div className="text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-              <div className="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-bold uppercase tracking-wider mb-3 border border-white/20">Featured Highlight</div>
-              <p className="font-serif font-bold text-3xl mb-1">Grand Finale 2026</p>
+              {/* <div className="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-bold uppercase tracking-wider mb-3 border border-white/20">Featured Highlight</div> */}
+              {/* <p className="font-serif font-bold text-3xl mb-1">Grand Finale 2026</p>
               <p className="text-stone-300 text-sm font-medium flex items-center gap-2">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                 Pearey Lal Bhawan, ITO, New Delhi
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
@@ -366,8 +369,8 @@ function MusicSocietyShowsPage() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {shows.map((show, idx) => (
-              <ScrollReveal key={show.id} direction="up" delay={idx * 0.07}>
-                <div className="group bg-white rounded-[2rem] overflow-hidden border border-stone-100 shadow-[0_8px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(234,88,12,0.1)] hover:-translate-y-1 transition-all duration-300 flex flex-col">
+              <ScrollReveal key={show.id} direction="up" delay={idx * 0.07} className="h-full">
+                <div className="group bg-white rounded-[2rem] overflow-hidden border border-stone-100 shadow-[0_8px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(234,88,12,0.1)] hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
                   {/* Image */}
                   <div className="h-52 relative overflow-hidden">
                     <img src={show.image} alt={show.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />

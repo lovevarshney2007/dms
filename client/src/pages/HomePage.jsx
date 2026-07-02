@@ -527,11 +527,11 @@ function HomePage() {
             />
           </div>
 
-          <div className="w-full mb-8">
+          <div className="w-full mb-8 flex justify-center">
             <img 
-              src="/images/sponsor.jpg" 
+              src="Finalist/musical supports.jpg" 
               alt="Our Esteemed Sponsors" 
-              className="w-full h-auto object-cover rounded-[2rem] shadow-lg border border-stone-100" 
+              className="w-full max-w-2xl h-auto rounded-[2rem] shadow-lg border border-stone-100" 
             />
           </div>
 
