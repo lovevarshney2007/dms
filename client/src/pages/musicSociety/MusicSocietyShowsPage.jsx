@@ -262,10 +262,11 @@ function MusicSocietyShowsPage() {
   };
 
   const glimpses = [
-    "/legacy/KT.jpg",
-    "/legacy/poster.png",
-    "/legacy/image1.jpeg",
-    "/legacy/patrons.jpg"
+    "/talenthunt/73.jpg",
+    "/talenthunt/77.jpg",
+    "/talenthunt/79.jpg",
+    "/talenthunt/83.jpg",
+    "/talenthunt/91.jpg"
   ];
 
   return (
@@ -308,7 +309,7 @@ function MusicSocietyShowsPage() {
           <div className="text-center mb-10">
             <SectionHeading
               eyebrow="Mark your calendars"
-              title="Upcoming Shows"
+              title="Upcoming Events"
               text="Be a part of our next big musical extravaganza."
             />
           </div>
@@ -385,8 +386,8 @@ function MusicSocietyShowsPage() {
                   <div className="p-5 flex flex-col flex-1">
                     <h3 className="font-serif text-lg font-bold text-stone-900 mb-0.5 group-hover:text-orange-600 transition-colors leading-tight">{show.title}</h3>
                     <p className="text-orange-600 text-xs font-bold uppercase tracking-wider mb-3">{show.subtitle}</p>
-                    <p className="text-stone-500 text-xs leading-relaxed mb-4 flex-1">{show.description}</p>
-                    <div className="flex items-center gap-2 text-stone-400 text-[11px] font-medium">
+                    <p className="text-stone-500 text-xs leading-relaxed mb-4 flex-1 line-clamp-3">{show.description}</p>
+                    <div className="flex items-center gap-2 text-stone-400 text-[11px] font-medium mt-auto">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
                       {show.location}
                     </div>

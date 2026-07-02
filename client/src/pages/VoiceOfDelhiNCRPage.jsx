@@ -6,74 +6,12 @@ import QuickLinksSection from "../components/sections/home/QuickLinksSection";
 
 const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'instant' });
 
+// Change 9: Updated seasons list with correct names and years
 const fallbackSeasons = [
-  {
-    id: "season-1",
-    title: "Voice of Delhi NCR",
-    subtitle: "Season 1",
-    year: "2018",
-    status: "completed",
-    color: "from-amber-500 to-orange-600",
-    lightBg: "from-amber-50 to-orange-50",
-    borderColor: "border-amber-200",
-    winner: "Peehu Srivastava",
-    winnerImg: "/team/Peehu Srivastava (Brand Ambassador).png",
-    description:
-      "The first edition of Voice of Delhi NCR launched DMS Aarohi's flagship competition, bringing together hundreds of singing talents from across the Delhi NCR region for the very first time.",
-    highlights: [
-      "First ever singing competition by DMS Aarohi",
-      "Hundreds of participants from Delhi NCR",
-      "Grand Finale at a prestigious Delhi venue",
-    ],
-    youtube: "https://www.youtube.com/channel/UCFmS_dMuj8yvCUcR-X2NdYQ",
-    poster: "/legacy/poster.png",
-  },
-  {
-    id: "season-2",
-    title: "Voice of Delhi NCR",
-    subtitle: "Season 2",
-    year: "2019",
-    status: "completed",
-    color: "from-orange-500 to-red-500",
-    lightBg: "from-orange-50 to-red-50",
-    borderColor: "border-orange-200",
-    winner: "Grand Finale Champion",
-    winnerImg: "/legacy/about_group.png",
-    description:
-      "Season 2 expanded the competition to reach more cities and localities within Delhi NCR, featuring bigger stages and more competitive rounds than ever before.",
-    highlights: [
-      "Expanded to more Delhi NCR localities",
-      "Celebrity judges panel",
-      "Bigger prize pool",
-    ],
-    youtube: "https://youtu.be/kom0cU5fUFE",
-    poster: "/legacy/current_event.jpg",
-  },
-  {
-    id: "season-3",
-    title: "Voice of Rajasthan",
-    subtitle: "Season 3",
-    year: "2021",
-    status: "completed",
-    color: "from-rose-500 to-pink-600",
-    lightBg: "from-rose-50 to-pink-50",
-    borderColor: "border-rose-200",
-    winner: "Grand Finale Champion",
-    winnerImg: "/legacy/KT.jpg",
-    description:
-      "A special edition — Voice of Rajasthan — expanded DMS Aarohi's reach beyond Delhi, celebrating the rich musical heritage of Rajasthan and discovering incredible talent from the region.",
-    highlights: [
-      "Special edition — Voice of Rajasthan",
-      "First competition outside Delhi NCR",
-      "Celebrated Rajasthani musical heritage",
-    ],
-    youtube: "https://www.youtube.com/channel/UCFmS_dMuj8yvCUcR-X2NdYQ",
-    poster: "/legacy/KT.jpg",
-  },
   {
     id: "season-4",
     title: "Voice of Delhi NCR",
-    subtitle: "Season 4",
+    subtitle: "Season 4 Grand Finale",
     year: "2026",
     status: "grand-finale",
     color: "from-orange-500 to-amber-400",
@@ -93,6 +31,159 @@ const fallbackSeasons = [
     ],
     youtube: null,
     poster: "/legacy/poster.png",
+    finalists: {
+      junior: [
+        "Aarna Agrawal","Adaa Srivastava","Ayami Aadhya","Devarsh Sharma","Dhruv Pandit",
+        "Lavishka Sharma","Mandeep Singh","Netra Singh","Praharsh Kashyap","Priyanshi",
+        "Shreyas Thakur","Varin Kakkar","Advita Mittal","Keshav Pandit"
+      ],
+      senior: [
+        "Arijit Roy","Bhoomi Tyagi","Chandreyi Banerjee","Deepshikha Mitra","Kuvam Sethi",
+        "Maanvi Dwivedi","Manoneet Munesha","Nagma Ali","Nitin Mishra","Ruchika Chatterjee",
+        "Sakshi Kumari","Soumava Mukhopadhyay","Srishti Sargam"
+      ],
+      superSenior: [
+        "Chetan P. Barodia (Dr.)","Khushjit Singh","Mandeep Negi","P. Kumar (Dr.)",
+        "Pritika Singh Gupta","Rahul Agarwal","Rajat Chakraborthy","Rajesh Kapoor",
+        "Rajesh Laxmi Chand","Vineet Sharma"
+      ]
+    }
+  },
+  {
+    id: "season-3",
+    title: "Voice of Delhi NCR",
+    subtitle: "Season 3",
+    year: "2024",
+    status: "completed",
+    color: "from-rose-500 to-orange-500",
+    lightBg: "from-rose-50 to-orange-50",
+    borderColor: "border-rose-200",
+    winner: "Khushi Singh",
+    winnerImg: "/legacy/KT.jpg",
+    description:
+      "Voice of Delhi NCR Season 3 delivered spectacular performances and discovered incredible singing talent from across Delhi NCR. The Grand Finale was a memorable celebration of music and artistry.",
+    highlights: [
+      "Voice of Delhi NCR Season 3 — 2024",
+      "Grand Finale at a prestigious Delhi venue",
+      "Multiple categories — Junior, Senior & Super Senior",
+      "Winner: Khushi Singh",
+    ],
+    youtube: "https://www.youtube.com/watch?v=RCOXwxmZ9ik&t=5527s",
+    poster: "/legacy/current_event.jpg",
+    winners: {
+      overall: [
+        { category: "Winner", name: "Khushi Singh" }
+      ]
+    }
+  },
+  {
+    id: "season-rajasthan",
+    title: "Voice of Rajasthan",
+    subtitle: "Season 1",
+    year: "2021",
+    status: "completed",
+    color: "from-purple-500 to-pink-600",
+    lightBg: "from-purple-50 to-pink-50",
+    borderColor: "border-purple-200",
+    winner: "Grand Finale Champion",
+    winnerImg: "/legacy/KT.jpg",
+    description:
+      "A special edition — Voice of Rajasthan Season 1 — expanded DMS Aarohi's reach beyond Delhi, celebrating the rich musical heritage of Rajasthan and discovering incredible talent from the region.",
+    highlights: [
+      "Special edition — Voice of Rajasthan",
+      "First competition outside Delhi NCR",
+      "Celebrated Rajasthani musical heritage",
+    ],
+    youtube: "https://www.youtube.com/channel/UCFmS_dMuj8yvCUcR-X2NdYQ",
+    poster: "/legacy/KT.jpg",
+  },
+  {
+    id: "season-2",
+    title: "Voice of Delhi NCR",
+    subtitle: "Season 2",
+    year: "2019",
+    status: "completed",
+    color: "from-orange-500 to-red-500",
+    lightBg: "from-orange-50 to-red-50",
+    borderColor: "border-orange-200",
+    winner: "Multiple Category Winners",
+    winnerImg: "/legacy/about_group.png",
+    description:
+      "Season 2 expanded the competition to reach more cities and localities within Delhi NCR, featuring bigger stages, more competitive rounds, and multiple categories including a special Specially Abled category.",
+    highlights: [
+      "Expanded to more Delhi NCR localities",
+      "Special Specially Abled category introduced",
+      "Celebrity judges panel",
+      "Bigger prize pool",
+    ],
+    youtube: "https://www.youtube.com/watch?v=r2VYf94YPNU&t=617s",
+    poster: "/legacy/about_group.png",
+    winners: {
+      littleStars: [
+        { position: "Winner", name: "Adya Mishra" },
+        { position: "1st Runner-up", name: "Dhaani Saikia" },
+        { position: "2nd Runner-up", name: "Moksh Gulhati" }
+      ],
+      speciallyAbled: [
+        { position: "Winner", name: "Shipra Kumari" },
+        { position: "1st Runner-up", name: "Pratik Saraf" },
+        { position: "2nd Runner-up", name: "Md. Arif" }
+      ],
+      rockStars: [
+        { position: "Winner", name: "Shubham Gupta" },
+        { position: "1st Runner-up", name: "Manjeet Tanwar" },
+        { position: "2nd Runner-up", name: "Shraddha Shree" }
+      ],
+      superStars: [
+        { position: "Winner", name: "Sanjukta Kakkar" },
+        { position: "1st Runner-up", name: "Amritpal Singh" },
+        { position: "2nd Runner-up", name: "Rahul Aggarwal" }
+      ],
+      viewersChoice: ["Yashaswini Dagar", "Aastha Sharma", "Muskan Srivastava", "Nishant Sharma"]
+    }
+  },
+  {
+    id: "season-1",
+    title: "Voice of Delhi NCR",
+    subtitle: "Season 1",
+    year: "2018",
+    status: "completed",
+    color: "from-amber-500 to-orange-600",
+    lightBg: "from-amber-50 to-orange-50",
+    borderColor: "border-amber-200",
+    winner: "Peehu Srivastava (Little Stars)",
+    winnerImg: "/team/Peehu Srivastava (Brand Ambassador).png",
+    description:
+      "The first edition of Voice of Delhi NCR launched DMS Aarohi's flagship competition, bringing together hundreds of singing talents from across the Delhi NCR region for the very first time.",
+    highlights: [
+      "First ever singing competition by DMS Aarohi",
+      "Hundreds of participants from Delhi NCR",
+      "Grand Finale at a prestigious Delhi venue",
+    ],
+    youtube: "https://www.youtube.com/watch?v=r2VYf94YPNU&t=617s",
+    poster: "/legacy/poster.png",
+    winners: {
+      littleStars: [
+        { position: "Winner", name: "Peehu Srivastava" },
+        { position: "1st Runner-up (Tie)", name: "Anshiki Jadia" },
+        { position: "1st Runner-up (Tie)", name: "Siddhant Agrawal" },
+        { position: "2nd Runner-up (Tie)", name: "Biren Dang" },
+        { position: "2nd Runner-up (Tie)", name: "Shivam Khanna" },
+      ],
+      rockStars: [
+        { position: "Winner", name: "Paakhi Saikia" },
+        { position: "1st Runner-up", name: "Jai Kishan" },
+        { position: "2nd Runner-up (Tie)", name: "Kritarth Singh" },
+        { position: "2nd Runner-up (Tie)", name: "Atul Kumar" },
+      ],
+      superStars: [
+        { position: "Winner", name: "Prasenjit Mukherjee" },
+        { position: "1st Runner-up (Tie)", name: "Dr. P. Kumar" },
+        { position: "1st Runner-up (Tie)", name: "Rohit Bakshi" },
+        { position: "2nd Runner-up (Tie)", name: "Sanjay Kakkar" },
+        { position: "2nd Runner-up (Tie)", name: "Ashish Gupta" },
+      ]
+    }
   },
 ];
 
@@ -161,20 +252,20 @@ function VoiceOfDelhiNCRPage() {
           </div>
         </ScrollReveal>
 
-        {/* Stats Row */}
+        {/* Change 8: Updated Stats Row */}
         <ScrollReveal direction="up">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
               { num: "5", label: "Successful Seasons" },
-              { num: "5,000+", label: "Total Participants" },
-              { num: "4+", label: "States Covered" },
-              { num: "₹1L+", label: "Total Prize Money" },
+              { num: "Since 2013", label: "Promoting Music" },
+              { num: "Voice of Delhi NCR", label: "Flagship Competition" },
+              { num: "Live Shows", label: "Musical Events" },
             ].map((stat, i) => (
               <div
                 key={i}
                 className="bg-white rounded-3xl p-6 text-center border border-orange-100 shadow-[0_10px_30px_rgba(234,88,12,0.05)]"
               >
-                <div className="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500 mb-1">
+                <div className="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500 mb-1">
                   {stat.num}
                 </div>
                 <div className="text-xs text-stone-500 font-bold uppercase tracking-wide">
@@ -239,7 +330,7 @@ function VoiceOfDelhiNCRPage() {
                     <div className="absolute bottom-0 left-0 right-0 p-5">
                       <p className="text-orange-400 text-[11px] font-bold tracking-widest uppercase mb-1">{season.subtitle}</p>
                       <h2 className="text-white font-serif text-2xl font-bold leading-tight drop-shadow-lg">
-                        {season.title.includes("Delhi") ? "Voice of Delhi NCR" : "Voice of Rajasthan"}
+                        {season.title}
                       </h2>
                     </div>
                   </div>
@@ -303,17 +394,17 @@ function VoiceOfDelhiNCRPage() {
             </div>
             <div className="relative z-10 max-w-xl mx-auto">
               <h2 className="font-serif text-3xl sm:text-4xl text-white font-bold mb-4">
-                The Grand Finale is on 4th July 2026!
+                Season 6 Is Coming!
               </h2>
               <p className="text-stone-300 mb-8">
-                Join us at Pearey Lal Bhawan (Gandhi Memorial Hall), ITO, New Delhi — 5:00 PM to 9:30 PM. <strong className="text-orange-400">Entry is FREE!</strong>
+                Stay tuned for the upcoming Season 6 of Voice of Delhi NCR. <strong className="text-orange-400">Register now to be part of the journey!</strong>
               </p>
               <Link
-                to="/voice-of-delhi-ncr/season-4"
+                to="/register"
                 onClick={scrollToTop}
                 className="inline-block px-8 py-4 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold hover:scale-105 transition-transform shadow-[0_10px_30px_rgba(249,115,22,0.4)]"
               >
-                🎟️ Free Entry — Explore Season 4
+                🎤 Register for Upcoming Season
               </Link>
             </div>
           </div>
@@ -382,6 +473,19 @@ function SeasonDetailPage({ season }) {
                     🎟️ Free Entry — Join Us
                   </Link>
                 )}
+
+                {/* YouTube link for completed seasons */}
+                {season.status === "completed" && season.youtube && (
+                  <a
+                    href={season.youtube}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-6 inline-flex items-center gap-2 px-6 py-3 bg-red-600 text-white font-bold rounded-xl hover:bg-red-700 transition-colors"
+                  >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="white"/></svg>
+                    Watch Season Highlights on YouTube
+                  </a>
+                )}
               </div>
               <div className="relative">
                 <div className="rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white">
@@ -413,40 +517,135 @@ function SeasonDetailPage({ season }) {
           </div>
         </ScrollReveal>
 
-        {/* Winner / Upcoming */}
-        {season.status === "completed" && (
+        {/* Season 4 Finalists — Change 10 */}
+        {season.id === "season-4" && season.finalists && (
           <ScrollReveal direction="up">
-            <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-[2.5rem] p-10 border border-amber-100 text-center">
-              <p className="text-xs font-bold uppercase tracking-widest text-amber-700 mb-4">
-                🏆 Hall of Fame
-              </p>
-              <h2 className="font-serif text-3xl text-stone-900 mb-6">
-                Season Winner
-              </h2>
-              <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-white shadow-xl mx-auto mb-4">
-                <img
-                  src={season.winnerImg}
-                  alt={season.winner}
-                  className="w-full h-full object-cover"
-                />
+            <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-[2.5rem] p-8 sm:p-12 border border-orange-100">
+              <div className="text-center mb-10">
+                <p className="text-xs font-bold uppercase tracking-widest text-orange-600 mb-3">🎤 Grand Finale Participants</p>
+                <h2 className="font-serif text-3xl text-stone-900 font-bold">Season 4 Finalists</h2>
               </div>
-              <p className="font-black text-2xl text-stone-900">
-                {season.winner}
-              </p>
+              <div className="grid md:grid-cols-3 gap-8">
+                {/* Junior */}
+                <div className="bg-white rounded-2xl p-6 border border-orange-100 shadow-sm">
+                  <h3 className="font-serif font-bold text-lg text-stone-900 mb-4 flex items-center gap-2">
+                    <span className="w-7 h-7 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-sm">🌟</span>
+                    Junior Category
+                  </h3>
+                  <div className="space-y-2">
+                    {season.finalists.junior.map((name, i) => (
+                      <div key={i} className="flex items-center gap-2 py-1.5 border-b border-stone-50 last:border-0">
+                        <span className="w-5 h-5 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center text-[10px] font-bold shrink-0">{i+1}</span>
+                        <span className="text-stone-800 text-sm font-medium">{name}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                {/* Senior */}
+                <div className="bg-white rounded-2xl p-6 border border-orange-100 shadow-sm">
+                  <h3 className="font-serif font-bold text-lg text-stone-900 mb-4 flex items-center gap-2">
+                    <span className="w-7 h-7 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center text-sm">🌟</span>
+                    Senior Category
+                  </h3>
+                  <div className="space-y-2">
+                    {season.finalists.senior.map((name, i) => (
+                      <div key={i} className="flex items-center gap-2 py-1.5 border-b border-stone-50 last:border-0">
+                        <span className="w-5 h-5 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center text-[10px] font-bold shrink-0">{i+1}</span>
+                        <span className="text-stone-800 text-sm font-medium">{name}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                {/* Super Senior */}
+                <div className="bg-white rounded-2xl p-6 border border-orange-100 shadow-sm">
+                  <h3 className="font-serif font-bold text-lg text-stone-900 mb-4 flex items-center gap-2">
+                    <span className="w-7 h-7 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center text-sm">🌟</span>
+                    Super Senior Category
+                  </h3>
+                  <div className="space-y-2">
+                    {season.finalists.superSenior.map((name, i) => (
+                      <div key={i} className="flex items-center gap-2 py-1.5 border-b border-stone-50 last:border-0">
+                        <span className="w-5 h-5 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center text-[10px] font-bold shrink-0">{i+1}</span>
+                        <span className="text-stone-800 text-sm font-medium">{name}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+        )}
+
+        {/* Season 1 Winners — Change 10 */}
+        {season.id === "season-1" && season.winners && (
+          <ScrollReveal direction="up">
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-[2.5rem] p-8 sm:p-12 border border-amber-100">
+              <div className="text-center mb-10">
+                <p className="text-xs font-bold uppercase tracking-widest text-amber-700 mb-3">🏆 Hall of Fame</p>
+                <h2 className="font-serif text-3xl text-stone-900 font-bold">Voice of Delhi NCR — Season 1 Winners</h2>
+              </div>
+              <div className="grid sm:grid-cols-3 gap-6">
+                {/* Little Stars */}
+                <WinnerCategoryCard title="⭐ Little Stars" winners={season.winners.littleStars} />
+                {/* Rock Stars */}
+                <WinnerCategoryCard title="⭐ Rock Stars" winners={season.winners.rockStars} />
+                {/* Super Stars */}
+                <WinnerCategoryCard title="⭐ Super Stars" winners={season.winners.superStars} />
+              </div>
+            </div>
+          </ScrollReveal>
+        )}
+
+        {/* Season 2 Winners — Change 10 */}
+        {season.id === "season-2" && season.winners && (
+          <ScrollReveal direction="up">
+            <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-[2.5rem] p-8 sm:p-12 border border-orange-100">
+              <div className="text-center mb-10">
+                <p className="text-xs font-bold uppercase tracking-widest text-orange-700 mb-3">🏆 Hall of Fame</p>
+                <h2 className="font-serif text-3xl text-stone-900 font-bold">Voice of Delhi NCR — Season 2 Winners</h2>
+              </div>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+                <WinnerCategoryCard title="⭐ Little Stars" winners={season.winners.littleStars} />
+                <WinnerCategoryCard title="♿ Specially Abled" winners={season.winners.speciallyAbled} />
+                <WinnerCategoryCard title="⭐ Rock Stars" winners={season.winners.rockStars} />
+                <WinnerCategoryCard title="⭐ Super Stars" winners={season.winners.superStars} />
+              </div>
+              {/* Viewers' Choice */}
+              <div className="bg-white rounded-2xl p-6 border border-orange-100 shadow-sm">
+                <h3 className="font-serif font-bold text-lg text-stone-900 mb-4">🎖️ Viewers' Choice Winners</h3>
+                <div className="flex flex-wrap gap-3">
+                  {season.winners.viewersChoice.map((name, i) => (
+                    <span key={i} className="px-4 py-2 bg-orange-50 text-orange-700 border border-orange-100 rounded-full text-sm font-bold">{name}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+        )}
+
+        {/* Season 3 Winner */}
+        {season.id === "season-3" && season.winner && (
+          <ScrollReveal direction="up">
+            <div className="bg-gradient-to-br from-rose-50 to-orange-50 rounded-[2.5rem] p-10 border border-rose-100 text-center">
+              <p className="text-xs font-bold uppercase tracking-widest text-rose-700 mb-4">🏆 Hall of Fame</p>
+              <h2 className="font-serif text-3xl text-stone-900 mb-4">Season 3 Winner</h2>
+              <p className="font-black text-4xl text-orange-600 mb-6">Khushi Singh</p>
               {season.youtube && (
                 <a
                   href={season.youtube}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-6 inline-flex items-center gap-2 px-6 py-3 bg-red-600 text-white font-bold rounded-xl hover:bg-red-700 transition-colors"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 text-white font-bold rounded-xl hover:bg-red-700 transition-colors"
                 >
-                  Watch Season Highlights on YouTube
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="white"/></svg>
+                  Watch Voice of Delhi NCR Season 3 — Grand Finale
                 </a>
               )}
             </div>
           </ScrollReveal>
         )}
 
+        {/* Season 4 Grand Finale Info */}
         {season.status === "grand-finale" && (
           <ScrollReveal direction="up">
             <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-[2.5rem] p-10 border border-orange-200 text-center">
@@ -472,6 +671,28 @@ function SeasonDetailPage({ season }) {
         )}
       </div>
     </>
+  );
+}
+
+// Helper: Winner Category Card
+function WinnerCategoryCard({ title, winners }) {
+  return (
+    <div className="bg-white rounded-2xl p-6 border border-amber-100 shadow-sm">
+      <h3 className="font-serif font-bold text-base text-stone-900 mb-4">{title}</h3>
+      <div className="space-y-2">
+        {winners.map((w, i) => (
+          <div key={i} className="flex items-center gap-2 py-1.5 border-b border-stone-50 last:border-0">
+            <span className={`text-xs font-black shrink-0 w-6 ${i === 0 ? 'text-amber-500' : 'text-stone-400'}`}>
+              {i === 0 ? '🥇' : i === 1 ? '🥈' : '🥉'}
+            </span>
+            <div>
+              <p className="text-[10px] text-stone-400 uppercase font-bold">{w.position}</p>
+              <p className="text-stone-800 text-sm font-bold">{w.name}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 

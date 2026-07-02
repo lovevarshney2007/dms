@@ -1,30 +1,65 @@
 import { Link } from "react-router-dom";
 import SectionHeading from "../../components/common/SectionHeading";
 import ScrollReveal from "../../components/common/ScrollReveal";
-import { objectives, highlights, teamData } from "../../data/siteContent";
+import { objectives, teamData } from "../../data/siteContent";
 import { usePageMeta } from "../../hooks/usePageMeta";
+import { useState } from "react";
 
+// Updated milestones with corrected season names
 const milestones = [
   { year: "2013", title: "Society Founded", desc: "DMS Aarohi Musical Society was registered under the Societies Registration Act, 1860 with a vision to promote Indian music." },
   { year: "2018", title: "Voice of Delhi NCR — Season 1", desc: "The flagship competition was launched, bringing together hundreds of singing talents from across the Delhi NCR region." },
-  { year: "2019", title: "Season 2", desc: "Season 2 expanded to more localities, featuring celebrity judges and bigger prize pools." },
-  { year: "2021", title: "Voice of Rajasthan — Season 3", desc: "A special edition — Voice of Rajasthan — expanded DMS Aarohi's reach beyond Delhi NCR." },
-  { year: "2023", title: "Season 4 — Online Auditions", desc: "Season 4 introduced online auditions for the first time, significantly expanding participant reach." },
-  { year: "2026", title: "Season 4 — Grand Finale", desc: "Voice of Delhi NCR Season 4 — Grand Finale on 4th July 2026 at Pearey Lal Bhawan (Gandhi Memorial Hall), ITO, New Delhi." },
+  { year: "2019", title: "Voice of Delhi NCR — Season 2", desc: "Season 2 expanded to more localities, featuring celebrity judges and bigger prize pools." },
+  { year: "2021", title: "Voice of Rajasthan — Season 1", desc: "A special edition — Voice of Rajasthan — expanded DMS Aarohi's reach beyond Delhi NCR, celebrating the rich musical heritage of Rajasthan." },
+  { year: "2024", title: "Voice of Delhi NCR — Season 3", desc: "Season 3 launched online auditions for the first time, significantly expanding participant reach across Delhi NCR." },
+  { year: "2026", title: "Voice of Delhi NCR — Season 4", desc: "Voice of Delhi NCR Season 4 — Grand Finale on 4th July 2026 at Pearey Lal Bhawan (Gandhi Memorial Hall), ITO, New Delhi." },
 ];
 
+// Updated stats
 const stats = [
-  { number: "13+", label: "Years of Service" },
+  { number: "5", label: "Total Seasons" },
   { number: "5,000+", label: "Total Participants" },
-  { number: "4", label: "Successful Seasons" },
-  { number: "100+", label: "Events Organized" },
+  { number: "100+", label: "Shows Organized" },
+  { number: "Since 2013", label: "Promoting Music" },
 ];
+
+// Team members without Peehu Srivastava, ordered as per user instructions:
+// 1. Pankaj Mathur, 2. Kapil Tiwari, 3. Shalinder Kumar, 4. Dr. Bhawna Bhat, 5. Pratibha Asthana, 6. Sumit Kumar, 7. Shalini Lal
+const teamMembers = [
+  { name: "Pankaj Mathur", role: "Founder & President", image: "/team/Pankaj Mathur (Founder & President).JPG" },
+  { name: "Kapil Tiwari", role: "Vice President", image: "/team/Kapil Tiwari (Vice President).jpg" },
+  { name: "Shalinder Kumar", role: "Vice President", image: "/team/Shalinder Kumar (Vice President).jpg" },
+  { name: "Dr. Bhawna Bhat", role: "General Secretary", image: "/team/Dr Bhawna Bhat (General Secretary).jpg" },
+  { name: "Pratibha Asthana", role: "Secretary", image: "/team/Pratibha Asthana (Seceratry).jpg" },
+  { name: "Sumit Kumar", role: "Legal Advisor", image: "/team/Sumit Kumar (Legal Advisor).jpg" },
+  { name: "Shalini Lal", role: "Executive Member", image: "/team/Shalini Lal (Executive Member).png" },
+];
+
+function TeamMemberCard({ member, index }) {
+  return (
+    <ScrollReveal direction="up" delay={index * 0.07}>
+      <div className="group flex flex-col items-center bg-white rounded-[2rem] p-6 border border-stone-100 shadow-[0_8px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(234,88,12,0.15)] hover:-translate-y-2 transition-all duration-300 text-center h-full">
+        {/* Large image */}
+        <div className="relative mb-5 w-36 h-36 sm:w-44 sm:h-44 rounded-full overflow-hidden border-4 border-orange-50 shadow-lg group-hover:border-orange-200 transition-colors group-hover:shadow-xl">
+          <img
+            src={member.image}
+            alt={member.name}
+            className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
+          />
+          <div className="absolute inset-0 rounded-full ring-2 ring-orange-400/0 group-hover:ring-orange-400/40 ring-offset-2 transition-all duration-300" />
+        </div>
+        <h3 className="font-serif font-bold text-stone-900 text-lg leading-tight mb-1.5">{member.name}</h3>
+        <p className="text-orange-600 text-xs font-bold uppercase tracking-wider">{member.role}</p>
+      </div>
+    </ScrollReveal>
+  );
+}
 
 function MusicSocietyOverviewPage() {
   const pageMeta = usePageMeta("about", {
     title: "Promoting Music & Nurturing Talent Since 2013",
     subtitle: "Our Story",
-    description: "DMS Aarohi Musical Society was founded with a singular vision — to create a transparent, merit-based platform where raw singing talent gets the recognition it deserves.\n\nRegistered under the Societies Registration Act, 1860, the society has organized multiple seasons of its flagship competition **\"Voice of Delhi NCR\"**, along with live concerts, cultural evenings, and musical workshops.",
+    description: "DMS Aarohi Musical Society has been promoting Indian music and nurturing emerging singing talent since 2013. Through its flagship competition, Voice of Delhi NCR, along with live concerts, tribute shows, and cultural events, the society provides aspiring artists with a professional platform to perform, grow, and showcase their talent while celebrating the rich heritage of Indian music.",
     imageUrl: "/legacy/about_group.png"
   });
 
@@ -53,7 +88,7 @@ function MusicSocietyOverviewPage() {
               to="/register"
               className="px-6 py-3 rounded-full bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold text-sm hover:-translate-y-1 transition-transform shadow-md"
             >
-              Register Now
+              Register for Upcoming Season 6
             </Link>
             <Link
               to="/voice-of-delhi-ncr"
@@ -77,31 +112,58 @@ function MusicSocietyOverviewPage() {
         </div>
       </ScrollReveal>
 
-      {/* About DMS Aarohi */}
+      {/* About DMS Aarohi — Our Story */}
       <ScrollReveal direction="up">
         <div className="bg-gradient-to-br from-white/90 via-[#fff8ef] to-orange-50/60 rounded-[2.5rem] p-8 sm:p-14 border border-orange-100 shadow-[0_20px_60px_rgba(234,88,12,0.06)] relative overflow-hidden">
           <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-orange-400/10 blur-[80px]"></div>
           
-          <div className="grid lg:grid-cols-2 gap-12 items-center relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-start relative z-10">
             <div>
-              <p className="text-xs sm:text-sm font-bold uppercase tracking-widest text-orange-600 mb-3">{pageMeta.subtitle}</p>
+              <p className="text-xs sm:text-sm font-bold uppercase tracking-widest text-orange-600 mb-3">Our Story</p>
               <h2 className="font-serif text-3xl sm:text-4xl text-stone-900 mb-6 leading-tight">
-                {pageMeta.title}
+                Promoting Music & Nurturing Talent Since 2013
               </h2>
-              {pageMeta.description.split('\\n').map((paragraph, index) => (
-                <p key={index} className="text-stone-600 leading-relaxed mb-4">
-                  {paragraph}
-                </p>
-              ))}
-              <div className="space-y-3 mt-6">
-                {highlights.map((h, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <div className="w-5 h-5 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center shrink-0">
+              <p className="text-stone-600 leading-relaxed mb-6">
+                DMS Aarohi Musical Society has been promoting Indian music and nurturing emerging singing talent since 2013. Through its flagship competition, <strong className="text-orange-700">Voice of Delhi NCR</strong>, along with live concerts, tribute shows, and cultural events, the society provides aspiring artists with a professional platform to perform, grow, and showcase their talent while celebrating the rich heritage of Indian music.
+              </p>
+
+              {/* Our Recognition */}
+              <div className="bg-orange-50 rounded-2xl p-5 border border-orange-100 mb-6">
+                <h3 className="font-serif font-bold text-stone-900 text-lg mb-3">Our Recognition</h3>
+                <div className="space-y-2">
+                  <div className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center shrink-0 mt-0.5">
                       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
                     </div>
-                    <p className="text-stone-700 text-sm font-medium">{h}</p>
+                    <p className="text-stone-700 text-sm font-medium">Registered under the Societies Registration Act, 1860<br/><span className="text-stone-500">(Registration No. Society/West/2013/8900890)</span></p>
                   </div>
-                ))}
+                  <div className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center shrink-0 mt-0.5">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
+                    </div>
+                    <p className="text-stone-700 text-sm font-medium">Registered under Section 12A & 80G of the Income Tax Act, 1961</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* What We Do */}
+              <div>
+                <h3 className="font-serif font-bold text-stone-900 text-lg mb-3">What We Do</h3>
+                <div className="space-y-2">
+                  {[
+                    "Organize Voice of Delhi NCR singing competition",
+                    "Promote Indian music and emerging talent",
+                    "Conduct live concerts and tribute shows",
+                    "Provide a professional platform for aspiring singers"
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <div className="w-5 h-5 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center shrink-0">
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
+                      </div>
+                      <p className="text-stone-700 text-sm font-medium">{item}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
             
@@ -121,19 +183,19 @@ function MusicSocietyOverviewPage() {
           {
             icon: "🎵",
             title: "Our Mission",
-            desc: "To promote Indian classical and contemporary music by providing a structured, transparent platform for emerging singing talents.",
+            desc: "To promote Indian music and create meaningful opportunities for aspiring singers through transparent competitions, live performances, and musical events.",
             color: "from-amber-400 to-orange-500",
           },
           {
             icon: "🌟",
             title: "Our Vision",
-            desc: "To become India's most respected musical society — a place where tradition meets innovation and every voice gets a chance to shine.",
+            desc: "To nurture emerging talent and inspire a lifelong appreciation for Indian music by creating a trusted platform for artists to perform and grow.",
             color: "from-rose-400 to-orange-500",
           },
           {
             icon: "❤️",
             title: "Our Values",
-            desc: "Excellence, authenticity, transparency, and community engagement through the universal language of music.",
+            desc: "To uphold integrity, transparency, creativity, and excellence while fostering a supportive environment where every artist is encouraged to learn, perform, and grow.",
             color: "from-pink-400 to-rose-500",
           },
         ].map((item, i) => (
@@ -220,33 +282,31 @@ function MusicSocietyOverviewPage() {
         </div>
       </div>
 
-      {/* Team Section */}
-      <ScrollReveal direction="up">
-        <div className="text-center mb-12">
-          <SectionHeading
-            eyebrow="The People Behind DMS Aarohi"
-            title="Meet Our Team"
-            text="Passionate individuals dedicated to nurturing musical talent and celebrating India's rich musical heritage."
-          />
-        </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-          {teamData.map((member, i) => (
-            <ScrollReveal key={i} direction="up" delay={i * 0.07}>
-              <div className="group text-center bg-white rounded-[2rem] p-6 border border-stone-100 shadow-[0_8px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(234,88,12,0.12)] hover:-translate-y-1 transition-all duration-300">
-                <div className="relative mx-auto mb-4 w-24 h-24 rounded-full overflow-hidden border-4 border-orange-50 shadow-md group-hover:border-orange-200 transition-colors">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-                <h3 className="font-serif font-bold text-stone-900 text-base leading-tight mb-1">{member.name}</h3>
-                <p className="text-orange-600 text-xs font-bold uppercase tracking-wider">{member.role}</p>
-              </div>
-            </ScrollReveal>
+      {/* Team Section — Larger Cards */}
+      <div>
+        <ScrollReveal direction="up">
+          <div className="text-center mb-12">
+            <SectionHeading
+              eyebrow="The People Behind DMS Aarohi"
+              title="Meet Our Team"
+              text="Passionate individuals dedicated to nurturing musical talent and celebrating India's rich musical heritage."
+            />
+          </div>
+        </ScrollReveal>
+
+        {/* First row: 4 members */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-6">
+          {teamMembers.slice(0, 4).map((member, i) => (
+            <TeamMemberCard key={i} member={member} index={i} />
           ))}
         </div>
-      </ScrollReveal>
+        {/* Second row: 3 members centered */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+          {teamMembers.slice(4).map((member, i) => (
+            <TeamMemberCard key={i + 4} member={member} index={i + 4} />
+          ))}
+        </div>
+      </div>
 
       {/* CTA */}
       <ScrollReveal direction="up">
@@ -255,14 +315,14 @@ function MusicSocietyOverviewPage() {
             Be Part of Our Journey
           </h2>
           <p className="text-stone-600 mb-8 max-w-lg mx-auto">
-            Season 4 Grand Finale is here! Register now for a chance to attend Delhi's biggest musical event on 4th July 2026.
+            Registrations are open for the upcoming season. Join thousands of music lovers and aspiring singers in celebrating the power of music.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/register"
               className="px-8 py-4 rounded-full bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold hover:shadow-[0_10px_20px_rgba(234,88,12,0.3)] hover:-translate-y-1 transition-all"
             >
-              Register for Season 4 Grand Finale
+              Register for Upcoming Season
             </Link>
             <Link
               to="/voice-of-delhi-ncr"

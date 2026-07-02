@@ -37,13 +37,12 @@ export const patronsData = [
 
 export const teamData = [
   { name: "Pankaj Mathur", role: "Founder & President", image: "/team/Pankaj Mathur (Founder & President).JPG" },
-  { name: "Dr. Bhawna Bhat", role: "General Secretary", image: "/team/Dr Bhawna Bhat (General Secretary).jpg" },
   { name: "Kapil Tiwari", role: "Vice President", image: "/team/Kapil Tiwari (Vice President).jpg" },
   { name: "Shalinder Kumar", role: "Vice President", image: "/team/Shalinder Kumar (Vice President).jpg" },
+  { name: "Dr. Bhawna Bhat", role: "General Secretary", image: "/team/Dr Bhawna Bhat (General Secretary).jpg" },
   { name: "Pratibha Asthana", role: "Secretary", image: "/team/Pratibha Asthana (Seceratry).jpg" },
   { name: "Sumit Kumar", role: "Legal Advisor", image: "/team/Sumit Kumar (Legal Advisor).jpg" },
   { name: "Shalini Lal", role: "Executive Member", image: "/team/Shalini Lal (Executive Member).png" },
-  { name: "Peehu Srivastava", role: "Brand Ambassador", image: "/team/Peehu Srivastava (Brand Ambassador).png" }
 ];
 
 // Season 4 Finalists — Senior Category (from official poster)
@@ -67,29 +66,32 @@ export const qualifiedContestants = [
 export const successStories = [
   {
     name: "Peehu Srivastava",
-    achievement: "Winner — Season 1 (2018)",
-    description: "Voice of Delhi NCR Season 1 Winner. Rising Star on Colors TV and Indian Idol Jr. Mega Finalist on Sony TV. Now Brand Ambassador of DMS Aarohi.",
-    image: "/team/Peehu Srivastava (Brand Ambassador).png"
+    achievement: "Winner — Season 1 (2018), Little Stars",
+    description: "Winner of Voice of Delhi NCR Season 1 (Little Stars). Appeared on Rising Star (Colors TV) and Indian Idol Jr. Mega Finalist (Sony TV). Now Brand Ambassador of DMS Aarohi.",
+    image: "/team/Peehu Srivastava (Brand Ambassador).png",
+    youtube: null
   },
   {
-    name: "Season 2 Champion",
-    achievement: "Voice of Delhi NCR — Season 2",
-    description: "Season 2 brought even bigger talent from across Delhi NCR. The champion's journey inspired hundreds to pursue their musical dreams.",
-    image: "/legacy/about_group.png"
+    name: "Muskan Srivastava",
+    achievement: "Winner — DMS Aarohi Talent Hunt Season 2 (Viewers' Choice)",
+    description: "Muskan Srivastava won the Viewers' Choice award at DMS Aarohi Talent Hunt Season 2, captivating audiences with her soulful performances and extraordinary vocal range.",
+    image: "/legacy/about_group.png",
+    youtube: "https://www.facebook.com/reel/1344361294136213"
   },
   {
-    name: "Season 3 Champion",
-    achievement: "Voice of Rajasthan — Season 3",
-    description: "In a special edition — Voice of Rajasthan — DMS Aarohi expanded its reach and discovered extraordinary talent from Rajasthan.",
-    image: "/legacy/current_event.jpg"
+    name: "Khushi Singh",
+    achievement: "Winner — Voice of Delhi NCR Season 3 (2024)",
+    description: "Khushi Singh won the Voice of Delhi NCR Season 3, showcasing exceptional talent and passion for Indian music at the Grand Finale.",
+    image: "/legacy/current_event.jpg",
+    youtube: "https://www.youtube.com/watch?v=RCOXwxmZ9ik&list=PLukJPZtf5VqEAGQguTl-nUwungVK-bOPI"
   }
 ];
 
 export const performancesGallery = [
-  { title: "Grand Finale Performance", type: "Video", image: "/legacy/show.png" },
-  { title: "Classical Solo Act", type: "Video", image: "/legacy/current_event.jpg" },
-  { title: "Group Fusion", type: "Video", image: "/legacy/patrons.jpg" },
-  { title: "Audience Favorites", type: "Gallery", image: "/legacy/about_group.png" }
+  { title: "Voice of Delhi NCR Season 1 & 2", type: "Video", image: "/legacy/show.png", youtube: "https://www.youtube.com/watch?v=r2VYf94YPNU&t=617s" },
+  { title: "Voice of Delhi NCR Season 3 — Grand Finale", type: "Video", image: "/legacy/current_event.jpg", youtube: "https://www.youtube.com/watch?v=RCOXwxmZ9ik&t=5527s" },
+  { title: "Pankaj Mathur & Neha Jad Live", type: "Video", image: "/legacy/patrons.jpg", youtube: "https://www.youtube.com/watch?v=F14ZS93PEB0" },
+  { title: "Muskan Srivastava — Season 2 Winner", type: "Video", image: "/legacy/about_group.png", youtube: "https://www.facebook.com/reel/1344361294136213" }
 ];
 
 // New data for Upcoming Events

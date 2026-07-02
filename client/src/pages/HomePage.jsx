@@ -16,12 +16,11 @@ import { getDaysUntilEvent } from "../lib/eventDates";
 
 const daysUntilFinale = getDaysUntilEvent();
 
-// Season 4 finalist images for the hero slider
-const heroSliderImages = [
-  { src: "/seasons/Season 4.PNG", alt: "Voice of Delhi NCR Season 4 Finalists" },
-  { src: "/seasons/Season 4_1.PNG", alt: "Voice of Delhi NCR Season 4 Finalists" },
-  { src: "/seasons/Season 4_2.PNG", alt: "Voice of Delhi NCR Season 4 Finalists" },
-];
+// All 35 finalist images for the hero slider (Change 3)
+const heroSliderImages = Array.from({ length: 35 }, (_, i) => ({
+  src: `/Finalist/${i + 1}.jpg`,
+  alt: `DMS Aarohi Season 4 Finalist ${i + 1}`
+}));
 
 const fallbackPatrons = [
   { name: "Ashok Srivastava", role: "Chief Patron", image: "/patrons/Ashok_Srivastava (Chief Patron).png" },
@@ -43,7 +42,7 @@ function HeroSlider() {
   }, []);
 
   useEffect(() => {
-    const interval = setInterval(next, 4000);
+    const interval = setInterval(next, 3500);
     return () => clearInterval(interval);
   }, [next]);
 
@@ -57,24 +56,16 @@ function HeroSlider() {
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${idx === current ? "opacity-100" : "opacity-0"}`}
         />
       ))}
-      {/* Gradient overlay at bottom */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-      {/* Slide indicators */}
-      <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10">
+      {/* Minimal dot indicators */}
+      <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-1 z-10">
         {heroSliderImages.map((_, idx) => (
           <button
             key={idx}
             onClick={() => setCurrent(idx)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${idx === current ? "bg-white w-6" : "bg-white/50"}`}
+            className={`rounded-full transition-all duration-300 ${idx === current ? "bg-white w-5 h-1.5" : "bg-white/40 w-1.5 h-1.5"}`}
             aria-label={`Slide ${idx + 1}`}
           />
         ))}
-      </div>
-      {/* Caption */}
-      <div className="absolute bottom-8 left-4 right-4 text-white text-center z-10">
-        <p className="text-xs sm:text-sm font-bold bg-black/30 backdrop-blur-sm rounded-full px-4 py-1 inline-block">
-          🎤 Season 4 Finalists
-        </p>
       </div>
     </div>
   );
@@ -269,16 +260,16 @@ function HomePage() {
               
               <div className="flex flex-wrap gap-3 sm:gap-4 mb-6 sm:mb-8">
                 <div className="px-3 py-2 sm:px-4 sm:py-2 bg-orange-50 rounded-lg border border-orange-100 flex flex-col flex-1 sm:flex-none">
-                  <span className="text-xl sm:text-2xl font-black text-orange-600">13+</span>
-                  <span className="text-[10px] sm:text-xs font-bold text-stone-500 uppercase">Years of Service</span>
+                  <span className="text-xl sm:text-2xl font-black text-orange-600">5</span>
+                  <span className="text-[10px] sm:text-xs font-bold text-stone-500 uppercase">Total Seasons</span>
+                </div>
+                <div className="px-3 py-2 sm:px-4 sm:py-2 bg-orange-50 rounded-lg border border-orange-100 flex flex-col flex-1 sm:flex-none">
+                  <span className="text-xl sm:text-2xl font-black text-orange-600">100+</span>
+                  <span className="text-[10px] sm:text-xs font-bold text-stone-500 uppercase">Shows Organized</span>
                 </div>
                 <div className="px-3 py-2 sm:px-4 sm:py-2 bg-orange-50 rounded-lg border border-orange-100 flex flex-col flex-1 sm:flex-none">
                   <span className="text-xl sm:text-2xl font-black text-orange-600">5,000+</span>
                   <span className="text-[10px] sm:text-xs font-bold text-stone-500 uppercase">Participants</span>
-                </div>
-                <div className="px-3 py-2 sm:px-4 sm:py-2 bg-orange-50 rounded-lg border border-orange-100 flex flex-col flex-1 sm:flex-none">
-                  <span className="text-xl sm:text-2xl font-black text-orange-600">5</span>
-                  <span className="text-[10px] sm:text-xs font-bold text-stone-500 uppercase">Seasons</span>
                 </div>
               </div>
 
