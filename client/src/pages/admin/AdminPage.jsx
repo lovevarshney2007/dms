@@ -189,7 +189,7 @@ function StatCard({ label, value, color, icon }) {
         <Icon path={ICONS[icon]} size={22} />
       </div>
       <div>
-        <p className="admin-stat-value">{value ?? "—"}</p>
+        <p className="admin-stat-value">{value ?? "-"}</p>
         <p className="admin-stat-label">{label}</p>
       </div>
     </div>
@@ -557,17 +557,17 @@ function ContestantsSection() {
                     <div className="text-xs">{item.email}</div>
                     <div className="text-xs text-slate-400">{item.phone}</div>
                   </td>
-                  <td className="text-xs">{item.city || "—"}</td>
+                  <td className="text-xs">{item.city || "-"}</td>
                   <td>
                     <span className="admin-type-badge">{item.formType}</span>
                   </td>
-                  <td className="text-xs">{item.talentCategory || "—"}</td>
+                  <td className="text-xs">{item.talentCategory || "-"}</td>
                   <td>
                     {item.videoLink ? (
                       <a href={item.videoLink} target="_blank" rel="noreferrer" className="admin-link">
                         <Icon path={ICONS.eye} size={13} /> View
                       </a>
-                    ) : "—"}
+                    ) : "-"}
                   </td>
                   <td><StatusBadge status={item.status} /></td>
                   <td>

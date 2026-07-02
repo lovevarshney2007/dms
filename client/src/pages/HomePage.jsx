@@ -113,7 +113,7 @@ function HomePage() {
         {/* Top Marquee */}
         <div className="w-full bg-orange-600 text-white overflow-hidden py-1.5 md:py-2 absolute top-0 left-0 z-40">
           <div className="animate-marquee font-bold text-[10px] md:text-xs tracking-widest uppercase flex items-center whitespace-nowrap">
-            <span>🎤 VOICE OF DELHI NCR — SEASON 4 GRAND FINALE</span>
+            <span>🎤 VOICE OF DELHI NCR - SEASON 4 GRAND FINALE</span>
             <span className="mx-3 md:mx-4">•</span>
             <span>4 JULY 2026 • PEAREY LAL BHAWAN, GANDHI MEMORIAL HALL, ITO, NEW DELHI</span>
             <span className="mx-3 md:mx-4">•</span>
@@ -121,7 +121,7 @@ function HomePage() {
             <span className="mx-3 md:mx-4">•</span>
             <span>🎵 LIVE PERFORMANCES BY FINALISTS &amp; CELEBRITY GUESTS</span>
             <span className="mx-3 md:mx-4">•</span>
-            <span>🎤 VOICE OF DELHI NCR — SEASON 4 GRAND FINALE</span>
+            <span>🎤 VOICE OF DELHI NCR - SEASON 4 GRAND FINALE</span>
             <span className="mx-3 md:mx-4">•</span>
             <span>4 JULY 2026 • PEAREY LAL BHAWAN, GANDHI MEMORIAL HALL, ITO, NEW DELHI</span>
             <span className="mx-3 md:mx-4">•</span>
@@ -152,7 +152,7 @@ function HomePage() {
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-black font-serif text-stone-900 leading-[1.1] mb-2 drop-shadow-sm">
                 Voice of Delhi NCR
                 <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">– Season 4</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">- Season 4</span>
               </h1>
             </ScrollReveal>
 
@@ -189,7 +189,7 @@ function HomePage() {
                     <div className="p-2.5 bg-amber-100 text-amber-600 rounded-xl shadow-inner shrink-0 group-hover:scale-110 transition-transform">
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                     </div>
-                    <span className="text-sm font-bold">5:00 PM – 9:30 PM</span>
+                    <span className="text-sm font-bold">5:00 PM - 9:30 PM</span>
                   </div>
                   <div className="flex items-center gap-3 text-stone-800">
                     <div className="p-2.5 bg-rose-100 text-rose-600 rounded-xl shadow-inner shrink-0 group-hover:scale-110 transition-transform">
@@ -310,7 +310,7 @@ function HomePage() {
                   <div className="p-2.5 bg-amber-100 rounded-xl text-amber-600 shrink-0">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                   </div>
-                  <span><strong className="text-stone-900">Timing:</strong> 5:00 PM – 9:30 PM</span>
+                  <span><strong className="text-stone-900">Timing:</strong> 5:00 PM - 9:30 PM</span>
                 </div>
                 <div className="flex items-center gap-4 text-stone-700 bg-white/60 p-3 rounded-2xl border border-white/40 shadow-sm backdrop-blur-sm hover:border-orange-200 transition-colors">
                   <div className="p-2.5 bg-orange-100 rounded-xl text-orange-600 shrink-0">
@@ -604,10 +604,10 @@ function HomePage() {
         <div className="relative z-10 max-w-2xl mx-auto">
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">Join Us for the Grand Finale!</h2>
           <p className="text-sm sm:text-lg text-stone-300 mb-8 sm:mb-10 px-2 sm:px-0">
-            Experience the magic of Voice of Delhi NCR Season 4 — 4th July 2026, Pearey Lal Bhawan, ITO, New Delhi. <strong className="text-orange-400">Entry is absolutely FREE!</strong>
+            Experience the magic of Voice of Delhi NCR Season 4 - 4th July 2026, Pearey Lal Bhawan, ITO, New Delhi. <strong className="text-orange-400">Entry is absolutely FREE!</strong>
           </p>
           <Link to="/voice-of-delhi-ncr" onClick={scrollToTop} className="inline-block w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 rounded-full bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold text-base sm:text-lg shadow-[0_8px_20px_rgba(234,88,12,0.3)] hover:shadow-[0_12px_25px_rgba(234,88,12,0.4)] hover:-translate-y-1 transition-all duration-300 border border-orange-400">
-            🎟️ Free Entry — Explore Now
+            🎟️ Free Entry - Explore Now
           </Link>
         </div>
       </ScrollReveal>

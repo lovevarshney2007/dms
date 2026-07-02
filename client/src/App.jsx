@@ -33,7 +33,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/home" element={<Navigate to="/" replace />} />
 
-          {/* Main Navigation Routes — wrapped in MusicSocietyLayout (has MusicNavbar + Footer) */}
+          {/* Main Navigation Routes - wrapped in MusicSocietyLayout (has MusicNavbar + Footer) */}
           <Route element={<MusicSocietyLayout />}>
             <Route path="/about" element={<AboutPage />} />
             <Route path="/voice-of-delhi-ncr" element={<VoiceOfDelhiNCRPage />} />

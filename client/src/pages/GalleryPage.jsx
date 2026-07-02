@@ -96,7 +96,7 @@ function GalleryPage() {
               </span>
             </h1>
             <p className="text-lg text-stone-600 leading-relaxed">
-              Relive the magic of DMS Aarohi Musical Society — from spectacular grand finales to soul-stirring solo performances.
+              Relive the magic of DMS Aarohi Musical Society - from spectacular grand finales to soul-stirring solo performances.
             </p>
           </div>
         </ScrollReveal>

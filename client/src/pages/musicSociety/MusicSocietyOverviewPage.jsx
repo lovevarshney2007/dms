@@ -10,11 +10,11 @@ const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'instant' });
 // Updated milestones with corrected season names
 const milestones = [
   { year: "2013", title: "Society Founded", desc: "DMS Aarohi Musical Society was registered under the Societies Registration Act, 1860 with a vision to promote Indian music." },
-  { year: "2018", title: "Voice of Delhi NCR — Season 1", desc: "The flagship competition was launched, bringing together hundreds of singing talents from across the Delhi NCR region." },
-  { year: "2019", title: "Voice of Delhi NCR — Season 2", desc: "Season 2 expanded to more localities, featuring celebrity judges and bigger prize pools." },
-  { year: "2021", title: "Voice of Rajasthan — Season 1", desc: "A special edition — Voice of Rajasthan — expanded DMS Aarohi's reach beyond Delhi NCR, celebrating the rich musical heritage of Rajasthan." },
-  { year: "2024", title: "Voice of Delhi NCR — Season 3", desc: "Season 3 launched online auditions for the first time, significantly expanding participant reach across Delhi NCR." },
-  { year: "2026", title: "Voice of Delhi NCR — Season 4", desc: "Voice of Delhi NCR Season 4 — Grand Finale on 4th July 2026 at Pearey Lal Bhawan (Gandhi Memorial Hall), ITO, New Delhi." },
+  { year: "2018", title: "Voice of Delhi NCR - Season 1", desc: "The flagship competition was launched, bringing together hundreds of singing talents from across the Delhi NCR region." },
+  { year: "2019", title: "Voice of Delhi NCR - Season 2", desc: "Season 2 expanded to more localities, featuring celebrity judges and bigger prize pools." },
+  { year: "2021", title: "Voice of Rajasthan - Season 1", desc: "A special edition - Voice of Rajasthan - expanded DMS Aarohi's reach beyond Delhi NCR, celebrating the rich musical heritage of Rajasthan." },
+  { year: "2024", title: "Voice of Delhi NCR - Season 3", desc: "Season 3 launched online auditions for the first time, significantly expanding participant reach across Delhi NCR." },
+  { year: "2026", title: "Voice of Delhi NCR - Season 4", desc: "Voice of Delhi NCR Season 4 - Grand Finale on 4th July 2026 at Pearey Lal Bhawan (Gandhi Memorial Hall), ITO, New Delhi." },
 ];
 
 // Updated stats
@@ -114,7 +114,7 @@ function MusicSocietyOverviewPage() {
         </div>
       </ScrollReveal>
 
-      {/* About DMS Aarohi — Our Story */}
+      {/* About DMS Aarohi - Our Story */}
       <ScrollReveal direction="up">
         <div className="bg-gradient-to-br from-white/90 via-[#fff8ef] to-orange-50/60 rounded-[2.5rem] p-8 sm:p-14 border border-orange-100 shadow-[0_20px_60px_rgba(234,88,12,0.06)] relative overflow-hidden">
           <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-orange-400/10 blur-[80px]"></div>
@@ -287,7 +287,7 @@ function MusicSocietyOverviewPage() {
         </div>
       </div>
 
-      {/* Team Section — Larger Cards */}
+      {/* Team Section - Larger Cards */}
       <div>
         <ScrollReveal direction="up">
           <div className="text-center mb-12">

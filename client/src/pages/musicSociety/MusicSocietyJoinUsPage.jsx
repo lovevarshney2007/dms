@@ -80,7 +80,7 @@ function MusicSocietyJoinUsPage() {
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/20 border border-orange-400/30 text-orange-300 text-xs font-bold uppercase tracking-widest mb-6">
             <span className="w-2 h-2 rounded-full bg-orange-400 animate-pulse" />
-            Season 4 — Grand Finale • 4th July 2026
+            Season 4 - Grand Finale • 4th July 2026
           </div>
           <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-5 leading-tight">
             Register for<br />
@@ -130,7 +130,7 @@ function MusicSocietyJoinUsPage() {
                   </div>
                   <div>
                     <h2 className="font-serif text-2xl sm:text-3xl font-bold text-stone-900 leading-tight">Registration Form</h2>
-                    <p className="text-stone-500 text-xs font-bold uppercase tracking-widest mt-0.5">Voice of Delhi NCR — Season 4 • 2026</p>
+                    <p className="text-stone-500 text-xs font-bold uppercase tracking-widest mt-0.5">Voice of Delhi NCR - Season 4 • 2026</p>
                   </div>
                 </div>
 
@@ -195,7 +195,7 @@ function MusicSocietyJoinUsPage() {
                   {[
                     ["📅", "Event Date", "4 July 2026"],
                     ["📍", "Venue", "Pearey Lal Bhawan, ITO, New Delhi"],
-                    ["🎤", "Category", "Junior (8–15 yrs) & Senior (16–35 yrs)"],
+                    ["🎤", "Category", "Junior (8-15 yrs) & Senior (16-35 yrs)"],
                     ["🏆", "Prize", "Trophies & Certificates"],
                     ["✅", "Status", "Registrations Open"]
                   ].map(([icon, label, value], idx) => (

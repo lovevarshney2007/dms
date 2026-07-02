@@ -18,18 +18,18 @@ const fallbackShows = [
   },
   {
     id: 2,
-    title: "Rafi Saab — The Very Best",
+    title: "Rafi Saab - The Very Best",
     subtitle: "94th Birth Anniversary",
     date: "23rd December, 2013",
     location: "India Islamic Cultural Centre, Lodhi Road, New Delhi",
-    description: "Tribute to the Singer of the millennium — Mohammad Rafi Sahab by DMS AAROHI Singers on his 94th Birth Anniversary. A soulful evening celebrating the golden era of Indian music.",
+    description: "Tribute to the Singer of the millennium - Mohammad Rafi Sahab by DMS AAROHI Singers on his 94th Birth Anniversary. A soulful evening celebrating the golden era of Indian music.",
     image: "/legacy/patrons.jpg",
     tag: "Tribute Concert"
   },
   {
     id: 3,
     title: "Ek Haseen Shaam Ko",
-    subtitle: "2nd Show — Rafi Tribute",
+    subtitle: "2nd Show - Rafi Tribute",
     date: "2013",
     location: "India Islamic Cultural Centre, New Delhi",
     description: "2nd show of DMS AAROHI on Mohd. Rafi. He was an Indian playback singer & one of the most popular & successful singers of the Hindi film industry.",
@@ -62,7 +62,7 @@ const fallbackShows = [
     subtitle: "R.D. Burman & Kishore Kumar Night",
     date: "2014",
     location: "India Islamic Cultural Centre, New Delhi",
-    description: "The music of Burman's are awesome — each and every song that Kishore Kumar sang for him are heart touching and cannot be expressed in words.",
+    description: "The music of Burman's are awesome - each and every song that Kishore Kumar sang for him are heart touching and cannot be expressed in words.",
     image: "/legacy/KT.jpg",
     tag: "Musical Evening"
   },
@@ -102,13 +102,13 @@ const fallbackShows = [
     subtitle: "11th Show of DMS Aarohi",
     date: "2015",
     location: "India Islamic Cultural Centre, New Delhi",
-    description: "11th show of DMS AAROHI on Mohd. Rafi — a special tribute to the legend of Indian music.",
+    description: "11th show of DMS AAROHI on Mohd. Rafi - a special tribute to the legend of Indian music.",
     image: "/legacy/patrons.jpg",
     tag: "Tribute Concert"
   },
   {
     id: 11,
-    title: "Main Hu Jhumroo — Kishore Sings for Kishore",
+    title: "Main Hu Jhumroo - Kishore Sings for Kishore",
     subtitle: "Special Edition",
     date: "30th April, 2016",
     location: "India Islamic Cultural Centre, Lodhi Road, New Delhi",
@@ -122,7 +122,7 @@ const fallbackShows = [
     subtitle: "Dharmendra Special",
     date: "9th April, 2016",
     location: "India Islamic Cultural Centre, New Delhi",
-    description: "Another Hit Show of DMS AAROHI on Garam Dharam – Dharmendra on 9th April, 2016.",
+    description: "Another Hit Show of DMS AAROHI on Garam Dharam - Dharmendra on 9th April, 2016.",
     image: "/legacy/current_event.jpg",
     tag: "Bollywood Night"
   },
@@ -132,7 +132,7 @@ const fallbackShows = [
     subtitle: "Kishore Kumar Tribute",
     date: "2016",
     location: "India Islamic Cultural Centre, New Delhi",
-    description: "Kishore Kumar Sings for the greatest superstars in Bollywood — Dev Anand, Rajesh Khanna & Amitabh Bachchan by Pankaj Mathur.",
+    description: "Kishore Kumar Sings for the greatest superstars in Bollywood - Dev Anand, Rajesh Khanna & Amitabh Bachchan by Pankaj Mathur.",
     image: "/legacy/KT.jpg",
     tag: "Kishore Tribute"
   },
@@ -152,7 +152,7 @@ const fallbackShows = [
     subtitle: "The Maestro of Ghazals",
     date: "2016",
     location: "India Islamic Cultural Centre, New Delhi",
-    description: "Madan Mohan was a popular and unparalleled Indian music director from 1950–1970. He is particularly remembered for the immortal Ghazals.",
+    description: "Madan Mohan was a popular and unparalleled Indian music director from 1950-1970. He is particularly remembered for the immortal Ghazals.",
     image: "/legacy/patrons.jpg",
     tag: "Musical Evening"
   },
@@ -162,24 +162,24 @@ const fallbackShows = [
     subtitle: "37th Barsi Special",
     date: "July 2017",
     location: "India Islamic Cultural Centre, Lodhi Road, New Delhi",
-    description: "Tribute to the Singer of the millennium Rafi Sahab by DMS AAROHI Singers on his 37th Barsi. Remembering Rafi Sahab on his Birthday — an Indian playback singer and one of the most popular singers of Hindi film industry.",
+    description: "Tribute to the Singer of the millennium Rafi Sahab by DMS AAROHI Singers on his 37th Barsi. Remembering Rafi Sahab on his Birthday - an Indian playback singer and one of the most popular singers of Hindi film industry.",
     image: "/legacy/patrons.jpg",
     tag: "Tribute Concert"
   },
   {
     id: 17,
     title: "Dostana",
-    subtitle: "Rafi & Kishore — Greatest Friends",
+    subtitle: "Rafi & Kishore - Greatest Friends",
     date: "2017",
     location: "India Islamic Cultural Centre, New Delhi",
-    description: "Great Legends: Greatest Friends — particularly in regard to the lasting friendship that existed between two of these titanic icons of the Hindi music industry.",
+    description: "Great Legends: Greatest Friends - particularly in regard to the lasting friendship that existed between two of these titanic icons of the Hindi music industry.",
     image: "/legacy/current_event.jpg",
     tag: "Musical Evening"
   },
   {
     id: 18,
     title: "Voice of Delhi-NCR",
-    subtitle: "Talent Hunt — Season 1",
+    subtitle: "Talent Hunt - Season 1",
     date: "2018",
     location: "Multiple Venues, Delhi NCR",
     description: "DMS Aarohi's flagship singing talent hunt that discovered hundreds of emerging voices from across the Delhi NCR region. Season 1 Winner: Peehu Srivastava.",
@@ -199,7 +199,7 @@ const fallbackShows = [
   {
     id: 20,
     title: "Voice of Delhi-NCR",
-    subtitle: "Talent Hunt — Season 2",
+    subtitle: "Talent Hunt - Season 2",
     date: "2019",
     location: "Multiple Venues, Delhi NCR",
     description: "Season 2 expanded to more cities, featuring celebrity judges and bigger prize pools for talented singers from the Delhi NCR region.",
@@ -209,10 +209,10 @@ const fallbackShows = [
   {
     id: 21,
     title: "Voice of Rajasthan",
-    subtitle: "Season 3 — Special Edition",
+    subtitle: "Season 3 - Special Edition",
     date: "2021",
     location: "Rajasthan",
-    description: "A special edition — Voice of Rajasthan — expanded DMS Aarohi's reach beyond Delhi NCR, celebrating the rich musical heritage of Rajasthan.",
+    description: "A special edition - Voice of Rajasthan - expanded DMS Aarohi's reach beyond Delhi NCR, celebrating the rich musical heritage of Rajasthan.",
     image: "/legacy/image1.jpeg",
     tag: "Special Edition"
   }
@@ -257,7 +257,7 @@ function MusicSocietyShowsPage() {
   }, []);
 
   const upcomingShow = {
-    title: "Voice of Delhi NCR — Season 4 Grand Finale",
+    title: "Voice of Delhi NCR - Season 4 Grand Finale",
     date: "4th July 2026 • 5:00 PM Onwards",
     location: "Pearey Lal Bhawan (Gandhi Memorial Hall), ITO, New Delhi",
     description: "Join us for an unforgettable evening as the finest voices of Delhi-NCR, including our Junior & Senior Category Finalists, compete for the ultimate title! Features live music by the DO-RE-MI band. Register now to attend!",
@@ -285,7 +285,7 @@ function MusicSocietyShowsPage() {
           </h1>
           <div className="space-y-4 text-stone-300 text-base sm:text-lg leading-relaxed">
             <p>Welcome to the heart of DMS Aarohi's musical journey. Throughout the year, we host a variety of musical evenings, tribute concerts, live stage programs, and grand talent hunts.</p>
-            <p>From classical tributes to Rafi Sahab, soulful evenings for Kishore Da, to the flagship Voice of Delhi NCR competition — every show is designed to celebrate music and create unforgettable memories.</p>
+            <p>From classical tributes to Rafi Sahab, soulful evenings for Kishore Da, to the flagship Voice of Delhi NCR competition - every show is designed to celebrate music and create unforgettable memories.</p>
           </div>
           <Link to="/register" className="inline-block mt-8 px-8 py-4 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold rounded-xl hover:scale-105 transition-transform shadow-[0_10px_30px_rgba(249,115,22,0.3)]">
             Perform in Our Next Show
@@ -357,7 +357,7 @@ function MusicSocietyShowsPage() {
         </ScrollReveal>
       </section>
 
-      {/* 3. Past Shows — DMS Aarohi Real Shows */}
+      {/* 3. Past Shows - DMS Aarohi Real Shows */}
       <section>
         <ScrollReveal direction="up">
           <div className="text-center mb-10">

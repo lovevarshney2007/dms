@@ -7,7 +7,7 @@ const contactDetails = [
     label: "Email",
     value: "dmsaarohi@gmail.com",
     href: "mailto:dmsaarohi@gmail.com",
-    desc: "Write to us anytime — we reply within 24 hours.",
+    desc: "Write to us anytime - we reply within 24 hours.",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect width="20" height="16" x="2" y="4" rx="2" />
@@ -19,7 +19,7 @@ const contactDetails = [
     label: "Phone / WhatsApp",
     value: "+91-9810225442",
     href: "tel:+919810225442",
-    desc: "Call or WhatsApp us Mon–Sat, 10 AM – 7 PM.",
+    desc: "Call or WhatsApp us Mon-Sat, 10 AM - 7 PM.",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.14 12 19.79 19.79 0 0 1 1.07 3.37a2 2 0 0 1 2-1.37h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
@@ -28,7 +28,7 @@ const contactDetails = [
   },
   {
     label: "Office Address",
-    value: "A5/272, Paschim Vihar, New Delhi – 110063",
+    value: "A5/272, Paschim Vihar, New Delhi - 110063",
     href: "https://maps.google.com/?q=Paschim+Vihar+New+Delhi+110063",
     desc: "Visit our registered office in Paschim Vihar.",
     icon: (
@@ -297,7 +297,7 @@ function ContactPage() {
           </ScrollReveal>
         </div>
 
-        {/* Google Map — DMS Aarohi Paschim Vihar */}
+        {/* Google Map - DMS Aarohi Paschim Vihar */}
         <ScrollReveal direction="up">
           <div className="rounded-[2rem] overflow-hidden shadow-xl border border-stone-100">
             <div className="bg-white p-5 border-b border-stone-100 flex items-center gap-3">
@@ -309,7 +309,7 @@ function ContactPage() {
               </div>
               <div>
                 <h2 className="font-serif text-lg font-bold text-stone-900">Our Office Location</h2>
-                <p className="text-stone-500 text-sm">A5/272, Paschim Vihar, New Delhi – 110063</p>
+                <p className="text-stone-500 text-sm">A5/272, Paschim Vihar, New Delhi - 110063</p>
               </div>
             </div>
             <iframe

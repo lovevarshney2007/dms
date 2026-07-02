@@ -109,7 +109,7 @@ function MusicSocietyTalentsPage() {
               Success Stories
             </h1>
             <p className="text-stone-300 text-lg leading-relaxed max-w-2xl mx-auto">
-              Celebrating the voices that have made DMS Aarohi proud — past winners, finalists, and rising stars.
+              Celebrating the voices that have made DMS Aarohi proud - past winners, finalists, and rising stars.
             </p>
           </div>
         </div>
@@ -156,14 +156,14 @@ function MusicSocietyTalentsPage() {
         </ScrollReveal>
       </section>
 
-      {/* 3. Qualified Contestants — Season 4 Finalists with Category Filter */}
+      {/* 3. Qualified Contestants - Season 4 Finalists with Category Filter */}
       <section>
         <ScrollReveal direction="up">
           <div className="text-center mb-8">
             <SectionHeading
               eyebrow="Season 4 Finalists"
               title="Qualified Contestants"
-              text="Season 4 Finalists — competing at the Grand Finale on 4 July 2026."
+              text="Season 4 Finalists - competing at the Grand Finale on 4 July 2026."
             />
           </div>
 
@@ -211,7 +211,7 @@ function MusicSocietyTalentsPage() {
         </ScrollReveal>
       </section>
 
-      {/* 4. Stage Performances — Image Gallery */}
+      {/* 4. Stage Performances - Image Gallery */}
       <section>
         <ScrollReveal direction="up">
           <div className="text-center mb-12">

@@ -45,7 +45,7 @@ export const teamData = [
   { name: "Shalini Lal", role: "Executive Member", image: "/team/Shalini Lal (Executive Member).png" },
 ];
 
-// Season 4 Finalists — Senior Category (from official poster)
+// Season 4 Finalists - Senior Category (from official poster)
 export const qualifiedContestants = [
   { name: "Adaa", status: "Grand Finalist", city: "Delhi NCR", category: "Junior", image: "/seasons/adaa.png" },
   { name: "Arijit", status: "Grand Finalist", city: "Delhi NCR", category: "Senior", image: "/seasons/arijit.png" },
@@ -61,26 +61,26 @@ export const qualifiedContestants = [
   { name: "Chetan", status: "Grand Finalist", city: "Delhi NCR", category: "Senior", image: "/legacy/pp.jpg" },
   { name: "Khushjit", status: "Grand Finalist", city: "Delhi NCR", category: "Senior", image: "/legacy/pa.jpg" },
 ];
-// Junior Category finalists to be added — data pending from client
+// Junior Category finalists to be added - data pending from client
 
 export const successStories = [
   {
     name: "Peehu Srivastava",
-    achievement: "Winner — Season 1 (2018), Little Stars",
+    achievement: "Winner - Season 1 (2018), Little Stars",
     description: "Winner of Voice of Delhi NCR Season 1 (Little Stars). Appeared on Rising Star (Colors TV) and Indian Idol Jr. Mega Finalist (Sony TV). Now Brand Ambassador of DMS Aarohi.",
     image: "/team/Peehu Srivastava (Brand Ambassador).png",
     youtube: null
   },
   {
     name: "Muskan Srivastava",
-    achievement: "Winner — DMS Aarohi Talent Hunt Season 2 (Viewers' Choice)",
+    achievement: "Winner - DMS Aarohi Talent Hunt Season 2 (Viewers' Choice)",
     description: "Muskan Srivastava won the Viewers' Choice award at DMS Aarohi Talent Hunt Season 2, captivating audiences with her soulful performances and extraordinary vocal range.",
     image: "/legacy/about_group.png",
     youtube: "https://www.facebook.com/reel/1344361294136213"
   },
   {
     name: "Khushi Singh",
-    achievement: "Winner — Voice of Delhi NCR Season 3 (2024)",
+    achievement: "Winner - Voice of Delhi NCR Season 3 (2024)",
     description: "Khushi Singh won the Voice of Delhi NCR Season 3, showcasing exceptional talent and passion for Indian music at the Grand Finale.",
     image: "/legacy/current_event.jpg",
     youtube: "https://www.youtube.com/watch?v=RCOXwxmZ9ik&list=PLukJPZtf5VqEAGQguTl-nUwungVK-bOPI"
@@ -89,9 +89,9 @@ export const successStories = [
 
 export const performancesGallery = [
   { title: "Voice of Delhi NCR Season 1 & 2", type: "Video", image: "/talenthunt/53.jpg", youtube: "https://www.youtube.com/watch?v=r2VYf94YPNU&t=617s" },
-  { title: "Voice of Delhi NCR Season 3 — Grand Finale", type: "Video", image: "/talenthunt/54.jpg", youtube: "https://www.youtube.com/watch?v=RCOXwxmZ9ik&t=5527s" },
+  { title: "Voice of Delhi NCR Season 3 - Grand Finale", type: "Video", image: "/talenthunt/54.jpg", youtube: "https://www.youtube.com/watch?v=RCOXwxmZ9ik&t=5527s" },
   { title: "Pankaj Mathur & Neha Jad Live", type: "Video", image: "/talenthunt/55.jpg", youtube: "https://www.youtube.com/watch?v=F14ZS93PEB0" },
-  { title: "Muskan Srivastava — Season 2 Winner", type: "Video", image: "/talenthunt/56.jpg", youtube: "https://www.facebook.com/reel/1344361294136213" }
+  { title: "Muskan Srivastava - Season 2 Winner", type: "Video", image: "/talenthunt/56.jpg", youtube: "https://www.facebook.com/reel/1344361294136213" }
 ];
 
 // New data for Upcoming Events
@@ -111,14 +111,14 @@ export const upcomingEvents = [
 export const pastEvents = [
   {
     id: 1,
-    title: "Rafi Saab — The Very Best",
+    title: "Rafi Saab - The Very Best",
     date: "23rd December, 2013",
     location: "India Islamic Cultural Centre, New Delhi",
     image: "/images/card_rafi.jpeg"
   },
   {
     id: 2,
-    title: "Dostana-2 — Kishore Kumar",
+    title: "Dostana-2 - Kishore Kumar",
     date: "4th August, 2018",
     location: "India Islamic Cultural Centre, New Delhi",
     image: "images/krm.jpg"
@@ -169,19 +169,19 @@ export const defaultJoinUsForm = {
 export const testimonials = [
   {
     name: "A Season 1 Participant",
-    season: "Voice of Delhi NCR — Season 1",
+    season: "Voice of Delhi NCR - Season 1",
     quote: "DMS Aarohi gave me the stage I always dreamt of. Performing in front of such amazing judges boosted my confidence to another level.",
     image: "/legacy/pa.jpg"
   },
   {
     name: "A Season 2 Finalist",
-    season: "Voice of Delhi NCR — Season 2",
+    season: "Voice of Delhi NCR - Season 2",
     quote: "The mentorship provided during the competition is unparalleled. I grew not just as a singer, but as a performer.",
     image: "/legacy/pp.jpg"
   },
   {
     name: "A Season 3 Participant",
-    season: "Voice of Rajasthan — Season 3",
+    season: "Voice of Rajasthan - Season 3",
     quote: "From online auditions to the grand finale stage, the entire journey was magical and extremely transparent.",
     image: "/legacy/pa.jpg"
   }
@@ -194,7 +194,7 @@ export const faqs = [
   // },
   {
     question: "What are the age categories for participation?",
-    answer: "We have three categories: Junior Category (8–15 years), Senior Category (16–45 years), and Super Senior Category (46–65 years). Anyone within these age groups can participate."
+    answer: "We have three categories: Junior Category (8-15 years), Senior Category (16-45 years), and Super Senior Category (46-65 years). Anyone within these age groups can participate."
   },
   {
     question: "Can I sing a song of my own choice?",

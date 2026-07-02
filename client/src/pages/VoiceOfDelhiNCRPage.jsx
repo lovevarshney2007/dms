@@ -23,7 +23,7 @@ const fallbackSeasons = [
     description:
       "The most anticipated Grand Finale is here! Voice of Delhi NCR Season 4 culminates in a spectacular Grand Finale on 4th July 2026. Watch the finest voices of Delhi-NCR, including Junior & Senior Category Finalists, compete for the ultimate title. Live music by the DO-RE-MI band!",
     highlights: [
-      "Grand Finale: 4th July 2026 • 5:00 PM – 9:30 PM",
+      "Grand Finale: 4th July 2026 • 5:00 PM - 9:30 PM",
       "Venue: Pearey Lal Bhawan, ITO, New Delhi",
       "Junior & Senior Categories",
       "Live music by DO-RE-MI Band",
@@ -62,9 +62,9 @@ const fallbackSeasons = [
     description:
       "Voice of Delhi NCR Season 3 delivered spectacular performances and discovered incredible singing talent from across Delhi NCR. The Grand Finale was a memorable celebration of music and artistry.",
     highlights: [
-      "Voice of Delhi NCR Season 3 — 2024",
+      "Voice of Delhi NCR Season 3 - 2024",
       "Grand Finale at a prestigious Delhi venue",
-      "Multiple categories — Junior, Senior & Super Senior",
+      "Multiple categories - Junior, Senior & Super Senior",
       "Winner: Khushi Singh",
     ],
     youtube: "https://www.youtube.com/watch?v=RCOXwxmZ9ik&t=5527s",
@@ -87,9 +87,9 @@ const fallbackSeasons = [
     winner: "Grand Finale Champion",
     winnerImg: "/images/logoth.png",
     description:
-      "A special edition — Voice of Rajasthan Season 1 — expanded DMS Aarohi's reach beyond Delhi, celebrating the rich musical heritage of Rajasthan and discovering incredible talent from the region.",
+      "A special edition - Voice of Rajasthan Season 1 - expanded DMS Aarohi's reach beyond Delhi, celebrating the rich musical heritage of Rajasthan and discovering incredible talent from the region.",
     highlights: [
-      "Special edition — Voice of Rajasthan",
+      "Special edition - Voice of Rajasthan",
       "First competition outside Delhi NCR",
       "Celebrated Rajasthani musical heritage",
     ],
@@ -249,7 +249,7 @@ function VoiceOfDelhiNCRPage() {
               </span>
             </h1>
             <p className="text-lg text-stone-600 leading-relaxed max-w-2xl mx-auto">
-              DMS Aarohi's flagship singing competition — discovering, nurturing,
+              DMS Aarohi's flagship singing competition - discovering, nurturing,
               and celebrating extraordinary vocal talent from across the region
               since 2018.
             </p>
@@ -287,7 +287,7 @@ function VoiceOfDelhiNCRPage() {
               <SectionHeading
                 eyebrow="Our Legacy"
                 title="All Seasons"
-                text="Every season has a story — explore the journey of each competition."
+                text="Every season has a story - explore the journey of each competition."
               />
             </div>
           </ScrollReveal>
@@ -317,7 +317,7 @@ function VoiceOfDelhiNCRPage() {
                           : 'bg-white/15 text-white border border-white/25 backdrop-blur-sm'
                       }`}>
                         {season.status === "grand-finale" ? (
-                          <><span className="animate-pulse">🔥</span> Grand Finale — 4 July 2026</>
+                          <><span className="animate-pulse">🔥</span> Grand Finale - 4 July 2026</>
                         ) : (
                           <><span className="text-emerald-400">✔</span> Completed</>
                         )}
@@ -342,7 +342,7 @@ function VoiceOfDelhiNCRPage() {
                         <div className="w-10 h-10 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-lg shrink-0 animate-pulse">🎤</div>
                         <div>
                           <p className="text-[10px] text-stone-500 uppercase font-bold tracking-wider">Grand Finale</p>
-                          <p className="text-orange-600 font-black text-base leading-tight">{season.grandFinale} • 5:00 PM – 9:30 PM</p>
+                          <p className="text-orange-600 font-black text-base leading-tight">{season.grandFinale} • 5:00 PM - 9:30 PM</p>
                         </div>
                       </div>
                     ) : (
@@ -364,7 +364,7 @@ function VoiceOfDelhiNCRPage() {
                     <div className="mt-auto">
                       {season.status === "grand-finale" ? (
                         <span className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold text-xs rounded-xl group-hover:shadow-[0_8px_20px_rgba(234,88,12,0.3)] transition-all">
-                          🎟️ Free Entry — Explore
+                          🎟️ Free Entry - Explore
                         </span>
                       ) : season.youtube ? (
                         <span className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-gradient-to-r from-red-600 to-red-500 text-white font-bold text-xs rounded-xl group-hover:shadow-md transition-all">
@@ -452,13 +452,13 @@ function SeasonDetailPage({ season }) {
                       : "bg-stone-900 text-white"
                   }`}
                 >
-                  {season.status === "grand-finale" ? "🔥 Grand Finale — Live Now" : "✅ Season Completed"}
+                  {season.status === "grand-finale" ? "🔥 Grand Finale - Live Now" : "✅ Season Completed"}
                 </span>
                 <h1 className="font-serif text-4xl sm:text-5xl text-stone-900 mb-2 font-bold">
                   {season.title}
                 </h1>
                 <p className="text-orange-600 font-bold text-xl mb-6">
-                  {season.subtitle} — {season.year}
+                  {season.subtitle} - {season.year}
                 </p>
                 <p className="text-stone-600 leading-relaxed text-lg">
                   {season.description}
@@ -469,7 +469,7 @@ function SeasonDetailPage({ season }) {
                     onClick={scrollToTop}
                     className="mt-8 inline-block px-8 py-4 rounded-full bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold hover:shadow-[0_10px_20px_rgba(234,88,12,0.3)] hover:-translate-y-1 transition-all"
                   >
-                    🎟️ Free Entry — Join Us
+                    🎟️ Free Entry - Join Us
                   </Link>
                 )}
 
@@ -516,7 +516,7 @@ function SeasonDetailPage({ season }) {
           </div>
         </ScrollReveal>
 
-        {/* Season 4 Finalists — Change 10 */}
+        {/* Season 4 Finalists - Change 10 */}
         {season.id === "season-4" && season.finalists && (
           <ScrollReveal direction="up">
             <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-[2.5rem] p-8 sm:p-12 border border-orange-100">
@@ -575,13 +575,13 @@ function SeasonDetailPage({ season }) {
           </ScrollReveal>
         )}
 
-        {/* Season 1 Winners — Change 10 */}
+        {/* Season 1 Winners - Change 10 */}
         {season.id === "season-1" && season.winners && (
           <ScrollReveal direction="up">
             <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-[2.5rem] p-8 sm:p-12 border border-amber-100">
               <div className="text-center mb-10">
                 <p className="text-xs font-bold uppercase tracking-widest text-amber-700 mb-3">🏆 Hall of Fame</p>
-                <h2 className="font-serif text-3xl text-stone-900 font-bold">Voice of Delhi NCR — Season 1 Winners</h2>
+                <h2 className="font-serif text-3xl text-stone-900 font-bold">Voice of Delhi NCR - Season 1 Winners</h2>
               </div>
               <div className="grid sm:grid-cols-3 gap-6">
                 {/* Little Stars */}
@@ -595,13 +595,13 @@ function SeasonDetailPage({ season }) {
           </ScrollReveal>
         )}
 
-        {/* Season 2 Winners — Change 10 */}
+        {/* Season 2 Winners - Change 10 */}
         {season.id === "season-2" && season.winners && (
           <ScrollReveal direction="up">
             <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-[2.5rem] p-8 sm:p-12 border border-orange-100">
               <div className="text-center mb-10">
                 <p className="text-xs font-bold uppercase tracking-widest text-orange-700 mb-3">🏆 Hall of Fame</p>
-                <h2 className="font-serif text-3xl text-stone-900 font-bold">Voice of Delhi NCR — Season 2 Winners</h2>
+                <h2 className="font-serif text-3xl text-stone-900 font-bold">Voice of Delhi NCR - Season 2 Winners</h2>
               </div>
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
                 <WinnerCategoryCard title="⭐ Little Stars" winners={season.winners.littleStars} />
@@ -637,7 +637,7 @@ function SeasonDetailPage({ season }) {
                   className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 text-white font-bold rounded-xl hover:bg-red-700 transition-colors"
                 >
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="white"/></svg>
-                  Watch Voice of Delhi NCR Season 3 — Grand Finale
+                  Watch Voice of Delhi NCR Season 3 - Grand Finale
                 </a>
               )}
             </div>
@@ -649,13 +649,13 @@ function SeasonDetailPage({ season }) {
           <ScrollReveal direction="up">
             <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-[2.5rem] p-10 border border-orange-200 text-center">
               <p className="text-xs font-bold uppercase tracking-widest text-orange-600 mb-4 animate-pulse">
-                🔥 Season 4 Grand Finale — Live Now!
+                🔥 Season 4 Grand Finale - Live Now!
               </p>
               <h2 className="font-serif text-3xl text-stone-900 mb-4">
                 Grand Finale Details
               </h2>
               <p className="font-black text-4xl text-orange-600 mb-2">
-                {season.grandFinale} • 5:00 PM – 9:30 PM
+                {season.grandFinale} • 5:00 PM - 9:30 PM
               </p>
               <p className="text-stone-600 mb-8">{season.venue}</p>
               <Link
@@ -663,7 +663,7 @@ function SeasonDetailPage({ season }) {
                 onClick={scrollToTop}
                 className="inline-block px-10 py-4 rounded-full bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold text-lg hover:scale-105 transition-transform shadow-[0_10px_30px_rgba(234,88,12,0.3)]"
               >
-                🎟️ Free Entry — Contact Us
+                🎟️ Free Entry - Contact Us
               </Link>
             </div>
           </ScrollReveal>

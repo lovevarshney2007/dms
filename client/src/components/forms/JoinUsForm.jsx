@@ -37,7 +37,7 @@ function JoinUsForm({ onClose, onStatusChange, showClose = true }) {
   function validate() {
     const errs = {};
     if (!form.fullName.trim()) errs.fullName = "Full name is required";
-    if (!form.age || isNaN(form.age) || Number(form.age) < 5 || Number(form.age) > 70) errs.age = "Please enter a valid age (5–70)";
+    if (!form.age || isNaN(form.age) || Number(form.age) < 5 || Number(form.age) > 70) errs.age = "Please enter a valid age (5-70)";
     if (!form.gender) errs.gender = "Please select your gender";
     if (!form.state) errs.state = "Please select your state";
     if (!form.city.trim()) errs.city = "City is required";

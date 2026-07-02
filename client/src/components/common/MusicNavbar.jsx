@@ -15,7 +15,7 @@ function MusicNavbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Section scroll detection — only active on homepage
+  // Section scroll detection - only active on homepage
   useEffect(() => {
     if (!isHomePage) {
       setActiveSection("");
