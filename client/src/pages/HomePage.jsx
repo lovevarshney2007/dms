@@ -107,7 +107,7 @@ function HomePage() {
       {/* ===== 1. HERO SECTION ===== */}
       <section
         id="hero"
-        className="relative min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden pt-12 md:pt-16"
+        className="relative min-h-[calc(100vh-6rem)] flex items-center justify-center overflow-hidden pt-10 md:pt-12"
       >
         {/* Top Marquee */}
         <div className="w-full bg-orange-600 text-white overflow-hidden py-1.5 md:py-2 absolute top-0 left-0 z-40">
@@ -148,7 +148,7 @@ function HomePage() {
             </ScrollReveal>
 
             <ScrollReveal direction="up" delay={0.2}>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-black font-serif text-stone-900 leading-[1.1] mb-3 drop-shadow-sm">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-black font-serif text-stone-900 leading-[1.1] mb-2 drop-shadow-sm">
                 Voice of Delhi NCR
                 <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">– Season 4</span>
@@ -156,20 +156,20 @@ function HomePage() {
             </ScrollReveal>
 
             <ScrollReveal direction="up" delay={0.25}>
-              <p className="text-base sm:text-lg font-bold text-orange-700 mb-4">
+              <p className="text-base sm:text-lg font-bold text-orange-700 mb-2">
                 🏆 Grand Finale • 4 July 2026
               </p>
             </ScrollReveal>
 
             <ScrollReveal direction="up" delay={0.3}>
-              <p className="text-base md:text-lg text-stone-700 mb-6 max-w-xl leading-relaxed font-medium mx-auto lg:mx-0">
+              <p className="text-base md:text-lg text-stone-700 mb-4 max-w-xl leading-relaxed font-medium mx-auto lg:mx-0">
                 Join us for an unforgettable evening as the finalists of Voice of Delhi NCR Season 4 take the stage to compete for the championship title. Celebrate music, talent, and extraordinary performances with us.
               </p>
             </ScrollReveal>
 
             {/* Season 4 Grand Finale Info Block */}
             <ScrollReveal direction="up" delay={0.4}>
-              <div className="mb-8 bg-white/80 backdrop-blur-lg border-2 border-orange-200 rounded-3xl p-5 sm:p-7 max-w-xl mx-auto lg:mx-0 shadow-xl hover:shadow-2xl hover:border-orange-300 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group">
+              <div className="mb-5 bg-white/80 backdrop-blur-lg border-2 border-orange-200 rounded-3xl p-4 sm:p-5 max-w-xl mx-auto lg:mx-0 shadow-xl hover:shadow-2xl hover:border-orange-300 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-white to-amber-50 opacity-90 -z-10 group-hover:opacity-100 transition-opacity"></div>
                 
                 <div className="flex items-center gap-3 mb-4 border-b border-orange-100 pb-3">
@@ -226,39 +226,29 @@ function HomePage() {
           <ScrollReveal direction="right" delay={0.2} className="relative w-full max-w-[320px] sm:max-w-md md:max-w-lg lg:max-w-none mx-auto mt-8 lg:mt-0">
             <div className="absolute inset-0 bg-gradient-to-tr from-orange-400 to-amber-300 rounded-[1.5rem] transform rotate-3 opacity-20 blur-lg"></div>
             <HeroSlider />
-            {/* Floating Date Badge */}
-            <div className="absolute -left-2 top-6 sm:top-8 lg:-left-6 lg:top-12 glass-card px-3 py-1.5 sm:px-4 sm:py-2 rounded-2xl shadow-xl flex items-center gap-2 sm:gap-3 animate-float border border-white/40 z-10 scale-90 lg:scale-100">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-orange-400 to-red-500 rounded-full flex items-center justify-center text-white font-bold shadow-inner">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="sm:w-5 sm:h-5"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
-              </div>
-              <div>
-                <p className="text-[8px] sm:text-[9px] text-stone-500 uppercase font-black tracking-wider">Grand Finale</p>
-                <p className="text-sm sm:text-base font-black text-stone-900 leading-none mt-0.5">July 4, 2026</p>
-              </div>
-            </div>
           </ScrollReveal>
         </div>
       </section>
 
       {/* ===== 2. ABOUT DMS AAROHI SECTION ===== */}
       <section id="about" className="scroll-mt-32 max-w-7xl mx-auto px-4 md:px-6 mt-6 relative z-10">
-        <ScrollReveal direction="up" className="glass-card rounded-[2.5rem] p-6 sm:p-8 lg:p-14 relative overflow-hidden border border-orange-100">
+        <ScrollReveal direction="up" className="glass-card rounded-[2.5rem] p-6 sm:p-8 lg:p-10 relative overflow-hidden border border-orange-100">
           <div className="absolute top-0 right-0 w-64 h-64 bg-amber-200/40 rounded-full blur-[80px]"></div>
           
-          <div className="grid lg:grid-cols-[1fr_1.2fr] gap-8 lg:gap-16 items-center relative z-10">
+          <div className="grid lg:grid-cols-[1fr_1.2fr] gap-8 lg:gap-12 items-center relative z-10">
             <div>
-              <p className="text-xs sm:text-sm font-bold uppercase tracking-widest text-orange-600 mb-2 sm:mb-3">About DMS Aarohi Musical Society</p>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-stone-900 leading-tight mb-4 sm:mb-6">
+              <p className="text-xs sm:text-sm font-bold uppercase tracking-widest text-orange-600 mb-1 sm:mb-2">About DMS Aarohi Musical Society</p>
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-stone-900 leading-tight mb-3 sm:mb-4">
                 Celebrating Music, Nurturing Talent Since 2013
               </h2>
-              <p className="text-base sm:text-lg text-stone-600 leading-relaxed mb-4 font-medium">
+              <p className="text-base sm:text-lg text-stone-600 leading-relaxed mb-3 font-medium">
                 DMS Aarohi Musical Society has been promoting musical talent and celebrating Indian music since 2013. Through its flagship singing competition, <strong className="text-orange-700">Voice of Delhi NCR</strong>, the society provides aspiring singers with a professional platform to showcase their talent, perform before experienced judges, and grow as artists.
               </p>
-              <p className="text-sm sm:text-base text-stone-600 leading-relaxed mb-6 sm:mb-8">
+              <p className="text-sm sm:text-base text-stone-600 leading-relaxed mb-4 sm:mb-5">
                 Along with organizing singing competitions, DMS Aarohi also hosts musical performances and cultural events, inspiring artists and audiences through the power of music.
               </p>
               
-              <div className="flex flex-wrap gap-3 sm:gap-4 mb-6 sm:mb-8">
+              <div className="flex flex-wrap gap-3 sm:gap-4 mb-4 sm:mb-6">
                 <div className="px-3 py-2 sm:px-4 sm:py-2 bg-orange-50 rounded-lg border border-orange-100 flex flex-col flex-1 sm:flex-none">
                   <span className="text-xl sm:text-2xl font-black text-orange-600">5</span>
                   <span className="text-[10px] sm:text-xs font-bold text-stone-500 uppercase">Total Seasons</span>
@@ -282,7 +272,7 @@ function HomePage() {
             </div>
             
             <div className="relative mt-4 lg:mt-0">
-              <div className="aspect-video sm:aspect-square lg:aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl relative z-10 border-4 border-white">
+              <div className="aspect-video sm:aspect-square lg:aspect-square rounded-3xl overflow-hidden shadow-2xl relative z-10 border-4 border-white">
                 <img 
                   src="/talenthunt/91.jpg" 
                   alt="DMS Aarohi Musical Society" 
