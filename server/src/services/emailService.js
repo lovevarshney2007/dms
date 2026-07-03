@@ -62,8 +62,7 @@ function escapeHtmlMultiline(str) {
 
 // ─── HTML Template Helper ─────────────────────────────────────────────────────
 function buildEmailTemplate({ preheader = "", title, bodyHtml, ctaText, ctaUrl }) {
-  return `
-<!DOCTYPE html>
+  return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -220,7 +219,7 @@ function buildEmailTemplate({ preheader = "", title, bodyHtml, ctaText, ctaUrl }
       <div class="email-header">
         <div class="email-brand-tag">DMS Aarohi</div>
         <div class="email-logo">
-          <img src="https://dmsaarohi.com/images/logo.png" alt="DMS Aarohi" width="120" style="display:block; margin:0 auto; max-width:100%; height:auto;" />
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaubcB7u5PT9TTAdI3bZYzdRlwqtMCh_Kl-lkoDGt5TPsp0t5u_GrvJ2IK&s=10" alt="DMS Aarohi" width="120" style="display:block; margin:0 auto; max-width:100%; height:auto;" />
         </div>
         <div class="email-tagline" style="margin-top: 12px;">🎵 Where Talent Meets Destiny</div>
       </div>
@@ -237,15 +236,9 @@ function buildEmailTemplate({ preheader = "", title, bodyHtml, ctaText, ctaUrl }
       <!-- Footer -->
       <div class="email-footer">
         <div class="email-social">
-          <a href="https://instagram.com/dmsaarohi" title="Instagram" style="background:transparent; border:none; width:auto; height:auto;">
-            <img src="https://img.icons8.com/color/48/000000/instagram-new--v1.png" alt="Instagram" width="32" height="32" style="display:block;" />
-          </a>
-          <a href="https://facebook.com/dmsaarohi" title="Facebook" style="background:transparent; border:none; width:auto; height:auto;">
-            <img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook" width="32" height="32" style="display:block;" />
-          </a>
-          <a href="https://youtube.com/@dmsaarohi" title="YouTube" style="background:transparent; border:none; width:auto; height:auto;">
-            <img src="https://img.icons8.com/color/48/000000/youtube-play.png" alt="YouTube" width="32" height="32" style="display:block;" />
-          </a>
+          <a href="https://instagram.com/dmsaarohi" title="Instagram" style="background:transparent; border:none; width:auto; height:auto; font-size:18px;">📸</a>
+          <a href="https://facebook.com/dmsaarohi" title="Facebook" style="background:transparent; border:none; width:auto; height:auto; font-size:18px;">📘</a>
+          <a href="https://youtube.com/@dmsaarohi" title="YouTube" style="background:transparent; border:none; width:auto; height:auto; font-size:18px;">📺</a>
         </div>
         <div class="email-footer-copy">
           &copy; ${new Date().getFullYear()} <a href="https://dmsaarohi.com">DMS Aarohi</a> &mdash; All rights reserved.<br />
@@ -266,8 +259,28 @@ function buildEmailTemplate({ preheader = "", title, bodyHtml, ctaText, ctaUrl }
 // logging and turns failures into a predictable { success, error } result
 // instead of a thrown exception, while still allowing callers who want to
 // `await` and `try/catch` themselves to do so.
+//
+// NOTE: We intentionally do NOT attach the logo as a file attachment anymore.
+// It used to be attached via a `forceAttachLogo` flag + `cid: "dms_logo"`,
+// but no template ever referenced `cid:dms_logo` in an <img> tag — so the
+// file was silently riding along as a dead, useless attachment on every mail
+// that set the flag, which is what showed up as "logo attachment" in inboxes.
+// The logo is shown correctly via the remote <img src="..."> in the header,
+// so no attachment is needed at all.
 async function send(mailOptions, context) {
   try {
+    // Ensure a plain-text alternative exists (helps deliverability, and is
+    // what most inbox previews/snippets are generated from).
+    if (!mailOptions.text && mailOptions.html) {
+      mailOptions.text = stripHtml(mailOptions.html).slice(0, 10000);
+    }
+
+    // Add a List-Unsubscribe header when possible (helps some providers)
+    mailOptions.headers = mailOptions.headers || {};
+    if (!mailOptions.headers["List-Unsubscribe"] && env.adminEmail) {
+      mailOptions.headers["List-Unsubscribe"] = `<mailto:${env.adminEmail}?subject=unsubscribe>`;
+    }
+
     const info = await getTransporter().sendMail(mailOptions);
     console.log(`[email] Sent (${context}) -> ${mailOptions.to} [${info.messageId}]`);
     return { success: true, messageId: info.messageId };
@@ -277,6 +290,47 @@ async function send(mailOptions, context) {
     // still get one, but now with a clear log trail of what happened and why.
     throw err;
   }
+}
+
+// Converts an HTML email into a clean plain-text version.
+//
+// BUG FIX: the old version only stripped tags (`<[^>]*>`), which left the
+// raw contents of <head>/<style>/<script> behind as plain text — since tags
+// are gone but the CSS/JS text inside them is not. That leftover CSS became
+// the `text` part of the email, and since many inbox UIs (Gmail list view,
+// notification previews, etc.) build the "preview line" from the text part,
+// the raw CSS rules were showing up next to the subject/title. Now we drop
+// the entire <head>, <style>, and <script> blocks (contents included) before
+// stripping the remaining tags.
+function stripHtml(html) {
+  if (!html) return "";
+  let txt = String(html);
+
+  // Remove entire <head>...</head> (this also removes any <style> inside it)
+  txt = txt.replace(/<head[\s\S]*?<\/head>/gi, "");
+  // Remove any remaining/standalone <style>...</style> or <script>...</script>
+  txt = txt.replace(/<style[\s\S]*?<\/style>/gi, "");
+  txt = txt.replace(/<script[\s\S]*?<\/script>/gi, "");
+  // Remove HTML comments (e.g. the MSO conditional comment)
+  txt = txt.replace(/<!--[\s\S]*?-->/g, "");
+
+  // Now strip remaining tags
+  txt = txt.replace(/<[^>]*>/g, " ");
+
+  // Unescape common entities
+  txt = txt
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&mdash;/g, "-")
+    .replace(/&copy;/g, "(c)")
+    .replace(/&nbsp;/g, " ");
+
+  // Collapse whitespace
+  txt = txt.replace(/\s+/g, " ").trim();
+  return txt;
 }
 
 // ─── Registration Confirmation Email ──────────────────────────────────────────

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { submitForm } from "../lib/api";
+import FormNotice from "../components/common/FormNotice";
+import { validateSponsorForm } from "../lib/formValidators";
 
 const initialForm = {
   companyName: "",
@@ -15,6 +17,7 @@ export default function BecomeASponsorPage() {
   const [form, setForm] = useState(initialForm);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState({ type: "", message: "" });
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -22,6 +25,13 @@ export default function BecomeASponsorPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const v = validateSponsorForm(form);
+    if (!v.ok) {
+      setLoading(false);
+      setStatus({ type: "error", message: v.message });
+      return;
+    }
+
     setLoading(true);
     try {
       await submitForm("/api/forms/sponsor-request", {
@@ -34,7 +44,7 @@ export default function BecomeASponsorPage() {
       });
       setSubmitted(true);
     } catch (error) {
-      alert("Error sending sponsor request: " + error.message);
+      setStatus({ type: "error", message: "Error sending sponsor request: " + error.message });
     } finally {
       setLoading(false);
     }
@@ -132,6 +142,7 @@ export default function BecomeASponsorPage() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="bg-white rounded-[2.5rem] border border-stone-200 shadow-[0_20px_60px_rgba(0,0,0,0.06)] p-8 sm:p-12 space-y-6">
+              <FormNotice status={status} />
               {/* Company / Organization Name */}
               <div>
                 <label htmlFor="sponsor-company" className="block text-sm font-bold text-stone-700 mb-2">

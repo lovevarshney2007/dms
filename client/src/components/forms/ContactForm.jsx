@@ -3,6 +3,7 @@ import { defaultContactForm } from "../../data/siteContent";
 import { submitForm } from "../../lib/api";
 import { renderInputClassNames } from "../../lib/formStyles";
 import FormNotice from "../common/FormNotice";
+import { validateContactForm } from "../../lib/formValidators";
 
 function ContactForm({
   source = "",
@@ -18,6 +19,13 @@ function ContactForm({
     event.preventDefault();
     setSubmitting(true);
     setStatus({ type: "", message: "" });
+
+    const v = validateContactForm(form);
+    if (!v.ok) {
+      setStatus({ type: "error", message: v.message });
+      setSubmitting(false);
+      return;
+    }
 
     try {
       const result = await submitForm("/api/forms/contact", { ...form, source });

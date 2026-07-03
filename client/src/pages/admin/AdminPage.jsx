@@ -487,6 +487,146 @@ function CmsSection({ section, title }) {
   );
 }
 
+// ─── Events CMS (manages Event model) ──────────────────────────────────────
+function EventsSection() {
+  const [items, setItems] = useState([]);
+  const [form, setForm] = useState({ title: "", description: "", eventDate: "", eventLocation: "", posterImage: "", registrationDeadline: "", eventType: "Competition", liveLink: "" });
+  const [editId, setEditId] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [saving, setSaving] = useState(false);
+  const [notice, setNotice] = useState({ type: "", msg: "" });
+
+  const load = useCallback(async () => {
+    setLoading(true);
+    try {
+      const data = await getAdmin("/api/admin/events");
+      setItems(data);
+    } catch (e) { setNotice({ type: "error", msg: e.message }); }
+    finally { setLoading(false); }
+  }, []);
+
+  useEffect(() => { load(); }, [load]);
+
+  function resetForm() { setForm({ title: "", description: "", eventDate: "", eventLocation: "", posterImage: "", registrationDeadline: "", eventType: "Competition", liveLink: "" }); setEditId(null); }
+
+  function startEdit(item) {
+    setForm({
+      title: item.title || "",
+      description: item.description || "",
+      eventDate: item.eventDate ? new Date(item.eventDate).toISOString().slice(0,16) : "",
+      eventLocation: item.eventLocation || "",
+      posterImage: item.posterImage || "",
+      registrationDeadline: item.registrationDeadline ? new Date(item.registrationDeadline).toISOString().slice(0,16) : "",
+      eventType: item.eventType || "Competition",
+      liveLink: item.liveLink || ""
+    });
+    setEditId(item._id);
+    setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setSaving(true); setNotice({ type: "", msg: "" });
+    try {
+      const payload = {
+        title: form.title,
+        description: form.description,
+        eventDate: form.eventDate ? new Date(form.eventDate).toISOString() : null,
+        eventLocation: form.eventLocation,
+        posterImage: form.posterImage,
+        registrationDeadline: form.registrationDeadline ? new Date(form.registrationDeadline).toISOString() : null,
+        eventType: form.eventType,
+        liveLink: form.liveLink
+      };
+      if (editId) {
+        await putAdmin(`/api/admin/events/${editId}`, payload);
+        setNotice({ type: "ok", msg: "Event updated." });
+      } else {
+        await postAdmin(`/api/admin/events`, payload);
+        setNotice({ type: "ok", msg: "Event created." });
+      }
+      resetForm(); load();
+    } catch (err) { setNotice({ type: "error", msg: err.message }); }
+    finally { setSaving(false); }
+  }
+
+  async function handleDelete(id) {
+    if (!window.confirm("Delete this event?")) return;
+    try { await deleteAdmin(`/api/admin/events/${id}`); setNotice({ type: "ok", msg: "Deleted." }); load(); }
+    catch (e) { setNotice({ type: "error", msg: e.message }); }
+  }
+
+  return (
+    <div className="ap-section">
+      <div className="ap-section-header">
+        <div>
+          <h2 className="ap-section-title">Shows & Events</h2>
+          <p className="ap-section-sub">Manage events shown on the public site</p>
+        </div>
+        <div className="ap-section-actions">
+          <button className="ap-btn-icon" onClick={load}>Refresh</button>
+          <button className="ap-btn-primary" onClick={() => { resetForm(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>Add New Event</button>
+        </div>
+      </div>
+
+      <Notice type={notice.type} msg={notice.msg} onClose={() => setNotice({ type: "", msg: "" })} />
+
+      <form className="ap-form" onSubmit={handleSubmit}>
+        <div className="ap-form-grid">
+          <label className="ap-label"><span className="ap-label-text">Title</span>
+            <input className="ap-input" value={form.title} onChange={e => setForm(p => ({...p, title: e.target.value}))} required />
+          </label>
+          <label className="ap-label"><span className="ap-label-text">Event Date</span>
+            <input className="ap-input" type="datetime-local" value={form.eventDate} onChange={e => setForm(p => ({...p, eventDate: e.target.value}))} required />
+          </label>
+          <label className="ap-label"><span className="ap-label-text">Registration Deadline</span>
+            <input className="ap-input" type="datetime-local" value={form.registrationDeadline} onChange={e => setForm(p => ({...p, registrationDeadline: e.target.value}))} required />
+          </label>
+          <label className="ap-label"><span className="ap-label-text">Location</span>
+            <input className="ap-input" value={form.eventLocation} onChange={e => setForm(p => ({...p, eventLocation: e.target.value}))} required />
+          </label>
+          <label className="ap-label"><span className="ap-label-text">Poster Image URL</span>
+            <input className="ap-input" value={form.posterImage} onChange={e => setForm(p => ({...p, posterImage: e.target.value}))} required />
+          </label>
+          <label className="ap-label"><span className="ap-label-text">Event Type</span>
+            <select className="ap-input" value={form.eventType} onChange={e => setForm(p => ({...p, eventType: e.target.value}))}>
+              <option>Competition</option>
+              <option>Concert</option>
+              <option>Workshop</option>
+            </select>
+          </label>
+          <label className="ap-label ap-label-full"><span className="ap-label-text">Description</span>
+            <textarea className="ap-input" rows={4} value={form.description} onChange={e => setForm(p => ({...p, description: e.target.value}))} />
+          </label>
+          <label className="ap-label"><span className="ap-label-text">Live Link (optional)</span>
+            <input className="ap-input" value={form.liveLink} onChange={e => setForm(p => ({...p, liveLink: e.target.value}))} />
+          </label>
+        </div>
+        <div className="ap-form-actions">
+          <button type="submit" className="ap-btn-primary" disabled={saving}>{saving ? "Saving…" : editId ? "Update Event" : "Create Event"}</button>
+          <button type="button" className="ap-btn-ghost" onClick={() => { resetForm(); }}>{"Cancel"}</button>
+        </div>
+      </form>
+
+      {loading ? (
+        <div className="ap-loading"><div className="ap-spinner" /><span>Loading events…</span></div>
+      ) : items.length === 0 ? (
+        <div className="ap-empty"><div className="ap-empty-icon">📭</div><p>No events yet.</p></div>
+      ) : (
+        <div className="ap-cards-grid">
+          {items.map((item, idx) => (
+            <div key={item._id} className="ap-card" style={{ animationDelay: `${idx * 40}ms` }}>
+              {item.posterImage && <div className="ap-card-img-wrap"><img src={item.posterImage} alt={item.title} className="ap-card-img" onError={e => { e.target.style.display = 'none'; }} /></div>}
+              <div className="ap-card-body"><p className="ap-card-title">{item.title}</p><p className="ap-card-sub">{item.eventLocation}</p><p className="ap-card-desc">{item.description}</p></div>
+              <div className="ap-card-actions"><button className="ap-card-edit" onClick={() => startEdit(item)}>Edit</button><button className="ap-card-del" onClick={() => handleDelete(item._id)}>Delete</button></div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ─── Dashboard ───────────────────────────────────────────────────────────────
 function DashboardSection({ onNavigate }) {
   const [stats,   setStats]   = useState(null);
@@ -1080,7 +1220,7 @@ export default function AdminPage() {
           </div>
         );
       case "competitions": return <CmsSection section="seasons"   title="Voice of Delhi NCR — Seasons" />;
-      case "shows":        return <CmsSection section="competitions" title="Shows & Events" />;
+      case "shows":        return <EventsSection />;
       case "talents":
         return (
           <div className="ap-multi-section">

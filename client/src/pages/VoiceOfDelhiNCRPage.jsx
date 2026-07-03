@@ -116,7 +116,7 @@ const fallbackSeasons = [
       "Bigger prize pool",
     ],
     youtube: "https://www.youtube.com/watch?v=r2VYf94YPNU&t=617s",
-    poster: "/seasons/season_2_poster.png",
+    poster: "/seasons/season2_winners.jpeg",
     winners: {
       littleStars: [
         { position: "Winner", name: "Adya Mishra" },
@@ -160,7 +160,7 @@ const fallbackSeasons = [
       "Grand Finale at a prestigious Delhi venue",
     ],
     youtube: "https://www.youtube.com/watch?v=r2VYf94YPNU&t=617s",
-    poster: "/seasons/season_1_poster.jpeg",
+    poster: "/seasons/season1_winners.jpeg",
     winners: {
       littleStars: [
         { position: "Winner", name: "Peehu Srivastava" },

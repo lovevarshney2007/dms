@@ -3,7 +3,11 @@ const emailService = require("../services/emailService");
 
 // Helper: fire-and-forget email (never block the response)
 function sendEmailSafely(fn, ...args) {
-  fn(...args).catch(err => console.error("[EmailService] Error sending email:", err.message));
+  fn(...args).catch(err => {
+    console.error('[EmailService] Error sending email:', err && err.message ? err.message : err);
+    if (err && err.response) console.error('[EmailService] SMTP response:', err.response);
+    if (err && err.stack) console.error(err.stack);
+  });
 }
 
 async function createContactSubmission(req, res) {

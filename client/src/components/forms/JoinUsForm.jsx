@@ -166,7 +166,7 @@ function JoinUsForm({ onClose, onStatusChange, showClose = true }) {
             value={form.state}
             onChange={set("state")}
           >
-            <option value="">Select your state / UT</option>
+            <option value="">Select your state </option>
             {INDIAN_STATES.map((s) => (
               <option key={s} value={s}>{s}</option>
             ))}

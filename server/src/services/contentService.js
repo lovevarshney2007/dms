@@ -34,11 +34,16 @@ async function upsertSetting(key, value) {
   );
 }
 
+async function getContentById(id) {
+  return ContentBlock.findById(id).lean();
+}
+
 module.exports = {
   listContent,
   createContent,
   updateContent,
   deleteContent,
   getContentByKey,
-  upsertSetting
+  upsertSetting,
+  getContentById
 };

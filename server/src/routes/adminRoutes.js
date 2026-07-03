@@ -7,6 +7,7 @@ const eventController = require("../controllers/eventController");
 const adminAuth = require("../middleware/adminAuth");
 const submissionController = require("../controllers/submissionController");
 const contentController = require("../controllers/contentController");
+const validateContent = require("../middleware/validateContent");
 const adminDashboardController = require("../controllers/adminDashboardController");
 const submissionService = require("../services/submissionService");
 
@@ -67,8 +68,8 @@ router.get("/admin/reports/all", adminAuth, asyncHandler(submissionController.ge
 // Supports types: competition, season, qualified-contestant, success-story,
 //                 gallery, video, patron, sponsor, testimonial, website-setting
 router.get("/admin/content/:type", adminAuth, asyncHandler(contentController.listContent));
-router.post("/admin/content/:type", adminAuth, asyncHandler(contentController.createContent));
-router.put("/admin/content/:id", adminAuth, asyncHandler(contentController.updateContent));
+router.post("/admin/content/:type", adminAuth, validateContent(), asyncHandler(contentController.createContent));
+router.put("/admin/content/:id", adminAuth, validateContent(), asyncHandler(contentController.updateContent));
 router.delete("/admin/content/:id", adminAuth, asyncHandler(contentController.deleteContent));
 
 module.exports = router;
