@@ -1,8 +1,10 @@
 const Submission = require("../models/Submission");
+const SponsorRequest = require("../models/SponsorRequest");
+const ContactQuery = require("../models/ContactQuery");
+const Registration = require("../models/Registration");
 
 async function createContactSubmission(payload) {
-  return Submission.create({
-    formType: "contact",
+  return ContactQuery.create({
     name: payload.name,
     email: payload.email,
     phone: payload.phone,
@@ -13,7 +15,7 @@ async function createContactSubmission(payload) {
 }
 
 async function createJoinUsSubmission(payload) {
-  return Submission.create({
+  return Registration.create({
     formType: "join-us",
     name: payload.name,
     stageName: payload.stageName,
@@ -25,13 +27,12 @@ async function createJoinUsSubmission(payload) {
     talentCategory: payload.talentCategory,
     languagePreference: payload.languagePreference,
     videoLink: payload.videoLink,
-    shortIntroduction: payload.shortIntroduction,
-    message: payload.shortIntroduction
+    shortIntroduction: payload.shortIntroduction
   });
 }
 
 async function createTalentShowSubmission(payload) {
-  return Submission.create({
+  return Registration.create({
     formType: "talent-show",
     name: payload.name,
     stageName: payload.stageName,
@@ -43,10 +44,10 @@ async function createTalentShowSubmission(payload) {
     talentCategory: payload.talentCategory,
     languagePreference: payload.languagePreference,
     videoLink: payload.videoLink,
-    shortIntroduction: payload.shortIntroduction,
-    message: payload.shortIntroduction
+    shortIntroduction: payload.shortIntroduction
   });
 }
+
 
 async function createDonationSubmission(payload) {
   return Submission.create({
@@ -83,12 +84,43 @@ async function getSubmissionsByTypes(formTypes) {
     .lean();
 }
 
+async function createSponsorRequestSubmission(payload) {
+  return SponsorRequest.create({
+    name: payload.name,
+    organization: payload.organization,
+    email: payload.email,
+    phone: payload.phone,
+    website: payload.website,
+    sponsorshipTier: payload.sponsorshipTier,
+    message: payload.message
+  });
+}
+
+async function getSponsorRequests({ status, page = 1, limit = 50 } = {}) {
+  const query = {};
+  if (status) query.status = status;
+  const skip = (parseInt(page) - 1) * parseInt(limit);
+  const [items, total] = await Promise.all([
+    SponsorRequest.find(query).sort({ createdAt: -1 }).skip(skip).limit(parseInt(limit)).lean(),
+    SponsorRequest.countDocuments(query)
+  ]);
+  return { items, total, page: parseInt(page), limit: parseInt(limit) };
+}
+
+async function updateSponsorRequestStatus(id, status) {
+  return SponsorRequest.findByIdAndUpdate(id, { status }, { new: true });
+}
+
 module.exports = {
   createContactSubmission,
   createJoinUsSubmission,
   createTalentShowSubmission,
   createDonationSubmission,
   createNgoContactSubmission,
+  createSponsorRequestSubmission,
   getSubmissions,
-  getSubmissionsByTypes
+  getSubmissionsByTypes,
+  getSponsorRequests,
+  updateSponsorRequestStatus
 };
+

@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { submitForm } from "../lib/api";
 
 const initialForm = {
   companyName: "",
@@ -23,10 +23,21 @@ export default function BecomeASponsorPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    // Simulate form submission (replace with actual API call if needed)
-    await new Promise((r) => setTimeout(r, 1200));
-    setLoading(false);
-    setSubmitted(true);
+    try {
+      await submitForm("/api/forms/sponsor-request", {
+        name: form.contactPerson,
+        organization: form.companyName,
+        phone: form.mobile,
+        email: form.email,
+        sponsorshipTier: form.sponsorshipType + (form.sponsorshipInterest ? ` (${form.sponsorshipInterest})` : ""),
+        message: form.message
+      });
+      setSubmitted(true);
+    } catch (error) {
+      alert("Error sending sponsor request: " + error.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (

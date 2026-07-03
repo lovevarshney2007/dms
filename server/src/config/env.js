@@ -10,7 +10,10 @@ const env = {
   adminEmail: process.env.ADMIN_EMAIL || "admin@dmsaarohi.com",
   adminPassword: process.env.ADMIN_PASSWORD || "change-this-password",
   adminTokenSecret: process.env.ADMIN_TOKEN_SECRET || process.env.ADMIN_PASSWORD || "changeme-secret",
-  adminTokenTtlHours: Number(process.env.ADMIN_TOKEN_TTL_HOURS || 24)
+  adminTokenTtlHours: Number(process.env.ADMIN_TOKEN_TTL_HOURS || 24),
+  // Email / SMTP
+  emailUser: process.env.Email || "",
+  emailAppPassword: process.env.EmailAppPassword || ""
 };
 
 module.exports = { env };

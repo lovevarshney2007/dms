@@ -8,6 +8,7 @@ const adminAuth = require("../middleware/adminAuth");
 const submissionController = require("../controllers/submissionController");
 const contentController = require("../controllers/contentController");
 const adminDashboardController = require("../controllers/adminDashboardController");
+const submissionService = require("../services/submissionService");
 
 const router = express.Router();
 
@@ -40,6 +41,22 @@ router.put("/admin/registrations/:id/status", adminAuth, asyncHandler(adminDashb
 // ── Contact Queries ────────────────────────────────────────────────────────────
 router.get("/admin/contact-queries", adminAuth, asyncHandler(adminDashboardController.getContactQueries));
 router.put("/admin/contact-queries/:id/status", adminAuth, asyncHandler(adminDashboardController.updateContactQueryStatus));
+
+// ── Sponsor Requests ──────────────────────────────────────────────────────────
+router.get("/admin/sponsor-requests", adminAuth, asyncHandler(async (req, res) => {
+  const { status, page, limit } = req.query;
+  const data = await submissionService.getSponsorRequests({ status, page, limit });
+  res.json(data);
+}));
+router.put("/admin/sponsor-requests/:id/status", adminAuth, asyncHandler(async (req, res) => {
+  const { status } = req.body;
+  if (!["pending", "contacted", "approved", "rejected"].includes(status)) {
+    return res.status(400).json({ message: "Invalid status." });
+  }
+  const item = await submissionService.updateSponsorRequestStatus(req.params.id, status);
+  if (!item) return res.status(404).json({ message: "Sponsor request not found." });
+  res.json(item);
+}));
 
 // ── Reports (existing) ────────────────────────────────────────────────────────
 router.get("/admin/reports/singing", adminAuth, asyncHandler(submissionController.getSingingReports));

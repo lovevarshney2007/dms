@@ -44,6 +44,12 @@ router.post(
   asyncHandler(submissionController.createNgoContactSubmission)
 );
 
+// ── Sponsor Request ───────────────────────────────────────────────────────────
+router.post(
+  "/forms/sponsor-request",
+  asyncHandler(submissionController.createSponsorRequestSubmission)
+);
+
 router.get("/submissions", asyncHandler(submissionController.getSubmissions));
 router.get("/events", asyncHandler(eventController.listEvents));
 router.get("/content/:type", asyncHandler(contentController.listContent));

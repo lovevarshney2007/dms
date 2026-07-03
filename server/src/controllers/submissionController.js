@@ -1,7 +1,28 @@
 const submissionService = require("../services/submissionService");
+const emailService = require("../services/emailService");
+
+// Helper: fire-and-forget email (never block the response)
+function sendEmailSafely(fn, ...args) {
+  fn(...args).catch(err => console.error("[EmailService] Error sending email:", err.message));
+}
 
 async function createContactSubmission(req, res) {
   const submission = await submissionService.createContactSubmission(req.body);
+
+  // Send acknowledgement to user + admin notification (non-blocking)
+  sendEmailSafely(emailService.sendContactAcknowledgementEmail, {
+    name: req.body.name,
+    email: req.body.email,
+    subject: req.body.subject,
+    message: req.body.message
+  });
+  sendEmailSafely(emailService.sendAdminContactNotification, {
+    name: req.body.name,
+    email: req.body.email,
+    phone: req.body.phone,
+    subject: req.body.subject,
+    message: req.body.message
+  });
 
   res.status(201).json({
     message: "Contact form submitted successfully.",
@@ -12,6 +33,13 @@ async function createContactSubmission(req, res) {
 async function createJoinUsSubmission(req, res) {
   const submission = await submissionService.createJoinUsSubmission(req.body);
 
+  // Send registration confirmation email (non-blocking)
+  sendEmailSafely(emailService.sendRegistrationEmail, {
+    name: req.body.name,
+    email: req.body.email,
+    formType: "join-us"
+  });
+
   res.status(201).json({
     message: "Join us form submitted successfully.",
     id: submission._id
@@ -20,6 +48,13 @@ async function createJoinUsSubmission(req, res) {
 
 async function createTalentShowSubmission(req, res) {
   const submission = await submissionService.createTalentShowSubmission(req.body);
+
+  // Send registration confirmation email (non-blocking)
+  sendEmailSafely(emailService.sendRegistrationEmail, {
+    name: req.body.name,
+    email: req.body.email,
+    formType: "talent-show"
+  });
 
   res.status(201).json({
     message: "Talent show registration submitted successfully.",
@@ -41,6 +76,30 @@ async function createNgoContactSubmission(req, res) {
 
   res.status(201).json({
     message: "NGO contact form submitted successfully.",
+    id: submission._id
+  });
+}
+
+async function createSponsorRequestSubmission(req, res) {
+  const submission = await submissionService.createSponsorRequestSubmission(req.body);
+
+  // Notify admin about new sponsor request (non-blocking)
+  sendEmailSafely(emailService.sendSponsorRequestNotification, {
+    name: req.body.name,
+    organization: req.body.organization,
+    email: req.body.email,
+    sponsorshipTier: req.body.sponsorshipTier
+  });
+
+  // Send acknowledgement to the user (non-blocking)
+  sendEmailSafely(emailService.sendSponsorAcknowledgementEmail, {
+    name: req.body.name,
+    organization: req.body.organization,
+    email: req.body.email
+  });
+
+  res.status(201).json({
+    message: "Sponsor request submitted successfully.",
     id: submission._id
   });
 }
@@ -71,6 +130,7 @@ module.exports = {
   createTalentShowSubmission,
   createDonationSubmission,
   createNgoContactSubmission,
+  createSponsorRequestSubmission,
   getSubmissions,
   getSingingReports,
   getNgoReports,

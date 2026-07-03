@@ -1,12 +1,16 @@
 const Submission = require("../models/Submission");
+const Registration = require("../models/Registration");
+const ContactQuery = require("../models/ContactQuery");
 const Event = require("../models/Event");
 const ContentBlock = require("../models/ContentBlock");
+const SponsorRequest = require("../models/SponsorRequest");
 
 async function getDashboard(req, res) {
   const [
     totalRegistrations,
     contactQueries,
     totalEvents,
+    sponsorRequests,
     competitions,
     seasons,
     qualifiedContestants,
@@ -17,9 +21,10 @@ async function getDashboard(req, res) {
     sponsors,
     testimonials
   ] = await Promise.all([
-    Submission.countDocuments({ formType: { $in: ["join-us", "talent-show"] } }),
-    Submission.countDocuments({ formType: "contact" }),
+    Registration.countDocuments(),
+    ContactQuery.countDocuments(),
     Event.countDocuments(),
+    SponsorRequest.countDocuments(),
     ContentBlock.countDocuments({ type: "competition" }),
     ContentBlock.countDocuments({ type: "season" }),
     ContentBlock.countDocuments({ type: "qualified-contestant" }),
@@ -35,6 +40,7 @@ async function getDashboard(req, res) {
     totalRegistrations,
     contactQueries,
     totalEvents,
+    sponsorRequests,
     competitions,
     seasons,
     qualifiedContestants,
@@ -47,9 +53,10 @@ async function getDashboard(req, res) {
   });
 }
 
+
 async function getRegistrations(req, res) {
   const { formType, status, search, page = 1, limit = 50 } = req.query;
-  const query = { formType: { $in: ["join-us", "talent-show"] } };
+  const query = {};
   if (formType && ["join-us", "talent-show"].includes(formType)) {
     query.formType = formType;
   }
@@ -64,8 +71,8 @@ async function getRegistrations(req, res) {
   }
   const skip = (parseInt(page) - 1) * parseInt(limit);
   const [items, total] = await Promise.all([
-    Submission.find(query).sort({ createdAt: -1 }).skip(skip).limit(parseInt(limit)).lean(),
-    Submission.countDocuments(query)
+    Registration.find(query).sort({ createdAt: -1 }).skip(skip).limit(parseInt(limit)).lean(),
+    Registration.countDocuments(query)
   ]);
   res.json({ items, total, page: parseInt(page), limit: parseInt(limit) });
 }
@@ -75,7 +82,7 @@ async function updateRegistrationStatus(req, res) {
   if (!["pending", "approved", "rejected", "shortlisted"].includes(status)) {
     return res.status(400).json({ message: "Invalid status." });
   }
-  const item = await Submission.findByIdAndUpdate(
+  const item = await Registration.findByIdAndUpdate(
     req.params.id,
     { status },
     { new: true }
@@ -86,12 +93,12 @@ async function updateRegistrationStatus(req, res) {
 
 async function getContactQueries(req, res) {
   const { status, page = 1, limit = 50 } = req.query;
-  const query = { formType: "contact" };
+  const query = {};
   if (status) query.status = status;
   const skip = (parseInt(page) - 1) * parseInt(limit);
   const [items, total] = await Promise.all([
-    Submission.find(query).sort({ createdAt: -1 }).skip(skip).limit(parseInt(limit)).lean(),
-    Submission.countDocuments(query)
+    ContactQuery.find(query).sort({ createdAt: -1 }).skip(skip).limit(parseInt(limit)).lean(),
+    ContactQuery.countDocuments(query)
   ]);
   res.json({ items, total, page: parseInt(page), limit: parseInt(limit) });
 }
@@ -101,7 +108,7 @@ async function updateContactQueryStatus(req, res) {
   if (!["pending", "replied", "resolved"].includes(status)) {
     return res.status(400).json({ message: "Invalid status." });
   }
-  const item = await Submission.findByIdAndUpdate(
+  const item = await ContactQuery.findByIdAndUpdate(
     req.params.id,
     { status },
     { new: true }

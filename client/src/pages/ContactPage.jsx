@@ -1,6 +1,7 @@
 import { useState } from "react";
 import SectionHeading from "../components/common/SectionHeading";
 import ScrollReveal from "../components/common/ScrollReveal";
+import { submitForm } from "../lib/api";
 
 const contactDetails = [
   {
@@ -90,15 +91,19 @@ function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      await submitForm("/api/forms/contact", form);
       setSubmitted(true);
       setTimeout(() => setSubmitted(false), 4000);
       setForm({ name: "", email: "", phone: "", subject: "", message: "" });
-    }, 1000);
+    } catch (error) {
+      alert("Error sending message: " + error.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
