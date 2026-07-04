@@ -97,6 +97,12 @@ function MusicNavbar() {
       isActive: location.pathname === "/success-stories" || (isHomePage && (activeSection === "success-stories" || activeSection === "ambassador" || activeSection === "jury")),
     },
     {
+      label: "Social Initiative",
+      href: "https://dms-homepage.vercel.app/",
+      type: "anchor",
+      isActive: false,
+    },
+    {
       label: "Contact",
       href: "/contact",
       type: "route",

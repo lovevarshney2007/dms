@@ -4,7 +4,7 @@ function PlaylistsSection() {
   const playlists = [
     { title: "DMS AAROHI TALENT HUNT", videoCount: 2, image: "/legacy/current_event.jpg", url: "https://www.youtube.com/watch?v=RCOXwxmZ9ik&list=PLukJPZtf5VqEAGQguTl-nUwungVK-bOPI" },
     { title: "Karaoke", videoCount: 1, image: "/legacy/image1.jpeg", url: "https://www.youtube.com/playlist?list=PLukJPZtf5VqEFoEugUorOZlv71ZpRjh1d" },
-    { title: "Pankaj Mathur Songs", videoCount: 2, image: "/legacy/KT.jpg", url: "https://www.youtube.com/playlist?list=PLukJPZtf5VqFN2AM9yeK4ZJnOptaYboWc" },
+    { title: "Pankaj Mathur Songs", videoCount: 2, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvWzzmBZpd9EclGoSuBeFktoo1cNNe9bHdV8edHpzZ9Q&s=10", url: "https://www.youtube.com/playlist?list=PLukJPZtf5VqFN2AM9yeK4ZJnOptaYboWc" },
     { title: "Dms Aarohi", videoCount: 133, image: "/legacy/current_event.jpg", url: "https://www.youtube.com/playlist?list=PLukJPZtf5VqGJCeiTkBmEYglsoHjXoJ4k" }
   ];
 
