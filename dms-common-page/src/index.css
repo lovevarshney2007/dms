@@ -1,102 +1,37 @@
-/* ============================================================
-   DMS AAROHI COMMON PAGE  — WHITE / CLEAN / MODERN
-   ============================================================ */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+@import "tailwindcss";
 
-:root {
-  --gold:       #B8860B;
-  --gold-lt:    #D4A017;
-  --gold-bg:    #FDF8ED;
-  --green:      #1B6B3A;
-  --green-lt:   #28A357;
-  --green-bg:   #EEF7F2;
-  --gray-50:    #F9FAFB;
-  --gray-100:   #F3F4F6;
-  --gray-200:   #E5E7EB;
-  --gray-400:   #9CA3AF;
-  --gray-600:   #4B5563;
-  --gray-800:   #1F2937;
-  --gray-900:   #111827;
-  --white:      #FFFFFF;
-  --text:       #1F2937;
-  --text-soft:  #6B7280;
-  --border:     #E5E7EB;
-  --r:          10px;
+@theme {
+  --color-music-orange: #FF9A2E;
+  --radius-4xl: 28px;
+  --font-inter: 'Inter', sans-serif;
+  --font-outfit: 'Outfit', sans-serif;
 }
 
-html { scroll-behavior: smooth; overflow-x: hidden; }
+@layer utilities {
+  .hero-glow-orange {
+    background: radial-gradient(circle at left center, rgba(255, 154, 46, 0.15) 0%, transparent 50%);
+  }
+  .hero-glow-green {
+    background: radial-gradient(circle at right center, rgba(34, 197, 94, 0.1) 0%, transparent 50%);
+  }
+  .wave-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1000 1000' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,500 C200,600 300,400 500,500 C700,600 800,400 1000,500 L1000,1000 L0,1000 Z' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='2'/%3E%3Cpath d='M0,600 C200,700 300,500 500,600 C700,700 800,500 1000,600 L1000,1000 L0,1000 Z' fill='none' stroke='rgba(255,255,255,0.02)' stroke-width='2'/%3E%3C/svg%3E");
+    background-size: cover;
+    background-position: center;
+  }
+  .noise-bg {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  }
+}
+
 body {
+  background-color: #050505;
+  color: #fff;
   font-family: 'Inter', sans-serif;
-  background: #fff;
-  color: var(--text);
   overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  line-height: 1.6;
 }
-h1,h2,h3,h4,h5 { font-family: 'Outfit', sans-serif; color: var(--gray-900); line-height: 1.2; }
-img { display: block; max-width: 100%; }
-a { text-decoration: none; color: inherit; }
-button { cursor: pointer; font-family: inherit; }
 
-::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #f1f1f1; }
-::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
-
-/* ── Container ── */
-.wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
-.section { padding: 88px 0; }
-.section-sm { padding: 64px 0; }
-
-/* ── Tag / label ── */
-.tag {
-  display: inline-block; font-size: 11px; font-weight: 700;
-  letter-spacing: 2px; text-transform: uppercase;
-  padding: 5px 14px; border-radius: 100px; margin-bottom: 14px;
+::selection {
+  background: #FF9A2E;
+  color: #fff;
 }
-.tag-gold  { background: var(--gold-bg);  color: var(--gold); border: 1px solid #E8D5A3; }
-.tag-green { background: var(--green-bg); color: var(--green); border: 1px solid #A8D5BA; }
-.tag-gray  { background: var(--gray-100); color: var(--gray-600); border: 1px solid var(--border); }
-
-/* ── Heading ── */
-.h1 { font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 800; }
-.h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); font-weight: 800; }
-.h3 { font-size: 1.25rem; font-weight: 700; }
-.accent-gold  { color: var(--gold-lt); }
-.accent-green { color: var(--green-lt); }
-
-.lead { font-size: 1.05rem; color: var(--text-soft); line-height: 1.8; }
-
-/* ── Buttons ── */
-.btn {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 11px 26px; border-radius: 8px; border: none;
-  font-family: 'Outfit', sans-serif; font-size: 14.5px; font-weight: 600;
-  cursor: pointer; transition: all 0.2s ease; white-space: nowrap;
-}
-.btn-gold  { background: var(--gold); color: #fff; }
-.btn-gold:hover  { background: var(--gold-lt); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(184,134,11,.3); }
-.btn-green { background: var(--green); color: #fff; }
-.btn-green:hover { background: var(--green-lt); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(27,107,58,.3); }
-.btn-outline { background: transparent; color: var(--text); border: 1.5px solid var(--border); }
-.btn-outline:hover { border-color: var(--gray-400); background: var(--gray-50); transform: translateY(-1px); }
-
-/* ── Cards ── */
-.card { background: #fff; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: box-shadow 0.25s, transform 0.25s; }
-.card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.09); transform: translateY(-3px); }
-
-/* ── Rule ── */
-hr { border: none; height: 1px; background: var(--border); }
-
-/* ── Stat big ── */
-.big-n { font-family: 'Outfit', sans-serif; font-size: 2.8rem; font-weight: 900; line-height: 1; }
-
-/* ── Helper ── */
-.text-center { text-align: center; }
-.mt-4  { margin-top: 16px; }
-.mt-6  { margin-top: 24px; }
-.mt-8  { margin-top: 32px; }
-.mt-12 { margin-top: 48px; }
-.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 40px; align-items: center; }
-.grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap: 20px; }
-.grid-4 { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px,1fr)); gap: 16px; }
-.flex-row { display: flex; gap: 12px; flex-wrap: wrap; }
