@@ -3,6 +3,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 const CursorSpotlight = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [color, setColor] = useState('rgba(255,255,255,0.08)');
   
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -18,6 +19,15 @@ const CursorSpotlight = () => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
       if (!isVisible) setIsVisible(true);
+
+      const target = e.target.closest('[data-cursor-color]');
+      if (target) {
+        const type = target.getAttribute('data-cursor-color');
+        if (type === 'orange') setColor('rgba(255,140,0,0.15)');
+        else if (type === 'emerald') setColor('rgba(16,185,129,0.15)');
+      } else {
+        setColor('rgba(255,255,255,0.08)');
+      }
     };
 
     const handleMouseLeave = () => setIsVisible(false);
@@ -35,13 +45,13 @@ const CursorSpotlight = () => {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 w-[600px] h-[600px] rounded-full pointer-events-none z-50 mix-blend-screen"
+      className="fixed top-0 left-0 w-[600px] h-[600px] rounded-full pointer-events-none z-50 mix-blend-screen transition-colors duration-500"
       style={{
         x: smoothX,
         y: smoothY,
         translateX: '-50%',
         translateY: '-50%',
-        background: 'radial-gradient(circle, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 70%)',
+        background: `radial-gradient(circle, ${color} 0%, rgba(255,255,255,0) 70%)`,
       }}
     />
   );

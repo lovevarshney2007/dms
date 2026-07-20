@@ -4,8 +4,9 @@ import { motion } from 'framer-motion';
 const Footer = () => {
   return (
     <footer className="w-full relative z-10 pt-20 pb-10 bg-[#050505] mt-auto overflow-hidden">
-      {/* Top Border Glow */}
+      {/* Top Border Glow & Continuity Lighting */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80vw] h-[300px] bg-gradient-to-b from-[#10B981]/5 to-transparent pointer-events-none filter blur-[80px]" />
       
       {/* Ambient background glow in footer */}
       <div className="absolute bottom-[-50%] left-[50%] -translate-x-1/2 w-[80vw] h-[50vh] rounded-[100%] bg-gradient-to-b from-[#10B981]/5 to-[#FF8C00]/5 filter blur-[100px] pointer-events-none" />
@@ -59,11 +60,12 @@ const Footer = () => {
               <motion.a 
                 key={idx}
                 href="#" 
-                whileHover={{ y: -5, rotate: 10, scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 hover:border-white/20 transition-colors shadow-lg"
+                whileHover={{ y: -8, rotate: 8, scale: 1.15 }}
+                whileTap={{ scale: 0.95 }}
+                className="group relative w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:text-white hover:border-white/30 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,140,0,0.3)] overflow-hidden"
               >
-                <Icon className="w-4 h-4" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#FF8C00] to-[#10B981] opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+                <Icon className="w-4 h-4 relative z-10" />
               </motion.a>
             ))}
           </div>

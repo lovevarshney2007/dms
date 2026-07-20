@@ -67,7 +67,7 @@ const MapSection = () => {
         {pins.map((pin, index) => (
           <motion.div 
             key={index}
-            className="absolute group/pin cursor-pointer"
+            className="absolute group/pin cursor-pointer z-10"
             style={{ left: `${(parseInt(pin.cx) / 800) * 100}%`, top: `${(parseInt(pin.cy) / 800) * 100}%` }}
             initial={{ opacity: 0, scale: 0 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -78,12 +78,26 @@ const MapSection = () => {
               {/* Pulsing ring */}
               <div className="absolute w-8 h-8 bg-[#FF8C00] rounded-full animate-ping opacity-20" />
               {/* Inner dot */}
-              <div className="relative w-3 h-3 bg-[#FF8C00] rounded-full shadow-[0_0_15px_#FF8C00]" />
+              <div className="relative w-3 h-3 bg-gradient-to-br from-[#FF8C00] to-[#FF4500] rounded-full shadow-[0_0_15px_#FF8C00] transition-transform duration-300 group-hover/pin:scale-150" />
               
-              {/* Tooltip */}
-              <div className="absolute top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover/pin:opacity-100 transition-opacity duration-300 pointer-events-none">
-                <div className="bg-white/10 backdrop-blur-md border border-white/20 px-3 py-1.5 rounded text-white text-xs whitespace-nowrap shadow-lg">
-                  {pin.name}
+              {/* Rich Tooltip */}
+              <div className="absolute top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover/pin:opacity-100 transition-all duration-300 pointer-events-none translate-y-2 group-hover/pin:translate-y-0 z-50">
+                <div className="bg-[#050505]/80 backdrop-blur-xl border border-white/10 p-4 rounded-xl text-white shadow-2xl min-w-[160px] flex flex-col gap-2 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
+                  <h4 className="font-bold text-sm text-[#FF8C00] uppercase tracking-wider mb-1">{pin.name}</h4>
+                  
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="text-white/60">Artists</span>
+                    <span className="font-bold">{Math.floor(Math.random() * 200 + 50)}</span>
+                  </div>
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="text-white/60">Events</span>
+                    <span className="font-bold">{Math.floor(Math.random() * 10 + 2)}</span>
+                  </div>
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="text-white/60">Volunteers</span>
+                    <span className="font-bold">{Math.floor(Math.random() * 50 + 10)}</span>
+                  </div>
                 </div>
               </div>
             </div>

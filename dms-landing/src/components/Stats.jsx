@@ -23,30 +23,36 @@ const AnimatedCounter = ({ from, to, suffix, duration = 2 }) => {
 
 const StatItem = ({ icon, end, suffix, subtitle, delay, color }) => (
   <motion.div
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
+    initial={{ opacity: 0, y: 40, scale: 0.9 }}
+    whileInView={{ opacity: 1, y: 0, scale: 1 }}
     viewport={{ once: true, margin: "-50px" }}
-    transition={{ duration: 0.6, delay }}
-    className="flex flex-col items-center text-center p-6 group transition-all duration-300 hover:-translate-y-2 cursor-default"
+    transition={{ duration: 0.8, delay, type: "spring", bounce: 0.5 }}
+    className="flex flex-col items-center text-center p-8 group transition-all duration-500 hover:-translate-y-3 cursor-default relative overflow-hidden rounded-[24px] bg-[#050505]/60 backdrop-blur-xl border border-white/5 shadow-2xl hover:shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
   >
+    {/* Inner glow */}
+    <div 
+      className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none"
+      style={{ background: `radial-gradient(circle at top, ${color}, transparent)` }}
+    />
+    
     <motion.div 
-      initial={{ scale: 0.5, y: 20 }}
-      whileInView={{ scale: 1, y: 0 }}
+      initial={{ scale: 0.2, y: 30, rotate: -20 }}
+      whileInView={{ scale: 1, y: 0, rotate: 0 }}
       viewport={{ once: true }}
-      transition={{ type: "spring", bounce: 0.6, delay: delay + 0.2 }}
-      className="text-4xl mb-4"
+      transition={{ type: "spring", bounce: 0.7, delay: delay + 0.3 }}
+      className="text-4xl mb-4 relative z-10"
     >
       {icon}
     </motion.div>
     
     <div 
-      className={`text-[48px] font-bold text-white mb-2 leading-none transition-all duration-500`}
+      className={`text-[48px] font-bold text-white mb-2 leading-none transition-all duration-500 relative z-10 drop-shadow-md`}
       style={{ textShadow: `0 0 20px ${color}` }}
     >
       <AnimatedCounter from={0} to={end} suffix={suffix} />
     </div>
     
-    <div className="text-white/70 text-xs font-bold tracking-[3px] uppercase mt-2 group-hover:text-white transition-colors duration-300 max-w-[160px]">
+    <div className="text-white/60 text-xs font-bold tracking-[3px] uppercase mt-2 group-hover:text-white transition-colors duration-300 max-w-[160px] relative z-10">
       {subtitle}
     </div>
   </motion.div>
@@ -62,30 +68,21 @@ const Stats = () => {
 
   return (
     <section className="px-6 pb-[140px] max-w-[1440px] mx-auto relative z-10 w-full">
-      <div className="relative rounded-[30px] w-full p-[1px] overflow-hidden group/stats">
-        
-        {/* Animated Gradient Border via background rotation */}
-        <div className="absolute inset-[-100%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,rgba(255,140,0,0)_0%,rgba(255,140,0,0.5)_50%,rgba(16,185,129,0.5)_100%)] opacity-30 group-hover/stats:opacity-100 transition-opacity duration-500" />
-        
-        <div className="relative glass-panel rounded-[29px] w-full py-12 px-8 bg-[#050505]/80 backdrop-blur-xl border border-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.6)] overflow-hidden">
-          
-          {/* Faint Grid Background */}
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:30px_30px] pointer-events-none" />
-          
-          <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
-            {stats.map((stat, idx) => (
-              <StatItem 
-                key={idx}
-                icon={stat.icon}
-                end={stat.end}
-                suffix={stat.suffix}
-                subtitle={stat.subtitle}
-                delay={stat.delay}
-                color={stat.color}
-              />
-            ))}
-          </div>
-        </div>
+      {/* Faint Grid Background over the whole stats area */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:30px_30px] opacity-[0.3] pointer-events-none" />
+      
+      <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {stats.map((stat, idx) => (
+          <StatItem 
+            key={idx}
+            icon={stat.icon}
+            end={stat.end}
+            suffix={stat.suffix}
+            subtitle={stat.subtitle}
+            delay={stat.delay}
+            color={stat.color}
+          />
+        ))}
       </div>
     </section>
   );
