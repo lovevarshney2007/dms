@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Poppins", sans-serif;
+  --color-primary: #FF9F3F;
+  --color-primary-start: #FF9B3D;
+  --color-primary-end: #FFC15A;
+  --color-accent-green: #00FFB4;
+  --color-background: #090909;
+}
+
+@layer base {
+  html, body {
+    background-color: var(--color-background);
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  
+  ::selection {
+    background-color: var(--color-primary);
+    color: white;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    background-color: rgb(15 15 15 / 0.65);
+    border: 1px solid rgb(255 255 255 / 0.08);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  }
+  
+  .glass-button-primary {
+    background: linear-gradient(to bottom, var(--color-primary-start), var(--color-primary-end));
+    color: white;
+    box-shadow: 0 0 20px rgba(255,155,61,0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .glass-button-primary:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 30px rgba(255,155,61,0.5);
+  }
+
+  .glass-button-secondary {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+    transition: all 0.3s;
+  }
+  
+  .glass-button-secondary:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255,255,255,0.3);
+  }
+  
+  .glass-pill {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  }
+}
