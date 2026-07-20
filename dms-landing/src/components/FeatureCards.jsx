@@ -102,7 +102,7 @@ const Premium3DCard = ({ children, cursorColor, glowColor }) => {
 
 const FeatureCards = () => {
   return (
-    <section className="px-6 pb-[100px] max-w-[1440px] mx-auto relative z-10 mt-8 w-full perspective-[2000px]">
+    <section className="px-6 pb-8 max-w-[1440px] mx-auto relative z-10 mt-8 w-full perspective-[2000px]">
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-[56px]">
         
