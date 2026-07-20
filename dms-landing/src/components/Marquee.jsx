@@ -9,8 +9,8 @@ const Marquee = () => {
   return (
     <div className="w-full overflow-hidden py-4 border-y border-white/5 bg-[#050505] relative z-10 flex items-center">
       {/* Gradient Fades for smooth entry/exit */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#050505] to-transparent z-10" />
-      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#050505] to-transparent z-10" />
+      <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-[#050505] to-transparent z-10" />
+      <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-[#050505] to-transparent z-10" />
       
       <div className="flex whitespace-nowrap opacity-40">
         <motion.div 

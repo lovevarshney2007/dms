@@ -75,7 +75,7 @@ const Premium3DCard = ({ children, cursorColor, glowColor }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.8 }}
-      className="group relative h-full w-full rounded-2xl p-8 sm:p-12 flex flex-col transition-all duration-500 ease-out"
+      className="group relative h-full w-full rounded-2xl p-6 sm:p-12 flex flex-col transition-all duration-500 ease-out"
       data-cursor-color={cursorColor}
     >
       {/* Dynamic Border Glow */}
