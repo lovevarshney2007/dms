@@ -149,7 +149,7 @@ const FeatureCards = () => {
                 <div className="absolute inset-0 bg-white opacity-0 group-hover/btn:opacity-20 transition-opacity duration-300" />
               </a>
               <a 
-                href="https://dms-ten-gamma.vercel.app/" 
+                href="https://dms-ten-gamma.vercel.app/register" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="flex-1 relative overflow-hidden font-bold rounded-lg px-6 py-3.5 transition-all duration-300 flex items-center justify-center group/btn2 bg-white/[0.03] border border-white/10 text-white/80 hover:bg-white/[0.08] hover:border-white/30 hover:text-white hover:-translate-y-1 shadow-sm"
@@ -221,7 +221,7 @@ const FeatureCards = () => {
                 <div className="absolute inset-0 bg-white opacity-0 group-hover/btn:opacity-20 transition-opacity duration-300" />
               </a>
               <a 
-                href="https://dms-homepage.vercel.app/" 
+                href="https://dms-homepage.vercel.app/#volunteer" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="flex-1 relative overflow-hidden font-bold rounded-lg px-6 py-3.5 transition-all duration-300 flex items-center justify-center group/btn2 bg-white/[0.03] border border-white/10 text-white/80 hover:bg-white/[0.08] hover:border-white/30 hover:text-white hover:-translate-y-1 shadow-sm"

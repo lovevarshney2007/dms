@@ -15,10 +15,10 @@ const Footer = () => {
         
         {/* Column 1: Brand & Mission */}
         <div className="flex flex-col items-center md:items-start gap-4">
-          <div className="flex items-center gap-3">
+          <a href="/" className="flex items-center gap-3">
             <img src="/images/DMS_Logo1%20(1).png" alt="DMS Aarohi" className="h-8 object-contain" />
             <span className="text-2xl font-bold tracking-tight text-white">DMS Aarohi</span>
-          </div>
+          </a>
           <div className="text-[10px] font-semibold uppercase tracking-[4px] text-white/50 text-center md:text-left mt-2">
             Music • Community • Impact
           </div>
@@ -31,9 +31,14 @@ const Footer = () => {
         <div className="flex flex-col items-center md:items-start gap-6">
           <h3 className="text-white font-bold text-lg mb-2">Quick Links</h3>
           <div className="flex flex-col gap-4">
-            {['Talent Platform', 'Social Initiatives', 'About Us', 'Contact'].map((link) => (
-              <a key={link} href="#" className="group relative text-white/70 text-sm font-medium w-fit">
-                <span className="relative z-10 group-hover:text-white transition-colors duration-300">{link}</span>
+            {[
+              { name: 'Talent Platform', url: 'https://dms-ten-gamma.vercel.app' },
+              { name: 'Social Initiatives', url: 'https://dms-homepage.vercel.app' },
+              { name: 'About Us', url: '#' },
+              { name: 'Contact', url: '#' }
+            ].map((link) => (
+              <a key={link.name} href={link.url} className="group relative text-white/70 text-sm font-medium w-fit">
+                <span className="relative z-10 group-hover:text-white transition-colors duration-300">{link.name}</span>
                 <span className="absolute left-0 bottom-[-2px] w-0 h-[1px] bg-gradient-to-r from-[#FF8C00] to-[#10B981] transition-all duration-300 group-hover:w-full" />
               </a>
             ))}

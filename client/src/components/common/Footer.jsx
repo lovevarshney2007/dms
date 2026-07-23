@@ -14,7 +14,7 @@ function Footer() {
           
           {/* Column 1: Brand Info */}
           <div>
-            <Link to="/" onClick={scrollToTop} className="flex items-center gap-3 mb-5">
+            <a href="https://dms-pqry.vercel.app" className="flex items-center gap-3 mb-5">
               <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center p-1.5 shadow-[0_0_15px_rgba(255,255,255,0.1)] shrink-0">
                 <img
                   className="w-full h-full object-contain"
@@ -26,7 +26,7 @@ function Footer() {
                 <p className="font-serif text-xl font-bold text-white leading-tight tracking-wide">DMS Aarohi</p>
                 <p className="text-[11px] font-semibold text-orange-400 uppercase tracking-widest">Musical Society</p>
               </div>
-            </Link>
+            </a>
             <p className="text-stone-400 text-sm leading-relaxed max-w-sm font-medium mb-5">
               Celebrating music, nurturing talent since 2013. DMS Aarohi Musical Society is dedicated to discovering and elevating the finest voices across Delhi-NCR through the flagship competition - Voice of Delhi NCR.
             </p>
@@ -50,7 +50,7 @@ function Footer() {
               <span className="w-2 h-2 rounded-full bg-orange-500"></span> Quick Links
             </h4>
             <ul className="space-y-3 text-sm font-semibold">
-              <li><Link to="/" onClick={scrollToTop} className="text-stone-300 hover:text-orange-400 transition-colors flex items-center gap-2 group"><span className="text-stone-600 group-hover:text-orange-500 transition-colors">›</span> Home</Link></li>
+              <li><a href="https://dms-pqry.vercel.app" className="text-stone-300 hover:text-orange-400 transition-colors flex items-center gap-2 group"><span className="text-stone-600 group-hover:text-orange-500 transition-colors">›</span> Home</a></li>
               <li><Link to="/about" onClick={scrollToTop} className="text-stone-300 hover:text-orange-400 transition-colors flex items-center gap-2 group"><span className="text-stone-600 group-hover:text-orange-500 transition-colors">›</span> About</Link></li>
               <li><Link to="/voice-of-delhi-ncr" onClick={scrollToTop} className="text-stone-300 hover:text-orange-400 transition-colors flex items-center gap-2 group"><span className="text-stone-600 group-hover:text-orange-500 transition-colors">›</span> Voice of Delhi NCR</Link></li>
               <li><Link to="/shows" onClick={scrollToTop} className="text-stone-300 hover:text-orange-400 transition-colors flex items-center gap-2 group"><span className="text-stone-600 group-hover:text-orange-500 transition-colors">›</span> Musical Shows</Link></li>
