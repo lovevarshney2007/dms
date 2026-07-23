@@ -6,7 +6,6 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Marquee from './components/Marquee';
 import FeatureCards from './components/FeatureCards';
-import Stats from './components/Stats';
 import Footer from './components/Footer';
 import SectionDivider from './components/SectionDivider';
 import LoadingScreen from './components/LoadingScreen';
@@ -57,8 +56,6 @@ function App() {
         <FeatureCards />
         
         <SectionDivider />
-        
-        <Stats />
         
       </motion.main>
       <Footer />

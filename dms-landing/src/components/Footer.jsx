@@ -16,7 +16,7 @@ const Footer = () => {
         {/* Column 1: Brand & Mission */}
         <div className="flex flex-col items-center md:items-start gap-4">
           <div className="flex items-center gap-3">
-            <img src="/logo.png" alt="DMS Aarohi" className="h-8 object-contain" />
+            <img src="/images/DMS_Logo1%20(1).png" alt="DMS Aarohi" className="h-8 object-contain" />
             <span className="text-2xl font-bold tracking-tight text-white">DMS Aarohi</span>
           </div>
           <div className="text-[10px] font-semibold uppercase tracking-[4px] text-white/50 text-center md:text-left mt-2">

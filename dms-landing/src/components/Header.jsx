@@ -27,7 +27,7 @@ const Header = () => {
           className="glass-pill rounded-full px-6 sm:px-8 py-3 flex items-center justify-center relative overflow-hidden mb-3 border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)] cursor-pointer"
         >
           <div className="absolute inset-0 bg-white/5 backdrop-blur-md pointer-events-none" />
-          <img src="/logo.png" alt="DMS Aarohi" className="h-[40px] sm:h-[46px] object-contain drop-shadow-lg relative z-10 scale-110" />
+          <img src="/images/DMS_Logo1%20(1).png" alt="DMS Aarohi" className="h-[40px] sm:h-[46px] object-contain drop-shadow-lg relative z-10 scale-110" />
         </motion.div>
         
         <div className={`text-[9px] sm:text-[10px] md:text-xs font-semibold uppercase tracking-[4px] sm:tracking-[8px] text-white/70 relative z-10 text-center transition-opacity duration-500 ${scrolled ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100'}`}>
