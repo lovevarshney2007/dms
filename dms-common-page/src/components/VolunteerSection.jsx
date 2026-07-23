@@ -1,15 +1,15 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-const NGO_URL = "https://dms-homepage.vercel.app/";
+const NGO_URL = "https://dms-ngo.vercel.app/";
 
 const ROLES = [
-  { title: "Blood Donor",            desc: "Join our network and be available when a patient urgently needs your blood group." },
-  { title: "Event Organiser",        desc: "Help set up and manage blood camps, clothing drives and awareness events on-ground." },
-  { title: "Child Mentor / Tutor",   desc: "Spend a few hours a week teaching or supporting underprivileged children." },
-  { title: "Elderly Care Visitor",   desc: "Visit senior citizens in care homes and provide company, care and support." },
+  { title: "Blood Donor", desc: "Join our network and be available when a patient urgently needs your blood group." },
+  { title: "Event Organiser", desc: "Help set up and manage blood camps, clothing drives and awareness events on-ground." },
+  { title: "Child Mentor / Tutor", desc: "Spend a few hours a week teaching or supporting underprivileged children." },
+  { title: "Elderly Care Visitor", desc: "Visit senior citizens in care homes and provide company, care and support." },
   { title: "Social Media Volunteer", desc: "Help spread our mission online through content creation and awareness posts." },
-  { title: "Logistics Support",      desc: "Assist in collecting, sorting and distributing donated goods to beneficiaries." },
+  { title: "Logistics Support", desc: "Assist in collecting, sorting and distributing donated goods to beneficiaries." },
 ];
 
 export default function VolunteerSection() {
@@ -46,10 +46,10 @@ export default function VolunteerSection() {
               Volunteer
             </div>
             <h2 style={{ fontFamily: "'Outfit',sans-serif", fontSize: "clamp(1.6rem,3vw,2.2rem)", fontWeight: 800, color: "#fff", marginBottom: 14, maxWidth: 500, lineHeight: 1.15 }}>
-              Your 2 Hours Can Change<br/>Someone's Life
+              Your 2 Hours Can Change<br />Someone's Life
             </h2>
             <p style={{ color: "rgba(255,255,255,0.8)", fontSize: 15, lineHeight: 1.7, maxWidth: 440, marginBottom: 28 }}>
-              We welcome volunteers from all walks of life — students, professionals, retirees. 
+              We welcome volunteers from all walks of life — students, professionals, retirees.
               No matter your skill set, there's a meaningful role for you in our community.
             </p>
             <div>

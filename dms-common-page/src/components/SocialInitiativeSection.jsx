@@ -1,22 +1,22 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-const NGO_URL = "https://dms-homepage.vercel.app/";
+const NGO_URL = "https://dms-ngo.vercel.app/";
 
 // Real initiatives from DMS-Homepage codebase
 const INITIATIVES = [
-  { img: "/ngo/blood-camp.jpg",       tag: "Healthcare", title: "Blood Donation & Healthcare", desc: "Building a verified blood donor network and organizing camps to support Thalassemia patients and medical emergencies." },
-  { img: "/ngo/child-education.jpg",  tag: "Education",  title: "Child Education Support",       desc: "Providing educational support and learning opportunities for underprivileged children in rural and urban communities." },
-  { img: "/ngo/senior-citizen.jpg",   tag: "Welfare",    title: "Senior Citizen Welfare",        desc: "Supporting senior citizens through healthcare, social engagement, and dignity-preserving programmes." },
-  { img: "/ngo/clothes-donation.jpg", tag: "Relief",     title: "Clothes & Essential Distribution", desc: "Collecting and distributing clothes and essential items to underprivileged families, especially during seasonal needs." },
-  { img: "/gallery/g3.jpg",           tag: "Empowerment",title: "Beti Bachao Initiative",         desc: "Promoting the protection, education and empowerment of the girl child through awareness campaigns." },
-  { img: "/gallery/g4.jpg",           tag: "Environment",title: "Environment Awareness",           desc: "Plantation drives, cleanliness campaigns and sustainable community initiatives." },
+  { img: "/ngo/blood-camp.jpg", tag: "Healthcare", title: "Blood Donation & Healthcare", desc: "Building a verified blood donor network and organizing camps to support Thalassemia patients and medical emergencies." },
+  { img: "/ngo/child-education.jpg", tag: "Education", title: "Child Education Support", desc: "Providing educational support and learning opportunities for underprivileged children in rural and urban communities." },
+  { img: "/ngo/senior-citizen.jpg", tag: "Welfare", title: "Senior Citizen Welfare", desc: "Supporting senior citizens through healthcare, social engagement, and dignity-preserving programmes." },
+  { img: "/ngo/clothes-donation.jpg", tag: "Relief", title: "Clothes & Essential Distribution", desc: "Collecting and distributing clothes and essential items to underprivileged families, especially during seasonal needs." },
+  { img: "/gallery/g3.jpg", tag: "Empowerment", title: "Beti Bachao Initiative", desc: "Promoting the protection, education and empowerment of the girl child through awareness campaigns." },
+  { img: "/gallery/g4.jpg", tag: "Environment", title: "Environment Awareness", desc: "Plantation drives, cleanliness campaigns and sustainable community initiatives." },
 ];
 
 const NGOWORK = [
-  { step: "01", title: "Identify Community Needs",    desc: "We work with local communities and volunteers to identify individuals needing immediate support." },
-  { step: "02", title: "Plan & Organise Drives",       desc: "Our team coordinates donation drives, health camps, awareness campaigns and welfare activities." },
-  { step: "03", title: "Deliver Meaningful Impact",    desc: "With the support of volunteers and donors, we create change through healthcare, education and environment." },
+  { step: "01", title: "Identify Community Needs", desc: "We work with local communities and volunteers to identify individuals needing immediate support." },
+  { step: "02", title: "Plan & Organise Drives", desc: "Our team coordinates donation drives, health camps, awareness campaigns and welfare activities." },
+  { step: "03", title: "Deliver Meaningful Impact", desc: "With the support of volunteers and donors, we create change through healthcare, education and environment." },
 ];
 
 export default function SocialInitiativeSection() {
@@ -37,7 +37,7 @@ export default function SocialInitiativeSection() {
           <div>
             <div className="tag tag-green">Social Initiative</div>
             <h2 className="h2">
-              Community Work<br/>
+              Community Work<br />
               <span className="accent-green">that Matters</span>
             </h2>
           </div>

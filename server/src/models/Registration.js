@@ -111,7 +111,7 @@ const registrationSchema = new mongoose.Schema(
     status: {
       type: String,
       enum: {
-        values: ["pending", "shortlisted", "approved", "rejected"],
+        values: ["pending", "shortlisted", "approved", "rejected", "active", "inactive", "contacted"],
         message: "{VALUE} is not a valid status"
       },
       default: "pending"

@@ -11,7 +11,7 @@ import {
 import "./index.css";
 
 const TALENT_URL = "https://dms-ten-gamma.vercel.app/";
-const NGO_URL = "https://dms-homepage.vercel.app/";
+const NGO_URL = "https://dms-ngo.vercel.app/";
 
 const userPaths = [
   {
@@ -93,9 +93,8 @@ function App() {
             return (
               <div
                 key={path.id}
-                className={`aesthetic-card aesthetic-card-${path.accent} ${
-                  hoveredCard === path.id ? "is-hovered" : ""
-                }`}
+                className={`aesthetic-card aesthetic-card-${path.accent} ${hoveredCard === path.id ? "is-hovered" : ""
+                  }`}
                 onMouseEnter={() => setHoveredCard(path.id)}
                 onMouseLeave={() => setHoveredCard(null)}
               >

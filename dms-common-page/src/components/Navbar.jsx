@@ -4,20 +4,20 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const TALENT_URL = "https://dms-ten-gamma.vercel.app/";
-const NGO_URL    = "https://dms-homepage.vercel.app/";
+const NGO_URL = "https://dms-ngo.vercel.app/";
 
 const NAV = [
-  { label: "Home",              to: "home" },
-  { label: "About",             to: "about" },
-  { label: "Talent Hunt",       to: "talent-hunt" },
+  { label: "Home", to: "home" },
+  { label: "About", to: "about" },
+  { label: "Talent Hunt", to: "talent-hunt" },
   { label: "Social Initiative", to: "social-initiative" },
-  { label: "Team",              to: "team" },
-  { label: "Contact",           to: "contact" },
+  { label: "Team", to: "team" },
+  { label: "Contact", to: "contact" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen]         = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 40);
@@ -97,7 +97,7 @@ export default function Navbar() {
             border: scrolled ? "1px solid #E5E7EB" : "1px solid rgba(255,255,255,0.3)",
             color: scrolled ? "#111" : "#fff",
           }}>
-            {open ? <X size={17}/> : <Menu size={17}/>}
+            {open ? <X size={17} /> : <Menu size={17} />}
           </button>
         </div>
       </nav>
@@ -110,7 +110,7 @@ export default function Navbar() {
               onClick={() => setOpen(false)}
               style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.3)", zIndex: 1000 }} />
             <motion.div initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }}
-              transition={{ duration: 0.25, ease: [0.4,0,0.2,1] }}
+              transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
               style={{
                 position: "fixed", top: 0, right: 0, bottom: 0, width: 260,
                 background: "#fff", borderLeft: "1px solid #E5E7EB",
@@ -121,7 +121,7 @@ export default function Navbar() {
                 position: "absolute", top: 14, right: 14, width: 32, height: 32,
                 borderRadius: 7, background: "#F3F4F6", border: "1px solid #E5E7EB",
                 display: "flex", alignItems: "center", justifyContent: "center",
-              }}><X size={14}/></button>
+              }}><X size={14} /></button>
 
               <div style={{ marginBottom: 18, paddingBottom: 16, borderBottom: "1px solid #E5E7EB" }}>
                 <img src="/logo.png" alt="DMS Aarohi" style={{ height: 28 }} />

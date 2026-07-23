@@ -12,9 +12,9 @@ const AIMS = [
 
 const STATS = [
   { n: "2013", label: "Year Founded" },
-  { n: "4+",   label: "Competition Seasons" },
-  { n: "14+",  label: "Years of Service" },
-  { n: "1000+",label: "Lives Impacted" },
+  { n: "4+", label: "Competition Seasons" },
+  { n: "14+", label: "Years of Service" },
+  { n: "1000+", label: "Lives Impacted" },
 ];
 
 export default function AboutSection() {
@@ -94,11 +94,11 @@ export default function AboutSection() {
               DMS Aarohi — Music Society &amp; NGO
             </h2>
             <p className="lead" style={{ marginBottom: 20 }}>
-              DMS Aarohi is a voluntary, non-profit organisation registered under the Societies Registration Act XXI of 1860 
+              DMS Aarohi is a voluntary, non-profit organisation registered under the Societies Registration Act XXI of 1860
               <em style={{ color: "#6B7280" }}> (Regd. No. SOCIETY/WEST/2013/8900890)</em> and covered under 12A &amp; 80G of the Income Tax Act.
             </p>
             <p className="lead" style={{ marginBottom: 24 }}>
-              We are devoted to the dissemination and enjoyment of music — specially Indian Classical music — 
+              We are devoted to the dissemination and enjoyment of music — specially Indian Classical music —
               while also running active social welfare programmes across Delhi NCR.
             </p>
 
@@ -115,7 +115,7 @@ export default function AboutSection() {
 
             <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
               <a href="https://dms-ten-gamma.vercel.app/" target="_blank" rel="noopener noreferrer" className="btn btn-gold">Music Society →</a>
-              <a href="https://dms-homepage.vercel.app/" target="_blank" rel="noopener noreferrer" className="btn btn-green">Social Initiative →</a>
+              <a href="https://dms-ngo.vercel.app/" target="_blank" rel="noopener noreferrer" className="btn btn-green">Social Initiative →</a>
             </div>
           </motion.div>
         </div>

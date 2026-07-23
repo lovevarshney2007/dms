@@ -15,7 +15,10 @@ const contentBlockSchema = new mongoose.Schema(
         "sponsor",
         "testimonial",
         "website-setting",
-        "page-meta"
+        "page-meta",
+        "ngo-gallery",
+        "ngo-camp",
+        "ngo-initiative"
       ],
       required: true,
       index: true

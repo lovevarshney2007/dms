@@ -3,7 +3,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const TALENT_URL = "https://dms-ten-gamma.vercel.app/";
-const NGO_URL    = "https://dms-homepage.vercel.app/";
+const NGO_URL = "https://dms-ngo.vercel.app/";
 
 const SLIDES = [
   {
@@ -13,7 +13,7 @@ const SLIDES = [
     body: "DMS Aarohi invites singers from across Delhi NCR to audition for Season 4. Classical, Bollywood, Folk — every voice deserves a stage.",
     ctas: [
       { label: "Register Now", href: `${TALENT_URL}register`, cls: "btn-gold" },
-      { label: "Know More",    href: TALENT_URL,              cls: "btn-outline" },
+      { label: "Know More", href: TALENT_URL, cls: "btn-outline" },
     ],
   },
   {
@@ -23,7 +23,7 @@ const SLIDES = [
     body: "Our voluntary blood donor network has helped hundreds of patients across Delhi NCR. Join our next camp and make a real difference.",
     ctas: [
       { label: "Volunteer Now", href: `${NGO_URL}#volunteer-cta`, cls: "btn-green" },
-      { label: "Explore NGO",   href: NGO_URL,               cls: "btn-outline" },
+      { label: "Explore NGO", href: NGO_URL, cls: "btn-outline" },
     ],
   },
   {
@@ -32,8 +32,8 @@ const SLIDES = [
     headline: "Concerts That\nTouch the Soul",
     body: "From intimate classical evenings to grand stage performances — DMS Aarohi organises shows that celebrate India's rich musical heritage.",
     ctas: [
-      { label: "Explore Shows",  href: `${TALENT_URL}shows`, cls: "btn-gold" },
-      { label: "Register Now",   href: `${TALENT_URL}register`, cls: "btn-outline" },
+      { label: "Explore Shows", href: `${TALENT_URL}shows`, cls: "btn-gold" },
+      { label: "Register Now", href: `${TALENT_URL}register`, cls: "btn-outline" },
     ],
   },
   {
@@ -42,8 +42,8 @@ const SLIDES = [
     headline: "Educating Today,\nEmpowering Tomorrow",
     body: "Workshops, resources, and mentorship for underprivileged children across Delhi NCR — because every child deserves a bright future.",
     ctas: [
-      { label: "Our Initiatives", href: NGO_URL,              cls: "btn-green" },
-      { label: "Volunteer",       href: `${NGO_URL}#volunteer-cta`, cls: "btn-outline" },
+      { label: "Our Initiatives", href: NGO_URL, cls: "btn-green" },
+      { label: "Volunteer", href: `${NGO_URL}#volunteer-cta`, cls: "btn-outline" },
     ],
   },
   {
@@ -52,8 +52,8 @@ const SLIDES = [
     headline: "Your Voice Can\nChange Everything",
     body: "Season 4 auditions are open to all age groups. Showcase your talent on Delhi NCR's biggest singing platform and win a chance to perform at the Grand Finale.",
     ctas: [
-      { label: "Audition Now",   href: `${TALENT_URL}register`, cls: "btn-gold" },
-      { label: "View Seasons",   href: TALENT_URL,               cls: "btn-outline" },
+      { label: "Audition Now", href: `${TALENT_URL}register`, cls: "btn-gold" },
+      { label: "View Seasons", href: TALENT_URL, cls: "btn-outline" },
     ],
   },
   {
@@ -63,7 +63,7 @@ const SLIDES = [
     body: "We visit care homes, organise health camps and bring dignity and happiness to senior citizens across Delhi NCR.",
     ctas: [
       { label: "Join as Volunteer", href: `${NGO_URL}#volunteer-cta`, cls: "btn-green" },
-      { label: "Know More",         href: NGO_URL,               cls: "btn-outline" },
+      { label: "Know More", href: NGO_URL, cls: "btn-outline" },
     ],
   },
   {
@@ -72,8 +72,8 @@ const SLIDES = [
     headline: "Music That Inspires,\nService That Transforms",
     body: "DMS Aarohi is registered as both a Musical Society and an NGO under the Govt. of Delhi — serving communities through art and compassion since 2013.",
     ctas: [
-      { label: "Music Society",     href: TALENT_URL, cls: "btn-gold" },
-      { label: "Social Initiative", href: NGO_URL,    cls: "btn-green" },
+      { label: "Music Society", href: TALENT_URL, cls: "btn-gold" },
+      { label: "Social Initiative", href: NGO_URL, cls: "btn-green" },
     ],
   },
   {
@@ -83,7 +83,7 @@ const SLIDES = [
     body: "We collect and distribute clothes, blankets and essential items to underprivileged families — especially during winter and festive seasons.",
     ctas: [
       { label: "Donate & Volunteer", href: `${NGO_URL}#volunteer-cta`, cls: "btn-green" },
-      { label: "Explore NGO",        href: NGO_URL,               cls: "btn-outline" },
+      { label: "Explore NGO", href: NGO_URL, cls: "btn-outline" },
     ],
   },
 ];
@@ -183,10 +183,10 @@ export default function HeroSlider() {
           zIndex: 10, cursor: "pointer", backdropFilter: "blur(4px)",
           transition: "background 0.2s",
         }}
-        onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.25)"}
-        onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,0.15)"}
+          onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.25)"}
+          onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,0.15)"}
         >
-          {dir === -1 ? <ChevronLeft size={19}/> : <ChevronRight size={19}/>}
+          {dir === -1 ? <ChevronLeft size={19} /> : <ChevronRight size={19} />}
         </button>
       ))}
 
@@ -207,7 +207,7 @@ export default function HeroSlider() {
         fontSize: 11, color: "rgba(255,255,255,0.5)", letterSpacing: "1.5px",
         fontFamily: "'Outfit', sans-serif",
       }}>
-        {String(cur + 1).padStart(2,"0")} / {String(SLIDES.length).padStart(2,"0")}
+        {String(cur + 1).padStart(2, "0")} / {String(SLIDES.length).padStart(2, "0")}
       </div>
     </section>
   );

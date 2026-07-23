@@ -16,7 +16,7 @@ const MagneticButton = ({ children, className, variant = 'primary', href, ...pro
   const ref = useRef(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  
+
   const mouseXSpring = useSpring(x, { stiffness: 150, damping: 15, mass: 0.1 });
   const mouseYSpring = useSpring(y, { stiffness: 150, damping: 15, mass: 0.1 });
 
@@ -65,11 +65,11 @@ const MagneticButton = ({ children, className, variant = 'primary', href, ...pro
 const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const containerRef = useRef(null);
-  
+
   // Parallax Setup
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-  
+
   const handleHeroMouseMove = (e) => {
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
@@ -82,7 +82,7 @@ const Hero = () => {
 
   const parallaxX1 = useTransform(smoothX, [-1000, 1000], [-15, 15]);
   const parallaxY1 = useTransform(smoothY, [-1000, 1000], [-15, 15]);
-  
+
   const parallaxX2 = useTransform(smoothX, [-1000, 1000], [-8, 8]);
   const parallaxY2 = useTransform(smoothY, [-1000, 1000], [-8, 8]);
 
@@ -94,31 +94,31 @@ const Hero = () => {
   }, []);
 
   return (
-    <section 
+    <section
       ref={containerRef}
       onMouseMove={handleHeroMouseMove}
       className="flex flex-col items-center justify-center min-h-[85vh] pt-32 pb-16 px-6 relative z-10 text-center w-full"
     >
-      
+
       {/* Background Audio Waveform (Subtle) & Floating Elements */}
       <div className="absolute inset-0 flex items-center justify-center opacity-[0.07] pointer-events-none overflow-hidden">
         {/* Floating notes - hide on small screens to prevent overflow */}
-        <motion.div 
-          animate={{ y: [-20, 20, -20], rotate: [0, 10, -10, 0] }} 
+        <motion.div
+          animate={{ y: [-20, 20, -20], rotate: [0, 10, -10, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           className="hidden md:block absolute left-[15%] top-[20%] text-6xl"
         >
           ♪
         </motion.div>
-        <motion.div 
-          animate={{ y: [20, -20, 20], rotate: [0, -15, 15, 0] }} 
+        <motion.div
+          animate={{ y: [20, -20, 20], rotate: [0, -15, 15, 0] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
           className="hidden md:block absolute right-[10%] top-[30%] text-8xl"
         >
           ♫
         </motion.div>
-        <motion.div 
-          animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }} 
+        <motion.div
+          animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           className="hidden sm:block absolute left-[20%] bottom-[30%] w-24 h-24 sm:w-32 sm:h-32 rounded-full border-[1px] border-white/50"
         />
@@ -165,7 +165,7 @@ const Hero = () => {
             transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 5, ease: "easeInOut" }}
           />
         </div>
-        
+
         {/* Subheading with Rotating Text */}
         <div className="text-[22px] sm:text-[36px] md:text-[48px] font-bold text-white/90 mb-6 sm:mb-10 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 h-auto sm:h-[60px]">
           <span>One Family.</span>
@@ -185,7 +185,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <motion.p 
+        <motion.p
           style={{ x: parallaxX2, y: parallaxY2 }}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -196,7 +196,7 @@ const Hero = () => {
         </motion.p>
 
         {/* Magnetic Buttons */}
-        <motion.div 
+        <motion.div
           style={{ x: parallaxX2, y: parallaxY2 }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -207,14 +207,15 @@ const Hero = () => {
             Explore Talent
             <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
           </MagneticButton>
-          <MagneticButton variant="secondary" href="https://dms-homepage.vercel.app/">
+          <MagneticButton variant="secondary" href="https://dms-ngo.vercel.app/">
             Join Initiative
             <Heart className="w-4 h-4 ml-2 text-[#10B981] group-hover:scale-110 transition-transform" />
           </MagneticButton>
         </motion.div>
       </motion.div>
-      
-      <style dangerouslySetInnerHTML={{__html: `
+
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @keyframes gradient {
           0% { background-position: 0% 50%; }
           50% { background-position: 100% 50%; }

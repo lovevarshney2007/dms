@@ -12,7 +12,10 @@ const VALID_TYPES = [
   "sponsor",
   "testimonial",
   "website-setting",
-  "page-meta"
+  "page-meta",
+  "ngo-gallery",
+  "ngo-camp",
+  "ngo-initiative"
 ];
 
 async function listContent(req, res, next) {

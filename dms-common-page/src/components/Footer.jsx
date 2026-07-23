@@ -1,29 +1,29 @@
 const TALENT_URL = "https://dms-ten-gamma.vercel.app/";
-const NGO_URL    = "https://dms-homepage.vercel.app/";
+const NGO_URL = "https://dms-ngo.vercel.app/";
 
 const COLS = {
   "Music Society": [
-    { l: "About DMS Aarohi",  h: TALENT_URL },
-    { l: "Shows & Events",    h: `${TALENT_URL}shows` },
-    { l: "Success Stories",   h: `${TALENT_URL}success-stories` },
-    { l: "Gallery",           h: `${TALENT_URL}gallery` },
-    { l: "Contact",           h: `${TALENT_URL}contact` },
-    { l: "Register Now",      h: `${TALENT_URL}register` },
+    { l: "About DMS Aarohi", h: TALENT_URL },
+    { l: "Shows & Events", h: `${TALENT_URL}shows` },
+    { l: "Success Stories", h: `${TALENT_URL}success-stories` },
+    { l: "Gallery", h: `${TALENT_URL}gallery` },
+    { l: "Contact", h: `${TALENT_URL}contact` },
+    { l: "Register Now", h: `${TALENT_URL}register` },
   ],
   "Social Initiative": [
-    { l: "About NGO",         h: NGO_URL },
-    { l: "Blood Donation",    h: `${NGO_URL}initiatives/blood-donation` },
-    { l: "Child Education",   h: `${NGO_URL}initiatives/child-education` },
-    { l: "Elderly Care",      h: `${NGO_URL}initiatives/senior-citizen` },
-    { l: "Volunteer Now",     h: `${NGO_URL}#volunteer-cta` },
+    { l: "About NGO", h: NGO_URL },
+    { l: "Blood Donation", h: `${NGO_URL}initiatives/blood-donation` },
+    { l: "Child Education", h: `${NGO_URL}initiatives/child-education` },
+    { l: "Elderly Care", h: `${NGO_URL}initiatives/senior-citizen` },
+    { l: "Volunteer Now", h: `${NGO_URL}#volunteer-cta` },
   ],
   "Quick Links": [
-    { l: "Home",              h: "#home",              ext: false },
-    { l: "About",             h: "#about",             ext: false },
-    { l: "Talent Hunt",       h: "#talent-hunt",       ext: false },
+    { l: "Home", h: "#home", ext: false },
+    { l: "About", h: "#about", ext: false },
+    { l: "Talent Hunt", h: "#talent-hunt", ext: false },
     { l: "Social Initiative", h: "#social-initiative", ext: false },
-    { l: "Team",              h: "#team",              ext: false },
-    { l: "Contact",           h: "#contact",           ext: false },
+    { l: "Team", h: "#team", ext: false },
+    { l: "Contact", h: "#contact", ext: false },
   ],
 };
 
@@ -44,12 +44,12 @@ export default function Footer() {
               </div>
             </div>
             <p style={{ fontSize: 13.5, lineHeight: 1.75, color: "#9CA3AF", marginBottom: 20, maxWidth: 230 }}>
-              Registered Musical Society & NGO under the Govt. of Delhi since 2013. 
+              Registered Musical Society & NGO under the Govt. of Delhi since 2013.
               Serving communities through music and social welfare.
             </p>
             <div style={{ fontSize: 12.5, color: "#6B7280", lineHeight: 1.6 }}>
-              📍 A5, 272, Paschim Vihar, New Delhi<br/>
-              📞 +91 9810225442<br/>
+              📍 A5, 272, Paschim Vihar, New Delhi<br />
+              📞 +91 9810225442<br />
               ✉️ dmsaarohi@gmail.com
             </div>
           </div>

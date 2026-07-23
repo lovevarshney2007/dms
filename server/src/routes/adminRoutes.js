@@ -59,6 +59,14 @@ router.put("/admin/sponsor-requests/:id/status", adminAuth, asyncHandler(async (
   res.json(item);
 }));
 
+// ── NGO Volunteers ────────────────────────────────────────────────────────────
+router.get("/admin/volunteers", adminAuth, asyncHandler(adminDashboardController.getVolunteers));
+router.put("/admin/volunteers/:id/status", adminAuth, asyncHandler(adminDashboardController.updateVolunteerStatus));
+
+// ── NGO Contact Queries ───────────────────────────────────────────────────────
+router.get("/admin/ngo-queries", adminAuth, asyncHandler(adminDashboardController.getNgoQueries));
+router.put("/admin/ngo-queries/:id/status", adminAuth, asyncHandler(adminDashboardController.updateNgoQueryStatus));
+
 // ── Reports (existing) ────────────────────────────────────────────────────────
 router.get("/admin/reports/singing", adminAuth, asyncHandler(submissionController.getSingingReports));
 router.get("/admin/reports/ngo", adminAuth, asyncHandler(submissionController.getNgoReports));
@@ -67,6 +75,7 @@ router.get("/admin/reports/all", adminAuth, asyncHandler(submissionController.ge
 // ── Content Blocks (CMS) ─────────────────────────────────────────────────────
 // Supports types: competition, season, qualified-contestant, success-story,
 //                 gallery, video, patron, sponsor, testimonial, website-setting
+//                 ngo-gallery, ngo-camp, ngo-initiative
 router.get("/admin/content/:type", adminAuth, asyncHandler(contentController.listContent));
 router.post("/admin/content/:type", adminAuth, validateContent(), asyncHandler(contentController.createContent));
 router.put("/admin/content/:id", adminAuth, validateContent(), asyncHandler(contentController.updateContent));

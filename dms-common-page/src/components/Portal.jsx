@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 const TALENT_URL = "https://dms-ten-gamma.vercel.app/";
-const NGO_URL    = "https://dms-homepage.vercel.app/";
+const NGO_URL = "https://dms-ngo.vercel.app/";
 
 export default function Portal() {
   return (
@@ -15,7 +15,7 @@ export default function Portal() {
 
       {/* Top Bar */}
       <header className="top-nav">
-        <motion.div 
+        <motion.div
           className="brand"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -35,9 +35,9 @@ export default function Portal() {
       {/* Main Content */}
       <main className="main-content">
         <div className="cards-container">
-          
+
           {/* Card 1: Music Society */}
-          <motion.a 
+          <motion.a
             href={TALENT_URL}
             className="portal-card card-music"
             initial={{ opacity: 0, x: -30 }}
@@ -63,14 +63,14 @@ export default function Portal() {
               <div className="card-btn">
                 Explore Talent Hunt
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                  <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </div>
             </div>
           </motion.a>
 
           {/* Card 2: Social Initiative */}
-          <motion.a 
+          <motion.a
             href={NGO_URL}
             className="portal-card card-ngo"
             initial={{ opacity: 0, x: 30 }}
@@ -96,7 +96,7 @@ export default function Portal() {
               <div className="card-btn">
                 Explore NGO
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                  <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </div>
             </div>
