@@ -24,7 +24,7 @@ export default function TalentContactPage() {
   const load = useCallback(() => {
     setLoading(true);
     api.get('/admin/contact-queries')
-      .then(d => setRows(d.queries || d || MOCK))
+      .then(d => setRows(d.items || d.queries || (Array.isArray(d) ? d : MOCK)))
       .catch(() => setRows(MOCK))
       .finally(() => setLoading(false));
   }, []);

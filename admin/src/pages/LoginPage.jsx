@@ -18,9 +18,11 @@ export default function LoginPage() {
     e.preventDefault();
     setLoading(true);
     try {
-      // Temporarily mock login for preview purposes
-      await new Promise(r => setTimeout(r, 600)); 
-      setToken('mock-token');
+      const res = await api.post('/admin/login', {
+        email: form.username,
+        password: form.password
+      });
+      setToken(res.token);
       navigate('/dashboard');
     } catch (err) {
       showToast(err.message || 'Invalid credentials', 'error');

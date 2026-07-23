@@ -5,20 +5,24 @@ import { api } from '../lib/api';
 import { TALENT_SITE, NGO_SITE } from '../config';
 import { useNavigate } from 'react-router-dom';
 
-const MOCK_STATS = {
-  totalRegistrations: 247, newRegistrations: 18,
-  talentQueries: 14, ngoVolunteers: 63, ngoQueries: 9,
-  upcomingEvents: 2, totalSeasons: 4,
+const DEFAULT_STATS = {
+  totalRegistrations: 0, newRegistrations: 0,
+  talentQueries: 0, ngoVolunteers: 0, ngoQueries: 0,
+  upcomingEvents: 0, totalSeasons: 0,
+  recentActivity: []
 };
 
-const MOCK_ACTIVITY = [
-  { id: 1, type: 'talent', msg: 'New registration — Rahul Sharma (Classical, Delhi)', time: '5 min ago', dot: 'gold' },
-  { id: 2, type: 'ngo',    msg: 'New volunteer — Priya Singh (Blood Donor, Noida)', time: '18 min ago', dot: 'green' },
-  { id: 3, type: 'talent', msg: 'Contact query — "When is Season 5 starting?"', time: '42 min ago', dot: 'gold' },
-  { id: 4, type: 'ngo',    msg: 'New volunteer — Amit Kumar (Child Mentor, Gurgaon)', time: '1 hr ago', dot: 'green' },
-  { id: 5, type: 'talent', msg: 'Registration approved — Deepshikha (Senior Category)', time: '2 hr ago', dot: 'gold' },
-  { id: 6, type: 'ngo',    msg: 'Contact query — "How to organise a blood camp?"', time: '3 hr ago', dot: 'green' },
-];
+function timeAgo(dateString) {
+  const date = new Date(dateString);
+  const now = new Date();
+  const diffInSeconds = Math.floor((now - date) / 1000);
+
+  if (diffInSeconds < 60) return "Just now";
+  if (diffInSeconds < 3600) return `${Math.floor(diffInSeconds / 60)} min ago`;
+  if (diffInSeconds < 86400) return `${Math.floor(diffInSeconds / 3600)} hr ago`;
+  if (diffInSeconds < 2592000) return `${Math.floor(diffInSeconds / 86400)} days ago`;
+  return `${Math.floor(diffInSeconds / 2592000)} mo ago`;
+}
 
 function StatCard({ n, label, icon: Icon, color, change, onClick }) {
   return (
@@ -44,7 +48,7 @@ function StatCard({ n, label, icon: Icon, color, change, onClick }) {
 
 export default function DashboardPage() {
   const navigate = useNavigate();
-  const [stats, setStats] = useState(MOCK_STATS);
+  const [stats, setStats] = useState(DEFAULT_STATS);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -112,15 +116,21 @@ export default function DashboardPage() {
             <TrendingUp size={16} style={{ color: 'var(--text-muted)' }} />
           </div>
           <div className="card-body" style={{ padding: '8px 22px' }}>
-            {MOCK_ACTIVITY.map(a => (
-              <div key={a.id} className="activity-item">
-                <div className={`activity-dot ${a.dot}`} />
-                <div style={{ flex: 1 }}>
-                  <div style={{ fontSize: 13.5, color: 'var(--text)', lineHeight: 1.5 }}>{a.msg}</div>
-                  <div className="activity-time">{a.time}</div>
+            {stats.recentActivity && stats.recentActivity.length > 0 ? (
+              stats.recentActivity.map(a => (
+                <div key={a.id} className="activity-item">
+                  <div className={`activity-dot ${a.dot}`} />
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontSize: 13.5, color: 'var(--text)', lineHeight: 1.5 }}>{a.msg}</div>
+                    <div className="activity-time">{timeAgo(a.time)}</div>
+                  </div>
                 </div>
+              ))
+            ) : (
+              <div style={{ padding: '20px', textAlign: 'center', color: 'var(--text-muted)' }}>
+                No recent activity.
               </div>
-            ))}
+            )}
           </div>
         </div>
 

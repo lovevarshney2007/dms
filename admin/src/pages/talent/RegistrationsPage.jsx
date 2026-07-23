@@ -31,7 +31,7 @@ export default function RegistrationsPage() {
   const load = useCallback(() => {
     setLoading(true);
     api.get('/admin/registrations?formType=talent-show')
-      .then(d => setRows(d.registrations || d || MOCK))
+      .then(d => setRows(d.items || d.registrations || (Array.isArray(d) ? d : MOCK)))
       .catch(() => setRows(MOCK))
       .finally(() => setLoading(false));
   }, []);
