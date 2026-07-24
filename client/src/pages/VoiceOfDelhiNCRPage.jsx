@@ -200,21 +200,21 @@ function VoiceOfDelhiNCRPage() {
               id: fallback.id,
               title: d.title || fallback.title,
               subtitle: d.subtitle || fallback.subtitle,
-              year: fallback.year, // Priority to fallback year
+              year: d.year || fallback.year,
               description: d.meta?.description || d.description || fallback.description,
               status: d.meta?.status || fallback.status || "completed",
               color: d.meta?.color || fallback.color,
               lightBg: d.meta?.lightBg || fallback.lightBg,
               borderColor: d.meta?.borderColor || fallback.borderColor,
-              winner: fallback.winner || d.meta?.winner || null,
-              winnerImg: fallback.winnerImg || d.meta?.winnerImg || null,
-              youtube: fallback.youtube || d.meta?.youtube || null,
-              poster: fallback.poster || d.meta?.poster || d.imageUrl || "/legacy/poster.png",
+              winner: d.meta?.winner || fallback.winner || null,
+              winnerImg: d.meta?.winnerImg || fallback.winnerImg || null,
+              youtube: d.meta?.youtube || fallback.youtube || null,
+              poster: d.meta?.poster || d.imageUrl || fallback.poster || "/legacy/poster.png",
               grandFinale: d.meta?.grandFinale || fallback.grandFinale || null,
               venue: d.meta?.venue || fallback.venue || null,
               highlights: d.meta?.highlights || fallback.highlights || [],
-              winners: fallback.winners || d.meta?.winners || null,
-              finalists: fallback.finalists || d.meta?.finalists || null,
+              winners: d.meta?.winners || fallback.winners || null,
+              finalists: d.meta?.finalists || fallback.finalists || null,
             };
           });
           setSeasons(mappedSeasons);
