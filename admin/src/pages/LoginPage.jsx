@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Eye, EyeOff, LogIn, ShieldCheck } from 'lucide-react';
-import { api, setToken } from '../lib/api';
+import { api, setToken, isLoggedIn } from '../lib/api';
 import { showToast } from '../components/Toast';
 import ToastProvider from '../components/Toast';
 
@@ -11,6 +11,12 @@ export default function LoginPage() {
   const [form, setForm]       = useState({ username: '', password: '' });
   const [show, setShow]       = useState(false);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (isLoggedIn()) {
+      navigate('/dashboard', { replace: true });
+    }
+  }, [navigate]);
 
   const handle = e => setForm({ ...form, [e.target.name]: e.target.value });
 

@@ -62,8 +62,8 @@ const Stats = () => {
   const stats = [
     { icon: '🏆', end: 14, suffix: '+', subtitle: 'Years of Excellence', delay: 0, color: 'rgba(255,215,0,0.4)' },
     { icon: '🎤', end: 2500, suffix: '+', subtitle: 'Artists Empowered', delay: 0.1, color: 'rgba(255,140,0,0.4)' },
-    { icon: '❤️', end: 500, suffix: '+', subtitle: 'Volunteers', delay: 0.2, color: 'rgba(220,38,38,0.4)' },
-    { icon: '🌍', end: 100, suffix: '+', subtitle: 'Social Initiatives', delay: 0.3, color: 'rgba(16,185,129,0.4)' },
+    { icon: '❤️', end: 100, suffix: '+', subtitle: 'Volunteers', delay: 0.2, color: 'rgba(220,38,38,0.4)' },
+    { icon: '🌍', end: 70, suffix: '+', subtitle: 'Social Initiatives', delay: 0.3, color: 'rgba(16,185,129,0.4)' },
   ];
 
   return (

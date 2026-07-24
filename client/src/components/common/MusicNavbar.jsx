@@ -61,10 +61,16 @@ function MusicNavbar() {
 
   const navItems = [
     {
-      label: "Home",
+      label: "Main Site",
       href: "https://dms-pqry.vercel.app",
       type: "anchor",
       isActive: false,
+    },
+    {
+      label: "Home",
+      href: "/",
+      type: "route",
+      isActive: isHomePage,
     },
     {
       label: "About",
@@ -114,7 +120,7 @@ function MusicNavbar() {
       >
         <div className="mx-auto flex w-full max-w-7xl flex-nowrap items-center justify-between gap-2 md:gap-4 px-4 py-3 md:px-6 md:py-4">
           {/* Logo */}
-          <a href="https://dms-pqry.vercel.app" className="relative flex items-center shrink-0 group">
+          <Link to="/" className="relative flex items-center shrink-0 group">
             <div className="relative flex items-center justify-center py-1 px-2">
               {/* Soundwave Rings Animation */}
               <div className="absolute inset-0 border-2 border-orange-600 rounded-full animate-ping opacity-40"></div>
@@ -127,7 +133,7 @@ function MusicNavbar() {
                 decoding="async"
               />
             </div>
-          </a>
+          </Link>
 
           {/* Mobile hamburger */}
           <button

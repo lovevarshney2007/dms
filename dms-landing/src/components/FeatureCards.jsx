@@ -193,7 +193,7 @@ const FeatureCards = () => {
               <div className="flex items-center gap-3 group/stat">
                 <div className="text-2xl group-hover/stat:scale-110 group-hover/stat:-translate-y-1 transition-transform duration-300 drop-shadow-md">❤️</div>
                 <div className="flex flex-col">
-                  <div className="text-lg sm:text-xl font-bold text-white leading-tight">500+</div>
+                  <div className="text-lg sm:text-xl font-bold text-white leading-tight">100+</div>
                   <div className="text-[10px] sm:text-xs text-white/50 font-bold uppercase tracking-widest group-hover/stat:text-white/80 transition-colors">Volunteers</div>
                 </div>
               </div>
@@ -201,7 +201,7 @@ const FeatureCards = () => {
               <div className="flex items-center gap-3 group/stat">
                 <div className="text-2xl group-hover/stat:scale-110 group-hover/stat:-translate-y-1 transition-transform duration-300 drop-shadow-md">🌍</div>
                 <div className="flex flex-col">
-                  <div className="text-lg sm:text-xl font-bold text-white leading-tight">100+</div>
+                  <div className="text-lg sm:text-xl font-bold text-white leading-tight">70+</div>
                   <div className="text-[10px] sm:text-xs text-white/50 font-bold uppercase tracking-widest group-hover/stat:text-white/80 transition-colors">Initiatives</div>
                 </div>
               </div>

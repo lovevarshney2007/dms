@@ -1,5 +1,10 @@
-import { Camera, Tv, MessageCircle, Mail, MapPin, Phone } from 'lucide-react';
+import { MapPin, Phone, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
+
+const InstagramIcon = (props) => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>;
+const YoutubeIcon = (props) => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>;
+const FacebookIcon = (props) => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>;
+const TwitterIcon = (props) => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>;
 
 const Footer = () => {
   return (
@@ -11,24 +16,23 @@ const Footer = () => {
       {/* Ambient background glow in footer */}
       <div className="absolute bottom-[-50%] left-[50%] -translate-x-1/2 w-[80vw] h-[50vh] rounded-[100%] bg-gradient-to-b from-[#10B981]/5 to-[#FF8C00]/5 filter blur-[100px] pointer-events-none" />
 
-      <div className="max-w-[1200px] mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 lg:gap-16">
+      <div className="max-w-[1200px] mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-20 lg:gap-24 justify-items-center">
         
         {/* Column 1: Brand & Mission */}
-        <div className="flex flex-col items-center md:items-start gap-4">
-          <a href="/" className="flex items-center gap-3">
-            <img src="/images/DMS_Logo1%20(1).png" alt="DMS Aarohi" className="h-8 object-contain" />
-            <span className="text-2xl font-bold tracking-tight text-white">DMS Aarohi</span>
+        <div className="flex flex-col items-center gap-4 w-full md:max-w-xs text-center">
+          <a href="/" className="flex flex-col items-center gap-3">
+            <img src="/images/DMS_Logo1%20(1).png" alt="DMS Aarohi" className="h-20 sm:h-24 object-contain" />
           </a>
-          <div className="text-[10px] font-semibold uppercase tracking-[4px] text-white/50 text-center md:text-left mt-2">
+          <div className="text-[10px] font-semibold uppercase tracking-[4px] text-white/50 mt-2">
             Music • Community • Impact
           </div>
-          <p className="text-white/60 text-sm mt-4 text-center md:text-left leading-relaxed max-w-[300px]">
+          <p className="text-white/60 text-sm mt-4 leading-relaxed">
             Inspiring talent and creating meaningful social impact across India. Join our journey to make a difference through art and service.
           </p>
         </div>
 
         {/* Column 2: Quick Links */}
-        <div className="flex flex-col items-center md:items-start gap-6">
+        <div className="flex flex-col items-center gap-6 w-full text-center">
           <h3 className="text-white font-bold text-lg mb-2">Quick Links</h3>
           <div className="flex flex-col gap-4">
             {[
@@ -46,10 +50,10 @@ const Footer = () => {
         </div>
 
         {/* Column 3: Contact & Socials */}
-        <div className="flex flex-col items-center md:items-start gap-6">
-          <h3 className="text-white font-bold text-lg mb-2">Connect</h3>
+        <div className="flex flex-col items-center gap-6 w-full text-center">
+          <h3 className="text-white font-bold text-lg mb-2">Contact Us</h3>
           
-          <div className="flex flex-col gap-3 text-sm text-white/70 w-full items-center md:items-start">
+          <div className="flex flex-col gap-3 text-sm text-white/70 items-center">
             <div className="flex items-center gap-3">
               <MapPin className="w-4 h-4 text-white/50" />
               <span>Delhi NCR, India</span>
@@ -58,10 +62,14 @@ const Footer = () => {
               <Phone className="w-4 h-4 text-white/50" />
               <span>+91 123 456 7890</span>
             </div>
+            <div className="flex items-center gap-3">
+              <Mail className="w-4 h-4 text-white/50" />
+              <span>contact@dmsaarohi.com</span>
+            </div>
           </div>
 
           <div className="flex items-center gap-4 mt-4">
-            {[Camera, Tv, MessageCircle, Mail].map((Icon, idx) => (
+            {[InstagramIcon, YoutubeIcon, FacebookIcon, TwitterIcon].map((Icon, idx) => (
               <motion.a 
                 key={idx}
                 href="#" 
