@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Save, Globe, Phone, Mail, MapPin } from 'lucide-react';
 import { showToast } from '../components/Toast';
 import { FacebookIcon, TwitterIcon, InstagramIcon, YoutubeIcon } from '../components/SocialIcons';
+import { api } from '../lib/api';
 
 const INIT = {
   phone: '+91 9810225442', email: 'dmsaarohi@gmail.com', address: 'A5, 272, Paschim Vihar, New Delhi',
@@ -14,13 +15,72 @@ const INIT = {
 export default function SettingsPage() {
   const [form, setForm] = useState(INIT);
   const [saving, setSaving] = useState(false);
+  const [dbRecords, setDbRecords] = useState({});
+
+  useEffect(() => {
+    api.get('/admin/content/website-setting')
+      .then(data => {
+        const items = Array.isArray(data) ? data : (data.items || []);
+        if (items.length === 0) return;
+        
+        const loadedSettings = { ...INIT };
+        const records = {};
+        items.forEach(item => {
+          if (item.settingKey) {
+            records[item.settingKey] = item._id;
+            if (item.settingKey === 'registrationOpen') {
+              loadedSettings[item.settingKey] = item.settingValue === 'true';
+            } else {
+              loadedSettings[item.settingKey] = item.settingValue;
+            }
+          }
+        });
+        setForm(loadedSettings);
+        setDbRecords(records);
+      })
+      .catch(err => {
+        console.error(err);
+        showToast('Failed to load settings', 'error');
+      });
+  }, []);
+
   const h = e => setForm(f => ({ ...f, [e.target.name]: e.target.type === 'checkbox' ? e.target.checked : e.target.value }));
 
   const save = async () => {
     setSaving(true);
-    await new Promise(r => setTimeout(r, 800));
-    setSaving(false);
-    showToast('Settings saved successfully', 'success');
+    try {
+      const updates = Object.keys(form).map(async (key) => {
+        const val = typeof form[key] === 'boolean' ? String(form[key]) : String(form[key] || '');
+        const payload = { settingKey: key, settingValue: val };
+        
+        if (dbRecords[key]) {
+          await api.put(`/admin/content/${dbRecords[key]}`, payload);
+        } else {
+          const created = await api.post('/admin/content/website-setting', payload);
+          return { key, id: created._id };
+        }
+        return null;
+      });
+      
+      const results = await Promise.all(updates);
+      
+      const newRecords = { ...dbRecords };
+      let updatedRecords = false;
+      results.forEach(res => {
+        if (res) {
+          newRecords[res.key] = res.id;
+          updatedRecords = true;
+        }
+      });
+      if (updatedRecords) setDbRecords(newRecords);
+      
+      showToast('Settings saved successfully', 'success');
+    } catch (err) {
+      console.error(err);
+      showToast(err.message || 'Failed to save settings', 'error');
+    } finally {
+      setSaving(false);
+    }
   };
 
   const Section = ({ title, icon: Icon, children, accent = 'gold' }) => (
