@@ -20,7 +20,9 @@ function App() {
       const target = e.target.closest('a');
       if (target && target.href && !target.hasAttribute('download') && target.target !== '_blank') {
         const url = new URL(target.href);
-        if (url.origin === window.location.origin && url.pathname !== window.location.pathname) {
+        // We want all internal and external links to open in the same tab, unless explicitly marked as _blank
+        // Avoid intercepting anchor links (e.g., #about)
+        if (url.pathname !== window.location.pathname || url.origin !== window.location.origin) {
           e.preventDefault();
           setIsTransitioning(true);
           setTimeout(() => {
