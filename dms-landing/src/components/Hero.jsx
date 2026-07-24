@@ -47,8 +47,6 @@ const MagneticButton = ({ children, className, variant = 'primary', href, ...pro
     <MotionComponent
       ref={ref}
       href={href}
-      target={href && href.startsWith('http') ? '_blank' : undefined}
-      rel={href && href.startsWith('http') ? 'noopener noreferrer' : undefined}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{ x: mouseXSpring, y: mouseYSpring }}

@@ -45,23 +45,7 @@ export const teamData = [
   { name: "Shalini Lal", role: "Executive Member", image: "/team/Shalini Lal (Executive Member).png" },
 ];
 
-// Season 4 Finalists - Senior Category (from official poster)
-export const qualifiedContestants = [
-  { name: "Adaa", status: "Grand Finalist", city: "Delhi NCR", category: "Junior", image: "/seasons/adaa.png" },
-  { name: "Arijit", status: "Grand Finalist", city: "Delhi NCR", category: "Senior", image: "/seasons/arijit.png" },
-  { name: "Ayaami", status: "Grand Finalist", city: "Delhi NCR", category: "Junior", image: "/seasons/ayaami.png" },
-  { name: "Deepshikha", status: "Grand Finalist", city: "Delhi NCR", category: "Senior", image: "/seasons/deepshikha.png" },
-  { name: "Kuvam", status: "Grand Finalist", city: "Delhi NCR", category: "Senior", image: "/seasons/kuvam.png" },
-  { name: "Mandeep", status: "Grand Finalist", city: "Delhi NCR", category: "Senior", image: "/seasons/mandeep.png" },
-  { name: "Pritika", status: "Grand Finalist", city: "Delhi NCR", category: "Senior", image: "/seasons/pratikia.png" },
-  { name: "Rahul", status: "Grand Finalist", city: "Delhi NCR", category: "Senior", image: "/seasons/rahul.png" },
-  { name: "Rajesh", status: "Grand Finalist", city: "Delhi NCR", category: "Senior", image: "/seasons/rajesh.png" },
-  { name: "Srishti", status: "Grand Finalist", city: "Delhi NCR", category: "Senior", image: "/seasons/sristi.png" },
-  { name: "Vineet", status: "Grand Finalist", city: "Delhi NCR", category: "Senior", image: "/seasons/vineet.png" },
-  { name: "Chetan", status: "Grand Finalist", city: "Delhi NCR", category: "Senior", image: "/legacy/pp.jpg" },
-  { name: "Khushjit", status: "Grand Finalist", city: "Delhi NCR", category: "Senior", image: "/legacy/pa.jpg" },
-];
-// Junior Category finalists to be added - data pending from client
+export const qualifiedContestants = [];
 
 export const successStories = [
   {
@@ -99,11 +83,11 @@ export const performancesGallery = [
 export const upcomingEvents = [
   {
     id: 1,
-    title: "🎤 Voice of Delhi-NCR Season 4 Grand Finale",
-    date: "July 4, 2026 • 5:00 PM Onwards",
-    location: "Pearey Lal Bhawan (Gandhi Memorial Hall), ITO, New Delhi",
+    title: "🎤 Voice of Delhi-NCR Upcoming Season",
+    date: "Announcing Soon",
+    location: "Pan-India Auditions",
     image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80",
-    description: "Join us for an unforgettable evening as the finest voices of Delhi-NCR, including our Junior & Senior Category Finalists, compete for the ultimate title! Features live music by the DO-RE-MI band. Register now to attend!"
+    description: "Get ready for the biggest musical event of the year! Dates, venues, and registration details will be announced soon. Pre-register now to be the first to get notified."
   }
 ];
 
@@ -205,7 +189,7 @@ export const faqs = [
     answer: "Auditions are conducted both online and offline. Online: upload your unedited singing video. Offline: walk-in auditions are also held at select venues across Delhi NCR. Shortlisted candidates are invited for live battle rounds."
   },
   {
-    question: "Is the Season 4 Grand Finale open to the public?",
-    answer: "Yes! The Voice of Delhi NCR Season 4 Grand Finale on 4th July 2026 at Pearey Lal Bhawan (Gandhi Memorial Hall), ITO, New Delhi is open for public attendance. Entry is FREE."
+    question: "When will the next season start?",
+    answer: "Dates for the upcoming season will be announced soon! Please pre-register to receive email and WhatsApp notifications as soon as the auditions open."
   }
 ];

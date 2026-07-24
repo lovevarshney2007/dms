@@ -139,8 +139,6 @@ const FeatureCards = () => {
             <div className="flex flex-col sm:flex-row gap-4 w-full">
               <a
                 href="https://dms-ten-gamma.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
                 className="flex-1 relative overflow-hidden font-bold rounded-lg px-6 py-3.5 transition-all duration-300 flex items-center justify-center group/btn bg-gradient-to-r from-[#FF8C00] to-[#FF4500] text-white shadow-[0_0_20px_rgba(255,140,0,0.3)] hover:shadow-[0_0_40px_rgba(255,140,0,0.6)] hover:-translate-y-1"
               >
                 <span className="relative z-10 flex items-center">
@@ -150,8 +148,6 @@ const FeatureCards = () => {
               </a>
               <a
                 href="https://dms-ten-gamma.vercel.app/register"
-                target="_blank"
-                rel="noopener noreferrer"
                 className="flex-1 relative overflow-hidden font-bold rounded-lg px-6 py-3.5 transition-all duration-300 flex items-center justify-center group/btn2 bg-white/[0.03] border border-white/10 text-white/80 hover:bg-white/[0.08] hover:border-white/30 hover:text-white hover:-translate-y-1 shadow-sm"
               >
                 <span className="relative z-10">Register Now</span>
@@ -211,8 +207,6 @@ const FeatureCards = () => {
             <div className="flex flex-col sm:flex-row gap-4 w-full">
               <a
                 href="https://dms-ngo.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
                 className="flex-1 relative overflow-hidden font-bold rounded-lg px-6 py-3.5 transition-all duration-300 flex items-center justify-center group/btn bg-gradient-to-r from-[#10B981] to-[#059669] text-white shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_40px_rgba(16,185,129,0.6)] hover:-translate-y-1"
               >
                 <span className="relative z-10 flex items-center">
@@ -222,8 +216,6 @@ const FeatureCards = () => {
               </a>
               <a
                 href="https://dms-ngo.vercel.app/#volunteer"
-                target="_blank"
-                rel="noopener noreferrer"
                 className="flex-1 relative overflow-hidden font-bold rounded-lg px-6 py-3.5 transition-all duration-300 flex items-center justify-center group/btn2 bg-white/[0.03] border border-white/10 text-white/80 hover:bg-white/[0.08] hover:border-white/30 hover:text-white hover:-translate-y-1 shadow-sm"
               >
                 <span className="relative z-10">Become a Volunteer</span>

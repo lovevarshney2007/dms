@@ -17,11 +17,59 @@ import { getDaysUntilEvent } from "../lib/eventDates";
 
 const daysUntilFinale = getDaysUntilEvent();
 
-// All 35 finalist images for the hero slider (Change 3)
-const heroSliderImages = Array.from({ length: 35 }, (_, i) => ({
-  src: `/Finalist/${i + 1}.jpg`,
-  alt: `DMS Aarohi Season 4 Finalist ${i + 1}`
-}));
+// Generic event photos for the upcoming season slider
+const heroSliderImages = [
+  { src: "/seasons/season_1_poster.jpeg", alt: "Season 1 Poster" },
+  { src: "/seasons/season_2_poster.png", alt: "Season 2 Poster" },
+  { src: "/seasons/season_3_poster.jpeg", alt: "Season 3 Poster" },
+  { src: "/seasons/season_4_poster.png", alt: "Season 4 Poster" }
+];
+
+function HeroVideoLink({ videoUrl, settings }) {
+  if (!videoUrl) return null;
+  const thumbnail = "/seasons/season_4_poster.png"; 
+  
+  return (
+    <a
+      href={videoUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="relative block rounded-[1.5rem] overflow-hidden shadow-2xl border-[3px] border-white w-full aspect-square sm:aspect-auto sm:h-[480px] lg:h-[550px] xl:h-[600px] group cursor-pointer"
+    >
+      <img src={thumbnail} alt="Watch Video Highlight" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+      <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300"></div>
+      
+      {/* Top Left Pill */}
+      <div className="absolute top-4 left-4 bg-white/80 backdrop-blur-md rounded-full px-4 py-2 flex items-center gap-3 shadow-lg transform transition-transform group-hover:scale-105">
+        <div className="w-10 h-10 rounded-full bg-orange-500 text-white flex items-center justify-center shrink-0">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><rect x="3" y="4" width="18" height="18" rx="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></svg>
+        </div>
+        <div className="pr-2">
+          <p className="text-[10px] font-black uppercase tracking-widest text-stone-500">{settings.hero_video_pill_label || "Upcoming Event"}</p>
+          <p className="text-sm font-black text-stone-900">{settings.hero_video_pill_text || "Dates TBA"}</p>
+        </div>
+      </div>
+
+      {/* Bottom Left Text */}
+      <div className="absolute bottom-6 left-6 right-6">
+        <h3 className="text-2xl sm:text-3xl font-black text-white drop-shadow-lg mb-1">{settings.hero_video_bottom_title || "Voice of Delhi NCR"}</h3>
+        <div className="flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+          <p className="text-sm font-bold text-white/90 drop-shadow-md">{settings.hero_video_bottom_subtitle || "Watch the highlights"}</p>
+        </div>
+      </div>
+      
+      {/* Play Button Overlay */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border-2 border-white group-hover:scale-110 group-hover:bg-red-600 group-hover:border-red-500 transition-all duration-300 shadow-[0_0_30px_rgba(0,0,0,0.5)] z-10">
+          <svg className="w-8 h-8 sm:w-10 sm:h-10 text-white ml-2 drop-shadow-md" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        </div>
+      </div>
+    </a>
+  );
+}
 
 const fallbackPatrons = [
   { name: "Ashok Srivastava", role: "Chief Patron", image: "/patrons/Ashok_Srivastava (Chief Patron).png" },
@@ -75,12 +123,14 @@ function HeroSlider() {
 function HomePage() {
   const [patrons, setPatrons] = useState(fallbackPatrons);
   const [qContestants, setQContestants] = useState(fallbackQC);
+  const [settings, setSettings] = useState({});
 
   useEffect(() => {
     Promise.all([
       fetch(import.meta.env.VITE_API_URL + '/api/content/patron').then(res => res.json()),
-      fetch(import.meta.env.VITE_API_URL + '/api/content/qualified-contestant').then(res => res.json())
-    ]).then(([pData, qcData]) => {
+      fetch(import.meta.env.VITE_API_URL + '/api/content/qualified-contestant').then(res => res.json()),
+      fetch(import.meta.env.VITE_API_URL + '/api/content/website-setting').then(res => res.json())
+    ]).then(([pData, qcData, settingsData]) => {
       if (pData && pData.length > 0) {
         setPatrons(pData.filter(d => !d.meta?.isTeam).map(d => ({
           name: d.title,
@@ -97,6 +147,11 @@ function HomePage() {
           category: d.meta?.category || 'Open'
         })));
       }
+      if (settingsData && settingsData.length > 0) {
+        const map = {};
+        settingsData.forEach(item => { map[item.settingKey] = item.settingValue; });
+        setSettings(map);
+      }
     }).catch(console.error);
   }, []);
 
@@ -108,26 +163,28 @@ function HomePage() {
       {/* ===== 1. HERO SECTION ===== */}
       <section
         id="hero"
-        className="relative min-h-[calc(100vh-6rem)] flex items-center justify-center overflow-hidden pt-10 md:pt-12"
+        className="relative min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden pt-12 md:pt-16 pb-4 md:pb-6"
       >
         {/* Top Marquee */}
         <div className="w-full bg-orange-600 text-white overflow-hidden py-1.5 md:py-2 absolute top-0 left-0 z-40">
           <div className="animate-marquee font-bold text-[10px] md:text-xs tracking-widest uppercase flex items-center whitespace-nowrap">
-            <span>🎤 VOICE OF DELHI NCR - SEASON 4 GRAND FINALE</span>
+            <span>🎤 UPCOMING SEASON ANNOUNCING SOON</span>
             <span className="mx-3 md:mx-4">•</span>
-            <span>4 JULY 2026 • PEAREY LAL BHAWAN, GANDHI MEMORIAL HALL, ITO, NEW DELHI</span>
+            <span>PRE-REGISTER NOW TO GET NOTIFIED</span>
             <span className="mx-3 md:mx-4">•</span>
-            <span>⏰ 5:00 PM TO 9:30 PM • FREE ENTRY</span>
+            <span>🎵 JOIN THE MUSICAL JOURNEY WITH DMS AAROHI</span>
             <span className="mx-3 md:mx-4">•</span>
-            <span>🎵 LIVE PERFORMANCES BY FINALISTS &amp; CELEBRITY GUESTS</span>
+            <span>🎤 UPCOMING SEASON ANNOUNCING SOON</span>
             <span className="mx-3 md:mx-4">•</span>
-            <span>🎤 VOICE OF DELHI NCR - SEASON 4 GRAND FINALE</span>
+            <span>PRE-REGISTER NOW TO GET NOTIFIED</span>
             <span className="mx-3 md:mx-4">•</span>
-            <span>4 JULY 2026 • PEAREY LAL BHAWAN, GANDHI MEMORIAL HALL, ITO, NEW DELHI</span>
+            <span>🎵 JOIN THE MUSICAL JOURNEY WITH DMS AAROHI</span>
             <span className="mx-3 md:mx-4">•</span>
-            <span>⏰ 5:00 PM TO 9:30 PM • FREE ENTRY</span>
+            <span>🎤 UPCOMING SEASON ANNOUNCING SOON</span>
             <span className="mx-3 md:mx-4">•</span>
-            <span>🎵 LIVE PERFORMANCES BY FINALISTS &amp; CELEBRITY GUESTS</span>
+            <span>PRE-REGISTER NOW TO GET NOTIFIED</span>
+            <span className="mx-3 md:mx-4">•</span>
+            <span>🎵 JOIN THE MUSICAL JOURNEY WITH DMS AAROHI</span>
           </div>
         </div>
 
@@ -138,7 +195,7 @@ function HomePage() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border-[2px] border-orange-200/50 rounded-full animate-ring-spin"></div>
         </div>
 
-        <div className="relative z-10 grid lg:grid-cols-[1.1fr_0.9fr] gap-10 md:gap-12 items-center px-4 sm:px-6 max-w-7xl mx-auto pb-8 w-full">
+        <div className="relative z-10 grid lg:grid-cols-[1.1fr_0.9fr] gap-10 md:gap-12 items-center px-4 sm:px-6 max-w-7xl mx-auto w-full">
           {/* Left: Informative Content */}
           <div className="text-center lg:text-left mt-6 md:mt-0">
             <ScrollReveal direction="up" delay={0.1}>
@@ -149,53 +206,49 @@ function HomePage() {
             </ScrollReveal>
 
             <ScrollReveal direction="up" delay={0.2}>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-black font-serif text-stone-900 leading-[1.1] mb-2 drop-shadow-sm">
-                Voice of Delhi NCR
-                <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">- Season 4</span>
-              </h1>
+              <h1 className="text-4xl sm:text-5xl md:text-[4rem] font-black font-serif text-stone-900 leading-[1.1] mb-4 drop-shadow-sm" dangerouslySetInnerHTML={{ __html: settings.hero_headline || 'Voice of Delhi NCR<br /><span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">- Upcoming Season</span>' }} />
             </ScrollReveal>
 
             <ScrollReveal direction="up" delay={0.25}>
-              <p className="text-base sm:text-lg font-bold text-orange-700 mb-2">
-                🏆 Grand Finale • 4 July 2026
+              <p className="text-lg sm:text-xl md:text-2xl font-bold text-orange-700 mb-4">
+                {settings.hero_subtitle || "🎤 Auditions & Dates Announcing Soon"}
               </p>
             </ScrollReveal>
 
             <ScrollReveal direction="up" delay={0.3}>
-              <p className="text-base md:text-lg text-stone-700 mb-4 max-w-xl leading-relaxed font-medium mx-auto lg:mx-0">
-                Join us for an unforgettable evening as the finalists of Voice of Delhi NCR Season 4 take the stage to compete for the championship title. Celebrate music, talent, and extraordinary performances with us.
+              <p className="text-base md:text-lg lg:text-xl text-stone-700 mb-6 max-w-xl leading-relaxed font-medium mx-auto lg:mx-0">
+                {settings.hero_desc || "DMS Aarohi is preparing for another magical season of music! We have discovered incredible voices over 4 successful seasons and hosted 50+ live shows. Pre-register now to be the first to know when auditions open!"}
               </p>
             </ScrollReveal>
 
-            {/* Season 4 Grand Finale Info Block */}
+            {/* Season 5 Pre-Registration Info Block */}
             <ScrollReveal direction="up" delay={0.4}>
-              <div className="mb-5 bg-white/80 backdrop-blur-lg border-2 border-orange-200 rounded-3xl p-4 sm:p-5 max-w-xl mx-auto lg:mx-0 shadow-xl hover:shadow-2xl hover:border-orange-300 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group">
+              <div className="mb-8 bg-white/80 backdrop-blur-lg border-2 border-orange-200 rounded-3xl p-5 sm:p-6 max-w-xl mx-auto lg:mx-0 shadow-xl hover:shadow-2xl hover:border-orange-300 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-white to-amber-50 opacity-90 -z-10 group-hover:opacity-100 transition-opacity"></div>
 
                 <div className="flex items-center gap-3 mb-4 border-b border-orange-100 pb-3">
                   <span className="w-2.5 h-2.5 rounded-full bg-orange-600 animate-pulse shadow-[0_0_8px_rgba(234,88,12,0.6)]"></span>
-                  <span className="text-xs sm:text-sm font-black tracking-widest text-orange-800 uppercase">Season 4 Grand Finale</span>
-                  <span className="ml-auto px-3 py-1 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white text-[10px] sm:text-xs font-black rounded-full uppercase tracking-widest shadow-md">FREE ENTRY</span>
+                  <span className="text-xs sm:text-sm font-black tracking-widest text-orange-800 uppercase">{settings.hero_info_title || "Season 5 Pre-Registration"}</span>
+                  <span className="ml-auto px-3 py-1 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-[10px] sm:text-xs font-black rounded-full uppercase tracking-widest shadow-md">{settings.hero_info_status || "OPEN"}</span>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   <div className="flex items-center gap-3 text-stone-800">
                     <div className="p-2.5 bg-orange-100 text-orange-600 rounded-xl shadow-inner shrink-0 group-hover:scale-110 transition-transform">
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><rect x="3" y="4" width="18" height="18" rx="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></svg>
                     </div>
-                    <span className="text-sm font-bold">4 July 2026</span>
+                    <span className="text-sm font-bold">{settings.hero_info_date || "Dates TBA"}</span>
                   </div>
                   <div className="flex items-center gap-3 text-stone-800">
                     <div className="p-2.5 bg-amber-100 text-amber-600 rounded-xl shadow-inner shrink-0 group-hover:scale-110 transition-transform">
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
                     </div>
-                    <span className="text-sm font-bold">5:00 PM - 9:30 PM</span>
+                    <span className="text-sm font-bold">All Categories</span>
                   </div>
                   <div className="flex items-center gap-3 text-stone-800">
                     <div className="p-2.5 bg-rose-100 text-rose-600 rounded-xl shadow-inner shrink-0 group-hover:scale-110 transition-transform">
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
                     </div>
-                    <span className="text-sm font-bold leading-tight">Pearey Lal Bhawan, ITO, New Delhi</span>
+                    <span className="text-sm font-bold leading-tight">{settings.hero_info_venue || "Auditions Pan-India"}</span>
                   </div>
                 </div>
               </div>
@@ -204,16 +257,14 @@ function HomePage() {
             <ScrollReveal direction="up" delay={0.6}>
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
                 <Link
-                  to="/voice-of-delhi-ncr"
-                  id="hero-free-entry-btn"
+                  to="/join-us"
                   onClick={scrollToTop}
                   className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold text-base shadow-[0_8px_20px_rgba(234,88,12,0.3)] hover:shadow-[0_12px_25px_rgba(234,88,12,0.4)] hover:-translate-y-1 text-center transition-all duration-300 border border-orange-400"
                 >
-                  🎟️ Free Entry
+                  📝 Pre-Register Now
                 </Link>
                 <Link
                   to="/voice-of-delhi-ncr"
-                  id="hero-explore-btn"
                   onClick={scrollToTop}
                   className="w-full sm:w-auto px-8 py-3.5 rounded-full border-2 border-stone-200 bg-white/50 text-stone-800 font-bold text-base hover:border-orange-500 hover:text-orange-600 hover:bg-orange-50 text-center transition-all duration-300"
                 >
@@ -223,16 +274,16 @@ function HomePage() {
             </ScrollReveal>
           </div>
 
-          {/* Right: Hero Image Slider */}
+          {/* Right: Hero Video Thumbnail */}
           <ScrollReveal direction="right" delay={0.2} className="relative w-full max-w-[320px] sm:max-w-md md:max-w-lg lg:max-w-none mx-auto mt-8 lg:mt-0">
             <div className="absolute inset-0 bg-gradient-to-tr from-orange-400 to-amber-300 rounded-[1.5rem] transform rotate-3 opacity-20 blur-lg"></div>
-            <HeroSlider />
+            <HeroVideoLink videoUrl={settings.hero_video_url || "https://www.youtube.com/watch?v=RCOXwxmZ9ik"} settings={settings} />
           </ScrollReveal>
         </div>
       </section>
 
       {/* ===== 2. ABOUT DMS AAROHI SECTION ===== */}
-      <section id="about" className="scroll-mt-32 max-w-7xl mx-auto px-4 md:px-6 mt-6 relative z-10">
+      <section id="about" className="scroll-mt-32 max-w-7xl mx-auto px-4 md:px-6 mt-4 md:mt-6 relative z-10">
         <ScrollReveal direction="up" className="glass-card rounded-[2.5rem] p-6 sm:p-8 lg:p-10 relative overflow-hidden border border-orange-100">
           <div className="absolute top-0 right-0 w-64 h-64 bg-amber-200/40 rounded-full blur-[80px]"></div>
 
@@ -287,7 +338,7 @@ function HomePage() {
       </section>
 
       {/* ===== 3. CURRENT COMPETITION SECTION ===== */}
-      <section id="current-competition" className="max-w-7xl mx-auto px-4 md:px-6 relative z-10 mt-6 mb-6">
+      <section id="current-competition" className="max-w-7xl mx-auto px-4 md:px-6 relative z-10 mt-4 mb-4 md:mt-6 md:mb-6">
         <ScrollReveal direction="up" className="bg-gradient-to-br from-white to-orange-50/50 rounded-[2.5rem] p-8 md:p-12 overflow-hidden relative shadow-[0_20px_60px_rgba(234,88,12,0.05)] border border-orange-100">
           <div className="absolute top-0 right-0 w-96 h-96 bg-orange-400/10 rounded-full blur-[80px]"></div>
           <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-amber-400/10 rounded-full blur-[60px]"></div>
@@ -602,12 +653,12 @@ function HomePage() {
         </div>
 
         <div className="relative z-10 max-w-2xl mx-auto">
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">Join Us for the Grand Finale!</h2>
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">Join the Next Season!</h2>
           <p className="text-sm sm:text-lg text-stone-300 mb-8 sm:mb-10 px-2 sm:px-0">
-            Experience the magic of Voice of Delhi NCR Season 4 - 4th July 2026, Pearey Lal Bhawan, ITO, New Delhi. <strong className="text-orange-400">Entry is absolutely FREE!</strong>
+            DMS Aarohi is preparing for another magical season of music! <strong className="text-orange-400">Pre-register now</strong> to be the first to know when registrations and auditions officially open!
           </p>
-          <Link to="/voice-of-delhi-ncr" onClick={scrollToTop} className="inline-block w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 rounded-full bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold text-base sm:text-lg shadow-[0_8px_20px_rgba(234,88,12,0.3)] hover:shadow-[0_12px_25px_rgba(234,88,12,0.4)] hover:-translate-y-1 transition-all duration-300 border border-orange-400">
-            🎟️ Free Entry - Explore Now
+          <Link to="/join-us" onClick={scrollToTop} className="inline-block w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 rounded-full bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold text-base sm:text-lg shadow-[0_8px_20px_rgba(234,88,12,0.3)] hover:shadow-[0_12px_25px_rgba(234,88,12,0.4)] hover:-translate-y-1 transition-all duration-300 border border-orange-400">
+            📝 Pre-Register Now
           </Link>
         </div>
       </ScrollReveal>

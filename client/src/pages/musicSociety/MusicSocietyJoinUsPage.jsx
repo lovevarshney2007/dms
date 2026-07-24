@@ -80,16 +80,16 @@ function MusicSocietyJoinUsPage() {
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/20 border border-orange-400/30 text-orange-300 text-xs font-bold uppercase tracking-widest mb-6">
             <span className="w-2 h-2 rounded-full bg-orange-400 animate-pulse" />
-            Season 4 - Grand Finale • 4th July 2026
+            Upcoming Season Announcing Soon
           </div>
           <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-5 leading-tight">
-            Register for<br />
+            Pre-Register for<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-300">
               Voice of Delhi NCR
             </span>
           </h1>
           <p className="text-stone-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-            Join thousands of talented singers across Delhi-NCR. Fill the form below and take your first step toward the grand stage.
+            Join thousands of talented singers across Delhi-NCR. Fill the form below to be the first to know when registrations and auditions officially open!
           </p>
 
           {/* Process Steps */}
@@ -130,13 +130,13 @@ function MusicSocietyJoinUsPage() {
                   </div>
                   <div>
                     <h2 className="font-serif text-2xl sm:text-3xl font-bold text-stone-900 leading-tight">Registration Form</h2>
-                    <p className="text-stone-500 text-xs font-bold uppercase tracking-widest mt-0.5">Voice of Delhi NCR - Season 4 • 2026</p>
+                    <p className="text-stone-500 text-xs font-bold uppercase tracking-widest mt-0.5">Voice of Delhi NCR - Upcoming Season</p>
                   </div>
                 </div>
 
                 {/* Quick event info chips */}
                 <div className="flex flex-wrap gap-2 mt-3">
-                  {[["📅", "4 July 2026"], ["📍", "Pearey Lal Bhawan, ITO"], ["✅", "Register Now"], ["🎤", "Junior & Senior Category"]].map(([icon, text]) => (
+                  {[["📅", "Dates TBA"], ["📍", "Pan-India"], ["✅", "Pre-Register Now"], ["🎤", "All Categories"]].map(([icon, text]) => (
                     <span key={text} className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/80 rounded-full text-[11px] font-semibold text-stone-700 border border-stone-200 shadow-sm">
                       {icon} {text}
                     </span>
@@ -190,14 +190,14 @@ function MusicSocietyJoinUsPage() {
 
               {/* Event info card */}
               <div className="bg-gradient-to-br from-orange-50 to-amber-50 border border-orange-100 rounded-[2rem] p-6 shadow-md">
-                <p className="text-orange-600 text-[11px] font-bold uppercase tracking-widest mb-4">Current Season Details</p>
+                <p className="text-orange-600 text-[11px] font-bold uppercase tracking-widest mb-4">Upcoming Season Details</p>
                 <div className="space-y-3">
                   {[
-                    ["📅", "Event Date", "4 July 2026"],
-                    ["📍", "Venue", "Pearey Lal Bhawan, ITO, New Delhi"],
-                    ["🎤", "Category", "Junior (8-15 yrs) & Senior (16-35 yrs)"],
-                    ["🏆", "Prize", "Trophies & Certificates"],
-                    ["✅", "Status", "Registrations Open"]
+                    ["📅", "Event Date", "To Be Announced"],
+                    ["📍", "Venue", "Pan-India Locations"],
+                    ["🎤", "Category", "Junior, Senior & Super Senior"],
+                    ["🏆", "Prize", "Trophies, Certificates & Cash Prizes"],
+                    ["✅", "Status", "Pre-Registrations Open"]
                   ].map(([icon, label, value], idx) => (
                     <div key={idx} className="flex items-start gap-3 p-3 bg-white/70 rounded-xl border border-white/50">
                       <span className="text-lg shrink-0">{icon}</span>

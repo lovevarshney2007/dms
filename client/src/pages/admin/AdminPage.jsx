@@ -1113,6 +1113,18 @@ const DEFAULT_SETTINGS = [
   { key: "about_text",        label: "About Text (Short)",     icon: "edit" },
   { key: "footer_text",       label: "Footer Text",            icon: "edit" },
   { key: "registration_open", label: "Registration Open? (true/false)", icon: "check" },
+  { key: "hero_headline",     label: "Hero Headline",          icon: "edit" },
+  { key: "hero_subtitle",     label: "Hero Subtitle",          icon: "edit" },
+  { key: "hero_desc",         label: "Hero Description",       icon: "edit" },
+  { key: "hero_info_title",   label: "Info Block Title",       icon: "edit" },
+  { key: "hero_info_status",  label: "Info Block Status Label (e.g. OPEN)", icon: "check" },
+  { key: "hero_info_date",    label: "Info Block Date",        icon: "calendar" },
+  { key: "hero_info_venue",   label: "Info Block Venue",       icon: "location" },
+  { key: "hero_video_url",    label: "Hero Video URL (Full YouTube Link)", icon: "videos" },
+  { key: "hero_video_pill_label", label: "Video Top Pill Label (e.g. Upcoming Event)", icon: "edit" },
+  { key: "hero_video_pill_text", label: "Video Top Pill Text (e.g. Dates TBA)", icon: "edit" },
+  { key: "hero_video_bottom_title", label: "Video Bottom Title", icon: "edit" },
+  { key: "hero_video_bottom_subtitle", label: "Video Bottom Subtitle", icon: "edit" },
 ];
 
 function SettingsSection() {
