@@ -27,18 +27,6 @@ const contactDetails = [
       </svg>
     ),
   },
-  {
-    label: "Office Address",
-    value: "A5/272, Paschim Vihar, New Delhi - 110063",
-    href: "https://maps.google.com/?q=Paschim+Vihar+New+Delhi+110063",
-    desc: "Visit our registered office in Paschim Vihar.",
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-        <circle cx="12" cy="10" r="3" />
-      </svg>
-    ),
-  },
 ];
 
 const socialLinks = [
@@ -302,33 +290,6 @@ function ContactPage() {
           </ScrollReveal>
         </div>
 
-        {/* Google Map - DMS Aarohi Paschim Vihar */}
-        <ScrollReveal direction="up">
-          <div className="rounded-[2rem] overflow-hidden shadow-xl border border-stone-100">
-            <div className="bg-white p-5 border-b border-stone-100 flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center shrink-0">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
-                  <circle cx="12" cy="10" r="3"/>
-                </svg>
-              </div>
-              <div>
-                <h2 className="font-serif text-lg font-bold text-stone-900">Our Office Location</h2>
-                <p className="text-stone-500 text-sm">A5/272, Paschim Vihar, New Delhi - 110063</p>
-              </div>
-            </div>
-            <iframe
-              title="DMS Aarohi Musical Society - Paschim Vihar, New Delhi"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.789843726!2d77.09900017549762!3d28.66816267563887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03b4a879e7c7%3A0x3d3b8c58a0d89b9c!2sPaschim%20Vihar%2C%20New%20Delhi%2C%20Delhi%20110063!5e0!3m2!1sen!2sin!4v1718000000000!5m2!1sen!2sin"
-              width="100%"
-              height="420"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-        </ScrollReveal>
 
       </div>
     </>

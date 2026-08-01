@@ -268,9 +268,8 @@ function VoiceOfDelhiNCRPage() {
               Competition Archive
             </span>
             <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-stone-900 mb-6 leading-tight">
-              Voice of{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">
-                Delhi NCR
+                Competitions
               </span>
             </h1>
             <p className="text-lg text-stone-600 leading-relaxed max-w-2xl mx-auto">
