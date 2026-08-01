@@ -55,16 +55,12 @@ const Footer = () => {
           
           <div className="flex flex-col gap-3 text-sm text-white/70 items-center">
             <div className="flex items-center gap-3">
-              <MapPin className="w-4 h-4 text-white/50" />
-              <span>Delhi NCR, India</span>
-            </div>
-            <div className="flex items-center gap-3">
               <Phone className="w-4 h-4 text-white/50" />
-              <span>+91 123 456 7890</span>
+              <span>+91-9810225442</span>
             </div>
             <div className="flex items-center gap-3">
               <Mail className="w-4 h-4 text-white/50" />
-              <span>contact@dmsaarohi.com</span>
+              <span>dmsaarohi@gmail.com</span>
             </div>
           </div>
 
