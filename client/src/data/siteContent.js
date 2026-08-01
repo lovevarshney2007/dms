@@ -112,7 +112,7 @@ export const pastEvents = [
     title: "Bollywood Dhamaka",
     date: "2015",
     location: "Amphitheatre, Gurgaon",
-    image: "images/img12.jpg"
+    image: "images/bollywoodDhamaka.jpg"
   }
 ];
 export const contactDetails = [

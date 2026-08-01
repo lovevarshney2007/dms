@@ -13,7 +13,7 @@ const fallbackShows = [
     date: "2013",
     location: "India Islamic Cultural Centre, New Delhi",
     description: "The very first show of DMS Aarohi. The Indian Cinema has undergone a massive change over the years. It started in 1913 from silent movies to the first talkie in 1931 to the colored movies to the ones today.",
-    image: "/images/image1.jpeg",
+    image: "/images/100Years.jpg",
     tag: "Cultural Event"
   },
   {
@@ -93,7 +93,7 @@ const fallbackShows = [
     date: "2015",
     location: "Amphitheatre, Gurgaon",
     description: "Another show by DMS AAROHI in Amphitheatre in Gurgaon covering all genres of Bollywood music.",
-    image: "/images/img9.jpg",
+    image: "/images/bollywoodDhamaka.jpg",
     tag: "Bollywood Night"
   },
   {
@@ -103,7 +103,7 @@ const fallbackShows = [
     date: "2015",
     location: "India Islamic Cultural Centre, New Delhi",
     description: "11th show of DMS AAROHI on Mohd. Rafi - a special tribute to the legend of Indian music.",
-    image: "/images/img10.jpg",
+    image: "/images/ekShaamRafiKeNaam.jpg",
     tag: "Tribute Concert"
   },
   {
