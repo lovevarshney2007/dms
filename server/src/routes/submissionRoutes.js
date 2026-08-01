@@ -4,6 +4,7 @@ const eventController = require("../controllers/eventController");
 const contentController = require("../controllers/contentController");
 const asyncHandler = require("../middleware/asyncHandler");
 const validateBody = require("../middleware/validateBody");
+const adminAuth = require("../middleware/adminAuth");
 const {
   contactSubmissionRules,
   donationSubmissionRules,
@@ -50,7 +51,7 @@ router.post(
   asyncHandler(submissionController.createSponsorRequestSubmission)
 );
 
-router.get("/submissions", asyncHandler(submissionController.getSubmissions));
+router.get("/submissions", adminAuth, asyncHandler(submissionController.getSubmissions));
 router.get("/events", asyncHandler(eventController.listEvents));
 router.get("/content/:type", asyncHandler(contentController.listContent));
 

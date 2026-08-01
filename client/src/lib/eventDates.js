@@ -1,7 +1,8 @@
-/** Grand finale date for the current featured event (local midnight). */
-export const GRAND_FINALE_DATE = new Date(2026, 6, 4);
+/** Grand finale date for the current featured event (null when dates are TBA for the upcoming season). */
+export const GRAND_FINALE_DATE = null;
 
 export function getDaysUntilEvent(eventDate = GRAND_FINALE_DATE) {
+  if (!eventDate) return null;
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 

@@ -16,8 +16,8 @@ const joinUsSubmissionRules = [
   { field: "email", required: true },
   { field: "talentCategory", required: true },
   { field: "languagePreference", required: true },
-  { field: "videoLink", required: false },
-  { field: "shortIntroduction", required: false }
+  { field: "videoLink", required: true },
+  { field: "shortIntroduction", required: true }
 ];
 
 const talentShowSubmissionRules = [
@@ -30,8 +30,8 @@ const talentShowSubmissionRules = [
   { field: "email", required: true },
   { field: "talentCategory", required: true },
   { field: "languagePreference", required: true },
-  { field: "videoLink", required: false },
-  { field: "shortIntroduction", required: false }
+  { field: "videoLink", required: true },
+  { field: "shortIntroduction", required: true }
 ];
 
 const donationSubmissionRules = [

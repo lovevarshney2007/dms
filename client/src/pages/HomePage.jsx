@@ -346,28 +346,28 @@ function HomePage() {
             <div>
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100 text-orange-700 border border-orange-200 mb-5 text-[11px] sm:text-xs font-bold uppercase tracking-widest shadow-sm">
                 <span className="w-2.5 h-2.5 rounded-full bg-orange-500 animate-pulse"></span>
-                Currently Running Event
+                Upcoming Season
               </div>
-              <h2 className="font-serif text-3xl md:text-5xl text-stone-900 mb-6 drop-shadow-sm">Voice of Delhi NCR <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">Season 4 Grand Finale</span></h2>
+              <h2 className="font-serif text-3xl md:text-5xl text-stone-900 mb-6 drop-shadow-sm">Voice of Delhi NCR <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">Season 5 Coming Soon</span></h2>
 
               <div className="space-y-4 mb-8">
                 <div className="flex items-center gap-4 text-stone-700 bg-white/60 p-3 rounded-2xl border border-white/40 shadow-sm backdrop-blur-sm hover:border-orange-200 transition-colors">
                   <div className="p-2.5 bg-orange-100 rounded-xl text-orange-600 shrink-0">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></svg>
                   </div>
-                  <span><strong className="text-stone-900">Event Date:</strong> 4 July 2026</span>
+                  <span><strong className="text-stone-900">Event Date:</strong> Next Event Coming Soon</span>
                 </div>
                 <div className="flex items-center gap-4 text-stone-700 bg-white/60 p-3 rounded-2xl border border-white/40 shadow-sm backdrop-blur-sm hover:border-orange-200 transition-colors">
                   <div className="p-2.5 bg-amber-100 rounded-xl text-amber-600 shrink-0">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
                   </div>
-                  <span><strong className="text-stone-900">Timing:</strong> 5:00 PM - 9:30 PM</span>
+                  <span><strong className="text-stone-900">Timing:</strong> Registrations Will Open Soon</span>
                 </div>
                 <div className="flex items-center gap-4 text-stone-700 bg-white/60 p-3 rounded-2xl border border-white/40 shadow-sm backdrop-blur-sm hover:border-orange-200 transition-colors">
                   <div className="p-2.5 bg-orange-100 rounded-xl text-orange-600 shrink-0">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
                   </div>
-                  <span><strong className="text-stone-900">Venue:</strong> Pearey Lal Bhawan (Gandhi Memorial Hall), ITO, New Delhi</span>
+                  <span><strong className="text-stone-900">Venue:</strong> Next Season Will Be Announced Soon</span>
                 </div>
                 <div className="flex items-center gap-4 text-stone-700 bg-white/60 p-3 rounded-2xl border border-white/40 shadow-sm backdrop-blur-sm hover:border-orange-200 transition-colors">
                   <div className="p-2.5 bg-emerald-100 rounded-xl text-emerald-600 shrink-0">
@@ -384,8 +384,8 @@ function HomePage() {
 
             <div className="grid grid-cols-2 gap-4 sm:gap-6">
               <div className="bg-white border border-orange-100 rounded-[2rem] p-6 sm:p-8 text-center shadow-[0_10px_30px_rgba(234,88,12,0.05)] hover:border-orange-200 transition-colors">
-                <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500 mb-2">{daysUntilFinale}</div>
-                <div className="text-[10px] sm:text-xs text-stone-500 font-bold uppercase tracking-widest">{daysUntilFinale === 0 ? "Event Day" : "Days Left"}</div>
+                <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500 mb-2">{daysUntilFinale !== null ? daysUntilFinale : "TBA"}</div>
+                <div className="text-[10px] sm:text-xs text-stone-500 font-bold uppercase tracking-widest">{daysUntilFinale !== null ? (daysUntilFinale === 0 ? "Event Day" : "Days Left") : "Next Season"}</div>
               </div>
               <div className="bg-white border border-orange-100 rounded-[2rem] p-6 sm:p-8 text-center shadow-[0_10px_30px_rgba(234,88,12,0.05)] hover:border-orange-200 transition-colors">
                 <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500 mb-2">500+</div>
@@ -460,7 +460,7 @@ function HomePage() {
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="sm:w-6 sm:h-6"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" /><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" /><path d="M4 22h16" /><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" /><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" /><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" /></svg>
             </div>
             <div>
-              <p className="text-xs sm:text-sm font-bold uppercase tracking-widest text-stone-500">Season 4</p>
+              <p className="text-xs sm:text-sm font-bold uppercase tracking-widest text-stone-500">Past Seasons</p>
               <h2 className="font-serif text-xl sm:text-2xl text-stone-900">Qualified Contestants</h2>
             </div>
           </div>

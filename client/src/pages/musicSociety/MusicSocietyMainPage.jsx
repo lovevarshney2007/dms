@@ -20,7 +20,7 @@ function MusicSocietyMainPage() {
     {
       id: 1,
       title: "Voice of Delhi-NCR Talent Hunt",
-      date: "March 30-31, 2026",
+      date: "Next Season Coming Soon",
       location: "Delhi NCR",
       description: "Showcase your singing talent and win exciting prizes. Open to all age groups and singing styles.",
       type: "Talent Hunt"
@@ -28,7 +28,7 @@ function MusicSocietyMainPage() {
     {
       id: 2,
       title: "Classical Music Workshop",
-      date: "April 15, 2026",
+      date: "Dates To Be Announced",
       location: "DMS Studio",
       description: "Learn classical music techniques from experienced maestros. Limited participants - register now!",
       type: "Workshop"
@@ -36,7 +36,7 @@ function MusicSocietyMainPage() {
     {
       id: 3,
       title: "Golden Era Music Evening",
-      date: "May 5, 2026",
+      date: "Coming Soon",
       location: "Open Air Theater",
       description: "Experience timeless melodies performed by renowned artists. A night of pure musical bliss.",
       type: "Concert"
@@ -44,9 +44,9 @@ function MusicSocietyMainPage() {
     {
       id: 4,
       title: "Youth Music Mentorship Program",
-      date: "Starting April 1, 2026",
-      location: "Virtual",
-      description: "One-on-one mentoring sessions with professional musicians. Help shape the future of music.",
+      date: "Registrations Will Open Soon",
+      location: "Virtual / In-Person",
+      description: "One-on-one mentoring sessions with professional musicians. Help shape your future in music.",
       type: "Mentorship"
     }
   ];

@@ -19,6 +19,10 @@ const LANGUAGES = [
   "Rajasthani", "Haryanvi", "Classical (Hindustani)", "Classical (Carnatic)", "Other"
 ];
 
+const TALENT_CATEGORIES = [
+  "Singer", "Instrumentalist", "Band / Group", "Classical Vocalist", "Western Vocalist", "Other"
+];
+
 const inputBase = "w-full rounded-xl border border-stone-200 bg-white px-4 py-3 text-stone-900 text-sm outline-none placeholder:text-stone-400 focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition-all duration-200";
 const selectBase = `${inputBase} cursor-pointer`;
 const labelBase = "block text-sm font-semibold text-stone-700 mb-1.5";
@@ -44,6 +48,9 @@ function JoinUsForm({ onClose, onStatusChange, showClose = true }) {
     if (!form.whatsapp.trim() || !/^\d{10}$/.test(form.whatsapp.replace(/\s/g, ""))) errs.whatsapp = "Enter valid 10-digit WhatsApp/mobile number";
     if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) errs.email = "Enter a valid email address";
     if (!form.languagePreference) errs.languagePreference = "Please select a language";
+    if (!form.talentCategory) errs.talentCategory = "Please select a talent category";
+    if (!form.videoLink.trim() || !/^https?:\/\/[^\s]+$/i.test(form.videoLink.trim())) errs.videoLink = "Please enter a valid URL starting with http:// or https://";
+    if (!form.shortIntroduction.trim()) errs.shortIntroduction = "Please provide a short introduction";
     return errs;
   }
 
@@ -239,6 +246,54 @@ function JoinUsForm({ onClose, onStatusChange, showClose = true }) {
             ))}
           </select>
           {errors.languagePreference && <p className="mt-1.5 text-xs text-red-500 font-medium">{errors.languagePreference}</p>}
+        </div>
+
+        {/* Talent Category */}
+        <div className="sm:col-span-2">
+          <label className={labelBase}>
+            Talent Category <RequiredStar />
+          </label>
+          <select
+            className={`${selectBase} ${errors.talentCategory ? "border-red-300 focus:border-red-400 focus:ring-red-100" : ""}`}
+            value={form.talentCategory}
+            onChange={set("talentCategory")}
+          >
+            <option value="">Select talent category</option>
+            {TALENT_CATEGORIES.map((cat) => (
+              <option key={cat} value={cat}>{cat}</option>
+            ))}
+          </select>
+          {errors.talentCategory && <p className="mt-1.5 text-xs text-red-500 font-medium">{errors.talentCategory}</p>}
+        </div>
+
+        {/* Video Link */}
+        <div className="sm:col-span-2">
+          <label className={labelBase}>
+            Audition Video Link (YouTube / Google Drive) <RequiredStar />
+          </label>
+          <input
+            type="url"
+            className={`${inputBase} ${errors.videoLink ? "border-red-300 focus:border-red-400 focus:ring-red-100" : ""}`}
+            value={form.videoLink}
+            onChange={set("videoLink")}
+            placeholder="https://youtube.com/watch?v=..."
+          />
+          {errors.videoLink && <p className="mt-1.5 text-xs text-red-500 font-medium">{errors.videoLink}</p>}
+        </div>
+
+        {/* Short Introduction */}
+        <div className="sm:col-span-2">
+          <label className={labelBase}>
+            Short Introduction & Background <RequiredStar />
+          </label>
+          <textarea
+            rows="3"
+            className={`${inputBase} ${errors.shortIntroduction ? "border-red-300 focus:border-red-400 focus:ring-red-100" : ""}`}
+            value={form.shortIntroduction}
+            onChange={set("shortIntroduction")}
+            placeholder="Tell us briefly about your musical journey and training..."
+          ></textarea>
+          {errors.shortIntroduction && <p className="mt-1.5 text-xs text-red-500 font-medium">{errors.shortIntroduction}</p>}
         </div>
 
         {/* Submit */}

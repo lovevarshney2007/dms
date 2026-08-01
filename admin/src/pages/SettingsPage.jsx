@@ -8,8 +8,8 @@ const INIT = {
   phone: '+91 9810225442', email: 'dmsaarohi@gmail.com', address: 'A5, 272, Paschim Vihar, New Delhi',
   facebook: 'https://www.facebook.com/dms.aarohi', youtube: 'https://www.youtube.com/@dmsaarohi5483',
   instagram: 'https://instagram.com/dmsaarohi', twitter: 'https://twitter.com/dmsaarohi',
-  registrationOpen: true, currentSeason: '4', regCloseDate: '2026-08-31',
-  heroAnnouncement: 'Season 4 Grand Finale — July 4, 2026 at Pearey Lal Bhawan, ITO',
+  registrationOpen: true, currentSeason: '5', regCloseDate: '2027-08-31',
+  heroAnnouncement: 'Season 5 — Upcoming Season Dates To Be Announced Soon',
 };
 
 export default function SettingsPage() {

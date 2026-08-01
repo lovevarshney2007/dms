@@ -257,10 +257,10 @@ function MusicSocietyShowsPage() {
   }, []);
 
   const upcomingShow = {
-    title: "Voice of Delhi NCR - Season 4 Grand Finale",
-    date: "4th July 2026 • 5:00 PM Onwards",
-    location: "Pearey Lal Bhawan (Gandhi Memorial Hall), ITO, New Delhi",
-    description: "Join us for an unforgettable evening as the finest voices of Delhi-NCR, including our Junior & Senior Category Finalists, compete for the ultimate title! Features live music by the DO-RE-MI band. Register now to attend!",
+    title: "Voice of Delhi NCR - Season 5 Grand Finale",
+    date: "Next Event Coming Soon",
+    location: "To Be Announced",
+    description: "Join us for an unforgettable evening as the finest voices of Delhi-NCR compete for the ultimate title! Registrations will open soon. Stay tuned!",
     image: "/legacy/show.png"
   };
 

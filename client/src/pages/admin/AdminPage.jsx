@@ -725,7 +725,7 @@ function RegistrationsSection() {
 
   const downloadCSV = () => {
     if (!items.length) return;
-    const cols = ["name","email","phone","city","formType","talentCategory","languagePreference","videoLink","status","createdAt"];
+    const cols = ["name","email","phone","city","formType","talentCategory","languagePreference","videoLink","shortIntroduction","status","createdAt"];
     const header = cols.join(",");
     const rows = items.map(r => cols.map(k => `"${(r[k]||"").toString().replace(/"/g,'""')}"`).join(","));
     const blob = new Blob([[header,...rows].join("\n")], { type: "text/csv" });
@@ -807,7 +807,14 @@ function RegistrationsSection() {
                   </td>
                   <td className="ap-td-city">{item.city || "—"}</td>
                   <td><span className="ap-type-badge">{item.formType}</span></td>
-                  <td className="ap-td-sub">{item.talentCategory || "—"}</td>
+                  <td>
+                    <div className="ap-td-sub font-semibold text-stone-700">{item.talentCategory || "—"}</div>
+                    {item.shortIntroduction && (
+                      <div className="ap-td-sub text-[11px] text-stone-500 max-w-[160px] truncate" title={item.shortIntroduction}>
+                        {item.shortIntroduction}
+                      </div>
+                    )}
+                  </td>
                   <td>
                     {item.videoLink
                       ? <a href={item.videoLink} target="_blank" rel="noreferrer" className="ap-link"><Icon path={ICONS.eye} size={13} /> View</a>

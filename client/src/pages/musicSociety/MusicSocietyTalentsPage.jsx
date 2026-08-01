@@ -161,9 +161,9 @@ function MusicSocietyTalentsPage() {
         <ScrollReveal direction="up">
           <div className="text-center mb-8">
             <SectionHeading
-              eyebrow="Season 4 Finalists"
+              eyebrow="Past Season Finalists"
               title="Qualified Contestants"
-              text="Season 4 Finalists - competing at the Grand Finale on 4 July 2026."
+              text="Season 4 Finalists - celebrated performances from our completed season."
             />
           </div>
 

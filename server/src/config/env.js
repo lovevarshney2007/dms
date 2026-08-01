@@ -16,4 +16,8 @@ const env = {
   emailAppPassword: process.env.EmailAppPassword || ""
 };
 
+if (env.nodeEnv === "production" && env.adminPassword === "change-this-password") {
+  console.warn("⚠️ SECURITY WARNING: Using default adminPassword in production environment! Please set ADMIN_PASSWORD in environment variables.");
+}
+
 module.exports = { env };

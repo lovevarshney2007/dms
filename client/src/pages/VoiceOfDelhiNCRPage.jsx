@@ -8,22 +8,47 @@ const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'instant' });
 // Change 9: Updated seasons list with correct names and years
 const fallbackSeasons = [
   {
+    id: "season-5",
+    title: "Voice of Delhi NCR",
+    subtitle: "Season 5 — Upcoming Season",
+    year: "2027",
+    status: "upcoming",
+    color: "from-orange-500 to-red-500",
+    lightBg: "from-orange-50 to-red-50",
+    borderColor: "border-orange-300",
+    winner: null,
+    winnerImg: "/images/logoth.png",
+    grandFinale: "Next Season Will Be Announced Soon",
+    venue: "To Be Announced",
+    description:
+      "Voice of Delhi NCR Season 5 is coming soon! Get ready for the next edition of Delhi-NCR's premier singing competition. Pre-register now to receive notifications when auditions open.",
+    highlights: [
+      "Next Event Coming Soon",
+      "Registrations Will Open Soon",
+      "Junior, Senior & Super Senior Categories",
+      "Exciting Cash Prizes & Mentorship",
+    ],
+    youtube: null,
+    poster: "/seasons/season_4_poster.png",
+    finalists: null,
+  },
+  {
     id: "season-4",
     title: "Voice of Delhi NCR",
-    subtitle: "Season 4 Grand Finale",
+    subtitle: "Season 4",
     year: "2026",
-    status: "grand-finale",
+    status: "completed",
     color: "from-orange-500 to-amber-400",
     lightBg: "from-orange-50 to-amber-50",
     borderColor: "border-orange-300",
-    winner: null,
+    winner: "Multiple Category Winners",
      winnerImg: "/images/logoth.png",
-    grandFinale: "4th July 2026",
+    grandFinale: "Completed",
     venue: "Pearey Lal Bhawan (Gandhi Memorial Hall), ITO, New Delhi",
     description:
-      "The most anticipated Grand Finale is here! Voice of Delhi NCR Season 4 culminates in a spectacular Grand Finale on 4th July 2026. Watch the finest voices of Delhi-NCR, including Junior & Senior Category Finalists, compete for the ultimate title. Live music by the DO-RE-MI band!",
+      "Voice of Delhi NCR Season 4 culminated in a spectacular Grand Finale, bringing together the finest voices of Delhi-NCR across Junior & Senior categories.",
     highlights: [
-      "Grand Finale: 4th July 2026 • 5:00 PM - 9:30 PM",
+      "Grand Finale: Successfully Concluded",
       "Venue: Pearey Lal Bhawan, ITO, New Delhi",
       "Junior & Senior Categories",
       "Live music by DO-RE-MI Band",
@@ -316,8 +341,8 @@ function VoiceOfDelhiNCRPage() {
                           ? 'bg-gradient-to-r from-orange-500 to-amber-400 text-white'
                           : 'bg-white/15 text-white border border-white/25 backdrop-blur-sm'
                       }`}>
-                        {season.status === "grand-finale" ? (
-                          <><span className="animate-pulse">🔥</span> Grand Finale - 4 July 2026</>
+                        {season.status === "grand-finale" || season.status === "upcoming" ? (
+                          <><span className="animate-pulse">🔥</span> Next Season Coming Soon</>
                         ) : (
                           <><span className="text-emerald-400">✔</span> Completed</>
                         )}
@@ -644,18 +669,18 @@ function SeasonDetailPage({ season }) {
           </ScrollReveal>
         )}
 
-        {/* Season 4 Grand Finale Info */}
-        {season.status === "grand-finale" && (
+        {/* Upcoming Season Info */}
+        {(season.status === "grand-finale" || season.status === "upcoming") && (
           <ScrollReveal direction="up">
             <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-[2.5rem] p-10 border border-orange-200 text-center">
               <p className="text-xs font-bold uppercase tracking-widest text-orange-600 mb-4 animate-pulse">
-                🔥 Season 4 Grand Finale - Live Now!
+                🔥 Next Season Will Be Announced Soon!
               </p>
               <h2 className="font-serif text-3xl text-stone-900 mb-4">
-                Grand Finale Details
+                Upcoming Season Details
               </h2>
               <p className="font-black text-4xl text-orange-600 mb-2">
-                {season.grandFinale} • 5:00 PM - 9:30 PM
+                {season.grandFinale}
               </p>
               <p className="text-stone-600 mb-8">{season.venue}</p>
               <Link

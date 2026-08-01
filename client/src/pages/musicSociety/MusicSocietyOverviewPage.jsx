@@ -14,12 +14,13 @@ const milestones = [
   { year: "2019", title: "Voice of Delhi NCR - Season 2", desc: "Season 2 expanded to more localities, featuring celebrity judges and bigger prize pools." },
   { year: "2021", title: "Voice of Rajasthan - Season 1", desc: "A special edition - Voice of Rajasthan - expanded DMS Aarohi's reach beyond Delhi NCR, celebrating the rich musical heritage of Rajasthan." },
   { year: "2024", title: "Voice of Delhi NCR - Season 3", desc: "Season 3 launched online auditions for the first time, significantly expanding participant reach across Delhi NCR." },
-  { year: "2026", title: "Voice of Delhi NCR - Season 4", desc: "Voice of Delhi NCR Season 4 - Grand Finale on 4th July 2026 at Pearey Lal Bhawan (Gandhi Memorial Hall), ITO, New Delhi." },
+  { year: "2026", title: "Voice of Delhi NCR - Season 4", desc: "Voice of Delhi NCR Season 4 successfully concluded at Pearey Lal Bhawan, ITO, New Delhi." },
+  { year: "2027", title: "Voice of Delhi NCR - Season 5", desc: "Our upcoming season is coming soon! Registrations and audition dates will be announced shortly." },
 ];
 
 // Updated stats
 const stats = [
-  { number: "5", label: "Total Seasons" },
+  { number: "6", label: "Total Seasons" },
   { number: "5,000+", label: "Total Participants" },
   { number: "100+", label: "Shows Organized" },
   { number: "Since 2013", label: "Promoting Music" },

@@ -18,7 +18,11 @@ const seasons = [
   },
   {
     type: "season", title: "Voice of Delhi NCR", subtitle: "Season 4", year: "2026", order: 4,
-    meta: { status: "grand-finale", color: "from-orange-500 to-amber-400", lightBg: "from-orange-50 to-amber-50", borderColor: "border-orange-300", winner: null, winnerImg: null, grandFinale: "4th July 2026", venue: "Pearey Lal Bhawan (Gandhi Memorial Hall), ITO, New Delhi", description: "The most anticipated Grand Finale is here! Voice of Delhi NCR Season 4 culminates in a spectacular Grand Finale on 4th July 2026. Watch the finest voices of Delhi-NCR, including Junior & Senior Category Finalists, compete for the ultimate title. Live music by the DO-RE-MI band!", highlights: ["Grand Finale: 4th July 2026 \u2022 5:00 PM Onwards", "Venue: Pearey Lal Bhawan, ITO, New Delhi", "Junior & Senior Categories", "Live music by DO-RE-MI Band"], youtube: null, poster: "/legacy/poster.png" }
+    meta: { status: "completed", color: "from-orange-500 to-amber-400", lightBg: "from-orange-50 to-amber-50", borderColor: "border-orange-300", winner: "Multiple Category Winners", winnerImg: null, grandFinale: "Completed", venue: "Pearey Lal Bhawan (Gandhi Memorial Hall), ITO, New Delhi", description: "Voice of Delhi NCR Season 4 culminated in a spectacular Grand Finale, bringing together the finest voices of Delhi-NCR across Junior & Senior categories.", highlights: ["Grand Finale: Successfully Concluded", "Venue: Pearey Lal Bhawan, ITO, New Delhi", "Junior & Senior Categories", "Live music by DO-RE-MI Band"], youtube: null, poster: "/legacy/poster.png" }
+  },
+  {
+    type: "season", title: "Voice of Delhi NCR", subtitle: "Season 5 — Upcoming Season", year: "2027", order: 5,
+    meta: { status: "upcoming", color: "from-orange-500 to-red-500", lightBg: "from-orange-50 to-red-50", borderColor: "border-orange-300", winner: null, winnerImg: null, grandFinale: "Next Season Will Be Announced Soon", venue: "To Be Announced", description: "Voice of Delhi NCR Season 5 is coming soon! Get ready for the next edition of Delhi-NCR's premier singing competition. Pre-register now to receive notifications when auditions open.", highlights: ["Next Event Coming Soon", "Registrations Will Open Soon", "Junior, Senior & Super Senior Categories", "Exciting Cash Prizes & Mentorship"], youtube: null, poster: "/legacy/poster.png" }
   }
 ];
 

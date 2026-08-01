@@ -49,7 +49,7 @@ const benefits = [
 const steps = [
   { num: "1", label: "Fill Form", desc: "Complete the registration form below with your details", icon: "📝" },
   { num: "2", label: "Team Contacts You", desc: "Our team will reach out to confirm your participation", icon: "📞" },
-  { num: "3", label: "Perform Live!", desc: "Perform live on the grand stage on 4th July 2026!", icon: "🎤" }
+  { num: "3", label: "Perform Live!", desc: "Perform live on the grand stage in our upcoming season!", icon: "🎤" }
 ];
 
 function MusicSocietyJoinUsPage() {
