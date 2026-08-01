@@ -33,7 +33,7 @@ const fallbackShows = [
     date: "2013",
     location: "India Islamic Cultural Centre, New Delhi",
     description: "2nd show of DMS AAROHI on Mohd. Rafi. He was an Indian playback singer & one of the most popular & successful singers of the Hindi film industry.",
-    image: "/images/img3.JPG",
+    image: "/images/ekHaseenShaam.jpg",
     tag: "Tribute Concert"
   },
   {
@@ -43,7 +43,7 @@ const fallbackShows = [
     date: "2014",
     location: "Open Theatre, Dilli Haat, INA, New Delhi",
     description: "The Musical Evening was enjoyed by all and provided a great platform for the members to engage with the students and encourage them in their endeavors.",
-    image: "/images/img4.jpg",
+    image: "/images/img301.jpg",
     tag: "Musical Evening"
   },
   {
@@ -53,7 +53,7 @@ const fallbackShows = [
     date: "2014",
     location: "India Islamic Cultural Centre, New Delhi",
     description: "Another show in 2014 with a song for every emotion. Sahab's voice continues to bind people across generations and geographies.",
-    image: "/images/img5.jpg",
+    image: "/images/img701.jpg",
     tag: "Tribute Concert"
   },
   {
@@ -63,7 +63,7 @@ const fallbackShows = [
     date: "2014",
     location: "India Islamic Cultural Centre, New Delhi",
     description: "The music of Burman's are awesome - each and every song that Kishore Kumar sang for him are heart touching and cannot be expressed in words.",
-    image: "/images/img6.jpg",
+    image: "/images/img501.jpg",
     tag: "Musical Evening"
   },
   {
@@ -73,7 +73,7 @@ const fallbackShows = [
     date: "2015",
     location: "India Islamic Cultural Centre, New Delhi",
     description: "Kishore Kumar was ideally the best playback singer for Dev Anand and together they gave several super hit songs.",
-    image: "/images/img7.jpg",
+    image: "/images/img401.jpg",
     tag: "Kishore Tribute"
   },
   {
@@ -83,7 +83,7 @@ const fallbackShows = [
     date: "September 2015",
     location: "Gurgaon",
     description: "Show on Melodious Queen of Bollywood Asha Bhosle in Gurgaon by Anuja Sinha.",
-    image: "/images/img8.jpg",
+    image: "/images/img13.jpg",
     tag: "Musical Evening"
   },
   {
@@ -93,7 +93,7 @@ const fallbackShows = [
     date: "2015",
     location: "Amphitheatre, Gurgaon",
     description: "Another show by DMS AAROHI in Amphitheatre in Gurgaon covering all genres of Bollywood music.",
-    image: "/images/bollywoodDhamaka.jpg",
+    image: "/images/img12.jpg",
     tag: "Bollywood Night"
   },
   {
@@ -113,7 +113,7 @@ const fallbackShows = [
     date: "30th April, 2016",
     location: "India Islamic Cultural Centre, Lodhi Road, New Delhi",
     description: "Dedicated to Gurudev Kishore Da, the immeasurable depth of many of Kishore Da's songs is what has tugged at the hearts of listeners for decades & continues to do so.",
-    image: "/images/img11.jpg",
+    image: "/images/kk.jpg",
     tag: "Kishore Tribute"
   },
   {
@@ -123,7 +123,7 @@ const fallbackShows = [
     date: "9th April, 2016",
     location: "India Islamic Cultural Centre, New Delhi",
     description: "Another Hit Show of DMS AAROHI on Garam Dharam - Dharmendra on 9th April, 2016.",
-    image: "/images/img12.jpg",
+    image: "/images/img15.jpg",
     tag: "Bollywood Night"
   },
   {
@@ -133,7 +133,7 @@ const fallbackShows = [
     date: "2016",
     location: "India Islamic Cultural Centre, New Delhi",
     description: "Kishore Kumar Sings for the greatest superstars in Bollywood - Dev Anand, Rajesh Khanna & Amitabh Bachchan by Pankaj Mathur.",
-    image: "/images/img13.jpg",
+    image: "/images/img16.jpg",
     tag: "Kishore Tribute"
   },
   {
@@ -143,7 +143,7 @@ const fallbackShows = [
     date: "December 2016",
     location: "India Islamic Cultural Centre, New Delhi",
     description: "'Remembering Mukesh' in December 2016. He is considered to be one of the most popular and acclaimed singers of the Hindi film industry.",
-    image: "/images/img14.jpg",
+    image: "/images/img19.JPG",
     tag: "Tribute Concert"
   },
   {
@@ -153,7 +153,7 @@ const fallbackShows = [
     date: "2016",
     location: "India Islamic Cultural Centre, New Delhi",
     description: "Madan Mohan was a popular and unparalleled Indian music director from 1950-1970. He is particularly remembered for the immortal Ghazals.",
-    image: "/images/img15.jpg",
+    image: "/images/img20.jpg",
     tag: "Musical Evening"
   },
   {
@@ -163,7 +163,7 @@ const fallbackShows = [
     date: "July 2017",
     location: "India Islamic Cultural Centre, Lodhi Road, New Delhi",
     description: "Tribute to the Singer of the millennium Rafi Sahab by DMS AAROHI Singers on his 37th Barsi. Remembering Rafi Sahab on his Birthday - an Indian playback singer and one of the most popular singers of Hindi film industry.",
-    image: "/images/img16.jpg",
+    image: "/images/img21.jpg",
     tag: "Tribute Concert"
   },
   {
@@ -183,7 +183,7 @@ const fallbackShows = [
     date: "2018",
     location: "Multiple Venues, Delhi NCR",
     description: "DMS Aarohi's flagship singing talent hunt that discovered hundreds of emerging voices from across the Delhi NCR region. Season 1 Winner: Peehu Srivastava.",
-    image: "/images/img18.jpg",
+    image: "/images/telent hunt.jpg",
     tag: "Talent Hunt"
   },
   {
@@ -193,7 +193,7 @@ const fallbackShows = [
     date: "4th August, 2018",
     location: "India Islamic Cultural Centre, Lodhi Road, New Delhi",
     description: "Dedicated to Gurudev, the immeasurable depth of many of Kishore Da's songs is what has tugged at the hearts of listeners for decades & continues to do so.",
-    image: "/images/img19.JPG",
+    image: "/images/krm.jpg",
     tag: "Kishore Tribute"
   },
   {
@@ -203,7 +203,7 @@ const fallbackShows = [
     date: "2019",
     location: "Multiple Venues, Delhi NCR",
     description: "Season 2 expanded to more cities, featuring celebrity judges and bigger prize pools for talented singers from the Delhi NCR region.",
-    image: "/images/img20.jpg",
+    image: "/images/TalentHunt1.jpg",
     tag: "Talent Hunt"
   },
   {
@@ -213,7 +213,7 @@ const fallbackShows = [
     date: "2021",
     location: "Rajasthan",
     description: "A special edition - Voice of Rajasthan - expanded DMS Aarohi's reach beyond Delhi NCR, celebrating the rich musical heritage of Rajasthan.",
-    image: "/images/img21.jpg",
+    image: "/images/KT.jpg",
     tag: "Special Edition"
   }
 ];
