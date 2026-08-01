@@ -82,7 +82,34 @@ const gallery = [
   { type: "gallery", title: "Winner Announcement", imageUrl: "/legacy/poster.png", order: 5, meta: { type: "Gallery", season: "Season 4", youtubeLink: "" } }
 ];
 
-const allData = [...pastShows, ...seasons, ...patrons, ...qualifiedContestants, ...successStories, ...gallery];
+const fs = require("fs");
+const talentHuntDir = path.join(__dirname, '../client/public/talenthunt');
+let dynamicGallery = [];
+if (fs.existsSync(talentHuntDir)) {
+  const files = fs.readdirSync(talentHuntDir).filter(f => f.toLowerCase().endsWith('.jpg') || f.toLowerCase().endsWith('.png') || f.toLowerCase().endsWith('.jpeg'));
+  dynamicGallery = files.map((file, idx) => ({
+    type: "gallery",
+    title: `Glimpses - ${file.split('.')[0]}`,
+    imageUrl: `/talenthunt/${file}`,
+    order: 6 + idx,
+    meta: { type: "Gallery", season: "All Seasons", youtubeLink: "" }
+  }));
+}
+
+const imagesDir = path.join(__dirname, '../client/public/images');
+if (fs.existsSync(imagesDir)) {
+  const mediaFiles = fs.readdirSync(imagesDir).filter(f => f.toLowerCase().startsWith('media') && (f.toLowerCase().endsWith('.jpg') || f.toLowerCase().endsWith('.png')));
+  const dynamicMediaGallery = mediaFiles.map((file, idx) => ({
+    type: "gallery",
+    title: `Media Highlight - ${file.split('.')[0]}`,
+    imageUrl: `/images/${file}`,
+    order: 6 + dynamicGallery.length + idx,
+    meta: { type: "Gallery", season: "Media", youtubeLink: "" }
+  }));
+  dynamicGallery = [...dynamicGallery, ...dynamicMediaGallery];
+}
+
+const allData = [...pastShows, ...seasons, ...patrons, ...qualifiedContestants, ...successStories, ...gallery, ...dynamicGallery];
 
 async function seed() {
   try {
