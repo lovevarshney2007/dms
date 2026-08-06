@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Users, MessageSquare, Heart, Calendar, Mic2, TrendingUp, ExternalLink, ArrowRight } from 'lucide-react';
+import { Users, MessageSquare, Heart, Calendar, Mic2, TrendingUp, ExternalLink, ArrowRight, UserSquare2, Droplet } from 'lucide-react';
 import { api } from '../lib/api';
 import { TALENT_SITE, NGO_SITE } from '../config';
 import { useNavigate } from 'react-router-dom';
@@ -11,6 +11,7 @@ const DEFAULT_STATS = {
   upcomingEvents: 0, totalSeasons: 0,
   recentActivity: []
 };
+const DEFAULT_NGO_STATS = { teamCount: 0, bloodDonorsCount: 0 };
 
 function timeAgo(dateString) {
   const date = new Date(dateString);
@@ -49,6 +50,7 @@ function StatCard({ n, label, icon: Icon, color, change, onClick }) {
 export default function DashboardPage() {
   const navigate = useNavigate();
   const [stats, setStats] = useState(DEFAULT_STATS);
+  const [ngoStats, setNgoStats] = useState(DEFAULT_NGO_STATS);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -56,6 +58,9 @@ export default function DashboardPage() {
       .then(d => setStats(s => ({ ...s, ...d })))
       .catch(() => {})
       .finally(() => setLoading(false));
+    api.get('/admin/ngo/stats')
+      .then(d => setNgoStats(d))
+      .catch(() => {});
   }, []);
 
   return (
@@ -104,6 +109,8 @@ export default function DashboardPage() {
         <StatCard n={stats.ngoQueries}         label="NGO Queries"         icon={MessageSquare} color="purple" onClick={() => navigate('/ngo/contact')} />
         <StatCard n={stats.upcomingEvents}     label="Upcoming Events"     icon={Calendar} color="blue" onClick={() => navigate('/talent/events')} />
         <StatCard n={`S${stats.totalSeasons}`} label="Current Season"      icon={Mic2} color="gold" onClick={() => navigate('/talent/seasons')} />
+        <StatCard n={ngoStats.teamCount}       label="NGO Team Members"    icon={UserSquare2} color="green" onClick={() => navigate('/ngo/team')} />
+        <StatCard n={ngoStats.bloodDonorsCount} label="Blood Donors"       icon={Droplet} color="purple" onClick={() => navigate('/ngo/blood-donors')} />
       </div>
 
       {/* Two column: Activity + Quick Actions */}
@@ -173,8 +180,11 @@ export default function DashboardPage() {
             <div style={{ padding: '12px 16px', display: 'flex', flexDirection: 'column', gap: 6 }}>
               {[
                 { label: 'Volunteers', path: '/ngo/volunteers' },
-                { label: 'Camps & Events', path: '/ngo/events' },
-                { label: 'Initiatives Content', path: '/ngo/initiatives' },
+                { label: 'Team Members', path: '/ngo/team' },
+                { label: 'Gallery & Hero Slides', path: '/ngo/gallery-hero' },
+                { label: 'Blood Donors', path: '/ngo/blood-donors' },
+                { label: 'Camps & Events', path: '/ngo/initiatives' },
+                { label: 'Initiative Content', path: '/ngo/initiative-content' },
                 { label: 'Contact Queries', path: '/ngo/contact' },
               ].map(q => (
                 <button key={q.path} onClick={() => navigate(q.path)}

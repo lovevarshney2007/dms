@@ -15,7 +15,12 @@ import InitiativesPage from './pages/ngo/InitiativesPage';
 import NGOEventsPage from './pages/ngo/NGOEventsPage';
 import NGOGalleryPage from './pages/ngo/NGOGalleryPage';
 import NGOContactPage from './pages/ngo/NGOContactPage';
+import NGOTeamPage from './pages/ngo/NGOTeamPage';
+import NGOGalleryHeroPage from './pages/ngo/NGOGalleryHeroPage';
+import NGOBloodDonorsPage from './pages/ngo/NGOBloodDonorsPage';
+import NGOInitiativeContentPage from './pages/ngo/NGOInitiativeContentPage';
 import SettingsPage from './pages/SettingsPage';
+import NGOAdminConsole from './pages/ngo/NGOAdminConsole';
 
 function PrivateRoute({ children }) {
   return isLoggedIn() ? children : <Navigate to="/login" replace />;
@@ -26,6 +31,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/ngo-admin-console" element={<PrivateRoute><NGOAdminConsole /></PrivateRoute>} />
         <Route path="/" element={<PrivateRoute><Layout /></PrivateRoute>}>
           <Route index element={<Navigate to="/dashboard" replace />} />
           <Route path="dashboard" element={<DashboardPage />} />
@@ -39,7 +45,11 @@ export default function App() {
           <Route path="talent/sponsors" element={<SponsorsPage />} />
           {/* NGO */}
           <Route path="ngo/volunteers" element={<VolunteersPage />} />
+          <Route path="ngo/team" element={<NGOTeamPage />} />
+          <Route path="ngo/gallery-hero" element={<NGOGalleryHeroPage />} />
+          <Route path="ngo/blood-donors" element={<NGOBloodDonorsPage />} />
           <Route path="ngo/initiatives" element={<InitiativesPage />} />
+          <Route path="ngo/initiative-content" element={<NGOInitiativeContentPage />} />
           <Route path="ngo/events" element={<NGOEventsPage />} />
           <Route path="ngo/gallery" element={<NGOGalleryPage />} />
           <Route path="ngo/contact" element={<NGOContactPage />} />

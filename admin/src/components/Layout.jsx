@@ -4,7 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   LayoutDashboard, Users, Calendar, Image, MessageSquare,
   Star, Settings, LogOut, ChevronRight, Handshake,
-  Heart, BookOpen, Award, Menu, X, ExternalLink, Mic2
+  Heart, BookOpen, Award, Menu, X, ExternalLink, Mic2,
+  UserSquare2, LayoutTemplate, Droplet, FileEdit
 } from 'lucide-react';
 import { clearToken } from '../lib/api';
 import { TALENT_SITE, NGO_SITE } from '../config';
@@ -24,11 +25,15 @@ const NAV = [
     { id: 'talent-contact',       path: '/talent/contact',       label: 'Contact Queries',    icon: MessageSquare,  site: 'talent', badge: 'tc'    },
   ]},
   { group: '🤝 NGO Initiative', items: [
-    { id: 'volunteers',           path: '/ngo/volunteers',       label: 'Volunteers',         icon: Heart,          site: 'ngo',    badge: 'vol'   },
-    { id: 'initiatives',          path: '/ngo/initiatives',      label: 'Initiatives Content', icon: BookOpen,      site: 'ngo'    },
-    { id: 'ngo-events',           path: '/ngo/events',           label: 'Camps & Events',     icon: Calendar,       site: 'ngo'    },
-    { id: 'ngo-gallery',          path: '/ngo/gallery',          label: 'NGO Gallery',        icon: Image,          site: 'ngo'    },
-    { id: 'ngo-contact',          path: '/ngo/contact',          label: 'Contact Queries',    icon: MessageSquare,  site: 'ngo',    badge: 'nc'    },
+    { id: 'ngo-console',          path: '/ngo-admin-console',        label: 'Launch NGO Console',  icon: ExternalLink,    site: 'ngo'    },
+    { id: 'volunteers',           path: '/ngo/volunteers',           label: 'Volunteers',          icon: Heart,           site: 'ngo',    badge: 'vol'   },
+    { id: 'ngo-team',             path: '/ngo/team',                label: 'Team Members',        icon: UserSquare2,     site: 'ngo'    },
+    { id: 'ngo-gallery-hero',     path: '/ngo/gallery-hero',        label: 'Gallery & Hero',      icon: LayoutTemplate,  site: 'ngo'    },
+    { id: 'ngo-blood-donors',     path: '/ngo/blood-donors',        label: 'Blood Donors',        icon: Droplet,         site: 'ngo'    },
+    { id: 'initiatives',          path: '/ngo/initiatives',         label: 'Camps & Events',      icon: Calendar,        site: 'ngo'    },
+    { id: 'ngo-initiative-content',path: '/ngo/initiative-content', label: 'Initiative Content',  icon: FileEdit,        site: 'ngo'    },
+    { id: 'ngo-gallery',          path: '/ngo/gallery',             label: 'Legacy Gallery',      icon: Image,           site: 'ngo'    },
+    { id: 'ngo-contact',          path: '/ngo/contact',             label: 'Contact Queries',     icon: MessageSquare,   site: 'ngo',    badge: 'nc'    },
   ]},
   { group: 'System', items: [
     { id: 'settings',             path: '/settings',             label: 'Website Settings',   icon: Settings,       site: 'both'   },
