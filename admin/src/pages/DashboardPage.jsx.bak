@@ -90,27 +90,27 @@ export default function DashboardPage() {
           </p>
         </div>
         <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-          <button onClick={() => navigate('/talent/registrations')}
-            className="topbar-action-btn gold" style={{ padding: '10px 20px', fontSize: '14px', border: '1px solid var(--gold)' }}>
-            Enter Talent Hunt Console <ArrowRight size={16} style={{ marginLeft: 6 }} />
-          </button>
-          <button onClick={() => navigate('/ngo-admin-console')}
-            className="topbar-action-btn green" style={{ padding: '10px 20px', fontSize: '14px', border: '1px solid #4ADE80' }}>
-            Enter NGO Console <ArrowRight size={16} style={{ marginLeft: 6 }} />
-          </button>
+          <a href={TALENT_SITE} target="_blank" rel="noopener noreferrer"
+            className="topbar-action-btn gold">
+            <ExternalLink size={13} /> Talent Site
+          </a>
+          <a href={NGO_SITE} target="_blank" rel="noopener noreferrer"
+            className="topbar-action-btn green">
+            <ExternalLink size={13} /> NGO Site
+          </a>
         </div>
       </motion.div>
 
       {/* Stat cards */}
       <div className="stat-grid">
         <StatCard n={stats.totalRegistrations} label="Total Registrations" icon={Users} color="gold" change={stats.newRegistrations} onClick={() => navigate('/talent/registrations')} />
-        <StatCard n={stats.ngoVolunteers}      label="NGO Volunteers"      icon={Heart} color="green" onClick={() => navigate('/ngo-admin-console')} />
+        <StatCard n={stats.ngoVolunteers}      label="NGO Volunteers"      icon={Heart} color="green" onClick={() => navigate('/ngo/volunteers')} />
         <StatCard n={stats.talentQueries}      label="Talent Queries"      icon={MessageSquare} color="blue" onClick={() => navigate('/talent/contact')} />
-        <StatCard n={stats.ngoQueries}         label="NGO Queries"         icon={MessageSquare} color="purple" onClick={() => navigate('/ngo-admin-console')} />
-        <StatCard n={stats.upcomingEvents}     label="Talent Events"       icon={Calendar} color="blue" onClick={() => navigate('/talent/events')} />
+        <StatCard n={stats.ngoQueries}         label="NGO Queries"         icon={MessageSquare} color="purple" onClick={() => navigate('/ngo/contact')} />
+        <StatCard n={stats.upcomingEvents}     label="Upcoming Events"     icon={Calendar} color="blue" onClick={() => navigate('/talent/events')} />
         <StatCard n={`S${stats.totalSeasons}`} label="Current Season"      icon={Mic2} color="gold" onClick={() => navigate('/talent/seasons')} />
-        <StatCard n={ngoStats.teamCount}       label="NGO Team Members"    icon={UserSquare2} color="green" onClick={() => navigate('/ngo-admin-console')} />
-        <StatCard n={ngoStats.bloodDonorsCount} label="Blood Donors"       icon={Droplet} color="purple" onClick={() => navigate('/ngo-admin-console')} />
+        <StatCard n={ngoStats.teamCount}       label="NGO Team Members"    icon={UserSquare2} color="green" onClick={() => navigate('/ngo/team')} />
+        <StatCard n={ngoStats.bloodDonorsCount} label="Blood Donors"       icon={Droplet} color="purple" onClick={() => navigate('/ngo/blood-donors')} />
       </div>
 
       {/* Two column: Activity + Quick Actions */}
@@ -178,19 +178,29 @@ export default function DashboardPage() {
               <span className="card-title" style={{ color: 'var(--green)' }}>🤝 NGO</span>
             </div>
             <div style={{ padding: '12px 16px', display: 'flex', flexDirection: 'column', gap: 6 }}>
-              <button onClick={() => navigate('/ngo-admin-console')}
-                style={{
-                  display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
-                  padding: '12px', borderRadius: 8, border: '1px solid #4ADE80',
-                  background: 'var(--green-bg)', cursor: 'pointer', fontSize: 14, fontWeight: 600,
-                  color: 'var(--green)', transition: 'all 0.2s',
-                  fontFamily: 'Inter, sans-serif', width: '100%'
-                }}
-                onMouseEnter={e => { e.currentTarget.style.background = '#4ADE80'; e.currentTarget.style.color = '#fff'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'var(--green-bg)'; e.currentTarget.style.color = 'var(--green)'; }}
-              >
-                Launch Dedicated NGO Console <ExternalLink size={16} />
-              </button>
+              {[
+                { label: 'Volunteers', path: '/ngo/volunteers' },
+                { label: 'Team Members', path: '/ngo/team' },
+                { label: 'Gallery & Hero Slides', path: '/ngo/gallery-hero' },
+                { label: 'Blood Donors', path: '/ngo/blood-donors' },
+                { label: 'Camps & Events', path: '/ngo/initiatives' },
+                { label: 'Initiative Content', path: '/ngo/initiative-content' },
+                { label: 'Contact Queries', path: '/ngo/contact' },
+              ].map(q => (
+                <button key={q.path} onClick={() => navigate(q.path)}
+                  style={{
+                    display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                    padding: '9px 12px', borderRadius: 8, border: '1px solid var(--border)',
+                    background: 'transparent', cursor: 'pointer', fontSize: 13,
+                    color: 'var(--text)', transition: 'all 0.18s',
+                    fontFamily: 'Inter, sans-serif',
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--green)'; e.currentTarget.style.background = 'var(--green-bg)'; e.currentTarget.style.color = 'var(--green)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--text)'; }}
+                >
+                  {q.label} <ArrowRight size={13} />
+                </button>
+              ))}
             </div>
           </div>
         </div>
@@ -198,3 +208,4 @@ export default function DashboardPage() {
     </div>
   );
 }
+

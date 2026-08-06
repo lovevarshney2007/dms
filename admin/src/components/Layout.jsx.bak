@@ -80,22 +80,6 @@ export default function Layout() {
       </nav>
 
       {/* Quick links */}
-      <div style={{ padding: '0 12px 12px' }}>
-        <button
-          onClick={() => navigate('/ngo-admin-console')}
-          style={{
-            width: '100%', padding: '10px 12px', background: 'rgba(74, 222, 128, 0.1)',
-            color: '#4ADE80', border: '1px solid rgba(74, 222, 128, 0.2)', borderRadius: '8px',
-            display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer',
-            fontSize: '13px', fontWeight: '600', transition: 'all 0.2s'
-          }}
-          onMouseEnter={e => { e.currentTarget.style.background = '#4ADE80'; e.currentTarget.style.color = '#fff'; }}
-          onMouseLeave={e => { e.currentTarget.style.background = 'rgba(74, 222, 128, 0.1)'; e.currentTarget.style.color = '#4ADE80'; }}
-        >
-          <LayoutTemplate size={16} /> Switch to NGO Console
-        </button>
-      </div>
-
       <div style={{ padding: '0 12px 8px' }}>
         <div className="sidebar-group-label">Live Sites</div>
         <a href={TALENT_SITE} target="_blank" rel="noopener noreferrer"
@@ -193,3 +177,4 @@ export default function Layout() {
     </div>
   );
 }
+

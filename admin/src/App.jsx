@@ -10,15 +10,6 @@ import SuccessStoriesPage from './pages/talent/SuccessStoriesPage';
 import TalentGalleryPage from './pages/talent/TalentGalleryPage';
 import TalentContactPage from './pages/talent/TalentContactPage';
 import SponsorsPage from './pages/talent/SponsorsPage';
-import VolunteersPage from './pages/ngo/VolunteersPage';
-import InitiativesPage from './pages/ngo/InitiativesPage';
-import NGOEventsPage from './pages/ngo/NGOEventsPage';
-import NGOGalleryPage from './pages/ngo/NGOGalleryPage';
-import NGOContactPage from './pages/ngo/NGOContactPage';
-import NGOTeamPage from './pages/ngo/NGOTeamPage';
-import NGOGalleryHeroPage from './pages/ngo/NGOGalleryHeroPage';
-import NGOBloodDonorsPage from './pages/ngo/NGOBloodDonorsPage';
-import NGOInitiativeContentPage from './pages/ngo/NGOInitiativeContentPage';
 import SettingsPage from './pages/SettingsPage';
 import NGOAdminConsole from './pages/ngo/NGOAdminConsole';
 
@@ -43,16 +34,6 @@ export default function App() {
           <Route path="talent/gallery" element={<TalentGalleryPage />} />
           <Route path="talent/contact" element={<TalentContactPage />} />
           <Route path="talent/sponsors" element={<SponsorsPage />} />
-          {/* NGO */}
-          <Route path="ngo/volunteers" element={<VolunteersPage />} />
-          <Route path="ngo/team" element={<NGOTeamPage />} />
-          <Route path="ngo/gallery-hero" element={<NGOGalleryHeroPage />} />
-          <Route path="ngo/blood-donors" element={<NGOBloodDonorsPage />} />
-          <Route path="ngo/initiatives" element={<InitiativesPage />} />
-          <Route path="ngo/initiative-content" element={<NGOInitiativeContentPage />} />
-          <Route path="ngo/events" element={<NGOEventsPage />} />
-          <Route path="ngo/gallery" element={<NGOGalleryPage />} />
-          <Route path="ngo/contact" element={<NGOContactPage />} />
           {/* System */}
           <Route path="settings" element={<SettingsPage />} />
           <Route path="*" element={<Navigate to="/dashboard" replace />} />

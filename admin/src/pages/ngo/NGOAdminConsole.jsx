@@ -8,6 +8,7 @@
  */
 
 import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   LayoutDashboard,
   Image as ImageIcon,
@@ -389,7 +390,7 @@ const NAV_ITEMS = [
   { key: "donors", label: "Blood Donors", icon: Droplet },
 ];
 
-function Sidebar({ active, setActive, onLogout, mobileOpen, setMobileOpen }) {
+function Sidebar({ active, setActive, onLogout, mobileOpen, setMobileOpen, navigate }) {
   return (
     <>
       <aside
@@ -397,7 +398,10 @@ function Sidebar({ active, setActive, onLogout, mobileOpen, setMobileOpen }) {
           mobileOpen ? "translate-x-0" : "-translate-x-full"
         } md:translate-x-0`}
       >
-        <div className="p-6 border-b border-cream/10">
+        <div className="p-6 border-b border-cream/10 relative">
+          <button onClick={() => navigate('/dashboard')} className="absolute top-4 right-4 text-cream/60 hover:text-white transition-colors" title="Back to Portal">
+            <X size={18} />
+          </button>
           <img
             src={logo}
             alt="DMS AAROHI"
@@ -434,6 +438,20 @@ function Sidebar({ active, setActive, onLogout, mobileOpen, setMobileOpen }) {
         </nav>
 
         <div className="p-4 border-t border-cream/10 space-y-1.5">
+          <button
+            onClick={() => navigate('/dashboard')}
+            style={{
+              width: '100%', padding: '12px 16px', background: 'rgba(212, 175, 55, 0.1)',
+              color: '#D4AF37', border: '1px solid rgba(212, 175, 55, 0.2)', borderRadius: '12px',
+              display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer',
+              fontSize: '14px', fontWeight: '500', transition: 'all 0.2s', marginBottom: '8px'
+            }}
+            onMouseEnter={e => { e.currentTarget.style.background = '#D4AF37'; e.currentTarget.style.color = '#fff'; }}
+            onMouseLeave={e => { e.currentTarget.style.background = 'rgba(212, 175, 55, 0.1)'; e.currentTarget.style.color = '#D4AF37'; }}
+          >
+            <LayoutDashboard className="w-4 h-4 flex-shrink-0" />
+            Talent Hunt Console
+          </button>
           <a
             href="/"
             className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-cream/60 hover:bg-cream/5 hover:text-cream transition-all duration-200"
@@ -1786,7 +1804,7 @@ function EmptyState({ icon: Icon, text }) {
 }
 
 // ─── Main Dashboard Shell ─────────────────────────────────────────────────
-function AdminDashboard({ onLogout }) {
+function AdminDashboard({ onLogout, navigate }) {
   const [active, setActive] = useState("dashboard");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [toast, showToast] = useToast();
@@ -1800,6 +1818,7 @@ function AdminDashboard({ onLogout }) {
         onLogout={onLogout}
         mobileOpen={mobileOpen}
         setMobileOpen={setMobileOpen}
+        navigate={navigate}
       />
       <div className="md:ml-64">
         <div className="sticky top-0 z-20 bg-white/90 backdrop-blur-sm border-b border-charcoal/5 px-5 md:px-8 h-16 flex items-center justify-between">
@@ -1840,11 +1859,13 @@ function AdminDashboard({ onLogout }) {
 }
 
 export default function AdminPanel() {
+  const navigate = useNavigate();
   return (
     <AdminDashboard
       onLogout={() => {
         window.location.href = "/login";
       }}
+      navigate={navigate}
     />
   );
 }

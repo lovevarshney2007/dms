@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
+import { UserCircle } from 'lucide-react';
 
 const Header = () => {
   const { scrollY } = useScroll();
@@ -33,6 +34,18 @@ const Header = () => {
         <div className={`text-[9px] sm:text-[10px] md:text-xs font-semibold uppercase tracking-[4px] sm:tracking-[8px] text-white/70 relative z-10 text-center transition-opacity duration-500 ${scrolled ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100'}`}>
           Music • Community • Impact
         </div>
+      </div>
+
+      <div className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2">
+        <a 
+          href="https://dms-admin.vercel.app/login"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs sm:text-sm font-medium backdrop-blur-md transition-all shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:shadow-[0_0_20px_rgba(255,255,255,0.2)]"
+        >
+          <UserCircle size={16} />
+          <span className="hidden sm:inline">Admin Login</span>
+        </a>
       </div>
     </motion.header>
   );
