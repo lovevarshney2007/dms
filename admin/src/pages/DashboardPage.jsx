@@ -94,7 +94,7 @@ export default function DashboardPage() {
             className="topbar-action-btn gold" style={{ padding: '10px 20px', fontSize: '14px', border: '1px solid var(--gold)' }}>
             Enter Talent Hunt Console <ArrowRight size={16} style={{ marginLeft: 6 }} />
           </button>
-          <button onClick={() => navigate('/ngo-admin-console')}
+          <button onClick={() => navigate('/ngo/dashboard')}
             className="topbar-action-btn green" style={{ padding: '10px 20px', fontSize: '14px', border: '1px solid #4ADE80' }}>
             Enter NGO Console <ArrowRight size={16} style={{ marginLeft: 6 }} />
           </button>
@@ -104,13 +104,13 @@ export default function DashboardPage() {
       {/* Stat cards */}
       <div className="stat-grid">
         <StatCard n={stats.totalRegistrations} label="Total Registrations" icon={Users} color="gold" change={stats.newRegistrations} onClick={() => navigate('/talent/registrations')} />
-        <StatCard n={stats.ngoVolunteers}      label="NGO Volunteers"      icon={Heart} color="green" onClick={() => navigate('/ngo-admin-console')} />
+        <StatCard n={stats.ngoVolunteers}      label="NGO Volunteers"      icon={Heart} color="green" onClick={() => navigate('/ngo/dashboard')} />
         <StatCard n={stats.talentQueries}      label="Talent Queries"      icon={MessageSquare} color="blue" onClick={() => navigate('/talent/contact')} />
-        <StatCard n={stats.ngoQueries}         label="NGO Queries"         icon={MessageSquare} color="purple" onClick={() => navigate('/ngo-admin-console')} />
+        <StatCard n={stats.ngoQueries}         label="NGO Queries"         icon={MessageSquare} color="purple" onClick={() => navigate('/ngo/dashboard')} />
         <StatCard n={stats.upcomingEvents}     label="Talent Events"       icon={Calendar} color="blue" onClick={() => navigate('/talent/events')} />
         <StatCard n={`S${stats.totalSeasons}`} label="Current Season"      icon={Mic2} color="gold" onClick={() => navigate('/talent/seasons')} />
-        <StatCard n={ngoStats.teamCount}       label="NGO Team Members"    icon={UserSquare2} color="green" onClick={() => navigate('/ngo-admin-console')} />
-        <StatCard n={ngoStats.bloodDonorsCount} label="Blood Donors"       icon={Droplet} color="purple" onClick={() => navigate('/ngo-admin-console')} />
+        <StatCard n={ngoStats.teamCount}       label="NGO Team Members"    icon={UserSquare2} color="green" onClick={() => navigate('/ngo/team')} />
+        <StatCard n={ngoStats.bloodDonorsCount} label="Blood Donors"       icon={Droplet} color="purple" onClick={() => navigate('/ngo/donors')} />
       </div>
 
       {/* Two column: Activity + Quick Actions */}
@@ -178,7 +178,7 @@ export default function DashboardPage() {
               <span className="card-title" style={{ color: 'var(--green)' }}>🤝 NGO</span>
             </div>
             <div style={{ padding: '12px 16px', display: 'flex', flexDirection: 'column', gap: 6 }}>
-              <button onClick={() => navigate('/ngo-admin-console')}
+              <button onClick={() => navigate('/ngo/dashboard')}
                 style={{
                   display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
                   padding: '12px', borderRadius: 8, border: '1px solid #4ADE80',

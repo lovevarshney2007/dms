@@ -78,7 +78,7 @@ function JoinUsForm({ onClose, onStatusChange, showClose = true }) {
         shortIntroduction: form.shortIntroduction
       };
 
-      const result = await submitForm("/api/forms/join-us", payload);
+      const result = await submitForm("/forms/join-us", payload);
       setStatus({ type: "success", message: result.message || "Registration submitted successfully! We'll contact you soon." });
       onStatusChange?.({ type: "success", message: result.message });
       setForm(defaultJoinUsForm);

@@ -1,7 +1,14 @@
-import { objectives } from "../../data/siteContent";
+import { useContent } from "../../hooks/useContent";
+import { objectives as fallbackObjectives } from "../../data/siteContent";
 import SectionHeading from "../common/SectionHeading";
 
 function AboutSection() {
+  const { data: fetchedObjectives } = useContent('objective');
+  
+  const objectives = fetchedObjectives && fetchedObjectives.length > 0
+    ? fetchedObjectives.map(obj => obj.title || obj.content)
+    : fallbackObjectives;
+
   return (
     <section
       id="about"
@@ -24,8 +31,8 @@ function AboutSection() {
         />
       </div>
       <div className="mt-8 grid gap-4 md:grid-cols-2">
-        {objectives.map((item) => (
-          <article key={item} className="rounded-3xl border border-stone-200 bg-white/80 p-5 text-stone-600 shadow-sm">
+        {objectives.map((item, idx) => (
+          <article key={idx} className="rounded-3xl border border-stone-200 bg-white/80 p-5 text-stone-600 shadow-sm">
             <p className="leading-7">{item}</p>
           </article>
         ))}

@@ -16,8 +16,16 @@ const env = {
   emailAppPassword: process.env.EmailAppPassword || ""
 };
 
-if (env.nodeEnv === "production" && env.adminPassword === "change-this-password") {
-  console.warn("⚠️ SECURITY WARNING: Using default adminPassword in production environment! Please set ADMIN_PASSWORD in environment variables.");
+if (env.nodeEnv === "production") {
+  if (env.adminPassword === "change-this-password") {
+    throw new Error("SECURITY ERROR: ADMIN_PASSWORD must be set in production.");
+  }
+  if (env.adminTokenSecret === "changeme-secret" || env.adminTokenSecret === env.adminPassword) {
+    throw new Error("SECURITY ERROR: ADMIN_TOKEN_SECRET must be set and unique in production.");
+  }
+  if (!env.mongoUri) {
+    throw new Error("CONFIGURATION ERROR: MONGODB_URI is required in production.");
+  }
 }
 
 module.exports = { env };

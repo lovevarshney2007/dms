@@ -1,4 +1,5 @@
-const API_BASE_URL = import.meta.env.VITE_API_URL || "";
+import { ENV } from '../config/env';
+const API_BASE_URL = ENV.API_URL;
 const ADMIN_TOKEN_KEY = "adminToken";
 
 async function handleResponse(response) {

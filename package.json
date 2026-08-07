@@ -1,0 +1,14 @@
+{
+  "name": "dms-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npx concurrently \"npm run dev:server\" \"npm run dev:admin\" \"npm run dev:client\" \"npm run dev:ngo\" \"npm run dev:landing\"",
+    "dev:server": "cd server && npm run dev",
+    "dev:admin": "cd admin && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "dev:ngo": "cd DMS-Homepagee/client && npm run dev",
+    "dev:landing": "cd dms-landing && npm run dev",
+    "install:all": "cd server && npm install && cd ../admin && npm install && cd ../client && npm install && cd ../DMS-Homepagee/client && npm install && cd ../../dms-landing && npm install"
+  }
+}

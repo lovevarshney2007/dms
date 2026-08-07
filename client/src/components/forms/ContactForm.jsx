@@ -28,7 +28,7 @@ function ContactForm({
     }
 
     try {
-      const result = await submitForm("/api/forms/contact", { ...form, source });
+      const result = await submitForm("/forms/contact", { ...form, source });
       setStatus({ type: "success", message: result.message });
       setForm(defaultContactForm);
     } catch (error) {

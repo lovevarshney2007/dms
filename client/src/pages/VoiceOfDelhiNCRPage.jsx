@@ -226,20 +226,20 @@ function VoiceOfDelhiNCRPage() {
               title: d.title || fallback.title,
               subtitle: d.subtitle || fallback.subtitle,
               year: d.year || fallback.year,
-              description: d.meta?.description || d.description || fallback.description,
-              status: d.meta?.status || fallback.status || "completed",
-              color: d.meta?.color || fallback.color,
-              lightBg: d.meta?.lightBg || fallback.lightBg,
-              borderColor: d.meta?.borderColor || fallback.borderColor,
-              winner: d.meta?.winner || fallback.winner || null,
-              winnerImg: d.meta?.winnerImg || fallback.winnerImg || null,
-              youtube: d.meta?.youtube || fallback.youtube || null,
-              poster: d.meta?.poster || d.imageUrl || fallback.poster || "/legacy/poster.png",
-              grandFinale: d.meta?.grandFinale || fallback.grandFinale || null,
-              venue: d.meta?.venue || fallback.venue || null,
-              highlights: d.meta?.highlights || fallback.highlights || [],
-              winners: d.meta?.winners || fallback.winners || null,
-              finalists: d.meta?.finalists || fallback.finalists || null,
+              description: d.description || fallback.description,
+              status: (d.meta && d.meta.status) ? d.meta.status : fallback.status,
+              color: (d.meta && d.meta.color) ? d.meta.color : fallback.color,
+              lightBg: (d.meta && d.meta.lightBg) ? d.meta.lightBg : fallback.lightBg,
+              borderColor: (d.meta && d.meta.borderColor) ? d.meta.borderColor : fallback.borderColor,
+              winner: (d.meta && d.meta.winner) ? d.meta.winner : fallback.winner,
+              winnerImg: (d.meta && d.meta.winnerImg) ? d.meta.winnerImg : fallback.winnerImg,
+              youtube: (d.meta && d.meta.youtube) ? d.meta.youtube : fallback.youtube,
+              poster: d.imageUrl || fallback.poster,
+              grandFinale: (d.meta && d.meta.grandFinale) ? d.meta.grandFinale : fallback.grandFinale,
+              venue: (d.meta && d.meta.venue) ? d.meta.venue : fallback.venue,
+              highlights: (d.meta && d.meta.highlights && d.meta.highlights.length > 0) ? d.meta.highlights : fallback.highlights,
+              winners: (d.meta && d.meta.winners) ? d.meta.winners : fallback.winners,
+              finalists: (d.meta && d.meta.finalists) ? d.meta.finalists : fallback.finalists,
             };
           });
           setSeasons(mappedSeasons);
@@ -361,7 +361,15 @@ function VoiceOfDelhiNCRPage() {
                   {/* Content */}
                   <div className="bg-white flex-1 p-5 flex flex-col gap-4">
                     {/* Winner / Grand Finale / Completed Info */}
-                    {season.status === "grand-finale" ? (
+                    {season.status === "upcoming" ? (
+                      <div className="flex items-center gap-3 bg-blue-50 border border-blue-100 rounded-2xl p-3.5">
+                        <div className="w-10 h-10 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-lg shrink-0 animate-pulse">📢</div>
+                        <div>
+                          <p className="text-[10px] text-blue-400 uppercase font-bold tracking-wider">Upcoming</p>
+                          <p className="font-bold text-stone-900 text-sm truncate">Registrations Opening Soon</p>
+                        </div>
+                      </div>
+                    ) : season.status === "grand-finale" ? (
                       <div className="flex items-center gap-3 bg-orange-50 border border-orange-100 rounded-2xl p-3.5">
                         <div className="w-10 h-10 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-lg shrink-0 animate-pulse">🎤</div>
                         <div>

@@ -24,7 +24,18 @@ const NAV = [
     { id: 'sponsors',             path: '/talent/sponsors',      label: 'Sponsors',           icon: Handshake,      site: 'talent' },
     { id: 'talent-contact',       path: '/talent/contact',       label: 'Contact Queries',    icon: MessageSquare,  site: 'talent', badge: 'tc'    },
   ]},
+  { group: '🤝 NGO Initiative', items: [
+    { id: 'ngo-dashboard',        path: '/ngo/dashboard',        label: 'NGO Overview',       icon: LayoutDashboard, site: 'ngo' },
+    { id: 'ngo-volunteers',       path: '/ngo/volunteers',       label: 'Volunteers',         icon: Heart,           site: 'ngo' },
+    { id: 'ngo-donors',           path: '/ngo/donors',           label: 'Blood Donors',       icon: Droplet,         site: 'ngo' },
+    { id: 'ngo-events',           path: '/ngo/events',           label: 'NGO Events',         icon: Calendar,        site: 'ngo' },
+    { id: 'ngo-team',             path: '/ngo/team',             label: 'NGO Team',           icon: UserSquare2,     site: 'ngo' },
+    { id: 'ngo-gallery',          path: '/ngo/gallery',          label: 'NGO Gallery',        icon: Image,           site: 'ngo' },
+    { id: 'ngo-hero',             path: '/ngo/hero',             label: 'Hero Images',        icon: Star,            site: 'ngo' },
+    { id: 'ngo-content',          path: '/ngo/content',          label: 'Page Content',       icon: FileEdit,        site: 'ngo' },
+  ]},
   { group: 'System', items: [
+    { id: 'content-blocks',       path: '/settings/content',     label: 'Content Blocks',     icon: LayoutTemplate, site: 'both'   },
     { id: 'settings',             path: '/settings',             label: 'Website Settings',   icon: Settings,       site: 'both'   },
   ]},
 ];
@@ -45,7 +56,12 @@ export default function Layout() {
   const SidebarContent = () => (
     <>
       {/* Logo */}
-      <div className="sidebar-logo">
+      <div 
+        className="sidebar-logo" 
+        onClick={() => navigate('/dashboard')} 
+        style={{ cursor: 'pointer' }}
+        title="Go to Dashboard"
+      >
         <img src="/logo.png" alt="DMS Aarohi" onError={e => e.target.style.display='none'} />
         <div className="sidebar-logo-text">
           <div className="sidebar-logo-name">DMS Aarohi</div>
@@ -79,24 +95,7 @@ export default function Layout() {
         ))}
       </nav>
 
-      {/* Quick links */}
-      <div style={{ padding: '0 12px 12px' }}>
-        <button
-          onClick={() => navigate('/ngo-admin-console')}
-          style={{
-            width: '100%', padding: '10px 12px', background: 'rgba(74, 222, 128, 0.1)',
-            color: '#4ADE80', border: '1px solid rgba(74, 222, 128, 0.2)', borderRadius: '8px',
-            display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer',
-            fontSize: '13px', fontWeight: '600', transition: 'all 0.2s'
-          }}
-          onMouseEnter={e => { e.currentTarget.style.background = '#4ADE80'; e.currentTarget.style.color = '#fff'; }}
-          onMouseLeave={e => { e.currentTarget.style.background = 'rgba(74, 222, 128, 0.1)'; e.currentTarget.style.color = '#4ADE80'; }}
-        >
-          <LayoutTemplate size={16} /> Switch to NGO Console
-        </button>
-      </div>
-
-      <div style={{ padding: '0 12px 8px' }}>
+      <div style={{ padding: '0 12px 8px', marginTop: 'auto' }}>
         <div className="sidebar-group-label">Live Sites</div>
         <a href={TALENT_SITE} target="_blank" rel="noopener noreferrer"
           className="sidebar-item" style={{ textDecoration: 'none', display: 'flex' }}>

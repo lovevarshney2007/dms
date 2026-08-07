@@ -1,9 +1,13 @@
 import { useState } from "react";
-import { faqs } from "../../data/siteContent";
+import { useContent } from "../../hooks/useContent";
 import SectionHeading from "../common/SectionHeading";
 
 export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState(0);
+  const { data: faqs, loading, error } = useContent('faq');
+
+  if (loading) return null; // Or a skeleton loader
+  if (!faqs || faqs.length === 0) return null;
 
   return (
     <section id="faq" className="max-w-4xl mx-auto px-4 md:px-6 relative z-10 scroll-mt-32">
@@ -18,7 +22,7 @@ export default function FaqSection() {
       <div className="space-y-4">
         {faqs.map((faq, idx) => (
           <div 
-            key={idx} 
+            key={faq._id || idx} 
             className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openIndex === idx ? 'bg-white border-orange-200 shadow-lg shadow-orange-100/50' : 'bg-white/60 border-stone-200 hover:border-orange-200'}`}
           >
             <button
@@ -26,7 +30,7 @@ export default function FaqSection() {
               onClick={() => setOpenIndex(openIndex === idx ? -1 : idx)}
             >
               <span className={`font-bold text-base md:text-lg transition-colors ${openIndex === idx ? 'text-orange-600' : 'text-stone-900'}`}>
-                {faq.question}
+                {faq.title}
               </span>
               <span className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-transform duration-300 ${openIndex === idx ? 'bg-orange-100 text-orange-600 rotate-180' : 'bg-stone-100 text-stone-500'}`}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
@@ -36,7 +40,7 @@ export default function FaqSection() {
               className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${openIndex === idx ? 'max-h-48 pb-5 opacity-100' : 'max-h-0 opacity-0'}`}
             >
               <p className="text-stone-600 leading-relaxed font-medium">
-                {faq.answer}
+                {faq.content}
               </p>
             </div>
           </div>

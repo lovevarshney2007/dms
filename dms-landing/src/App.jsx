@@ -33,7 +33,19 @@ function App() {
     };
     
     document.addEventListener('click', handleLinkClick);
-    return () => document.removeEventListener('click', handleLinkClick);
+
+    // Reset transition state when returning to the page via back button (BFCache)
+    const handlePageShow = (e) => {
+      if (e.persisted) {
+        setIsTransitioning(false);
+      }
+    };
+    window.addEventListener('pageshow', handlePageShow);
+
+    return () => {
+      document.removeEventListener('click', handleLinkClick);
+      window.removeEventListener('pageshow', handlePageShow);
+    };
   }, []);
 
   return (

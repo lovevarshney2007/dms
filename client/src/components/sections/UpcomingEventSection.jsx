@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { eventDetails as staticEventDetails } from "../../data/siteContent";
-import { getJson } from "../../lib/api";
+import { useEvents } from "../../hooks/useEvents";
 import JoinUsForm from "../forms/JoinUsForm";
 import FormNotice from "../common/FormNotice";
 import SectionHeading from "../common/SectionHeading";
@@ -8,21 +8,11 @@ import SectionHeading from "../common/SectionHeading";
 function UpcomingEventSection() {
   const [joinUsOpen, setJoinUsOpen] = useState(false);
   const [joinUsStatus, setJoinUsStatus] = useState({ type: "", message: "" });
-  const [events, setEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
+  
+  const { data: events, loading } = useEvents();
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const data = await getJson("/api/events");
-        setEvents(data || []);
-      } catch {
-        // fallback to static data
-      }
-    })();
-  }, []);
-
-  const cards = events.length
+  const cards = events && events.length
     ? events.map((ev) => ({
         id: ev._id,
         title: ev.title || "Event",

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { UserCircle } from 'lucide-react';
+import { ENV } from '../config/env';
 
 const Header = () => {
   const { scrollY } = useScroll();
@@ -38,9 +39,7 @@ const Header = () => {
 
       <div className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2">
         <a 
-          href="https://dms-admin-beryl.vercel.app/login"
-          target="_blank"
-          rel="noopener noreferrer"
+          href={`${ENV.ADMIN_URL}/login`}
           className="flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs sm:text-sm font-medium backdrop-blur-md transition-all shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:shadow-[0_0_20px_rgba(255,255,255,0.2)]"
         >
           <UserCircle size={16} />

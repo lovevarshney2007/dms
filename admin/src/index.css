@@ -428,6 +428,7 @@ input, textarea, select {
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .form-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
 .form-hint { font-size: 12px; color: var(--text-muted); }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
 /* ── Search / Filter Bar ── */
 .filter-bar {

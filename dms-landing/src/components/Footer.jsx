@@ -1,5 +1,6 @@
 import { MapPin, Phone, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { ENV } from '../config/env';
 
 const InstagramIcon = (props) => (
   <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
@@ -65,8 +66,8 @@ const Footer = () => {
           <h3 className="text-white font-bold text-lg mb-2">Quick Links</h3>
           <div className="flex flex-col gap-4">
             {[
-              { name: 'Talent Platform', url: 'https://dms-ten-gamma.vercel.app' },
-              { name: 'Social Initiatives', url: 'https://dms-homepage.vercel.app' },
+              { name: 'Talent Platform', url: ENV.TALENT_HUNT_URL },
+              { name: 'Social Initiatives', url: ENV.NGO_URL },
               { name: 'About Us', url: '#' },
               { name: 'Contact', url: '#' }
             ].map((link) => (
@@ -94,10 +95,17 @@ const Footer = () => {
           </div>
 
           <div className="flex items-center gap-4 mt-4">
-            {[InstagramIcon, YoutubeIcon, FacebookIcon, TwitterIcon].map((Icon, idx) => (
+            {[
+              { Icon: InstagramIcon, url: 'https://instagram.com/dmsaarohi' },
+              { Icon: YoutubeIcon, url: 'https://www.youtube.com/@dmsaarohi5483' },
+              { Icon: FacebookIcon, url: 'https://www.facebook.com/dms.aarohi' },
+              { Icon: TwitterIcon, url: 'https://twitter.com/dmsaarohi' }
+            ].map(({ Icon, url }, idx) => (
               <motion.a 
                 key={idx}
-                href="#" 
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ y: -8, rotate: 8, scale: 1.15 }}
                 whileTap={{ scale: 0.95 }}
                 className="group relative w-10 h-10 flex items-center justify-center transition-all duration-300 overflow-hidden"

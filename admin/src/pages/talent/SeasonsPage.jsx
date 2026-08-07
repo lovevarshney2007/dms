@@ -130,11 +130,23 @@ export default function SeasonsPage() {
           <EmptyState icon={Trophy} title={`No ${TABS.find(t=>t.key===tab)?.label} yet`} desc="Add one using the button above" />
         ) : (
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(260px,1fr))', gap: 16, padding: 20 }}>
-            {rows.map(r => (
+            {rows.map(r => {
+              const fallbackByYear = tab === 'season' ? (
+                r.year == '2018' ? '/seasons/season1_winners.jpeg' :
+                r.year == '2019' ? '/seasons/season2_winners.jpeg' :
+                r.year == '2021' ? '/seasons/season_3_poster_rajsathan.png' :
+                r.year == '2024' ? '/seasons/season_3_poster.jpeg' :
+                (r.year == '2026' || r.year == '2027') ? '/seasons/season_4_poster.png' :
+                r.title?.includes('Rajasthan') ? '/seasons/season_3_poster_rajsathan.png' : null
+              ) : null;
+              
+              const displayImage = r.imageUrl || fallbackByYear || r.meta?.poster;
+
+              return (
               <div key={r._id} style={{ background: 'var(--bg)', border: '1px solid var(--border)', borderRadius: 12, overflow: 'hidden' }}>
-                {(r.imageUrl) && (
+                {displayImage && (
                   <div style={{ width: '100%', height: 140, overflow: 'hidden' }}>
-                    <img src={resolveImg(r.imageUrl)} alt={r.title || r.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={e => e.target.style.display='none'} />
+                    <img src={resolveImg(displayImage)} alt={r.title || r.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={e => e.target.style.display='none'} />
                   </div>
                 )}
                 <div style={{ padding: 14 }}>
@@ -150,7 +162,8 @@ export default function SeasonsPage() {
                   </div>
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         )}
       </div>

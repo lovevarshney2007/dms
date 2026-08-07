@@ -3,21 +3,35 @@ const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 const adminAuth = require("../middleware/adminAuth");
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
+const cloudinary = require("cloudinary").v2;
 
 const router = express.Router();
 
-const uploadDir = path.join(process.cwd(), "uploads");
-if (!fs.existsSync(uploadDir)) {
-  fs.mkdirSync(uploadDir, { recursive: true });
-}
+let storage;
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, uploadDir),
-  filename: (req, file, cb) => {
-    const ext = path.extname(file.originalname);
-    cb(null, `${Date.now()}-${Math.round(Math.random() * 1e9)}${ext}`);
-  },
-});
+if (process.env.CLOUDINARY_URL) {
+  storage = new CloudinaryStorage({
+    cloudinary: cloudinary,
+    params: {
+      folder: "dms_aarohi_uploads",
+      allowed_formats: ["jpg", "jpeg", "png", "webp", "gif"],
+    },
+  });
+} else {
+  const uploadDir = path.join(process.cwd(), "uploads");
+  if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir, { recursive: true });
+  }
+
+  storage = multer.diskStorage({
+    destination: (req, file, cb) => cb(null, uploadDir),
+    filename: (req, file, cb) => {
+      const ext = path.extname(file.originalname);
+      cb(null, `${Date.now()}-${Math.round(Math.random() * 1e9)}${ext}`);
+    },
+  });
+}
 
 const upload = multer({
   storage,
@@ -35,10 +49,13 @@ router.post("/upload", adminAuth, upload.single("file"), (req, res) => {
     return res.status(400).json({ message: "No file uploaded" });
   }
   
-  // Try to use a base URL, fallback to localhost if not specified
-  // In production (Vercel), this will be the deployed URL, or it can be a relative URL
-  const baseUrl = process.env.API_BASE_URL || `${req.protocol}://${req.get("host")}`;
-  const url = `${baseUrl}/uploads/${req.file.filename}`;
+  let url;
+  if (process.env.CLOUDINARY_URL) {
+    url = req.file.path; // Cloudinary returns the URL in req.file.path
+  } else {
+    const baseUrl = process.env.API_BASE_URL || `${req.protocol}://${req.get("host")}`;
+    url = `${baseUrl}/uploads/${req.file.filename}`;
+  }
   
   res.status(201).json({ url });
 });

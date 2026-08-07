@@ -1,5 +1,9 @@
 const cors = require("cors");
 const express = require("express");
+const helmet = require("helmet");
+const rateLimit = require("express-rate-limit");
+const mongoSanitize = require("express-mongo-sanitize");
+
 const healthRoutes = require("./routes/healthRoutes");
 const submissionRoutes = require("./routes/submissionRoutes");
 const adminRoutes = require("./routes/adminRoutes");
@@ -9,9 +13,30 @@ const notFoundHandler = require("./middleware/notFoundHandler");
 
 const app = express();
 
+// Security Headers
+app.use(helmet());
+app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
+
+// Rate Limiting
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: "Too many requests from this IP, please try again after 15 minutes",
+});
+app.use("/api", limiter);
+
+// CORS
 app.use(cors());
+
+// Body Parser
 app.use(express.json({ limit: "50kb" }));
 
+// Data Sanitization against NoSQL query injection
+app.use(mongoSanitize());
+
+// Routes
 app.use("/api", healthRoutes);
 app.use("/api", submissionRoutes);
 app.use("/api", adminRoutes);

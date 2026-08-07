@@ -4,16 +4,13 @@ import PageShell from "../components/common/PageShell";
 import SectionHeading from "../components/common/SectionHeading";
 import TeamSliderRow from "../components/common/TeamSliderRow";
 import ContactForm from "../components/forms/ContactForm";
-import {
-  patronsData,
-  qualifiedContestants,
-  pastEvents,
-  contactDetails
-} from "../data/siteContent";
 import ScrollReveal from "../components/common/ScrollReveal";
 import TestimonialsSlider from "../components/sections/TestimonialsSlider";
 import FaqSection from "../components/sections/FaqSection";
 import { getDaysUntilEvent } from "../lib/eventDates";
+import { useContent } from "../hooks/useContent";
+import { useEvents } from "../hooks/useEvents";
+import { getJson } from "../lib/api";
 
 const daysUntilFinale = getDaysUntilEvent();
 
@@ -45,17 +42,17 @@ function HeroVideoLink({ videoUrl, settings }) {
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><rect x="3" y="4" width="18" height="18" rx="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></svg>
         </div>
         <div className="pr-2">
-          <p className="text-[10px] font-black uppercase tracking-widest text-stone-500">{settings.hero_video_pill_label || "Upcoming Event"}</p>
-          <p className="text-sm font-black text-stone-900">{settings.hero_video_pill_text || "Dates TBA"}</p>
+          <p className="text-[10px] font-black uppercase tracking-widest text-stone-500">{settings?.hero_video_pill_label || "Upcoming Event"}</p>
+          <p className="text-sm font-black text-stone-900">{settings?.hero_video_pill_text || "Dates TBA"}</p>
         </div>
       </div>
 
       {/* Bottom Left Text */}
       <div className="absolute bottom-6 left-6 right-6">
-        <h3 className="text-2xl sm:text-3xl font-black text-white drop-shadow-lg mb-1">{settings.hero_video_bottom_title || "Voice of Delhi NCR"}</h3>
+        <h3 className="text-2xl sm:text-3xl font-black text-white drop-shadow-lg mb-1">{settings?.hero_video_bottom_title || "Voice of Delhi NCR"}</h3>
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-          <p className="text-sm font-bold text-white/90 drop-shadow-md">{settings.hero_video_bottom_subtitle || "Watch the highlights"}</p>
+          <p className="text-sm font-bold text-white/90 drop-shadow-md">{settings?.hero_video_bottom_subtitle || "Watch the highlights"}</p>
         </div>
       </div>
       
@@ -73,10 +70,7 @@ function HeroVideoLink({ videoUrl, settings }) {
 
 const fallbackPatrons = [
   { name: "Ashok Srivastava", role: "Chief Patron", image: "/patrons/Ashok_Srivastava (Chief Patron).png" },
-  { name: "Nalini Kamalni", role: "Patron", image: "/patrons/NALINI KAMALNI.jpg" },
-  { name: "Radhika Chopra", role: "Patron", image: "/patrons/RADHIKA CHOPRA.jpg" },
-  { name: "Kumar Vishu", role: "Patron", image: "/patrons/KUMAR VISHU.jpg" },
-  { name: "G.B. Mathur", role: "Patron", image: "/patrons/G.B. Mathur (Patron).png" }
+  { name: "Nalini Kamalni", role: "Patron", image: "/patrons/NALINI KAMALNI.jpg" }
 ];
 const fallbackQC = [
   { name: "Adaa", status: "Grand Finalist", city: "Delhi NCR", category: "Junior", image: "/seasons/adaa.png" },
@@ -105,7 +99,6 @@ function HeroSlider() {
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${idx === current ? "opacity-100" : "opacity-0"}`}
         />
       ))}
-      {/* Minimal dot indicators */}
       <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-1 z-10">
         {heroSliderImages.map((_, idx) => (
           <button
@@ -121,41 +114,40 @@ function HeroSlider() {
 }
 
 function HomePage() {
-  const [patrons, setPatrons] = useState(fallbackPatrons);
-  const [qContestants, setQContestants] = useState(fallbackQC);
+  const { data: patronsData } = useContent('patron');
+  const { data: qcData } = useContent('qualified-contestant');
+  const { data: eventsData } = useEvents();
+  
   const [settings, setSettings] = useState({});
 
   useEffect(() => {
-    Promise.all([
-      fetch(import.meta.env.VITE_API_URL + '/api/content/patron').then(res => res.json()),
-      fetch(import.meta.env.VITE_API_URL + '/api/content/qualified-contestant').then(res => res.json()),
-      fetch(import.meta.env.VITE_API_URL + '/api/content/website-setting').then(res => res.json())
-    ]).then(([pData, qcData, settingsData]) => {
-      if (pData && pData.length > 0) {
-        setPatrons(pData.filter(d => !d.meta?.isTeam).map(d => ({
-          name: d.title,
-          role: d.subtitle,
-          image: d.imageUrl
-        })));
-      }
-      if (qcData && qcData.length > 0) {
-        setQContestants(qcData.map(d => ({
-          name: d.title,
-          image: d.imageUrl,
-          status: d.meta?.status || 'Contestant',
-          city: d.meta?.city || 'Delhi NCR',
-          category: d.meta?.category || 'Open'
-        })));
-      }
-      if (settingsData && settingsData.length > 0) {
+    getJson('/content/website-setting').then((data) => {
+      if (data && data.length > 0) {
         const map = {};
-        settingsData.forEach(item => { map[item.settingKey] = item.settingValue; });
+        data.forEach(item => { map[item.settingKey] = item.settingValue; });
         setSettings(map);
       }
     }).catch(console.error);
   }, []);
 
-  // Scroll to top on Link click helper - handled via window.scrollTo in onClick
+  const patrons = patronsData && patronsData.length > 0 ? patronsData.filter(d => !d.meta?.isTeam).map(d => ({
+    name: d.title, role: d.subtitle, image: d.imageUrl
+  })) : fallbackPatrons;
+
+  const qContestants = qcData && qcData.length > 0 ? qcData.map(d => ({
+    name: d.title, image: d.imageUrl, status: d.meta?.status || 'Contestant', city: d.meta?.city || 'Delhi NCR', category: d.meta?.category || 'Open'
+  })) : fallbackQC;
+
+  const pastEvents = eventsData && eventsData.length > 0 ? eventsData.map(ev => ({
+    id: ev._id, title: ev.title, date: ev.eventDate ? ev.eventDate.slice(0, 10) : "", image: ev.posterImage
+  })) : [];
+
+  const contactDetails = [
+    ["Email", settings?.contact_email || "dmsaarohi@gmail.com"],
+    ["Phone", settings?.contact_phone || "+91-9810225442"],
+    ["Address", settings?.contact_address || "A5, 272, Paschim Vihar, New Delhi"]
+  ];
+
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'instant' });
 
   return (
@@ -466,7 +458,7 @@ function HomePage() {
           </div>
 
           <div className="grid grid-cols-2 gap-3 mb-5">
-            {qualifiedContestants.slice(0, 6).map((user, idx) => (
+            {qContestants.slice(0, 6).map((user, idx) => (
               <Link key={idx} to="/success-stories" onClick={scrollToTop} className="flex flex-col items-center text-center p-3 bg-white hover:bg-orange-50 rounded-xl sm:rounded-2xl border border-stone-100 hover:border-orange-200 shadow-sm hover:shadow-md transition-all group">
                 <img src={user.image} alt={user.name} className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover border-2 border-white shadow-sm mb-2 mx-auto" />
                 <h4 className="font-bold text-xs sm:text-sm text-stone-900 group-hover:text-orange-600 transition-colors leading-tight">{user.name}</h4>
@@ -558,7 +550,7 @@ function HomePage() {
           title="Meet Our Esteemed Patrons."
           text="Learn from the best in the industry. Our patrons and judges bring decades of musical experience."
         />
-        <TeamSliderRow members={patronsData} />
+        <TeamSliderRow members={patrons} />
       </section>
 
       {/* ===== FAQ SECTION ===== */}
