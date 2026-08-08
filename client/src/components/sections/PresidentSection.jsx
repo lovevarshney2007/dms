@@ -6,7 +6,7 @@ function PresidentSection() {
       <div className="grid items-center gap-7 md:grid-cols-[0.9fr_1.1fr]">
         <img
           className="w-full rounded-[1.75rem] object-cover"
-          src="/legacy/pp.jpg"
+          src="/legacy/pp.jpg" 
           alt="Pankaj Mathur"
           loading="lazy"
           decoding="async"

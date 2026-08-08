@@ -63,43 +63,6 @@ function SplashPage() {
 
           {/* Cards Grid */}
           <div className="relative grid w-full max-w-4xl gap-6 sm:gap-8 md:grid-cols-2">
-            {/* Music Society Card */}
-            <Link
-              to="/music-society"
-              className="group flex flex-col overflow-hidden rounded-2xl border border-emerald-200/60 bg-gradient-to-br from-emerald-900 via-emerald-800 to-emerald-700 p-8 text-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 sm:rounded-3xl sm:p-10 md:min-h-[320px]"
-            >
-              {/* Decorative blobs */}
-              <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-white/10 blur-3xl transition-all duration-500 group-hover:h-52 group-hover:w-52" />
-              <div className="absolute bottom-0 right-0 h-28 w-28 rounded-full bg-emerald-300/20 blur-2xl" />
-              
-              {/* Content */}
-              <div className="relative flex flex-1 flex-col justify-between">
-                <div>
-                  {/* Icon/Badge */}
-                  <div className="mb-4 inline-flex items-center rounded-lg bg-emerald-600/40 px-4 py-2 backdrop-blur-sm">
-                    <span className="text-xs font-semibold uppercase tracking-widest text-emerald-200">🎵 Music Society</span>
-                  </div>
-                  
-                  {/* Title */}
-                  <h2 className="mt-4 font-serif text-4xl font-bold leading-tight sm:text-5xl">
-                    Celebrate
-                  </h2>
-                  
-                  {/* Description */}
-                  <p className="mt-4 text-sm leading-relaxed text-emerald-50/90 sm:text-base">
-                    Explore our world of music, performances, and talent showcases. Join our community of artists and music enthusiasts.
-                  </p>
-                </div>
-
-                {/* Footer */}
-                <div className="relative mt-8 flex items-center justify-between border-t border-white/10 pt-6">
-                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-100">
-                    Enter the stage <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-                  </span>
-                </div>
-              </div>
-            </Link>
-
             {/* NGO Card */}
             <Link
               to="/ngo"
@@ -132,6 +95,43 @@ function SplashPage() {
                 <div className="relative mt-8 flex items-center justify-between border-t border-white/10 pt-6">
                   <span className="inline-flex items-center gap-2 text-sm font-semibold text-amber-100">
                     Explore mission <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+                  </span>
+                </div>
+              </div>
+            </Link>
+
+            {/* Music Society Card */}
+            <Link
+              to="/music-society"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-emerald-200/60 bg-gradient-to-br from-emerald-900 via-emerald-800 to-emerald-700 p-8 text-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 sm:rounded-3xl sm:p-10 md:min-h-[320px]"
+            >
+              {/* Decorative blobs */}
+              <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-white/10 blur-3xl transition-all duration-500 group-hover:h-52 group-hover:w-52" />
+              <div className="absolute bottom-0 right-0 h-28 w-28 rounded-full bg-emerald-300/20 blur-2xl" />
+              
+              {/* Content */}
+              <div className="relative flex flex-1 flex-col justify-between">
+                <div>
+                  {/* Icon/Badge */}
+                  <div className="mb-4 inline-flex items-center rounded-lg bg-emerald-600/40 px-4 py-2 backdrop-blur-sm">
+                    <span className="text-xs font-semibold uppercase tracking-widest text-emerald-200">🎵 Music Society</span>
+                  </div>
+                  
+                  {/* Title */}
+                  <h2 className="mt-4 font-serif text-4xl font-bold leading-tight sm:text-5xl">
+                    Celebrate
+                  </h2>
+                  
+                  {/* Description */}
+                  <p className="mt-4 text-sm leading-relaxed text-emerald-50/90 sm:text-base">
+                    Explore our world of music, performances, and talent showcases. Join our community of artists and music enthusiasts.
+                  </p>
+                </div>
+
+                {/* Footer */}
+                <div className="relative mt-8 flex items-center justify-between border-t border-white/10 pt-6">
+                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-100">
+                    Enter the stage <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                   </span>
                 </div>
               </div>

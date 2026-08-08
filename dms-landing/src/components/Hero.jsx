@@ -202,13 +202,13 @@ const Hero = () => {
           transition={{ delay: 0.7, duration: 0.8 }}
         >
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full sm:w-auto max-w-[280px] sm:max-w-none relative z-10 mx-auto pointer-events-auto">
-            <MagneticButton variant="primary" href={ENV.TALENT_HUNT_URL}>
-              Explore Talent
-              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-            </MagneticButton>
             <MagneticButton variant="secondary" href={ENV.NGO_URL}>
               Join Initiative
               <Heart className="w-4 h-4 ml-2 text-[#10B981] group-hover:scale-110 transition-transform" />
+            </MagneticButton>
+            <MagneticButton variant="primary" href={ENV.TALENT_HUNT_URL}>
+              Explore Talent
+              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </MagneticButton>
           </div>
         </motion.div>

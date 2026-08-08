@@ -89,75 +89,7 @@ const FeatureCards = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-[56px] items-stretch">
 
-        {/* Left: Talent Hunt */}
-        <Premium3DCard
-          cursorColor="orange"
-          glowColor="rgba(255,140,0,0.12)"
-          hoverShadow="hover:shadow-[0_30px_60px_-15px_rgba(255,140,0,0.2)]"
-        >
-          {/* 16:9 Image */}
-          <div className="w-full aspect-[16/9] rounded-xl overflow-hidden mb-8 relative border border-white/5 shadow-inner transition-all duration-500 group-hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] group-hover:border-white/10">
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXOHzAQp0ZXpRT3g_pYyk_Y9pBbKlTz07CQSIV9QagKA&s=10"
-              alt="Singer on stage with microphone"
-              className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-[1.05]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/20 to-transparent pointer-events-none opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
-          </div>
-
-          <div className="glass-pill self-start px-4 py-1.5 mb-5 rounded-full border-[#FF8C00]/30 bg-[#FF8C00]/10 text-[#FF8C00] text-xs font-bold tracking-wider uppercase shadow-[0_0_15px_rgba(255,140,0,0.1)]">
-            Talent Platform
-          </div>
-
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 drop-shadow-md tracking-tight">
-            Discover Your Talent
-          </h2>
-          <p className="text-base sm:text-lg text-white/60 font-medium mb-8 leading-relaxed max-w-md line-clamp-3">
-            Singing competitions, live performances, workshops and artist development across multiple cities.
-          </p>
-
-          <div className="mt-auto flex flex-col w-full">
-            {/* Subtle Inline Stats */}
-            <div className="w-full border-y border-white/5 py-4 mb-8 flex flex-row justify-around sm:justify-start sm:gap-16 items-center bg-white/[0.01] transition-colors duration-500 group-hover:bg-white/[0.03]">
-              <div className="flex items-center gap-3 group/stat">
-                <div className="text-2xl group-hover/stat:scale-110 group-hover/stat:-translate-y-1 transition-transform duration-300 drop-shadow-md">🏆</div>
-                <div className="flex flex-col">
-                  <div className="text-lg sm:text-xl font-bold text-white leading-tight">14+</div>
-                  <div className="text-[10px] sm:text-xs text-white/50 font-bold uppercase tracking-widest group-hover/stat:text-white/80 transition-colors">Years</div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3 group/stat">
-                <div className="text-2xl group-hover/stat:scale-110 group-hover/stat:-translate-y-1 transition-transform duration-300 drop-shadow-md">🎤</div>
-                <div className="flex flex-col">
-                  <div className="text-lg sm:text-xl font-bold text-white leading-tight">2500+</div>
-                  <div className="text-[10px] sm:text-xs text-white/50 font-bold uppercase tracking-widest group-hover/stat:text-white/80 transition-colors">Artists</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Premium Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 w-full">
-              <a
-                href={ENV.TALENT_HUNT_URL}
-                className="flex-1 relative overflow-hidden font-bold rounded-lg px-6 py-3.5 transition-all duration-300 flex items-center justify-center group/btn bg-gradient-to-r from-[#FF8C00] to-[#FF4500] text-white shadow-[0_0_20px_rgba(255,140,0,0.3)] hover:shadow-[0_0_40px_rgba(255,140,0,0.6)] hover:-translate-y-1"
-              >
-                <span className="relative z-10 flex items-center">
-                  Explore Talent Hunt <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover/btn:translate-x-1" />
-                </span>
-                <div className="absolute inset-0 bg-white opacity-0 group-hover/btn:opacity-20 transition-opacity duration-300" />
-              </a>
-              <a
-                href={`${ENV.TALENT_HUNT_URL}/register`}
-                className="flex-1 relative overflow-hidden font-bold rounded-lg px-6 py-3.5 transition-all duration-300 flex items-center justify-center group/btn2 bg-white/[0.03] border border-white/10 text-white/80 hover:bg-white/[0.08] hover:border-white/30 hover:text-white hover:-translate-y-1 shadow-sm"
-              >
-                <span className="relative z-10">Register Now</span>
-              </a>
-            </div>
-          </div>
-        </Premium3DCard>
-
-        {/* Right: NGO */}
+        {/* Left: NGO (Moved from Right) */}
         <Premium3DCard
           cursorColor="emerald"
           glowColor="rgba(16,185,129,0.12)"
@@ -220,6 +152,74 @@ const FeatureCards = () => {
                 className="flex-1 relative overflow-hidden font-bold rounded-lg px-6 py-3.5 transition-all duration-300 flex items-center justify-center group/btn2 bg-white/[0.03] border border-white/10 text-white/80 hover:bg-white/[0.08] hover:border-white/30 hover:text-white hover:-translate-y-1 shadow-sm"
               >
                 <span className="relative z-10">Become a Volunteer</span>
+              </a>
+            </div>
+          </div>
+        </Premium3DCard>
+
+        {/* Right: Talent Hunt (Moved from Left) */}
+        <Premium3DCard
+          cursorColor="orange"
+          glowColor="rgba(255,140,0,0.12)"
+          hoverShadow="hover:shadow-[0_30px_60px_-15px_rgba(255,140,0,0.2)]"
+        >
+          {/* 16:9 Image */}
+          <div className="w-full aspect-[16/9] rounded-xl overflow-hidden mb-8 relative border border-white/5 shadow-inner transition-all duration-500 group-hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] group-hover:border-white/10">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXOHzAQp0ZXpRT3g_pYyk_Y9pBbKlTz07CQSIV9QagKA&s=10"
+              alt="Singer on stage with microphone"
+              className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-[1.05]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/20 to-transparent pointer-events-none opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
+          </div>
+
+          <div className="glass-pill self-start px-4 py-1.5 mb-5 rounded-full border-[#FF8C00]/30 bg-[#FF8C00]/10 text-[#FF8C00] text-xs font-bold tracking-wider uppercase shadow-[0_0_15px_rgba(255,140,0,0.1)]">
+            Talent Platform
+          </div>
+
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 drop-shadow-md tracking-tight">
+            Discover Your Talent
+          </h2>
+          <p className="text-base sm:text-lg text-white/60 font-medium mb-8 leading-relaxed max-w-md line-clamp-3">
+            Singing competitions, live performances, workshops and artist development across multiple cities.
+          </p>
+
+          <div className="mt-auto flex flex-col w-full">
+            {/* Subtle Inline Stats */}
+            <div className="w-full border-y border-white/5 py-4 mb-8 flex flex-row justify-around sm:justify-start sm:gap-16 items-center bg-white/[0.01] transition-colors duration-500 group-hover:bg-white/[0.03]">
+              <div className="flex items-center gap-3 group/stat">
+                <div className="text-2xl group-hover/stat:scale-110 group-hover/stat:-translate-y-1 transition-transform duration-300 drop-shadow-md">🏆</div>
+                <div className="flex flex-col">
+                  <div className="text-lg sm:text-xl font-bold text-white leading-tight">14+</div>
+                  <div className="text-[10px] sm:text-xs text-white/50 font-bold uppercase tracking-widest group-hover/stat:text-white/80 transition-colors">Years</div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3 group/stat">
+                <div className="text-2xl group-hover/stat:scale-110 group-hover/stat:-translate-y-1 transition-transform duration-300 drop-shadow-md">🎤</div>
+                <div className="flex flex-col">
+                  <div className="text-lg sm:text-xl font-bold text-white leading-tight">2500+</div>
+                  <div className="text-[10px] sm:text-xs text-white/50 font-bold uppercase tracking-widest group-hover/stat:text-white/80 transition-colors">Artists</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Premium Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 w-full">
+              <a
+                href={ENV.TALENT_HUNT_URL}
+                className="flex-1 relative overflow-hidden font-bold rounded-lg px-6 py-3.5 transition-all duration-300 flex items-center justify-center group/btn bg-gradient-to-r from-[#FF8C00] to-[#FF4500] text-white shadow-[0_0_20px_rgba(255,140,0,0.3)] hover:shadow-[0_0_40px_rgba(255,140,0,0.6)] hover:-translate-y-1"
+              >
+                <span className="relative z-10 flex items-center">
+                  Explore Talent Hunt <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                </span>
+                <div className="absolute inset-0 bg-white opacity-0 group-hover/btn:opacity-20 transition-opacity duration-300" />
+              </a>
+              <a
+                href={`${ENV.TALENT_HUNT_URL}/register`}
+                className="flex-1 relative overflow-hidden font-bold rounded-lg px-6 py-3.5 transition-all duration-300 flex items-center justify-center group/btn2 bg-white/[0.03] border border-white/10 text-white/80 hover:bg-white/[0.08] hover:border-white/30 hover:text-white hover:-translate-y-1 shadow-sm"
+              >
+                <span className="relative z-10">Register Now</span>
               </a>
             </div>
           </div>
