@@ -11,7 +11,7 @@ function TeamSliderRow({ members, reverse = false }) {
           >
             <div className="relative overflow-hidden">
               <img
-                className="aspect-square w-full object-cover transition duration-300 group-hover:scale-105"
+                className="aspect-square w-full object-cover object-top transition duration-300 group-hover:scale-105"
                 src={member.image}
                 alt={member.name}
                 loading="lazy"
