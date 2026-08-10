@@ -38,7 +38,7 @@ const TwitterIcon = (props) => (
 
 const Footer = () => {
   return (
-    <footer className="w-full relative z-10 pt-20 pb-10 bg-[#050505] mt-auto overflow-hidden">
+    <footer className="w-full relative z-10 pt-8 pb-4 bg-[#050505] mt-auto overflow-hidden">
       {/* Top Border Glow & Continuity Lighting */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80vw] h-[300px] bg-gradient-to-b from-[#10B981]/5 to-transparent pointer-events-none filter blur-[80px]" />
@@ -118,7 +118,7 @@ const Footer = () => {
 
       </div>
       
-      <div className="max-w-[1200px] mx-auto px-6 mt-20 pt-6 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 text-white/40 text-xs relative z-10">
+      <div className="max-w-[1200px] mx-auto px-6 mt-8 pt-4 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 text-white/40 text-xs relative z-10">
         <div>&copy; {new Date().getFullYear()} DMS Aarohi. All rights reserved.</div>
         <div className="flex gap-4">
           <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
