@@ -14,9 +14,11 @@ const EMPTY = {
   videoLink: '',
   name: '', // Useful for patrons/team
   role: '', // Useful for patrons/team
+  season: '', // Useful for contestants
 };
 
 const TABS = [
+  { id: 'qualified-contestant', label: 'Contestants' },
   { id: 'patron', label: 'Patrons' },
   { id: 'testimonial', label: 'Testimonials' },
   { id: 'faq', label: 'FAQs' },
@@ -55,9 +57,13 @@ export default function ContentBlocksPage() {
       // Map local form state to backend ContentBlock fields if necessary
       // ContentBlock schema: type, title, description, imageUrl, videoLink, order, isActive, metadata
       
-      // If we are managing FAQs, title = question, description = answer
       if (activeTab === 'faq') {
         payload.title = payload.title || payload.name;
+      }
+      
+      if (activeTab === 'qualified-contestant') {
+        payload.name = payload.title || payload.name;
+        payload.role = payload.description || payload.role; // map role to category
       }
 
       if (editing) {
@@ -139,9 +145,10 @@ export default function ContentBlocksPage() {
                   </div>
                 )}
                 <div style={{ padding: 16 }}>
-                  {r.title && <div style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: 15, marginBottom: 2 }}>{r.title}</div>}
+                  {r.title && !r.name && <div style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: 15, marginBottom: 2 }}>{r.title}</div>}
                   {r.name && <div style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: 15, marginBottom: 2 }}>{r.name}</div>}
                   {r.role && <div style={{ fontSize: 12, color: 'var(--gold)', fontWeight: 600, marginBottom: 4 }}>{r.role}</div>}
+                  {r.season && <div style={{ fontSize: 11, color: 'var(--text-soft)', marginBottom: 4, padding: '2px 6px', background: 'var(--bg-hover)', borderRadius: 4, display: 'inline-block' }}>{r.season}</div>}
                   {r.description && <div style={{ fontSize: 12, color: 'var(--text-soft)', lineHeight: 1.5, marginBottom: 10, display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{r.description}</div>}
                   <div style={{ display: 'flex', gap: 8, marginTop: 10 }}>
                     <button className="btn btn-outline btn-sm" style={{ flex: 1, justifyContent: 'center' }} onClick={() => openEdit(r)}><Edit2 size={12} />Edit</button>
@@ -179,13 +186,19 @@ export default function ContentBlocksPage() {
                   ) : (
                     <>
                       <div className="detail-field">
-                        <div className="detail-field-label">Name / Title</div>
-                        <input name="title" value={form.title || ''} onChange={handle} className="form-input" style={{ fontSize: 13, padding: '8px 12px' }} required />
+                        <div className="detail-field-label">{activeTab === 'qualified-contestant' ? 'Name' : 'Name / Title'}</div>
+                        <input name="title" value={form.title || form.name || ''} onChange={handle} className="form-input" style={{ fontSize: 13, padding: '8px 12px' }} required />
                       </div>
                       <div className="detail-field">
-                        <div className="detail-field-label">Role / Subtitle</div>
-                        <input name="description" value={form.description || ''} onChange={handle} className="form-input" style={{ fontSize: 13, padding: '8px 12px' }} />
+                        <div className="detail-field-label">{activeTab === 'qualified-contestant' ? 'Category (e.g. Junior)' : 'Role / Subtitle'}</div>
+                        <input name="description" value={form.description || form.role || ''} onChange={handle} className="form-input" style={{ fontSize: 13, padding: '8px 12px' }} />
                       </div>
+                      {activeTab === 'qualified-contestant' && (
+                        <div className="detail-field">
+                          <div className="detail-field-label">Season (e.g. Season 4)</div>
+                          <input name="season" value={form.season || ''} onChange={handle} className="form-input" style={{ fontSize: 13, padding: '8px 12px' }} required />
+                        </div>
+                      )}
                       <div className="detail-field">
                         <div className="detail-field-label">Image URL</div>
                         <input name="imageUrl" type="url" value={form.imageUrl || ''} onChange={handle} className="form-input" style={{ fontSize: 13, padding: '8px 12px' }} />

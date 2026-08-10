@@ -67,7 +67,7 @@ function MusicSocietyOverviewPage() {
   });
 
   return (
-    <div className="space-y-12 pb-12 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="space-y-8 pb-8 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       {/* Page Hero */}
       <ScrollReveal direction="up">
@@ -264,7 +264,7 @@ function MusicSocietyOverviewPage() {
           {/* Timeline line */}
           <div className="absolute left-6 sm:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-orange-400 to-amber-300 -translate-x-0.5 sm:-translate-x-0"></div>
           
-          <div className="space-y-8">
+          <div className="space-y-4">
             {milestones.map((m, i) => (
               <ScrollReveal key={i} direction={i % 2 === 0 ? "left" : "right"} delay={i * 0.05}>
                 <div className={`relative flex items-center gap-6 sm:gap-0 ${i % 2 === 0 ? "sm:flex-row" : "sm:flex-row-reverse"}`}>

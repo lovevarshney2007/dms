@@ -17,49 +17,7 @@ const fallbackSS = defaultSuccessStories;
 // DMS Aarohi logo fallback for contestants without images
 const DMS_LOGO = "/images/looth.png";
 
-// Season 4 finalists with images (from /seasons/ folder if available, else logo)
-const season4Finalists = [
-  // Junior
-  { name: "Aarna Agrawal", category: "Junior", image: "/images/looth.png" },
-  { name: "Adaa Srivastava", category: "Junior", image: "/seasons/adaa.png" },
-  { name: "Ayami Aadhya", category: "Junior", image: "/seasons/ayaami.png" },
-  { name: "Devarsh Sharma", category: "Junior", image: "/images/looth.png" },
-  { name: "Dhruv Pandit", category: "Junior", image: "/images/looth.png" },
-  { name: "Lavishka Sharma", category: "Junior", image: "/images/looth.png" },
-  { name: "Mandeep Singh", category: "Junior", image: "/images/looth.png" },
-  { name: "Netra Singh", category: "Junior", image: "/images/looth.png" },
-  { name: "Praharsh Kashyap", category: "Junior", image: "/images/looth.png" },
-  { name: "Priyanshi", category: "Junior", image: "/images/looth.png" },
-  { name: "Shreyas Thakur", category: "Junior", image: "/images/looth.png" },
-  { name: "Varin Kakkar", category: "Junior", image: "/seasons/kuvam.png" },
-  { name: "Advita Mittal", category: "Junior", image: "/images/looth.png" },
-  { name: "Keshav Pandit", category: "Junior", image: "/images/looth.png" },
-  // Senior
-  { name: "Arijit Roy", category: "Senior", image: "/seasons/arijit.png" },
-  { name: "Bhoomi Tyagi", category: "Senior", image: "/images/looth.png" },
-  { name: "Chandreyi Banerjee", category: "Senior", image: "/images/looth.png" },
-  { name: "Deepshikha Mitra", category: "Senior", image: "/seasons/deepshikha.png" },
-  { name: "Kuvam Sethi", category: "Senior", image: "/seasons/kuvam.png" },
-  { name: "Maanvi Dwivedi", category: "Senior", image: "/seasons/mandeep.png" },
-  { name: "Manoneet Munesha", category: "Senior", image: "/images/looth.png" },
-  { name: "Nagma Ali", category: "Senior", image: "/images/looth.png" },
-  { name: "Nitin Mishra", category: "Senior", image: "/images/looth.png" },
-  { name: "Ruchika Chatterjee", category: "Senior", image: "/images/looth.png" },
-  { name: "Sakshi Kumari", category: "Senior", image: "/images/looth.png" },
-  { name: "Soumava Mukhopadhyay", category: "Senior", image: "/images/looth.png" },
-  { name: "Srishti Sargam", category: "Senior", image: "/seasons/sristi.png" },
-  // Super Senior
-  { name: "Chetan P. Barodia (Dr.)", category: "Super Senior", image: "/images/looth.png" },
-  { name: "Khushjit Singh", category: "Super Senior", image: "/images/looth.png" },
-  { name: "Mandeep Negi", category: "Super Senior", image: "/images/looth.png" },
-  { name: "P. Kumar (Dr.)", category: "Super Senior", image: "/images/looth.png" },
-  { name: "Pritika Singh Gupta", category: "Super Senior", image: "/seasons/pratikia.png" },
-  { name: "Rahul Agarwal", category: "Super Senior", image: "/seasons/rahul.png" },
-  { name: "Rajat Chakraborthy", category: "Super Senior", image: "/images/looth.png" },
-  { name: "Rajesh Kapoor", category: "Super Senior", image: "/seasons/rajesh.png" },
-  { name: "Rajesh Laxmi Chand", category: "Super Senior", image: "/images/looth.png" },
-  { name: "Vineet Sharma", category: "Super Senior", image: "/seasons/vineet.png" },
-];
+// Finalists are now fetched from the database
 
 const categoryColors = {
   "Junior": "bg-amber-100 text-amber-700 border-amber-200",
@@ -70,6 +28,9 @@ const categoryColors = {
 
 function MusicSocietyTalentsPage() {
   const [successStories, setSuccessStories] = useState(fallbackSS);
+  const [finalists, setFinalists] = useState([]);
+  const [availableSeasons, setAvailableSeasons] = useState([]);
+  const [activeSeason, setActiveSeason] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
 
   useEffect(() => {
@@ -78,23 +39,41 @@ function MusicSocietyTalentsPage() {
       .then(ssData => {
         if (ssData && ssData.length > 0) {
           setSuccessStories(ssData.map(d => ({
-            name: d.title,
-            achievement: d.subtitle,
+            name: d.title || d.name,
+            achievement: d.subtitle || d.role,
             description: d.description,
             image: d.imageUrl || "/legacy/about_group.png",
             youtube: d.meta?.youtube || null
           })));
         }
       }).catch(console.error);
+
+    fetch(import.meta.env.VITE_API_URL + "/api/content/qualified-contestant")
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.length > 0) {
+          const formatted = data.map(d => ({
+            name: d.name || d.title,
+            category: d.role || d.subtitle,
+            image: d.imageUrl,
+            season: d.season || "Season 4"
+          }));
+          setFinalists(formatted);
+          const seasons = [...new Set(formatted.map(f => f.season))].sort().reverse();
+          setAvailableSeasons(seasons);
+          if (seasons.length > 0) setActiveSeason(seasons[0]);
+        }
+      }).catch(console.error);
   }, []);
 
   const categories = ["All", "Junior", "Senior", "Super Senior"];
+  const validFinalists = finalists.filter(f => f.image !== "/images/looth.png" && f.season === activeSeason);
   const filteredFinalists = activeCategory === "All"
-    ? season4Finalists
-    : season4Finalists.filter(f => f.category === activeCategory);
+    ? validFinalists
+    : validFinalists.filter(f => f.category === activeCategory);
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 space-y-14">
+    <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 space-y-8">
       
       {/* 1. Page Header */}
       <ScrollReveal direction="up">
@@ -163,9 +142,26 @@ function MusicSocietyTalentsPage() {
             <SectionHeading
               eyebrow="Past Season Finalists"
               title="Qualified Contestants"
-              text="Season 4 Finalists - celebrated performances from our completed season."
+              text={`${activeSeason || 'Recent'} Finalists - celebrated performances from our completed season.`}
             />
           </div>
+
+          {/* Season Filter */}
+          {availableSeasons.length > 1 && (
+            <div className="flex justify-center gap-2 mb-6">
+              {availableSeasons.map(s => (
+                <button
+                  key={s}
+                  onClick={() => setActiveSeason(s)}
+                  className={`px-4 py-2 rounded-lg font-bold text-xs uppercase tracking-wider transition-colors ${
+                    activeSeason === s ? 'bg-stone-900 text-white shadow-md' : 'bg-stone-100 text-stone-600 hover:bg-stone-200'
+                  }`}
+                >
+                  {s}
+                </button>
+              ))}
+            </div>
+          )}
 
           {/* Category Filter */}
           <div className="flex flex-wrap justify-center gap-3 mb-10">
@@ -183,7 +179,7 @@ function MusicSocietyTalentsPage() {
                 <span className={`ml-2 px-2 py-0.5 rounded-full text-[10px] font-black ${
                   activeCategory === cat ? "bg-white/20 text-white" : "bg-stone-100 text-stone-500"
                 }`}>
-                  {cat === "All" ? season4Finalists.length : season4Finalists.filter(f => f.category === cat).length}
+                  {cat === "All" ? validFinalists.length : validFinalists.filter(f => f.category === cat).length}
                 </span>
               </button>
             ))}
