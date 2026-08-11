@@ -166,7 +166,7 @@ const FeatureCards = () => {
           {/* 16:9 Image */}
           <div className="w-full aspect-[16/9] rounded-xl overflow-hidden mb-8 relative border border-white/5 shadow-inner transition-all duration-500 group-hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] group-hover:border-white/10">
             <img
-              src="/images/TalentHunt1.jpg"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXOHzAQp0ZXpRT3g_pYyk_Y9pBbKlTz07CQSIV9QagKA&s=10"
               alt="Singer on stage with microphone"
               className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-[1.05]"
             />
