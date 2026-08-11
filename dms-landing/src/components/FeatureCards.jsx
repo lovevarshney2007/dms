@@ -102,7 +102,7 @@ const FeatureCards = () => {
               alt="Community volunteering and helping"
               className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-[1.05]"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/20 to-transparent pointer-events-none opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/90 via-[#050505]/20 to-transparent pointer-events-none opacity-50 group-hover:opacity-30 transition-opacity duration-500" />
           </div>
 
           <div className="glass-pill self-start px-4 py-1.5 mb-5 rounded-full border-[#10B981]/30 bg-[#10B981]/10 text-[#10B981] text-xs font-bold tracking-wider uppercase shadow-[0_0_15px_rgba(16,185,129,0.1)]">
@@ -166,11 +166,11 @@ const FeatureCards = () => {
           {/* 16:9 Image */}
           <div className="w-full aspect-[16/9] rounded-xl overflow-hidden mb-8 relative border border-white/5 shadow-inner transition-all duration-500 group-hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] group-hover:border-white/10">
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXOHzAQp0ZXpRT3g_pYyk_Y9pBbKlTz07CQSIV9QagKA&s=10"
+              src="/images/TalentHunt1.jpg"
               alt="Singer on stage with microphone"
               className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-[1.05]"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/20 to-transparent pointer-events-none opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/90 via-[#050505]/20 to-transparent pointer-events-none opacity-50 group-hover:opacity-30 transition-opacity duration-500" />
           </div>
 
           <div className="glass-pill self-start px-4 py-1.5 mb-5 rounded-full border-[#FF8C00]/30 bg-[#FF8C00]/10 text-[#FF8C00] text-xs font-bold tracking-wider uppercase shadow-[0_0_15px_rgba(255,140,0,0.1)]">
