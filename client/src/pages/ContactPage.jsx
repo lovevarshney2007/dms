@@ -96,7 +96,7 @@ function ContactPage() {
 
   return (
     <>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
         
         {/* Page Header */}
         <ScrollReveal direction="up">
@@ -136,8 +136,13 @@ function ContactPage() {
                   <div className="w-12 h-12 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center shrink-0 group-hover:bg-orange-600 group-hover:text-white transition-colors">
                     {item.icon}
                   </div>
-                  <div>
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-stone-400 mb-0.5">{item.label}</p>
+                  <div className="flex-1">
+                    <div className="flex justify-between items-start">
+                      <p className="text-[10px] font-bold uppercase tracking-widest text-stone-400 mb-0.5">{item.label}</p>
+                      <span className="text-[10px] font-bold text-orange-500 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                        Connect <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                      </span>
+                    </div>
                     <p className="font-bold text-stone-900 group-hover:text-orange-600 transition-colors text-sm sm:text-base mb-1">{item.value}</p>
                     <p className="text-xs text-stone-500">{item.desc}</p>
                   </div>
@@ -188,12 +193,18 @@ function ContactPage() {
                 </div>
                 
                 {submitted ? (
-                  <div className="flex flex-col items-center justify-center py-14 text-center">
-                    <div className="w-20 h-20 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mb-5 text-4xl shadow-sm animate-bounce">
-                      ✓
+                  <div className="flex flex-col items-center justify-center py-12 text-center h-full min-h-[350px]">
+                    <div className="w-20 h-20 rounded-full bg-emerald-50 border-4 border-emerald-100 text-emerald-600 flex items-center justify-center mb-6 shadow-sm">
+                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
                     </div>
-                    <p className="font-bold text-xl text-stone-900">Message Sent!</p>
-                    <p className="text-stone-500 mt-2 text-sm">We'll get back to you within 24 hours.</p>
+                    <h3 className="font-serif font-bold text-2xl text-stone-900 mb-2">Message Sent Successfully!</h3>
+                    <p className="text-stone-500 text-sm max-w-sm mb-8">Thank you for reaching out to DMS Aarohi. Our team will get back to you within 24 hours.</p>
+                    <button 
+                      onClick={() => setSubmitted(false)}
+                      className="px-6 py-2.5 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold rounded-xl transition-colors text-sm"
+                    >
+                      Send Another Message
+                    </button>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">

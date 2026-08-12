@@ -273,7 +273,7 @@ function MusicSocietyShowsPage() {
   ];
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 space-y-6">
+    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 space-y-8">
       
       {/* 1. Page Header & About Our Shows */}
       <ScrollReveal direction="up" className="relative grid lg:grid-cols-2 gap-12 items-center bg-gradient-to-br from-stone-900 to-stone-800 rounded-[3rem] p-8 sm:p-12 shadow-[0_20px_60px_rgba(0,0,0,0.3)] overflow-hidden">
@@ -316,8 +316,8 @@ function MusicSocietyShowsPage() {
               text="Be a part of our next big musical extravaganza."
             />
           </div>
-          <div className="relative max-w-4xl mx-auto bg-white rounded-[2.5rem] p-6 sm:p-8 border border-stone-100 shadow-[0_20px_60px_rgba(0,0,0,0.05)] flex flex-col sm:flex-row gap-8 items-center overflow-hidden group hover:shadow-[0_20px_60px_rgba(234,88,12,0.1)] transition-shadow">
-            <div className="absolute -top-24 -right-24 w-64 h-64 bg-orange-50 rounded-full blur-3xl pointer-events-none group-hover:bg-orange-100 transition-colors"></div>
+          <div className="relative max-w-4xl mx-auto bg-white rounded-[2.5rem] p-6 sm:p-8 border-2 border-orange-100 shadow-[0_20px_60px_rgba(249,115,22,0.15)] flex flex-col sm:flex-row gap-8 items-center overflow-hidden group hover:shadow-[0_20px_60px_rgba(249,115,22,0.25)] transition-shadow">
+            <div className="absolute -top-24 -right-24 w-64 h-64 bg-orange-100 rounded-full blur-3xl pointer-events-none group-hover:bg-orange-200 transition-colors"></div>
             
             <div className="w-full sm:w-2/5 shrink-0 h-64 sm:h-80 rounded-[2rem] overflow-hidden shadow-lg relative">
               <img src={upcomingShow.image} alt={upcomingShow.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
@@ -372,8 +372,8 @@ function MusicSocietyShowsPage() {
               <ScrollReveal key={show.id} direction="up" delay={idx * 0.07} className="h-full">
                 <div className="group bg-white rounded-[2rem] overflow-hidden border border-stone-100 shadow-[0_8px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(234,88,12,0.1)] hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
                   {/* Image */}
-                  <div className="aspect-[4/3] sm:aspect-video relative overflow-hidden bg-stone-900 flex items-center justify-center">
-                    <img src={show.image} alt={show.title} className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700" />
+                  <div className="aspect-[4/3] sm:aspect-video relative overflow-hidden bg-stone-100 flex items-center justify-center">
+                    <img src={show.image} alt={show.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                     {/* Tag */}
                     <div className={`absolute top-3 left-3 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-sm ${tagColors[show.tag] || "bg-stone-100 text-stone-700"}`}>
@@ -390,8 +390,8 @@ function MusicSocietyShowsPage() {
                     <h3 className="font-serif text-lg font-bold text-stone-900 mb-0.5 group-hover:text-orange-600 transition-colors leading-tight">{show.title}</h3>
                     <p className="text-orange-600 text-xs font-bold uppercase tracking-wider mb-3">{show.subtitle}</p>
                     <p className="text-stone-500 text-xs leading-relaxed mb-4 flex-1 line-clamp-3">{show.description}</p>
-                    <div className="flex items-center gap-2 text-stone-400 text-[11px] font-medium mt-auto">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <div className="flex items-center gap-2 text-stone-500 text-[11px] font-bold mt-auto mb-4">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
                       {show.location}
                     </div>
                   </div>
@@ -419,10 +419,10 @@ function MusicSocietyShowsPage() {
               text="A sneak peek into the energy and passion of our live concerts."
             />
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
             {glimpses.map((img, idx) => (
-              <div key={idx} className={`relative group rounded-3xl overflow-hidden shadow-lg ${idx === 0 || idx === 3 ? 'md:col-span-2' : ''}`}>
-                <img src={img} alt="Stage Glimpse" className="w-full h-full object-cover min-h-[180px] group-hover:scale-110 transition-transform duration-700" />
+              <div key={idx} className={`relative group rounded-2xl overflow-hidden shadow-sm hover:shadow-xl`}>
+                <img src={img} alt="Stage Glimpse" className="w-full h-full object-cover aspect-square group-hover:scale-110 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/10 transition-colors duration-300" />
               </div>
             ))}

@@ -32,6 +32,7 @@ function MusicSocietyTalentsPage() {
   const [availableSeasons, setAvailableSeasons] = useState([]);
   const [activeSeason, setActiveSeason] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
+  const [visibleCount, setVisibleCount] = useState(15);
 
   useEffect(() => {
     fetch(import.meta.env.VITE_API_URL + "/api/content/success-story")
@@ -67,10 +68,17 @@ function MusicSocietyTalentsPage() {
   }, []);
 
   const categories = ["All", "Junior", "Senior", "Super Senior"];
-  const validFinalists = finalists.filter(f => f.image !== "/images/looth.png" && f.season === activeSeason);
+  const validFinalists = finalists.filter(f => f.season === activeSeason && f.image && f.image !== "/images/looth.png" && f.image !== "");
   const filteredFinalists = activeCategory === "All"
     ? validFinalists
     : validFinalists.filter(f => f.category === activeCategory);
+
+  const displayedFinalists = filteredFinalists.slice(0, visibleCount);
+
+  // Reset count when filters change
+  useEffect(() => {
+    setVisibleCount(15);
+  }, [activeSeason, activeCategory]);
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 space-y-8">
@@ -186,24 +194,41 @@ function MusicSocietyTalentsPage() {
           </div>
 
           {/* Finalists Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
-            {filteredFinalists.map((finalist, idx) => (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 mb-8">
+            {displayedFinalists.map((finalist, idx) => (
               <div key={idx} className="group flex flex-col items-center bg-white rounded-2xl p-5 border border-stone-100 shadow-sm hover:shadow-[0_10px_30px_rgba(234,88,12,0.12)] hover:-translate-y-1 transition-all duration-300 text-center">
-                <div className="relative w-20 h-20 rounded-full overflow-hidden border-3 border-orange-50 shadow-md mb-3 group-hover:border-orange-200 transition-colors">
+                <div className="relative w-20 h-20 rounded-full overflow-hidden border-3 border-orange-50 shadow-md mb-3 group-hover:border-orange-200 transition-colors bg-stone-100 flex items-center justify-center">
                   <img
-                    src={finalist.image}
+                    src={finalist.image || DMS_LOGO}
                     alt={finalist.name}
                     className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
-                    onError={(e) => { e.target.src = "/talenthunt/logo.png"; }}
+                    onError={(e) => { 
+                      e.target.onerror = null; 
+                      e.target.src = "/images/logoth.png"; // Fallback to main logo if current one fails
+                      e.target.className = "w-1/2 h-1/2 object-contain opacity-50 group-hover:scale-110 transition-transform duration-500";
+                    }}
                   />
                 </div>
                 <h4 className="font-bold text-sm text-stone-900 group-hover:text-orange-600 transition-colors leading-tight mb-1.5">{finalist.name}</h4>
-                <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border ${categoryColors[finalist.category]}`}>
+                <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border ${categoryColors[finalist.category] || categoryColors["All"]}`}>
                   {finalist.category}
                 </span>
               </div>
             ))}
           </div>
+
+          {/* Load More Button */}
+          {visibleCount < filteredFinalists.length && (
+            <div className="flex justify-center">
+              <button
+                onClick={() => setVisibleCount(prev => prev + 15)}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-white border-2 border-stone-200 text-stone-700 font-bold rounded-xl hover:border-orange-400 hover:text-orange-600 transition-colors shadow-sm"
+              >
+                Load More
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="m6 9 6 6 6-6"/></svg>
+              </button>
+            </div>
+          )}
         </ScrollReveal>
       </section>
 
