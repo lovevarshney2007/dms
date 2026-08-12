@@ -44,7 +44,11 @@ app.use("/api", limiter);
 
 // CORS
 const allowedOrigins = [
-  process.env.FRONTEND_URL,
+  ...(process.env.FRONTEND_URL ? process.env.FRONTEND_URL.split(',') : []),
+  process.env.ADMIN_URL,
+  "https://dms-admin-beryl.vercel.app",
+  "https://dms-ten-gamma.vercel.app",
+  "https://dms-ngo.vercel.app",
   "http://localhost:5173",
   "http://localhost:5174",
   "http://localhost:5051",
