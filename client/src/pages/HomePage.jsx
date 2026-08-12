@@ -27,7 +27,7 @@ const heroSliderImages = [
 
 function HeroVideoLink({ videoUrl, settings }) {
   if (!videoUrl) return null;
-  const thumbnail = "/seasons/upcomingEvent.png";
+  const thumbnail = "/seasons/season_4_poster.png";
   
   return (
     <a
