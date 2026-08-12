@@ -15,9 +15,9 @@ describe("JoinUsForm Component", () => {
     // Verify main fields are present
     expect(screen.getByLabelText(/full name/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/email address/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/phone number/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/WhatsApp or Mobile Number/i)).toBeInTheDocument();
     
     // Verify submit button is present
-    expect(screen.getByRole("button", { name: /submit application/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Submit Pre-Registration/i })).toBeInTheDocument();
   });
 });
