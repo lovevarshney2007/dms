@@ -10,14 +10,14 @@ function Footer() {
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-24 bg-orange-600/10 blur-[80px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-16 mb-10">
           
           {/* Column 1: Brand Info */}
-          <div>
+          <div className="md:col-span-12 lg:col-span-5">
             <a href="https://dms-pqry.vercel.app" className="flex items-center gap-3 mb-5">
               <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center p-1.5 shadow-[0_0_15px_rgba(255,255,255,0.1)] shrink-0">
                 <img
-                  className="w-full h-full object-contain brightness-0 invert"
+                  className="w-full h-full object-contain"
                   src="/legacy/tal_logo1.png"
                   alt="DMS Aarohi Logo"
                 />
@@ -32,20 +32,20 @@ function Footer() {
             </p>
             {/* Social Icons */}
             <div className="flex items-center gap-3 mt-2">
-              <a href="https://www.facebook.com/dms.aarohi" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-full bg-stone-900 border border-stone-800 flex items-center justify-center text-stone-400 hover:bg-blue-600 hover:text-white hover:border-blue-500 transition-all duration-300" aria-label="Facebook">
+              <a href="https://www.facebook.com/dms.aarohi" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-full bg-stone-900 border border-stone-800 flex items-center justify-center text-[#1877F2] hover:bg-[#1877F2] hover:text-white hover:border-[#1877F2] transition-all duration-300" aria-label="Facebook">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
               </a>
-              <a href="https://twitter.com/dmsaarohi" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-full bg-stone-900 border border-stone-800 flex items-center justify-center text-stone-400 hover:bg-stone-700 hover:text-white hover:border-stone-500 transition-all duration-300" aria-label="X (Twitter)">
+              <a href="https://twitter.com/dmsaarohi" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-full bg-stone-900 border border-stone-800 flex items-center justify-center text-stone-200 hover:bg-stone-700 hover:text-white hover:border-stone-500 transition-all duration-300" aria-label="X (Twitter)">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
               </a>
-              <a href="https://www.youtube.com/channel/UCFmS_dMuj8yvCUcR-X2NdYQ" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-full bg-stone-900 border border-stone-800 flex items-center justify-center text-stone-400 hover:bg-red-600 hover:text-white hover:border-red-500 transition-all duration-300" aria-label="YouTube">
+              <a href="https://www.youtube.com/channel/UCFmS_dMuj8yvCUcR-X2NdYQ" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-full bg-stone-900 border border-stone-800 flex items-center justify-center text-[#FF0000] hover:bg-[#FF0000] hover:text-white hover:border-[#FF0000] transition-all duration-300" aria-label="YouTube">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.17 1 12 1 12s0 3.83.46 5.58a2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2C23 15.83 23 12 23 12s0-3.83-.46-5.58zM9.5 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>
               </a>
             </div>
           </div>
 
           {/* Column 2: Quick Links */}
-          <div>
+          <div className="md:col-span-6 lg:col-span-3 lg:justify-self-center">
             <h4 className="text-white font-bold tracking-widest text-sm uppercase mb-5 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-orange-500"></span> Quick Links
             </h4>
@@ -60,7 +60,7 @@ function Footer() {
           </div>
 
           {/* Column 3: Contact Info */}
-          <div>
+          <div className="md:col-span-6 lg:col-span-4 lg:justify-self-end">
             <h4 className="text-white font-bold tracking-widest text-sm uppercase mb-5 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-amber-500"></span> Contact Us
             </h4>

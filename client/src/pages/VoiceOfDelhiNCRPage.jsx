@@ -30,7 +30,7 @@ const fallbackSeasons = [
       "Exciting Cash Prizes & Mentorship",
     ],
     youtube: null,
-    poster: "/seasons/season_4_poster.png",
+    poster: "/seasons/upcomingEvent.png",
     finalists: null,
   },
   {

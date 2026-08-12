@@ -21,12 +21,13 @@ const heroSliderImages = [
   { src: "/seasons/season_1_poster.jpeg", alt: "Season 1 Poster" },
   { src: "/seasons/season_2_poster.png", alt: "Season 2 Poster" },
   { src: "/seasons/season_3_poster.jpeg", alt: "Season 3 Poster" },
-  { src: "/seasons/season_4_poster.png", alt: "Season 4 Poster" }
+  { src: "/seasons/season_4_poster.png", alt: "Season 4 Poster" },
+  { src: "/seasons/upcomingEvent.png", alt: "Upcoming Season Poster" }
 ];
 
 function HeroVideoLink({ videoUrl, settings }) {
   if (!videoUrl) return null;
-  const thumbnail = "/seasons/season_4_poster.png"; 
+  const thumbnail = "/seasons/upcomingEvent.png";
   
   return (
     <a
@@ -65,7 +66,18 @@ const fallbackPatrons = [
 ];
 const fallbackQC = [
   { name: "Adaa", status: "Grand Finalist", city: "Delhi NCR", category: "Junior", image: "/seasons/adaa.png" },
-  { name: "Arijit", status: "Grand Finalist", city: "Delhi NCR", category: "Senior", image: "/seasons/arijit.png" }
+  { name: "Arijit", status: "Grand Finalist", city: "Delhi NCR", category: "Senior", image: "/seasons/arijit.png" },
+  { name: "Ayaami", status: "Finalist", city: "Delhi NCR", category: "Junior", image: "/seasons/ayaami.png" },
+  { name: "Deepshikha", status: "Finalist", city: "Delhi NCR", category: "Senior", image: "/seasons/deepshikha.png" },
+  { name: "Kuvam", status: "Finalist", city: "Delhi NCR", category: "Junior", image: "/seasons/kuvam.png" },
+  { name: "Sristi", status: "Finalist", city: "Delhi NCR", category: "Senior", image: "/seasons/sristi.png" }
+];
+
+const fallbackEvents = [
+  { id: 1, title: "Voice of Delhi NCR Season 4", date: "2024-05-10", image: "/seasons/season_4_poster.png" },
+  { id: 2, title: "Voice of Delhi NCR Season 3", date: "2023-05-15", image: "/seasons/season_3_poster.jpeg" },
+  { id: 3, title: "Voice of Delhi NCR Season 2", date: "2022-04-20", image: "/seasons/season_2_poster.png" },
+  { id: 4, title: "Voice of Delhi NCR Season 1", date: "2019-10-12", image: "/seasons/season_1_poster.jpeg" }
 ];
 
 function HeroSlider() {
@@ -131,12 +143,12 @@ function HomePage() {
 
   const pastEvents = eventsData && eventsData.length > 0 ? eventsData.map(ev => ({
     id: ev._id, title: ev.title, date: ev.eventDate ? ev.eventDate.slice(0, 10) : "", image: ev.posterImage
-  })) : [];
+  })) : fallbackEvents;
 
   const contactDetails = [
     ["Email", settings?.contact_email || "dmsaarohi@gmail.com"],
     ["Phone", settings?.contact_phone || "+91-9810225442"],
-    ["Address", settings?.contact_address || "A5, 272, Paschim Vihar, New Delhi - 110063"]
+    ["Address", settings?.contact_address || "A5, Paschim Vihar, New Delhi - 110063"]
   ];
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'instant' });
@@ -298,70 +310,15 @@ function HomePage() {
         </ScrollReveal>
       </section>
 
-      {/* ===== 3. CURRENT COMPETITION SECTION ===== */}
+      {/* ===== 3. CURRENT COMPETITION SECTION (Hidden per request) ===== */}
+      {/* 
       <section id="current-competition" className="max-w-7xl mx-auto px-4 md:px-6 relative z-10 mt-4 mb-4 md:mt-6 md:mb-6">
-        <ScrollReveal direction="up" className="bg-gradient-to-br from-white to-orange-50/50 rounded-[2.5rem] p-8 md:p-12 overflow-hidden relative shadow-[0_20px_60px_rgba(234,88,12,0.05)] border border-orange-100">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-orange-400/10 rounded-full blur-[80px]"></div>
-          <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-amber-400/10 rounded-full blur-[60px]"></div>
-          <div className="grid lg:grid-cols-2 gap-10 items-center relative z-10">
-            <div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100 text-orange-700 border border-orange-200 mb-5 text-[11px] sm:text-xs font-bold uppercase tracking-widest shadow-sm">
-                <span className="w-2.5 h-2.5 rounded-full bg-orange-500 animate-pulse"></span>
-                Upcoming Season
-              </div>
-              <h2 className="font-serif text-3xl md:text-5xl text-stone-900 mb-6 drop-shadow-sm">Voice of Delhi NCR <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">Season 5 Coming Soon</span></h2>
-
-              <div className="space-y-4 mb-8">
-                <div className="flex items-center gap-4 text-stone-700 bg-white/60 p-3 rounded-2xl border border-white/40 shadow-sm backdrop-blur-sm hover:border-orange-200 transition-colors">
-                  <div className="p-2.5 bg-orange-100 rounded-xl text-orange-600 shrink-0">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></svg>
-                  </div>
-                  <span><strong className="text-stone-900">Event Date:</strong> Next Event Coming Soon</span>
-                </div>
-                <div className="flex items-center gap-4 text-stone-700 bg-white/60 p-3 rounded-2xl border border-white/40 shadow-sm backdrop-blur-sm hover:border-orange-200 transition-colors">
-                  <div className="p-2.5 bg-amber-100 rounded-xl text-amber-600 shrink-0">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
-                  </div>
-                  <span><strong className="text-stone-900">Timing:</strong> Registrations Will Open Soon</span>
-                </div>
-                <div className="flex items-center gap-4 text-stone-700 bg-white/60 p-3 rounded-2xl border border-white/40 shadow-sm backdrop-blur-sm hover:border-orange-200 transition-colors">
-                  <div className="p-2.5 bg-orange-100 rounded-xl text-orange-600 shrink-0">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
-                  </div>
-                  <span><strong className="text-stone-900">Venue:</strong> Next Season Will Be Announced Soon</span>
-                </div>
-                <div className="flex items-center gap-4 text-stone-700 bg-white/60 p-3 rounded-2xl border border-white/40 shadow-sm backdrop-blur-sm hover:border-orange-200 transition-colors">
-                  <div className="p-2.5 bg-emerald-100 rounded-xl text-emerald-600 shrink-0">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 12V22H4V12" /><path d="M22 7H2v5h20V7z" /><path d="M12 22V7" /><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z" /><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" /></svg>
-                  </div>
-                  <span><strong className="text-stone-900">Entry:</strong> <span className="text-emerald-600 font-bold">FREE for All</span></span>
-                </div>
-              </div>
-
-              <Link to="/voice-of-delhi-ncr" onClick={scrollToTop} className="inline-block px-8 py-4 rounded-full bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold hover:shadow-[0_10px_20px_rgba(234,88,12,0.3)] hover:-translate-y-1 transition-all">
-                🎵 Explore the Journey
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-2 gap-4 sm:gap-6">
-              <div className="bg-white border border-orange-100 rounded-[2rem] p-6 sm:p-8 text-center shadow-[0_10px_30px_rgba(234,88,12,0.05)] hover:border-orange-200 transition-colors">
-                <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500 mb-2">{daysUntilFinale !== null ? daysUntilFinale : "TBA"}</div>
-                <div className="text-[10px] sm:text-xs text-stone-500 font-bold uppercase tracking-widest">{daysUntilFinale !== null ? (daysUntilFinale === 0 ? "Event Day" : "Days Left") : "Next Season"}</div>
-              </div>
-              <div className="bg-white border border-orange-100 rounded-[2rem] p-6 sm:p-8 text-center shadow-[0_10px_30px_rgba(234,88,12,0.05)] hover:border-orange-200 transition-colors">
-                <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500 mb-2">500+</div>
-                <div className="text-[10px] sm:text-xs text-stone-500 font-bold uppercase tracking-widest">Participants</div>
-              </div>
-              <div className="col-span-2 bg-stone-900 rounded-[2rem] overflow-hidden h-56 sm:h-72 shadow-xl">
-                <img src="/legacy/show.png" className="w-full h-full object-cover" alt="Event Highlights" />
-              </div>
-            </div>
-          </div>
-        </ScrollReveal>
+        ... (hidden) ...
       </section>
+      */}
 
       {/* ===== 4. STARS OF DMS AAROHI + QUALIFIED CONTESTANTS + MUSICAL SHOWS ===== */}
-      <section className="grid lg:grid-cols-[1.2fr_0.8fr] gap-6 max-w-7xl mx-auto px-4 md:px-6 mb-6">
+      <section className="grid lg:grid-cols-[1.2fr_0.8fr] gap-6 max-w-7xl mx-auto px-4 md:px-6 mb-6 mt-12 md:mt-16">
         {/* Left: Stars of DMS Aarohi + Musical Shows */}
         <ScrollReveal direction="up" className="space-y-6">
           {/* Stars of DMS Aarohi */}
@@ -371,9 +328,6 @@ function HomePage() {
                 <p className="text-xs sm:text-sm font-bold uppercase tracking-widest text-orange-600 mb-1">Our Artists</p>
                 <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-stone-900">Stars of DMS Aarohi</h2>
               </div>
-              <Link to="/success-stories" onClick={scrollToTop} className="text-xs sm:text-sm font-bold text-stone-500 hover:text-orange-600 transition flex items-center gap-1">
-                View All <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="sm:w-4 sm:h-4"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
-              </Link>
             </div>
             <div className="group glass-card rounded-2xl sm:rounded-3xl overflow-hidden hover:shadow-[0_10px_30px_rgba(234,88,12,0.15)] transition-all duration-300 border border-stone-200">
               <div className="relative h-56 sm:h-72 overflow-hidden">
@@ -400,10 +354,10 @@ function HomePage() {
                 View All <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="sm:w-4 sm:h-4"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
               </Link>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
-              {pastEvents.map(event => (
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+              {pastEvents.slice(0, 2).map(event => (
                 <Link key={event.id} to="/shows" onClick={scrollToTop} className="group relative rounded-xl sm:rounded-2xl overflow-hidden aspect-square border border-stone-200 shadow-sm">
-                  <img src={event.image} alt={event.title} className="w-full h-full group-hover:scale-110 transition-transform duration-500" />
+                  <img src={event.image} alt={event.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-3 sm:p-4">
                     <p className="text-white font-bold text-xs sm:text-sm leading-tight">{event.title}</p>
                     <p className="text-white/70 text-[10px] sm:text-xs mt-0.5 sm:mt-1">{event.date}</p>
@@ -426,12 +380,14 @@ function HomePage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3 mb-5">
+          <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-5">
             {qContestants.slice(0, 6).map((user, idx) => (
-              <Link key={idx} to="/success-stories" onClick={scrollToTop} className="flex flex-col items-center text-center p-3 bg-white hover:bg-orange-50 rounded-xl sm:rounded-2xl border border-stone-100 hover:border-orange-200 shadow-sm hover:shadow-md transition-all group">
-                <img src={user.image} alt={user.name} className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover border-2 border-white shadow-sm mb-2 mx-auto" />
-                <h4 className="font-bold text-xs sm:text-sm text-stone-900 group-hover:text-orange-600 transition-colors leading-tight">{user.name}</h4>
-                <p className="text-[9px] sm:text-[10px] text-emerald-600 font-bold mt-0.5">{user.status}</p>
+              <Link key={idx} to="/success-stories" onClick={scrollToTop} className="flex items-center gap-2 sm:gap-3 p-2 bg-white hover:bg-orange-50 rounded-xl sm:rounded-2xl border border-stone-100 hover:border-orange-200 shadow-sm hover:shadow-md transition-all group">
+                <img src={user.image} alt={user.name} className="w-12 h-12 sm:w-16 sm:h-16 rounded-lg sm:rounded-xl object-cover shadow-sm shrink-0" />
+                <div className="text-left overflow-hidden">
+                  <h4 className="font-bold text-[11px] sm:text-sm text-stone-900 group-hover:text-orange-600 transition-colors leading-tight truncate">{user.name}</h4>
+                  <p className="text-[9px] sm:text-[11px] text-emerald-600 font-bold mt-0.5 truncate">{user.status}</p>
+                </div>
               </Link>
             ))}
           </div>
@@ -571,7 +527,6 @@ function HomePage() {
             <SectionHeading
               eyebrow="Get In Touch"
               title="Have questions about the event?"
-              text="Reach out to our team for any queries regarding the Grand Finale, venue, or other information."
             />
 
             <div className="mt-8 sm:mt-10 space-y-5 sm:space-y-6 max-w-sm mx-auto sm:mx-0">
@@ -607,7 +562,7 @@ function HomePage() {
       </ScrollReveal>
 
       {/* ===== 10. FINAL CTA ===== */}
-      <ScrollReveal direction="up" className="mb-6 rounded-3xl sm:rounded-[2.5rem] bg-stone-900 text-white p-8 sm:p-14 text-center relative overflow-hidden max-w-7xl mx-4 md:mx-6 xl:mx-auto">
+      {/* <ScrollReveal direction="up" className="mb-6 rounded-3xl sm:rounded-[2.5rem] bg-stone-900 text-white p-8 sm:p-14 text-center relative overflow-hidden max-w-7xl mx-4 md:mx-6 xl:mx-auto">
         <div className="absolute inset-0 z-0 opacity-20">
           <div className="absolute -top-10 -left-10 sm:-top-20 sm:-left-20 w-40 h-40 sm:w-64 sm:h-64 bg-orange-500 rounded-full blur-[60px] sm:blur-[100px]"></div>
           <div className="absolute -bottom-10 -right-10 sm:-bottom-20 sm:-right-20 w-40 h-40 sm:w-64 sm:h-64 bg-amber-500 rounded-full blur-[60px] sm:blur-[100px]"></div>
@@ -622,7 +577,7 @@ function HomePage() {
             📝 Pre-Register Now
           </Link>
         </div>
-      </ScrollReveal>
+      </ScrollReveal> */}
 
     </PageShell>
   );

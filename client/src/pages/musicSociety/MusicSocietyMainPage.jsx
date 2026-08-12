@@ -214,7 +214,7 @@ function MusicSocietyMainPage() {
               {[
                 ["Email", "dmsaarohi@gmail.com"],
                 ["Phone", "+91-9810225442"],
-                ["Address", "A5, 272, Paschim Vihar, New Delhi - 110063"]
+                ["Address", "A5, Paschim Vihar, New Delhi - 110063"]
               ].map(([label, value]) => (
                 <div key={label} className="rounded-lg border border-stone-200 bg-white/80 p-4 shadow-sm">
                   <p className="text-xs font-bold uppercase tracking-wider text-orange-700">{label}</p>

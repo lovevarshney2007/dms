@@ -84,7 +84,7 @@ function ContactPage() {
     e.preventDefault();
     setLoading(true);
     try {
-      await submitForm("/api/forms/contact", form);
+      await submitForm("/forms/contact", form);
       setSubmitted(true);
       setTimeout(() => setSubmitted(false), 4000);
       setForm({ name: "", email: "", phone: "", subject: "", message: "" });

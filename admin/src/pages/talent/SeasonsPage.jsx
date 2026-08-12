@@ -136,7 +136,8 @@ export default function SeasonsPage() {
                 r.year == '2019' ? '/seasons/season2_winners.jpeg' :
                 r.year == '2021' ? '/seasons/season_3_poster_rajsathan.png' :
                 r.year == '2024' ? '/seasons/season_3_poster.jpeg' :
-                (r.year == '2026' || r.year == '2027') ? '/seasons/season_4_poster.png' :
+                r.year == '2027' ? '/seasons/upcomingEvent.png' :
+                r.year == '2026' ? '/seasons/season_4_poster.png' :
                 r.title?.includes('Rajasthan') ? '/seasons/season_3_poster_rajsathan.png' : null
               ) : null;
               

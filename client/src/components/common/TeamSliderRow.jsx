@@ -17,9 +17,6 @@ function TeamSliderRow({ members, reverse = false }) {
                 loading="lazy"
                 decoding="async"
               />
-              <div className="absolute inset-x-3 bottom-3 rounded-full bg-stone-950/75 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-white backdrop-blur sm:inset-x-4 sm:bottom-4 sm:px-4 sm:py-2 sm:text-xs">
-                DMS Aarohi
-              </div>
             </div>
             <div className="space-y-1.5 p-4 sm:p-5">
               <h3 className="font-serif text-lg text-stone-900 sm:text-2xl">{member.name}</h3>

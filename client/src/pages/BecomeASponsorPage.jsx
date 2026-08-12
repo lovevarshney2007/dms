@@ -35,7 +35,7 @@ export default function BecomeASponsorPage() {
 
     setLoading(true);
     try {
-      await submitForm("/api/forms/sponsor-request", {
+      await submitForm("/forms/sponsor-request", {
         name: form.contactPerson,
         organization: form.companyName,
         phone: form.mobile,

@@ -124,8 +124,8 @@ function MusicSocietyOverviewPage() {
         <div className="bg-gradient-to-br from-white/90 via-[#fff8ef] to-orange-50/60 rounded-[2.5rem] p-8 sm:p-14 border border-orange-100 shadow-[0_20px_60px_rgba(234,88,12,0.06)] relative overflow-hidden">
           <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-orange-400/10 blur-[80px]"></div>
           
-          <div className="grid lg:grid-cols-2 gap-12 items-center relative z-10">
-            <div>
+          <div className="grid lg:grid-cols-2 gap-12 items-stretch relative z-10">
+            <div className="flex flex-col h-full">
               <p className="text-xs sm:text-sm font-bold uppercase tracking-widest text-orange-600 mb-3">Our Story</p>
               <h2 className="font-serif text-3xl sm:text-4xl text-stone-900 mb-6 leading-tight">
                 Promoting Music Since 2013
@@ -135,7 +135,7 @@ function MusicSocietyOverviewPage() {
               </p>
 
               {/* Our Recognition */}
-              <div className="bg-white rounded-2xl p-5 border border-stone-100 mb-6 shadow-sm">
+              <div className="mt-auto bg-white rounded-2xl p-5 border border-stone-100 shadow-sm">
                 <h3 className="font-serif font-bold text-stone-900 mb-3">Recognitions</h3>
                 <ul className="space-y-2 text-stone-600 text-sm font-medium">
                   <li className="flex gap-3 items-start"><span className="text-orange-500">✔</span> Registered under Societies Registration Act, 1860</li>
@@ -145,13 +145,13 @@ function MusicSocietyOverviewPage() {
             </div>
             
             {/* Right Column */}
-            <div className="relative flex flex-col gap-6">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white h-72">
+            <div className="relative flex flex-col gap-6 h-full">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white flex-1 min-h-[250px] lg:min-h-[200px]">
                 <img src={pageMeta.imageUrl} alt={pageMeta.title} className="w-full h-full object-cover" />
               </div>
               
               {/* What We Do */}
-              <div className="bg-white/90 backdrop-blur rounded-2xl p-5 border border-stone-100 shadow-sm">
+              <div className="mt-auto bg-white/90 backdrop-blur rounded-2xl p-5 border border-stone-100 shadow-sm">
                 <h3 className="font-serif font-bold text-stone-900 mb-3">Core Activities</h3>
                 <ul className="grid grid-cols-2 gap-3 text-sm text-stone-600 font-medium">
                   <li className="flex items-center gap-2"><span className="text-orange-500">•</span> Singing Competitions</li>
