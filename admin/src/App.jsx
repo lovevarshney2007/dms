@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { isLoggedIn } from './lib/api';
 import LoginPage from './pages/LoginPage';
 import Layout from './components/Layout';
+import ScrollToTop from './components/ScrollToTop';
 import DashboardPage from './pages/DashboardPage';
 import RegistrationsPage from './pages/talent/RegistrationsPage';
 import TalentEventsPage from './pages/talent/TalentEventsPage';
@@ -29,6 +30,7 @@ function PrivateRoute({ children }) {
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/" element={<PrivateRoute><Layout /></PrivateRoute>}>
