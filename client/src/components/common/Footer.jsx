@@ -17,7 +17,7 @@ function Footer() {
             <a href="https://dms-pqry.vercel.app" className="flex items-center gap-3 mb-5">
               <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center p-1.5 shadow-[0_0_15px_rgba(255,255,255,0.1)] shrink-0">
                 <img
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-contain brightness-0 invert"
                   src="/legacy/tal_logo1.png"
                   alt="DMS Aarohi Logo"
                 />
