@@ -19,35 +19,30 @@ function MusicSocietyMainPage() {
   const upcomingEvents = [
     {
       id: 1,
-      title: "Voice of Delhi-NCR Talent Hunt",
-      date: "Next Season Coming Soon",
-      location: "Delhi NCR",
-      description: "Showcase your singing talent and win exciting prizes. Open to all age groups and singing styles.",
-      type: "Talent Hunt"
+      title: "Next Singing Competition",
+      date: "Coming Soon",
+      location: "To Be Announced",
+      description: "Our flagship singing competition is returning bigger and better! Showcase your talent, win exciting prizes, and perform on the grandest stage.",
+      type: "Featured Event",
+      isFeatured: true
     },
     {
       id: 2,
       title: "Classical Music Workshop",
       date: "Dates To Be Announced",
       location: "DMS Studio",
-      description: "Learn classical music techniques from experienced maestros. Limited participants - register now!",
-      type: "Workshop"
+      description: "Learn classical music techniques from experienced maestros.",
+      type: "Workshop",
+      isFeatured: false
     },
     {
       id: 3,
       title: "Golden Era Music Evening",
       date: "Coming Soon",
       location: "Open Air Theater",
-      description: "Experience timeless melodies performed by renowned artists. A night of pure musical bliss.",
-      type: "Concert"
-    },
-    {
-      id: 4,
-      title: "Youth Music Mentorship Program",
-      date: "Registrations Will Open Soon",
-      location: "Virtual / In-Person",
-      description: "One-on-one mentoring sessions with professional musicians. Help shape your future in music.",
-      type: "Mentorship"
+      description: "Experience timeless melodies performed by renowned artists.",
+      type: "Concert",
+      isFeatured: false
     }
   ];
 
@@ -55,9 +50,7 @@ function MusicSocietyMainPage() {
     { id: 1, image: "/legacy/current_event.jpg", alt: "Music Performance" },
     { id: 2, image: "/legacy/Joinus.jpg", alt: "Join Us Event" },
     { id: 3, image: "/legacy/bd1.jpg", alt: "Event Crowd" },
-    { id: 4, image: "/legacy/bd2.jpg", alt: "Artists Performing" },
-    { id: 5, image: "/legacy/bd3.jpg", alt: "Audience Engaged" },
-    { id: 6, image: "/legacy/patrons.jpg", alt: "Team Gathering" }
+    { id: 4, image: "/legacy/bd2.jpg", alt: "Artists Performing" }
   ];
 
   const handleContactSubmit = (e) => {
@@ -73,79 +66,95 @@ function MusicSocietyMainPage() {
         <HeroSection />
       </section>
 
-      {/* About Us Section */}
-      <section id="about" className="rounded-[2rem] border border-white/40 bg-gradient-to-br from-white/80 to-orange-50/40 p-6 shadow-lg md:p-8 scroll-mt-28 mt-8 sm:mt-10">
-        <SectionHeading
-          eyebrow="About DMS Aarohi Music"
-          title="Cultural Heritage and Musical Excellence"
-          text="Founded in 2013, DMS Aarohi is dedicated to preserving and promoting Indian classical music while nurturing modern musical talents. We believe in music's power to unite communities and inspire generations."
-        />
-
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
-          {[
-            { icon: "🎵", title: "Our Mission", desc: "Promote Indian classical music and provide platform for emerging talents to showcase their abilities." },
-            { icon: "🌟", title: "Our Vision", desc: "Create a vibrant musical community where tradition meets innovation and talent thrives." },
-            { icon: "❤️", title: "Our Values", desc: "Excellence, authenticity, community engagement, and social responsibility through music." }
-          ].map((item, index) => (
-            <div key={index} className="rounded-xl border border-orange-200/60 bg-white/80 p-5 shadow-sm">
-              <p className="text-3xl">{item.icon}</p>
-              <h3 className="mt-2 font-serif text-lg text-stone-900">{item.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-stone-600">{item.desc}</p>
-            </div>
-          ))}
+      {/* Events Section - Moved Up and Highlighted */}
+      <section id="events" className="scroll-mt-28 mt-8 sm:mt-10">
+        <div className="mb-8">
+          <p className="text-xs font-semibold uppercase tracking-widest text-orange-600">Upcoming</p>
+          <h2 className="mt-2 font-serif text-3xl sm:text-4xl text-stone-900 font-bold">Featured Event</h2>
         </div>
 
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 md:grid-cols-4">
-          {[
-            { number: "13+", text: "Years of Service" },
-            { number: "500+", text: "Talents Trained" },
-            { number: "100+", text: "Events Held" },
-            { number: "1000+", text: "Audience Reached" }
-          ].map((stat, index) => (
-            <div key={index} className="rounded-lg border border-orange-200/60 bg-gradient-to-br from-orange-50 to-orange-100/50 p-4 text-center shadow-sm">
-              <p className="font-serif text-3xl font-bold text-orange-900">{stat.number}</p>
-              <p className="mt-1 text-xs text-stone-700">{stat.text}</p>
+        {upcomingEvents.filter(e => e.isFeatured).map((event) => (
+          <div key={event.id} className="relative rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-stone-900 to-stone-800 shadow-2xl mb-8 border border-stone-800">
+            {/* Background Image / Pattern overlay (optional, keeping it clean dark for now) */}
+            <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-orange-500 via-stone-900 to-stone-900"></div>
+            
+            <div className="relative z-10 p-8 sm:p-12 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8">
+              <div className="max-w-2xl">
+                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-widest mb-6 border border-orange-500/30">
+                  <span className="w-2 h-2 rounded-full bg-orange-400 animate-pulse"></span>
+                  {event.type}
+                </span>
+                <h3 className="font-serif text-4xl sm:text-5xl text-white font-bold mb-4 leading-tight">
+                  {event.title}
+                </h3>
+                <div className="flex flex-wrap items-center gap-6 mb-6 text-stone-300 font-medium">
+                  <span className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-xl"><span className="text-xl">📅</span> {event.date}</span>
+                  <span className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-xl"><span className="text-xl">📍</span> {event.location}</span>
+                </div>
+                <p className="text-stone-400 text-lg leading-relaxed mb-8">
+                  {event.description}
+                </p>
+                <div className="flex flex-wrap gap-4 items-center">
+                  <button
+                    onClick={() => {
+                      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-orange-600 to-amber-500 px-8 py-4 font-bold text-white transition hover:shadow-[0_10px_30px_rgba(249,115,22,0.4)] hover:-translate-y-1"
+                  >
+                    📝 Pre-Register Now
+                  </button>
+                  <span className="text-sm font-bold text-emerald-400 uppercase tracking-widest px-4 py-3 bg-emerald-400/10 rounded-full border border-emerald-400/20">
+                    🟢 Registration Opening Soon
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+
+        <div className="grid gap-4 sm:gap-5 md:grid-cols-2">
+          {upcomingEvents.filter(e => !e.isFeatured).map((event) => (
+            <div key={event.id} className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div className="inline-flex items-center gap-1.5 rounded-full bg-stone-100 px-3 py-1 text-xs font-semibold text-stone-700 mb-4">
+                {event.type}
+              </div>
+              <h3 className="font-serif text-xl font-bold text-stone-900 mb-3">{event.title}</h3>
+              <div className="flex flex-col gap-2 text-sm text-stone-600 font-medium mb-4">
+                <span className="flex items-center gap-2">📅 {event.date}</span>
+                <span className="flex items-center gap-2">📍 {event.location}</span>
+              </div>
+              <p className="text-sm leading-relaxed text-stone-500 mb-6">{event.description}</p>
+              <button
+                onClick={() => {
+                  document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="w-full text-center rounded-xl border border-stone-200 bg-stone-50 px-5 py-3 text-sm font-bold text-stone-700 transition hover:bg-stone-100"
+              >
+                Learn More
+              </button>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Events Section */}
-      <section id="events" className="rounded-2xl border border-white/40 bg-white/50 p-6 shadow-lg md:p-8 scroll-mt-28 mt-8 sm:mt-10">
-        <div className="mb-8">
-          <p className="text-xs font-semibold uppercase tracking-widest text-stone-600">Upcoming</p>
-          <h2 className="mt-2 font-serif text-3xl text-stone-900">Events & Programs</h2>
-          <p className="mt-2 max-w-2xl text-sm text-stone-600">
-            Join us for various music events, workshops, and talent showcases throughout the year
-          </p>
-        </div>
+      {/* About Us Section - Compact */}
+      <section id="about" className="rounded-[2.5rem] border border-orange-100 bg-gradient-to-br from-[#fff8ef] to-white p-8 sm:p-12 shadow-lg scroll-mt-28 mt-8 sm:mt-10">
+        <SectionHeading
+          eyebrow="About DMS Aarohi"
+          title="Cultural Heritage and Musical Excellence"
+          text="Founded in 2013, DMS Aarohi is dedicated to preserving and promoting Indian classical music while nurturing modern musical talents."
+        />
 
-        <div className="grid gap-4 sm:gap-5 md:grid-cols-2">
-          {upcomingEvents.map((event) => (
-            <div key={event.id} className="rounded-xl border border-orange-100/80 bg-gradient-to-br from-[#fff8ef] to-white p-5 shadow-sm transition hover:shadow-md">
-              <div className="flex items-start justify-between gap-3">
-                <div className="flex-1">
-                  <div className="inline-flex items-center gap-1.5 rounded-full bg-orange-100 px-3 py-1 text-xs font-semibold text-orange-800">
-                    {event.type}
-                  </div>
-                  <h3 className="mt-3 font-serif text-lg font-semibold text-stone-900">{event.title}</h3>
-                  <div className="mt-3 space-y-1.5 text-sm text-stone-600">
-                    <p className="flex items-center gap-2"><span>📅</span> {event.date}</p>
-                    <p className="flex items-center gap-2"><span>📍</span> {event.location}</p>
-                  </div>
-                  <p className="mt-3 text-sm leading-6 text-stone-600">{event.description}</p>
-                  
-                  {/* Registration Button */}
-                  <button
-                    onClick={() => {
-                      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    className="mt-4 inline-flex rounded-lg bg-gradient-to-r from-orange-700 to-amber-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:from-orange-600 hover:to-amber-500 active:scale-95"
-                  >
-                    📝 Register Now
-                  </button>
-                </div>
-              </div>
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {[
+            { icon: "🎵", title: "Our Mission", desc: "Promote Indian classical music and provide a platform for emerging talents." },
+            { icon: "🌟", title: "Our Vision", desc: "Create a vibrant musical community where tradition meets innovation." },
+            { icon: "❤️", title: "Our Values", desc: "Excellence, authenticity, and social responsibility through music." }
+          ].map((item, index) => (
+            <div key={index} className="rounded-2xl bg-white p-6 shadow-sm border border-stone-100">
+              <p className="text-4xl mb-4">{item.icon}</p>
+              <h3 className="font-serif text-xl font-bold text-stone-900 mb-2">{item.title}</h3>
+              <p className="text-sm leading-relaxed text-stone-600">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -190,18 +199,7 @@ function MusicSocietyMainPage() {
         </div>
       </section>
 
-      {/* Our Team Section */}
-      <section id="team" className="rounded-2xl border border-white/40 bg-gradient-to-br from-white/80 to-orange-50/40 p-6 shadow-lg md:p-8 scroll-mt-28 mt-8 sm:mt-10">
-        <div className="mb-8">
-          <p className="text-xs font-semibold uppercase tracking-widest text-orange-800">Team</p>
-          <h2 className="mt-2 font-serif text-3xl text-stone-900">Meet Our Team</h2>
-          <p className="mt-2 max-w-2xl text-sm text-stone-600">
-            Passionate musicians and organizers dedicated to creating exceptional musical experiences
-          </p>
-        </div>
 
-        <TeamSliderRow members={teamMembers} />
-      </section>
 
       {/* Contact Section */}
       <section id="contact" className="rounded-2xl border border-white/40 bg-[#fff8ef] p-6 shadow-lg md:p-8 scroll-mt-28 mt-8 sm:mt-10 mb-6 sm:mb-8">

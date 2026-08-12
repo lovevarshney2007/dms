@@ -15,7 +15,6 @@ const milestones = [
   { year: "2021", title: "Voice of Rajasthan - Season 1", desc: "A special edition - Voice of Rajasthan - expanded DMS Aarohi's reach beyond Delhi NCR, celebrating the rich musical heritage of Rajasthan." },
   { year: "2024", title: "Voice of Delhi NCR - Season 3", desc: "Season 3 launched online auditions for the first time, significantly expanding participant reach across Delhi NCR." },
   { year: "2026", title: "Voice of Delhi NCR - Season 4", desc: "Voice of Delhi NCR Season 4 successfully concluded at Pearey Lal Bhawan, ITO, New Delhi." },
-  { year: "2027", title: "Voice of Delhi NCR - Season 5", desc: "Our upcoming season is coming soon! Registrations and audition dates will be announced shortly." },
 ];
 
 // Updated stats
@@ -41,17 +40,16 @@ const teamMembers = [
 function TeamMemberCard({ member, index }) {
   return (
     <ScrollReveal direction="up" delay={index * 0.07}>
-      <div className="group flex flex-col items-center bg-white rounded-[2rem] p-6 border border-stone-100 shadow-[0_8px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(234,88,12,0.15)] hover:-translate-y-2 transition-all duration-300 text-center h-full">
-        {/* Large image */}
-        <div className="relative mb-5 w-36 h-36 sm:w-44 sm:h-44 rounded-full overflow-hidden border-4 border-orange-50 shadow-lg group-hover:border-orange-200 transition-colors group-hover:shadow-xl">
+      <div className="flex flex-col items-center bg-white rounded-3xl p-6 border border-stone-100 shadow-sm hover:shadow-md transition-shadow text-center h-full">
+        {/* Un-faded image */}
+        <div className="mb-4 w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-white shadow-md">
           <img
             src={member.image}
             alt={member.name}
-            className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
+            className="w-full h-full object-cover object-top"
           />
-          <div className="absolute inset-0 rounded-full ring-2 ring-orange-400/0 group-hover:ring-orange-400/40 ring-offset-2 transition-all duration-300" />
         </div>
-        <h3 className="font-serif font-bold text-stone-900 text-lg leading-tight mb-1.5">{member.name}</h3>
+        <h3 className="font-serif font-bold text-stone-900 text-lg leading-tight mb-1">{member.name}</h3>
         <p className="text-orange-600 text-xs font-bold uppercase tracking-wider">{member.role}</p>
       </div>
     </ScrollReveal>
@@ -120,63 +118,41 @@ function MusicSocietyOverviewPage() {
         <div className="bg-gradient-to-br from-white/90 via-[#fff8ef] to-orange-50/60 rounded-[2.5rem] p-8 sm:p-14 border border-orange-100 shadow-[0_20px_60px_rgba(234,88,12,0.06)] relative overflow-hidden">
           <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-orange-400/10 blur-[80px]"></div>
           
-          <div className="grid lg:grid-cols-2 gap-12 items-start relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center relative z-10">
             <div>
               <p className="text-xs sm:text-sm font-bold uppercase tracking-widest text-orange-600 mb-3">Our Story</p>
               <h2 className="font-serif text-3xl sm:text-4xl text-stone-900 mb-6 leading-tight">
-                Promoting Music & Nurturing Talent Since 2013
+                Promoting Music Since 2013
               </h2>
-              <p className="text-stone-600 leading-relaxed mb-6">
-                DMS Aarohi Musical Society has been promoting Indian music and nurturing emerging singing talent since 2013. Through its flagship competition, <strong className="text-orange-700">Voice of Delhi NCR</strong>, along with live concerts, tribute shows, and cultural events, the society provides aspiring artists with a professional platform to perform, grow, and showcase their talent while celebrating the rich heritage of Indian music.
+              <p className="text-stone-600 text-lg leading-relaxed mb-6">
+                Through our flagship competition <strong className="text-orange-700">Voice of Delhi NCR</strong>, live concerts, and tribute shows, we provide aspiring artists with a professional platform to perform and grow.
               </p>
 
               {/* Our Recognition */}
-              <div className="bg-orange-50 rounded-2xl p-5 border border-orange-100 mb-6">
-                <h3 className="font-serif font-bold text-stone-900 text-lg mb-3">Our Recognition</h3>
-                <div className="space-y-2">
-                  <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center shrink-0 mt-0.5">
-                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
-                    </div>
-                    <p className="text-stone-700 text-sm font-medium">Registered under the Societies Registration Act, 1860<br/><span className="text-stone-500">(Registration No. Society/West/2013/8900890)</span></p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center shrink-0 mt-0.5">
-                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
-                    </div>
-                    <p className="text-stone-700 text-sm font-medium">Registered under Section 12A & 80G of the Income Tax Act, 1961</p>
-                  </div>
-                </div>
+              <div className="bg-white rounded-2xl p-5 border border-stone-100 mb-6 shadow-sm">
+                <h3 className="font-serif font-bold text-stone-900 mb-3">Recognitions</h3>
+                <ul className="space-y-2 text-stone-600 text-sm font-medium">
+                  <li className="flex gap-3 items-start"><span className="text-orange-500">✔</span> Registered under Societies Registration Act, 1860</li>
+                  <li className="flex gap-3 items-start"><span className="text-orange-500">✔</span> Registered under Section 12A & 80G of Income Tax Act, 1961</li>
+                </ul>
               </div>
             </div>
             
             {/* Right Column */}
-            <div className="relative flex flex-col gap-8">
-              <div className="relative">
-                <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-                  <img src={pageMeta.imageUrl} alt={pageMeta.title} className="w-full h-80 object-cover" />
-                </div>
-                <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-tr from-orange-400 to-amber-300 rounded-3xl -z-10 rotate-6 opacity-60 blur-sm"></div>
+            <div className="relative flex flex-col gap-6">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white h-72">
+                <img src={pageMeta.imageUrl} alt={pageMeta.title} className="w-full h-full object-cover" />
               </div>
               
               {/* What We Do */}
-              <div className="bg-white/50 backdrop-blur rounded-2xl p-5 border border-orange-100 shadow-[0_10px_30px_rgba(234,88,12,0.05)]">
-                <h3 className="font-serif font-bold text-stone-900 text-lg mb-3">What We Do</h3>
-                <div className="space-y-3">
-                  {[
-                    "Organize Voice of Delhi NCR singing competition",
-                    "Promote Indian music and emerging talent",
-                    "Conduct live concerts and tribute shows",
-                    "Provide a professional platform for aspiring singers"
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <div className="w-6 h-6 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center shrink-0 shadow-inner">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
-                      </div>
-                      <p className="text-stone-700 text-sm font-medium">{item}</p>
-                    </div>
-                  ))}
-                </div>
+              <div className="bg-white/90 backdrop-blur rounded-2xl p-5 border border-stone-100 shadow-sm">
+                <h3 className="font-serif font-bold text-stone-900 mb-3">Core Activities</h3>
+                <ul className="grid grid-cols-2 gap-3 text-sm text-stone-600 font-medium">
+                  <li className="flex items-center gap-2"><span className="text-orange-500">•</span> Singing Competitions</li>
+                  <li className="flex items-center gap-2"><span className="text-orange-500">•</span> Live Concerts</li>
+                  <li className="flex items-center gap-2"><span className="text-orange-500">•</span> Talent Promotion</li>
+                  <li className="flex items-center gap-2"><span className="text-orange-500">•</span> Cultural Events</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -184,39 +160,34 @@ function MusicSocietyOverviewPage() {
       </ScrollReveal>
 
       {/* Mission, Vision, Values */}
-      <div className="grid sm:grid-cols-3 gap-6 items-stretch">
+      <div className="grid md:grid-cols-3 gap-6">
         {[
           {
             icon: "🎵",
             title: "Our Mission",
-            desc: "To promote Indian music and create meaningful opportunities for aspiring singers through transparent competitions, live performances, and musical events.",
-            color: "from-amber-400 to-orange-500",
+            desc: "Promote Indian music and create opportunities for aspiring singers through transparent competitions and live performances.",
+            color: "bg-orange-50 text-orange-900 border-orange-200",
           },
           {
             icon: "🌟",
             title: "Our Vision",
-            desc: "To nurture emerging talent and inspire a lifelong appreciation for Indian music by creating a trusted platform for artists to perform and grow.",
-            color: "from-rose-400 to-orange-500",
+            desc: "Nurture emerging talent and inspire a lifelong appreciation for Indian music through a trusted platform.",
+            color: "bg-rose-50 text-rose-900 border-rose-200",
           },
           {
             icon: "❤️",
             title: "Our Values",
-            desc: "To uphold integrity, transparency, creativity, and excellence while fostering a supportive environment where every artist is encouraged to learn, perform, and grow.",
-            color: "from-pink-400 to-rose-500",
+            desc: "Uphold integrity, creativity, and excellence while fostering a supportive environment for artists.",
+            color: "bg-amber-50 text-amber-900 border-amber-200",
           },
         ].map((item, i) => (
           <ScrollReveal key={i} direction="up" delay={i * 0.1} className="flex">
-            <div className="group relative overflow-hidden rounded-[2rem] border border-white bg-white p-7 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all backdrop-blur-md w-full flex flex-col">
-              <div className={`absolute left-0 top-0 h-full w-1.5 bg-gradient-to-b ${item.color}`}></div>
-              <div className="flex items-start gap-4 flex-1">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-stone-100 text-3xl shadow-sm transition-transform group-hover:scale-110">
-                  {item.icon}
-                </div>
-                <div className="flex flex-col flex-1">
-                  <h3 className="font-serif text-xl font-bold text-stone-900 mb-3">{item.title}</h3>
-                  <p className="text-stone-600 text-sm leading-relaxed">{item.desc}</p>
-                </div>
+            <div className={`rounded-3xl border p-8 flex flex-col h-full ${item.color}`}>
+              <div className="text-4xl mb-4 bg-white/50 w-16 h-16 rounded-2xl flex items-center justify-center shadow-sm">
+                {item.icon}
               </div>
+              <h3 className="font-serif text-2xl font-bold mb-3">{item.title}</h3>
+              <p className="text-sm font-medium opacity-80 leading-relaxed">{item.desc}</p>
             </div>
           </ScrollReveal>
         ))}
@@ -224,11 +195,7 @@ function MusicSocietyOverviewPage() {
 
       {/* Objectives */}
       <ScrollReveal direction="up">
-        <div className="bg-stone-900 rounded-[2.5rem] p-8 sm:p-14 relative overflow-hidden">
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute -top-20 -left-20 w-64 h-64 bg-orange-500 rounded-full blur-[100px]"></div>
-            <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-amber-500 rounded-full blur-[100px]"></div>
-          </div>
+        <div className="bg-stone-900 rounded-[2.5rem] p-8 sm:p-14 relative overflow-hidden shadow-2xl">
           <div className="relative z-10">
             <div className="text-center mb-10">
               <p className="text-xs font-bold uppercase tracking-widest text-orange-400 mb-3">Our Purpose</p>
@@ -236,11 +203,11 @@ function MusicSocietyOverviewPage() {
             </div>
             <div className="grid sm:grid-cols-2 gap-4">
               {objectives.map((obj, i) => (
-                <div key={i} className="flex items-start gap-4 bg-white/10 rounded-2xl p-5 border border-white/10 backdrop-blur-sm">
+                <div key={i} className="flex items-start gap-4 bg-stone-800 rounded-2xl p-5 border border-stone-700">
                   <div className="w-8 h-8 rounded-full bg-orange-500 text-white flex items-center justify-center font-black text-sm shrink-0">
                     {i + 1}
                   </div>
-                  <p className="text-white/90 text-sm leading-relaxed font-medium">{obj}</p>
+                  <p className="text-stone-200 text-sm leading-relaxed font-medium">{obj}</p>
                 </div>
               ))}
             </div>
@@ -248,10 +215,10 @@ function MusicSocietyOverviewPage() {
         </div>
       </ScrollReveal>
 
-      {/* Society Journey / Timeline */}
+      {/* Society Journey / Timeline (Compact) */}
       <div>
         <ScrollReveal direction="up">
-          <div className="text-center mb-12">
+          <div className="text-center mb-10">
             <SectionHeading
               eyebrow="Our History"
               title="The Society Journey"
@@ -260,31 +227,18 @@ function MusicSocietyOverviewPage() {
           </div>
         </ScrollReveal>
 
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-6 sm:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-orange-400 to-amber-300 -translate-x-0.5 sm:-translate-x-0"></div>
-          
-          <div className="space-y-4">
-            {milestones.map((m, i) => (
-              <ScrollReveal key={i} direction={i % 2 === 0 ? "left" : "right"} delay={i * 0.05}>
-                <div className={`relative flex items-center gap-6 sm:gap-0 ${i % 2 === 0 ? "sm:flex-row" : "sm:flex-row-reverse"}`}>
-                  {/* Year bubble */}
-                  <div className="absolute left-6 sm:left-1/2 sm:-translate-x-1/2 w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center text-white font-black text-xs shadow-lg z-10">
-                    {m.year.slice(2)}
-                  </div>
-                  
-                  {/* Content Card */}
-                  <div className={`ml-20 sm:ml-0 sm:w-5/12 ${i % 2 === 0 ? "sm:mr-auto sm:pr-16" : "sm:ml-auto sm:pl-16"}`}>
-                    <div className="bg-white rounded-2xl p-6 border border-stone-100 shadow-[0_8px_30px_rgba(0,0,0,0.05)] hover:shadow-md hover:border-orange-200 transition-all">
-                      <p className="text-xs font-bold uppercase tracking-widest text-orange-600 mb-1">{m.year}</p>
-                      <h3 className="font-serif text-lg font-bold text-stone-900 mb-2">{m.title}</h3>
-                      <p className="text-stone-600 text-sm leading-relaxed">{m.desc}</p>
-                    </div>
-                  </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {milestones.map((m, i) => (
+            <ScrollReveal key={i} direction="up" delay={i * 0.05}>
+              <div className="bg-white rounded-2xl p-6 border border-stone-100 shadow-sm h-full flex flex-col">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-xs font-bold uppercase tracking-widest text-white bg-orange-500 px-3 py-1 rounded-full">{m.year}</span>
                 </div>
-              </ScrollReveal>
-            ))}
-          </div>
+                <h3 className="font-serif text-lg font-bold text-stone-900 mb-2">{m.title}</h3>
+                <p className="text-stone-600 text-sm leading-relaxed mt-auto">{m.desc}</p>
+              </div>
+            </ScrollReveal>
+          ))}
         </div>
       </div>
 

@@ -9,9 +9,9 @@ const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'instant' });
 const fallbackSeasons = [
   {
     id: "season-5",
-    title: "Voice of Delhi NCR",
-    subtitle: "Season 5 — Upcoming Season",
-    year: "2027",
+    title: "Next Upcoming Season",
+    subtitle: "Stay Tuned!",
+    year: "",
     status: "upcoming",
     color: "from-orange-500 to-red-500",
     lightBg: "from-orange-50 to-red-50",
@@ -21,7 +21,7 @@ const fallbackSeasons = [
     grandFinale: "Next Season Will Be Announced Soon",
     venue: "To Be Announced",
     description:
-      "Voice of Delhi NCR Season 5 is coming soon! Get ready for the next edition of Delhi-NCR's premier singing competition. Pre-register now to receive notifications when auditions open.",
+      "Our next singing competition is coming soon! Get ready for another spectacular season. Pre-register now to receive notifications when auditions open.",
     highlights: [
       "Next Event Coming Soon",
       "Registrations Will Open Soon",
@@ -257,9 +257,96 @@ function VoiceOfDelhiNCRPage() {
     return <SeasonDetailPage season={selectedSeason} />;
   }
 
+  const renderSeasonCard = (season, idx) => (
+    <ScrollReveal key={season.id} direction="up" delay={idx * 0.08}>
+      <Link
+        to={`/voice-of-delhi-ncr/${season.id}`}
+        onClick={scrollToTop}
+        className="group relative bg-white rounded-[2rem] overflow-hidden border border-stone-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full"
+      >
+        {/* Poster Image */}
+        <div className="h-56 w-full relative overflow-hidden shrink-0">
+          <img src={season.poster} alt={season.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          <div className="absolute inset-0 bg-gradient-to-t from-stone-950/95 via-stone-900/50 to-stone-900/10"></div>
+
+          {/* Status badge */}
+          <div className="absolute top-4 left-4">
+            <span className={`text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full flex items-center gap-1.5 shadow-sm ${
+              season.status === 'grand-finale' || season.status === 'upcoming'
+                ? 'bg-gradient-to-r from-orange-500 to-amber-400 text-white'
+                : 'bg-white/90 text-stone-800'
+            }`}>
+              {season.status === "grand-finale" || season.status === "upcoming" ? (
+                <><span className="animate-pulse">🔥</span> Upcoming</>
+              ) : (
+                <><span className="text-emerald-500">✔</span> Completed</>
+              )}
+            </span>
+          </div>
+          {season.year && (
+            <span className="absolute top-4 right-4 text-white font-black text-xs tracking-wider bg-black/40 px-2 py-1 rounded-md backdrop-blur-md border border-white/10">{season.year}</span>
+          )}
+
+          {/* Title at bottom of image */}
+          <div className="absolute bottom-0 left-0 right-0 p-4">
+            <p className="text-orange-400 text-[10px] font-bold tracking-widest uppercase mb-0.5">{season.subtitle}</p>
+            <h2 className="text-white font-serif text-xl font-bold leading-tight drop-shadow-lg">
+              {season.title}
+            </h2>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="bg-white flex-1 p-5 flex flex-col gap-4">
+          {season.status === "upcoming" ? (
+            <div className="flex items-center gap-3 bg-blue-50 border border-blue-100 rounded-xl p-3">
+              <div className="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm shrink-0 animate-pulse">📢</div>
+              <div>
+                <p className="text-[10px] text-blue-500 uppercase font-bold tracking-wider">Status</p>
+                <p className="font-bold text-stone-900 text-sm truncate">Registrations Opening Soon</p>
+              </div>
+            </div>
+          ) : season.status === "grand-finale" ? (
+            <div className="flex items-center gap-3 bg-orange-50 border border-orange-100 rounded-xl p-3">
+              <div className="w-8 h-8 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-sm shrink-0 animate-pulse">🎤</div>
+              <div>
+                <p className="text-[10px] text-stone-500 uppercase font-bold tracking-wider">Grand Finale</p>
+                <p className="text-orange-600 font-bold text-sm leading-tight">{season.grandFinale}</p>
+              </div>
+            </div>
+          ) : (
+            <div className="flex items-center gap-3 bg-amber-50/70 border border-amber-100 rounded-xl p-3">
+              <div className="w-8 h-8 rounded-full overflow-hidden border-2 border-white shadow shrink-0">
+                <img src={season.winnerImg} alt={season.winner} className="w-full h-full object-cover object-top" />
+              </div>
+              <div>
+                <p className="text-[10px] text-stone-400 uppercase font-bold tracking-wider">🏆 Winner</p>
+                <p className="font-bold text-stone-900 text-sm line-clamp-1">{season.winner}</p>
+              </div>
+            </div>
+          )}
+
+          <p className="text-stone-500 text-xs leading-relaxed line-clamp-2">{season.description}</p>
+
+          <div className="mt-auto pt-2">
+            {season.status === "upcoming" || season.status === "grand-finale" ? (
+              <span className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-orange-100 text-orange-700 font-bold text-xs rounded-lg group-hover:bg-orange-500 group-hover:text-white transition-all">
+                📝 Register / View Details
+              </span>
+            ) : (
+              <span className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-stone-100 text-stone-700 font-bold text-xs rounded-lg group-hover:bg-stone-800 group-hover:text-white transition-all">
+                ▶ View Highlights
+              </span>
+            )}
+          </div>
+        </div>
+      </Link>
+    </ScrollReveal>
+  );
+
   return (
     <>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
         {/* Page Header */}
         <ScrollReveal direction="up">
           <div className="text-center max-w-4xl mx-auto">
@@ -315,104 +402,8 @@ function VoiceOfDelhiNCRPage() {
               />
             </div>
           </ScrollReveal>
-
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {seasons.map((season, idx) => (
-              <ScrollReveal
-                key={season.id}
-                direction="up"
-                delay={idx * 0.08}
-              >
-                <Link
-                  to={`/voice-of-delhi-ncr/${season.id}`}
-                  onClick={scrollToTop}
-                  className="group relative bg-white rounded-[2rem] overflow-hidden border border-stone-100 shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_24px_60px_rgba(234,88,12,0.18)] hover:-translate-y-2 transition-all duration-300 flex flex-col"
-                >
-                  {/* Poster Image */}
-                  <div className="h-60 sm:h-72 w-full relative overflow-hidden shrink-0">
-                    <img src={season.poster} alt={season.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-stone-950/95 via-stone-900/50 to-stone-900/10"></div>
-
-                    {/* Status badge */}
-                    <div className="absolute top-4 left-4">
-                      <span className={`text-[11px] font-black uppercase tracking-widest px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shadow-md ${
-                        season.status === 'grand-finale'
-                          ? 'bg-gradient-to-r from-orange-500 to-amber-400 text-white'
-                          : 'bg-white/15 text-white border border-white/25 backdrop-blur-sm'
-                      }`}>
-                        {season.status === "grand-finale" || season.status === "upcoming" ? (
-                          <><span className="animate-pulse">🔥</span> Next Season Coming Soon</>
-                        ) : (
-                          <><span className="text-emerald-400">✔</span> Completed</>
-                        )}
-                      </span>
-                    </div>
-                    <span className="absolute top-4 right-4 text-white font-black text-xs tracking-wider bg-black/40 px-2.5 py-1.5 rounded-lg backdrop-blur-md border border-white/10">{season.year}</span>
-
-                    {/* Title at bottom of image */}
-                    <div className="absolute bottom-0 left-0 right-0 p-5">
-                      <p className="text-orange-400 text-[11px] font-bold tracking-widest uppercase mb-1">{season.subtitle}</p>
-                      <h2 className="text-white font-serif text-2xl font-bold leading-tight drop-shadow-lg">
-                        {season.title}
-                      </h2>
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="bg-white flex-1 p-5 flex flex-col gap-4">
-                    {/* Winner / Grand Finale / Completed Info */}
-                    {season.status === "upcoming" ? (
-                      <div className="flex items-center gap-3 bg-blue-50 border border-blue-100 rounded-2xl p-3.5">
-                        <div className="w-10 h-10 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-lg shrink-0 animate-pulse">📢</div>
-                        <div>
-                          <p className="text-[10px] text-blue-400 uppercase font-bold tracking-wider">Upcoming</p>
-                          <p className="font-bold text-stone-900 text-sm truncate">Registrations Opening Soon</p>
-                        </div>
-                      </div>
-                    ) : season.status === "grand-finale" ? (
-                      <div className="flex items-center gap-3 bg-orange-50 border border-orange-100 rounded-2xl p-3.5">
-                        <div className="w-10 h-10 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-lg shrink-0 animate-pulse">🎤</div>
-                        <div>
-                          <p className="text-[10px] text-stone-500 uppercase font-bold tracking-wider">Grand Finale</p>
-                          <p className="text-orange-600 font-black text-base leading-tight">{season.grandFinale} • 5:00 PM - 9:30 PM</p>
-                        </div>
-                      </div>
-                    ) : (
-                      <div className="flex items-center gap-3 bg-amber-50/70 border border-amber-100 rounded-2xl p-3.5">
-                        <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow shrink-0">
-                          <img src={season.winnerImg} alt={season.winner} className="w-full h-full object-cover object-top" />
-                        </div>
-                        <div>
-                          <p className="text-[10px] text-stone-400 uppercase font-bold tracking-wider">🏆 Winner</p>
-                          <p className="font-bold text-stone-900 text-sm truncate">{season.winner}</p>
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Description snippet */}
-                    <p className="text-stone-500 text-xs leading-relaxed line-clamp-2">{season.description}</p>
-
-                    {/* CTA Button */}
-                    <div className="mt-auto">
-                      {season.status === "grand-finale" ? (
-                        <span className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold text-xs rounded-xl group-hover:shadow-[0_8px_20px_rgba(234,88,12,0.3)] transition-all">
-                          🎟️ Free Entry - Explore
-                        </span>
-                      ) : season.youtube ? (
-                        <span className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-gradient-to-r from-red-600 to-red-500 text-white font-bold text-xs rounded-xl group-hover:shadow-md transition-all">
-                          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="white"/></svg>
-                          Watch Highlights
-                        </span>
-                      ) : (
-                        <span className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold text-xs rounded-xl group-hover:shadow-[0_8px_20px_rgba(234,88,12,0.3)] transition-all">
-                          🎤 View Season Details
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                </Link>
-              </ScrollReveal>
-            ))}
+            {seasons.map((season, idx) => renderSeasonCard(season, idx))}
           </div>
         </div>
 
