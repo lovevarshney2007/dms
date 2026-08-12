@@ -26,6 +26,9 @@ if (process.env.NODE_ENV === "development") {
 app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 
+// Trust proxy for Render/Vercel load balancers (required for rate-limiting)
+app.set("trust proxy", 1);
+
 // Compression
 app.use(compression());
 
