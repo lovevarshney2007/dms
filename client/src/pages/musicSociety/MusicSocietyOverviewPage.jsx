@@ -4,6 +4,7 @@ import ScrollReveal from "../../components/common/ScrollReveal";
 import { objectives, teamData } from "../../data/siteContent";
 import { usePageMeta } from "../../hooks/usePageMeta";
 import { useState } from "react";
+import SEO from "../../components/common/SEO";
 
 const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'instant' });
 
@@ -65,7 +66,12 @@ function MusicSocietyOverviewPage() {
   });
 
   return (
-    <div className="space-y-8 pb-8 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <>
+      <SEO 
+        title="About Us | DMS Aarohi" 
+        description="DMS Aarohi Musical Society has been promoting Indian music and nurturing emerging singing talent since 2013." 
+      />
+      <div className="space-y-8 pb-8 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       {/* Page Hero */}
       <ScrollReveal direction="up">
@@ -296,7 +302,8 @@ function MusicSocietyOverviewPage() {
         </div>
       </ScrollReveal>
 
-    </div>
+      </div>
+    </>
   );
 }
 

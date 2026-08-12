@@ -7,6 +7,7 @@ import {
 } from "../../data/siteContent";
 import SectionHeading from "../../components/common/SectionHeading";
 import ScrollReveal from "../../components/common/ScrollReveal";
+import SEO from "../../components/common/SEO";
 
 const fallbackQC = defaultQualifiedContestants.map((contestant, index) => ({
   score: index === 0 ? "98.5" : "96.0",
@@ -81,7 +82,12 @@ function MusicSocietyTalentsPage() {
   }, [activeSeason, activeCategory]);
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 space-y-8">
+    <>
+      <SEO 
+        title="Success Stories | Voice of Delhi NCR" 
+        description="Meet our past winners, finalists, and rising stars who are making waves in the music industry." 
+      />
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 space-y-8">
       
       {/* 1. Page Header */}
       <ScrollReveal direction="up">
@@ -117,7 +123,7 @@ function MusicSocietyTalentsPage() {
               <div key={idx} className="group relative rounded-[2rem] bg-gradient-to-b from-white to-stone-50 border border-stone-100 p-8 shadow-[0_10px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(234,88,12,0.1)] transition-all duration-300 hover:-translate-y-2 overflow-hidden flex flex-col items-center">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-400 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <div className="w-32 h-32 rounded-full overflow-hidden mb-6 border-4 border-white shadow-md mx-auto group-hover:scale-105 transition-transform duration-500 bg-stone-100 relative">
-                  <img src={story.image} alt={story.name} className="w-full h-full object-cover" />
+                  <img src={story.image} alt={story.name} loading="lazy" className="w-full h-full object-cover" />
                   <div className="absolute inset-0 rounded-full ring-2 ring-orange-500/50 ring-offset-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <h3 className="text-center font-serif text-2xl font-bold text-stone-900 mb-2 group-hover:text-orange-600 transition-colors">{story.name}</h3>
@@ -201,6 +207,7 @@ function MusicSocietyTalentsPage() {
                   <img
                     src={finalist.image || DMS_LOGO}
                     alt={finalist.name}
+                    loading="lazy"
                     className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
                     onError={(e) => { 
                       e.target.onerror = null; 
@@ -251,6 +258,7 @@ function MusicSocietyTalentsPage() {
                 <img
                   src={item.image}
                   alt={item.title}
+                  loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
@@ -279,7 +287,8 @@ function MusicSocietyTalentsPage() {
         </section>
       </ScrollReveal>
 
-    </div>
+      </div>
+    </>
   );
 }
 

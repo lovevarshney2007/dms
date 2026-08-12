@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import SectionHeading from "../components/common/SectionHeading";
 import ScrollReveal from "../components/common/ScrollReveal";
+import SEO from "../components/common/SEO";
 
 const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'instant' });
 
@@ -346,6 +347,10 @@ function VoiceOfDelhiNCRPage() {
 
   return (
     <>
+      <SEO 
+        title="Voice of Delhi NCR | Talent Hunt" 
+        description="Participate in Voice of Delhi NCR, a talent platform by Delhi Music Society for singers and emerging performers." 
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
         {/* Page Header */}
         <ScrollReveal direction="up">
@@ -440,6 +445,10 @@ function VoiceOfDelhiNCRPage() {
 function SeasonDetailPage({ season }) {
   return (
     <>
+      <SEO 
+        title={`${season.title} ${season.subtitle} | Voice of Delhi NCR`} 
+        description={season.description} 
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
         {/* Back Link */}
         <Link

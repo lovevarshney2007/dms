@@ -10,6 +10,13 @@ const contentController = require("../controllers/contentController");
 const validateContent = require("../middleware/validateContent");
 const adminDashboardController = require("../controllers/adminDashboardController");
 const submissionService = require("../services/submissionService");
+const rateLimit = require("express-rate-limit");
+
+const loginLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 5, // Limit each IP to 5 login requests per windowMs
+  message: "Too many login attempts from this IP, please try again after 15 minutes",
+});
 
 // NGO-specific models
 const NgoTeamMember = require("../models/NgoTeamMember");
@@ -24,7 +31,7 @@ const Submission = require("../models/Submission");
 const router = express.Router();
 
 // ── Auth ────────────────────────────────────────────────────────────────────
-router.post("/admin/login", asyncHandler(adminController.login));
+router.post("/admin/login", loginLimiter, asyncHandler(adminController.login));
 
 // ── Dashboard ────────────────────────────────────────────────────────────────
 router.get("/admin/dashboard", adminAuth, asyncHandler(adminDashboardController.getDashboard));

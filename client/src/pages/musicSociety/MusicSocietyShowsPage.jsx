@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import PlaylistsSection from "../../components/sections/PlaylistsSection";
 import SectionHeading from "../../components/common/SectionHeading";
 import ScrollReveal from "../../components/common/ScrollReveal";
+import SEO from "../../components/common/SEO";
 
 // All real shows from dmsaarohi.com website
 const fallbackShows = [
@@ -273,7 +275,34 @@ function MusicSocietyShowsPage() {
   ];
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 space-y-8">
+    <>
+      <SEO 
+        title="Our Shows | DMS Aarohi" 
+        description="Explore the past and upcoming musical events, tribute concerts, and live stage programs organized by DMS Aarohi." 
+      />
+      <Helmet>
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "Event",
+              "name": "Voice of Delhi NCR - Upcoming Season",
+              "startDate": "2026-12-01",
+              "location": {
+                "@type": "Place",
+                "name": "To Be Announced",
+                "address": "Delhi NCR"
+              },
+              "description": "Join us for an unforgettable evening as the finest voices of Delhi-NCR compete for the ultimate title!",
+              "organizer": {
+                "@type": "Organization",
+                "name": "Delhi Music Society (DMS Aarohi)"
+              }
+            }
+          `}
+        </script>
+      </Helmet>
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 space-y-8">
       
       {/* 1. Page Header & About Our Shows */}
       <ScrollReveal direction="up" className="relative grid lg:grid-cols-2 gap-12 items-center bg-gradient-to-br from-stone-900 to-stone-800 rounded-[3rem] p-8 sm:p-12 shadow-[0_20px_60px_rgba(0,0,0,0.3)] overflow-hidden">
@@ -373,7 +402,7 @@ function MusicSocietyShowsPage() {
                 <div className="group bg-white rounded-[2rem] overflow-hidden border border-stone-100 shadow-[0_8px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(234,88,12,0.1)] hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
                   {/* Image */}
                   <div className="aspect-[4/3] sm:aspect-video relative overflow-hidden bg-stone-100 flex items-center justify-center">
-                    <img src={show.image} alt={show.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                    <img src={show.image} alt={show.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                     {/* Tag */}
                     <div className={`absolute top-3 left-3 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-sm ${tagColors[show.tag] || "bg-stone-100 text-stone-700"}`}>
@@ -430,7 +459,8 @@ function MusicSocietyShowsPage() {
         </ScrollReveal>
       </section>
 
-    </div>
+      </div>
+    </>
   );
 }
 

@@ -53,10 +53,19 @@ const ngoContactSubmissionRules = [
   { field: "message", required: true }
 ];
 
+const sponsorRequestSubmissionRules = [
+  { field: "name", required: true },
+  { field: "organization", required: true },
+  { field: "phone", required: true },
+  { field: "email", required: true },
+  { field: "sponsorshipTier", required: true }
+];
+
 module.exports = {
   contactSubmissionRules,
   joinUsSubmissionRules,
   talentShowSubmissionRules,
   donationSubmissionRules,
-  ngoContactSubmissionRules
+  ngoContactSubmissionRules,
+  sponsorRequestSubmissionRules
 };

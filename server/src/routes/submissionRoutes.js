@@ -10,7 +10,8 @@ const {
   donationSubmissionRules,
   joinUsSubmissionRules,
   talentShowSubmissionRules,
-  ngoContactSubmissionRules
+  ngoContactSubmissionRules,
+  sponsorRequestSubmissionRules
 } = require("../validators/submissionValidators");
 
 const router = express.Router();
@@ -48,6 +49,7 @@ router.post(
 // ── Sponsor Request ───────────────────────────────────────────────────────────
 router.post(
   "/forms/sponsor-request",
+  validateBody(sponsorRequestSubmissionRules),
   asyncHandler(submissionController.createSponsorRequestSubmission)
 );
 

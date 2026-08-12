@@ -3,6 +3,8 @@ const express = require("express");
 const helmet = require("helmet");
 const rateLimit = require("express-rate-limit");
 const mongoSanitize = require("express-mongo-sanitize");
+const compression = require("compression");
+const morgan = require("morgan");
 
 const healthRoutes = require("./routes/healthRoutes");
 const submissionRoutes = require("./routes/submissionRoutes");
@@ -13,9 +15,19 @@ const notFoundHandler = require("./middleware/notFoundHandler");
 
 const app = express();
 
+// Logging
+if (process.env.NODE_ENV === "development") {
+  app.use(morgan("dev"));
+} else {
+  app.use(morgan("combined"));
+}
+
 // Security Headers
 app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
+
+// Compression
+app.use(compression());
 
 // Rate Limiting
 const limiter = rateLimit({
@@ -28,7 +40,23 @@ const limiter = rateLimit({
 app.use("/api", limiter);
 
 // CORS
-app.use(cors());
+const allowedOrigins = [
+  process.env.FRONTEND_URL,
+  "http://localhost:5173",
+  "http://localhost:5174",
+  "http://localhost:5051",
+].filter(Boolean);
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+}));
 
 // Body Parser
 app.use(express.json({ limit: "50kb" }));

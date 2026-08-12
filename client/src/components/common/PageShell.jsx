@@ -1,5 +1,6 @@
 import Footer from "./Footer";
 import MusicNavbar from "./MusicNavbar";
+import SEO from "./SEO";
 
 function PageShell({ basePath = "/", children }) {
   return (
@@ -7,6 +8,7 @@ function PageShell({ basePath = "/", children }) {
       className={`relative min-h-screen pt-[76px] md:pt-[84px] bg-[radial-gradient(circle_at_top_left,rgba(171,63,45,0.18),transparent_28%),radial-gradient(circle_at_right_center,rgba(204,160,87,0.24),transparent_24%),linear-gradient(180deg,#f8f0e4_0%,#efe1cf_100%)] text-stone-900 flex flex-col`}
       style={{ scrollPaddingTop: "5rem" }}
     >
+      <SEO />
       {/* Floating Music Notes Background */}
       <div className="music-notes-container hidden sm:block">
         <div className="floating-note">🎵</div>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import SectionHeading from "../components/common/SectionHeading";
 import ScrollReveal from "../components/common/ScrollReveal";
+import SEO from "../components/common/SEO";
 
 const categories = ["All", "Photos", "Videos", "Stage Performances", "Event Highlights"];
 
@@ -80,6 +81,10 @@ function GalleryPage() {
 
   return (
     <>
+      <SEO 
+        title="Gallery" 
+        description="Relive the magic of DMS Aarohi Musical Society - from spectacular grand finales to soul-stirring solo performances." 
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-6">
         
         {/* Page Header */}
@@ -135,6 +140,7 @@ function GalleryPage() {
                 <img
                   src={item.image}
                   alt={item.title}
+                  loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
               </div>

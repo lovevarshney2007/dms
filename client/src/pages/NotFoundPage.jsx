@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import ScrollReveal from "../components/common/ScrollReveal";
+import SEO from "../components/common/SEO";
 
 function NotFoundPage() {
   return (
-    <div className="min-h-screen bg-stone-50 flex items-center justify-center p-4">
+    <>
+      <SEO title="404 - Page Not Found" description="The page you are looking for doesn't exist." />
+      <div className="min-h-screen bg-stone-50 flex items-center justify-center p-4">
       <ScrollReveal direction="up">
         <div className="max-w-md w-full bg-white rounded-[2rem] border border-stone-100 shadow-[0_20px_60px_rgba(0,0,0,0.06)] p-10 text-center">
           <div className="w-20 h-20 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -30,7 +33,8 @@ function NotFoundPage() {
           </Link>
         </div>
       </ScrollReveal>
-    </div>
+      </div>
+    </>
   );
 }
 

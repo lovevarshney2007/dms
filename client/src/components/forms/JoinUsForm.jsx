@@ -124,6 +124,7 @@ function JoinUsForm({ onClose, onStatusChange, showClose = true }) {
           </label>
           <input
             type="text"
+            aria-label="Full Name"
             className={`${inputBase} ${errors.fullName ? "border-red-300 focus:border-red-400 focus:ring-red-100" : ""}`}
             value={form.fullName}
             onChange={set("fullName")}
@@ -139,6 +140,7 @@ function JoinUsForm({ onClose, onStatusChange, showClose = true }) {
           </label>
           <input
             type="number"
+            aria-label="Age"
             min="5"
             max="70"
             className={`${inputBase} ${errors.age ? "border-red-300 focus:border-red-400 focus:ring-red-100" : ""}`}
@@ -155,6 +157,7 @@ function JoinUsForm({ onClose, onStatusChange, showClose = true }) {
             Gender <RequiredStar />
           </label>
           <select
+            aria-label="Gender"
             className={`${selectBase} ${errors.gender ? "border-red-300 focus:border-red-400 focus:ring-red-100" : ""}`}
             value={form.gender}
             onChange={set("gender")}
@@ -174,6 +177,7 @@ function JoinUsForm({ onClose, onStatusChange, showClose = true }) {
             State <RequiredStar />
           </label>
           <select
+            aria-label="State"
             className={`${selectBase} ${errors.state ? "border-red-300 focus:border-red-400 focus:ring-red-100" : ""}`}
             value={form.state}
             onChange={set("state")}
@@ -193,6 +197,7 @@ function JoinUsForm({ onClose, onStatusChange, showClose = true }) {
           </label>
           <input
             type="text"
+            aria-label="City"
             className={`${inputBase} ${errors.city ? "border-red-300 focus:border-red-400 focus:ring-red-100" : ""}`}
             value={form.city}
             onChange={set("city")}
@@ -210,6 +215,7 @@ function JoinUsForm({ onClose, onStatusChange, showClose = true }) {
             <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-stone-400 text-sm font-semibold">+91</span>
             <input
               type="tel"
+              aria-label="WhatsApp or Mobile Number"
               className={`${inputBase} pl-12 ${errors.whatsapp ? "border-red-300 focus:border-red-400 focus:ring-red-100" : ""}`}
               value={form.whatsapp}
               onChange={set("whatsapp")}
@@ -227,6 +233,7 @@ function JoinUsForm({ onClose, onStatusChange, showClose = true }) {
           </label>
           <input
             type="email"
+            aria-label="Email Address"
             className={`${inputBase} ${errors.email ? "border-red-300 focus:border-red-400 focus:ring-red-100" : ""}`}
             value={form.email}
             onChange={set("email")}
@@ -241,6 +248,7 @@ function JoinUsForm({ onClose, onStatusChange, showClose = true }) {
             Language / Singing Genre Preference <RequiredStar />
           </label>
           <select
+            aria-label="Language Preference"
             className={`${selectBase} ${errors.languagePreference ? "border-red-300 focus:border-red-400 focus:ring-red-100" : ""}`}
             value={form.languagePreference}
             onChange={set("languagePreference")}
@@ -259,6 +267,7 @@ function JoinUsForm({ onClose, onStatusChange, showClose = true }) {
             Talent Category <RequiredStar />
           </label>
           <select
+            aria-label="Talent Category"
             className={`${selectBase} ${errors.talentCategory ? "border-red-300 focus:border-red-400 focus:ring-red-100" : ""}`}
             value={form.talentCategory}
             onChange={set("talentCategory")}
@@ -278,6 +287,7 @@ function JoinUsForm({ onClose, onStatusChange, showClose = true }) {
           </label>
           <input
             type="url"
+            aria-label="Audition Video Link"
             className={`${inputBase} ${errors.videoLink ? "border-red-300 focus:border-red-400 focus:ring-red-100" : ""}`}
             value={form.videoLink}
             onChange={set("videoLink")}
@@ -294,6 +304,7 @@ function JoinUsForm({ onClose, onStatusChange, showClose = true }) {
           </p>
           <button
             type="submit"
+            aria-label="Submit Pre-Registration"
             disabled={submitting}
             className="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold text-sm shadow-[0_8px_20px_rgba(234,88,12,0.25)] hover:shadow-[0_12px_28px_rgba(234,88,12,0.35)] hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0 flex items-center justify-center gap-2"
           >

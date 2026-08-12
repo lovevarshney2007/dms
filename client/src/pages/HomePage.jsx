@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import PageShell from "../components/common/PageShell";
+import SEO from "../components/common/SEO";
 import SectionHeading from "../components/common/SectionHeading";
 import TeamSliderRow from "../components/common/TeamSliderRow";
 import ContactForm from "../components/forms/ContactForm";
@@ -152,6 +154,29 @@ function HomePage() {
 
   return (
     <PageShell basePath="/">
+      <SEO 
+        title="Home" 
+        description="Delhi Music Society promotes music, emerging talent, cultural events and community initiatives across Delhi NCR." 
+      />
+      <Helmet>
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "MusicGroup",
+              "name": "Delhi Music Society (DMS Aarohi)",
+              "url": "https://dmsaarohi.com",
+              "logo": "https://dmsaarohi.com/legacy/tal_logo1.png",
+              "sameAs": [
+                "https://www.youtube.com/channel/UCFmS_dMuj8yvCUcR-X2NdYQ",
+                "https://www.facebook.com/dms.aarohi",
+                "https://twitter.com/dmsaarohi",
+                "https://www.linkedin.com/in/dms-aarohi-45408273/"
+              ]
+            }
+          `}
+        </script>
+      </Helmet>
       {/* ===== 1. HERO SECTION ===== */}
       <section
         id="hero"

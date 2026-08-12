@@ -2,6 +2,7 @@ import { useState } from "react";
 import SectionHeading from "../components/common/SectionHeading";
 import ScrollReveal from "../components/common/ScrollReveal";
 import { submitForm } from "../lib/api";
+import SEO from "../components/common/SEO";
 
 const contactDetails = [
   {
@@ -96,6 +97,10 @@ function ContactPage() {
 
   return (
     <>
+      <SEO 
+        title="Contact Us" 
+        description="Contact Delhi Music Society for events, partnerships, sponsorships, talent programs and community initiatives." 
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
         
         {/* Page Header */}

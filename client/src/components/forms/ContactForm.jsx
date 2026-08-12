@@ -54,6 +54,7 @@ function ContactForm({
           <input
             className={renderInputClassNames(true)}
             type="text"
+            aria-label="Full Name"
             value={form.name}
             onChange={(event) => setForm({ ...form, name: event.target.value })}
             // placeholder="Enter your full name"
@@ -65,6 +66,7 @@ function ContactForm({
           <input
             className={renderInputClassNames(true)}
             type="email"
+            aria-label="Email"
             value={form.email}
             onChange={(event) => setForm({ ...form, email: event.target.value })}
             // placeholder="Enter your email"
@@ -76,6 +78,7 @@ function ContactForm({
           <input
             className={renderInputClassNames(true)}
             type="tel"
+            aria-label="Phone Number"
             value={form.phone}
             onChange={(event) => setForm({ ...form, phone: event.target.value })}
             // placeholder="Enter your phone number"
@@ -87,6 +90,7 @@ function ContactForm({
           <input
             className={renderInputClassNames(true)}
             type="text"
+            aria-label="Subject"
             value={form.subject}
             onChange={(event) => setForm({ ...form, subject: event.target.value })}
             // placeholder="Event, collaboration, booking, etc."
@@ -97,6 +101,7 @@ function ContactForm({
           Message
           <textarea
             className={`${renderInputClassNames(true)} min-h-24 sm:min-h-28`}
+            aria-label="Message"
             value={form.message}
             onChange={(event) => setForm({ ...form, message: event.target.value })}
             // placeholder="Write your message"

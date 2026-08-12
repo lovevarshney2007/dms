@@ -118,4 +118,8 @@ const submissionSchema = new mongoose.Schema(
   }
 );
 
+submissionSchema.index({ formType: 1 });
+submissionSchema.index({ status: 1 });
+submissionSchema.index({ createdAt: -1 });
+
 module.exports = mongoose.models.Submission || mongoose.model("Submission", submissionSchema);

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import JoinUsForm from "../../components/forms/JoinUsForm";
 import ScrollReveal from "../../components/common/ScrollReveal";
+import SEO from "../../components/common/SEO";
 
 const benefits = [
   {
@@ -56,7 +57,12 @@ function MusicSocietyJoinUsPage() {
   const [status, setStatus] = useState({ type: "", message: "" });
 
   return (
-    <div className="min-h-screen">
+    <>
+      <SEO 
+        title="Register | Voice of Delhi NCR" 
+        description="Pre-Register for Voice of Delhi NCR. Join thousands of talented singers across Delhi-NCR and perform on a grand stage." 
+      />
+      <div className="min-h-screen">
 
       {/* ── Hero Banner ── */}
       <section className="relative overflow-hidden bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 py-16 sm:py-20 px-4">
@@ -241,7 +247,8 @@ function MusicSocietyJoinUsPage() {
           </div>
         </ScrollReveal>
       </section>
-    </div>
+      </div>
+    </>
   );
 }
 

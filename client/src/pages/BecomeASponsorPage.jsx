@@ -2,6 +2,7 @@ import { useState } from "react";
 import { submitForm } from "../lib/api";
 import FormNotice from "../components/common/FormNotice";
 import { validateSponsorForm } from "../lib/formValidators";
+import SEO from "../components/common/SEO";
 
 const initialForm = {
   companyName: "",
@@ -51,8 +52,13 @@ export default function BecomeASponsorPage() {
   };
 
   return (
-    <div className="w-full">
-      {/* Hero Banner */}
+    <>
+      <SEO 
+        title="Become a Sponsor" 
+        description="Partner with Delhi Music Society and support music, talent development and cultural initiatives across Delhi NCR." 
+      />
+      <div className="w-full">
+        {/* Hero Banner */}
       <section className="relative bg-gradient-to-br from-stone-900 via-stone-800 to-orange-950 text-white py-20 px-4 text-center overflow-hidden">
         <div className="absolute inset-0 opacity-20 pointer-events-none">
           <div className="absolute top-0 left-0 w-80 h-80 bg-orange-500 rounded-full blur-[120px]"></div>
@@ -289,6 +295,7 @@ export default function BecomeASponsorPage() {
           )}
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }

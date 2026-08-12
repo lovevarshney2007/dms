@@ -1557,6 +1557,7 @@ export default function AdminPage() {
           margin-top: 64px;
           padding: 36px 40px;
           flex: 1;
+          min-width: 0; /* Prevents flex blowout */
           min-height: calc(100vh - 64px);
           transition: margin-left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
           position: relative;

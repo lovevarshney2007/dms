@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: dms-server
+    restart: unless-stopped
+    ports:
+      - "5051:5051"
+    environment:
+      - NODE_ENV=production
+      # - PORT=5051
+      # - MONGODB_URI=${MONGODB_URI}
+      # - MONGODB_DB_NAME=${MONGODB_DB_NAME}
+      # - ADMIN_EMAIL=${ADMIN_EMAIL}
+      # - ADMIN_PASSWORD=${ADMIN_PASSWORD}
+      # - ADMIN_TOKEN_SECRET=${ADMIN_TOKEN_SECRET}
+      # - ADMIN_TOKEN_TTL_HOURS=${ADMIN_TOKEN_TTL_HOURS}
+      # - Email=${Email}
+      # - EmailAppPassword=${EmailAppPassword}
+      # - FRONTEND_URL=${FRONTEND_URL}
+    env_file:
+      - ./server/.env
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: dms-client
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - server

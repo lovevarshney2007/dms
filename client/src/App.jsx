@@ -1,6 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import LogoLoader from "./components/common/LogoLoader";
+import ErrorBoundary from "./components/common/ErrorBoundary";
 
 // Main Pages
 const HomePage = lazy(() => import("./pages/HomePage"));
@@ -27,47 +28,49 @@ const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 function App() {
   return (
     <BrowserRouter>
-      <Suspense fallback={<LogoLoader />}>
-        <Routes>
-          {/* Main Homepage */}
-          <Route path="/" element={<HomePage />} />
-          <Route path="/home" element={<Navigate to="/" replace />} />
+      <ErrorBoundary>
+        <Suspense fallback={<LogoLoader />}>
+          <Routes>
+            {/* Main Homepage */}
+            <Route path="/" element={<HomePage />} />
+            <Route path="/home" element={<Navigate to="/" replace />} />
 
-          {/* Main Navigation Routes - wrapped in MusicSocietyLayout (has MusicNavbar + Footer) */}
-          <Route element={<MusicSocietyLayout />}>
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/voice-of-delhi-ncr" element={<VoiceOfDelhiNCRPage />} />
-            <Route path="/voice-of-delhi-ncr/:season" element={<VoiceOfDelhiNCRPage />} />
-            <Route path="/shows" element={<ShowsPage />} />
-            <Route path="/success-stories" element={<SuccessStoriesPage />} />
-            <Route path="/gallery" element={<GalleryPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/register" element={<RegisterPage />} />
-            <Route path="/privacy" element={<PrivacyPolicyPage />} />
-            <Route path="/terms" element={<TermsOfServicePage />} />
-            <Route path="/become-a-sponsor" element={<BecomeASponsorPage />} />
-          </Route>
+            {/* Main Navigation Routes - wrapped in MusicSocietyLayout (has MusicNavbar + Footer) */}
+            <Route element={<MusicSocietyLayout />}>
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/voice-of-delhi-ncr" element={<VoiceOfDelhiNCRPage />} />
+              <Route path="/voice-of-delhi-ncr/:season" element={<VoiceOfDelhiNCRPage />} />
+              <Route path="/shows" element={<ShowsPage />} />
+              <Route path="/success-stories" element={<SuccessStoriesPage />} />
+              <Route path="/gallery" element={<GalleryPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              <Route path="/privacy" element={<PrivacyPolicyPage />} />
+              <Route path="/terms" element={<TermsOfServicePage />} />
+              <Route path="/become-a-sponsor" element={<BecomeASponsorPage />} />
+            </Route>
 
-          {/* Temporary Route to view Old Music Home Page */}
-          <Route path="/old-music" element={<OldMusicHome />} />
+            {/* Temporary Route to view Old Music Home Page */}
+            <Route path="/old-music" element={<OldMusicHome />} />
 
-          {/* Legacy Route Redirects */}
-          <Route path="/music" element={<Navigate to="/" replace />} />
-          <Route path="/music-society" element={<Navigate to="/" replace />} />
-          <Route path="/music-society/*" element={<Navigate to="/" replace />} />
-          <Route path="/music/*" element={<Navigate to="/" replace />} />
-          <Route path="/competitions" element={<Navigate to="/voice-of-delhi-ncr" replace />} />
+            {/* Legacy Route Redirects */}
+            <Route path="/music" element={<Navigate to="/" replace />} />
+            <Route path="/music-society" element={<Navigate to="/" replace />} />
+            <Route path="/music-society/*" element={<Navigate to="/" replace />} />
+            <Route path="/music/*" element={<Navigate to="/" replace />} />
+            <Route path="/competitions" element={<Navigate to="/voice-of-delhi-ncr" replace />} />
 
-          {/* Admin */}
-          <Route path="/admin/login" element={<AdminLoginPage />} />
-          <Route path="/admin" element={<AdminGuard />}>
-            <Route index element={<AdminPage />} />
-          </Route>
+            {/* Admin */}
+            <Route path="/admin/login" element={<AdminLoginPage />} />
+            <Route path="/admin" element={<AdminGuard />}>
+              <Route index element={<AdminPage />} />
+            </Route>
 
-          {/* 404 fallback */}
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </Suspense>
+            {/* 404 fallback */}
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </Suspense>
+      </ErrorBoundary>
     </BrowserRouter>
   );
 }
