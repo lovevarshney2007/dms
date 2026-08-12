@@ -41,12 +41,12 @@ const fallbackGalleryItems = [
   },
   {
     id: "video-channel",
-    type: "Videos",
-    title: "DMS Aarohi Channel",
+    type: "Event Highlights",
+    title: "Event Highlight",
     image: "/talenthunt/slide-three.jpg",
     season: "All Seasons",
-    isVideo: true,
-    videoUrl: "https://www.youtube.com/channel/UCFmS_dMuj8yvCUcR-X2NdYQ"
+    isVideo: false,
+    videoUrl: ""
   }
 ];
 

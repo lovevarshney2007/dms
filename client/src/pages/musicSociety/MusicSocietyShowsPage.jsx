@@ -401,8 +401,8 @@ function MusicSocietyShowsPage() {
               <ScrollReveal key={show.id} direction="up" delay={idx * 0.07} className="h-full">
                 <div className="group bg-white rounded-[2rem] overflow-hidden border border-stone-100 shadow-[0_8px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(234,88,12,0.1)] hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
                   {/* Image */}
-                  <div className="aspect-[4/3] sm:aspect-video relative overflow-hidden bg-stone-100 flex items-center justify-center">
-                    <img src={show.image} alt={show.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                  <div className="aspect-[4/3] sm:aspect-video relative overflow-hidden bg-stone-900 flex items-center justify-center">
+                    <img src={show.image} alt={show.title} loading="lazy" className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                     {/* Tag */}
                     <div className={`absolute top-3 left-3 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-sm ${tagColors[show.tag] || "bg-stone-100 text-stone-700"}`}>

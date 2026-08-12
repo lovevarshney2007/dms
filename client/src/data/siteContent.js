@@ -79,14 +79,14 @@ export const successStories = [
     achievement: "Winner - DMS Aarohi Talent Hunt Season 2 (Viewers' Choice)",
     description: "Muskan Srivastava won the Viewers' Choice award at DMS Aarohi Talent Hunt Season 2, captivating audiences with her soulful performances and extraordinary vocal range.",
     image: "/legacy/about_group.png",
-    youtube: "https://www.facebook.com/reel/1344361294136213"
+    youtube: null
   },
   {
     name: "Khushi Singh",
     achievement: "Winner - Voice of Delhi NCR Season 3 (2024)",
     description: "Khushi Singh won the Voice of Delhi NCR Season 3, showcasing exceptional talent and passion for Indian music at the Grand Finale.",
     image: "/legacy/current_event.jpg",
-    youtube: "https://www.youtube.com/watch?v=RCOXwxmZ9ik&list=PLukJPZtf5VqEAGQguTl-nUwungVK-bOPI"
+    youtube: null
   }
 ];
 
