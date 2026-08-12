@@ -148,17 +148,6 @@ function MusicSocietyJoinUsPage() {
                     </span>
                   ))}
                 </div>
-
-                {status.message && (
-                  <div className={`mt-4 flex items-start gap-3 rounded-2xl border px-5 py-4 text-sm font-medium ${
-                    status.type === "success"
-                      ? "border-emerald-200 bg-emerald-50 text-emerald-800"
-                      : "border-red-200 bg-red-50 text-red-800"
-                  }`}>
-                    <span className="text-lg shrink-0">{status.type === "success" ? "✅" : "❌"}</span>
-                    <span>{status.message}</span>
-                  </div>
-                )}
               </div>
 
               {/* Form body */}
