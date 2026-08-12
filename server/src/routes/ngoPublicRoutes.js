@@ -55,7 +55,7 @@ router.post("/volunteers", asyncHandler(async (req, res) => {
   const registration = await Registration.create({
     ...payload,
     formType: "join-us",
-    status: "new"
+    status: "pending"
   });
   res.status(201).json(registration);
 }));

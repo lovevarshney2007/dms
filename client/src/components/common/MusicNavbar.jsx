@@ -59,10 +59,12 @@ function MusicNavbar() {
     setMenuOpen(false);
   }, [location.pathname]);
 
+  const MAIN_SITE_URL = typeof window !== "undefined" && window.location.hostname === "localhost" ? "http://localhost:5176" : "https://dms-pqry.vercel.app";
+
   const navItems = [
     {
       label: "Main Site",
-      href: "https://dms-pqry.vercel.app",
+      href: MAIN_SITE_URL,
       type: "anchor",
       isActive: false,
     },

@@ -68,8 +68,7 @@ const Footer = () => {
             {[
               { name: 'Talent Platform', url: ENV.TALENT_HUNT_URL },
               { name: 'Social Initiatives', url: ENV.NGO_URL },
-              { name: 'About Us', url: '#' },
-              { name: 'Contact', url: '#' }
+              { name: 'About Us', url: '#' }
             ].map((link) => (
               <a key={link.name} href={link.url} className="group relative text-white/70 text-sm font-medium w-fit">
                 <span className="relative z-10 group-hover:text-white transition-colors duration-300">{link.name}</span>
