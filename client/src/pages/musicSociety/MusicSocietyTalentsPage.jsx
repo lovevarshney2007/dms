@@ -69,7 +69,7 @@ function MusicSocietyTalentsPage() {
   }, []);
 
   const categories = ["All", "Junior", "Senior", "Super Senior"];
-  const validFinalists = finalists.filter(f => f.season === activeSeason && f.image && f.image !== "/images/looth.png" && f.image !== "");
+  const validFinalists = finalists.filter(f => f.season === activeSeason);
   const filteredFinalists = activeCategory === "All"
     ? validFinalists
     : validFinalists.filter(f => f.category === activeCategory);
