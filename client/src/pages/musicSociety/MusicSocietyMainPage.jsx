@@ -3,6 +3,7 @@ import SectionHeading from "../../components/common/SectionHeading";
 import HeroSection from "../../components/sections/HeroSection";
 import PerformancesSection from "../../components/sections/PerformancesSection";
 import TeamSliderRow from "../../components/common/TeamSliderRow";
+import { submitForm } from "../../lib/api";
 
 function MusicSocietyMainPage() {
   const [contactForm, setContactForm] = useState({ name: "", email: "", phone: "", message: "" });
@@ -53,10 +54,28 @@ function MusicSocietyMainPage() {
     { id: 4, image: "/legacy/bd2.jpg", alt: "Artists Performing" }
   ];
 
-  const handleContactSubmit = (e) => {
+  const [contactStatus, setContactStatus] = useState({ type: "", message: "" });
+  const [contactLoading, setContactLoading] = useState(false);
+
+  const handleContactSubmit = async (e) => {
     e.preventDefault();
-    alert("Thank you! We'll contact you soon.");
-    setContactForm({ name: "", email: "", phone: "", message: "" });
+    setContactLoading(true);
+    setContactStatus({ type: "", message: "" });
+    try {
+      await submitForm("/forms/contact", {
+        name: contactForm.name,
+        email: contactForm.email,
+        phone: contactForm.phone,
+        subject: "Music Society Enquiry",
+        message: contactForm.message || "Enquiry from Music Society page",
+      });
+      setContactStatus({ type: "success", message: "Thank you! We'll contact you soon." });
+      setContactForm({ name: "", email: "", phone: "", message: "" });
+    } catch (err) {
+      setContactStatus({ type: "error", message: err.message || "Something went wrong. Please try again." });
+    } finally {
+      setContactLoading(false);
+    }
   };
 
   return (
@@ -277,11 +296,18 @@ function MusicSocietyMainPage() {
               </label>
             </div>
 
+            {contactStatus.message && (
+              <div className={`mt-4 rounded-lg px-4 py-3 text-sm font-medium ${contactStatus.type === "success" ? "bg-green-50 text-green-700 border border-green-200" : "bg-red-50 text-red-700 border border-red-200"}`}>
+                {contactStatus.message}
+              </div>
+            )}
+
             <button
               type="submit"
-              className="mt-5 w-full rounded-lg bg-gradient-to-r from-orange-700 to-amber-600 px-6 py-3 font-semibold text-white transition hover:from-orange-600 hover:to-amber-500 active:scale-95"
+              disabled={contactLoading}
+              className="mt-5 w-full rounded-lg bg-gradient-to-r from-orange-700 to-amber-600 px-6 py-3 font-semibold text-white transition hover:from-orange-600 hover:to-amber-500 active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              Send Message
+              {contactLoading ? "Sending…" : "Send Message"}
             </button>
           </form>
         </div>

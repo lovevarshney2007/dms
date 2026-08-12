@@ -2,7 +2,7 @@
 //  DMS AAROHI ADMIN — Central Config
 // ============================================================
 const IS_DEV = import.meta.env.DEV;
-export const API_BASE = import.meta.env.VITE_API_BASE || (IS_DEV ? "http://localhost:5051/api" : "https://dms-server.vercel.app/api");
+export const API_BASE = import.meta.env.VITE_API_BASE || (IS_DEV ? "http://localhost:5051/api" : "https://dms-b383.onrender.com/api");
 export const TALENT_SITE = "https://dms-ten-gamma.vercel.app/";
 export const NGO_SITE    = "https://dms-ngo.vercel.app/";
 

@@ -54,7 +54,7 @@ function GalleryPage() {
   const [galleryItems, setGalleryItems] = useState(fallbackGalleryItems);
 
   useEffect(() => {
-    fetch(import.meta.env.VITE_API_URL + "/api/content/gallery")
+    fetch(import.meta.env.VITE_API_URL + "/content/gallery")
       .then(res => res.json())
       .then(data => {
         if (data && data.length > 0) {

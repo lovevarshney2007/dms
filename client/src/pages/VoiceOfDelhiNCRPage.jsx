@@ -216,7 +216,7 @@ function VoiceOfDelhiNCRPage() {
   const [seasons, setSeasons] = useState(fallbackSeasons);
 
   useEffect(() => {
-    fetch(import.meta.env.VITE_API_URL + "/api/content/season")
+    fetch(import.meta.env.VITE_API_URL + "/content/season")
       .then(res => res.json())
       .then(data => {
         if (data && data.length > 0) {

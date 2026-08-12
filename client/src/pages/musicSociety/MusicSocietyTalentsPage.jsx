@@ -40,7 +40,7 @@ function MusicSocietyTalentsPage() {
   const [visibleCount, setVisibleCount] = useState(15);
 
   useEffect(() => {
-    fetch(import.meta.env.VITE_API_URL + "/api/content/success-story")
+    fetch(import.meta.env.VITE_API_URL + "/content/success-story")
       .then(res => res.json())
       .then(ssData => {
         if (ssData && ssData.length > 0) {
@@ -54,7 +54,7 @@ function MusicSocietyTalentsPage() {
         }
       }).catch(console.error);
 
-    fetch(import.meta.env.VITE_API_URL + "/api/content/qualified-contestant")
+    fetch(import.meta.env.VITE_API_URL + "/content/qualified-contestant")
       .then(res => res.json())
       .then(data => {
         if (data && data.length > 0) {

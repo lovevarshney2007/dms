@@ -234,7 +234,7 @@ function MusicSocietyShowsPage() {
   const [shows, setShows] = useState(fallbackShows);
 
   useEffect(() => {
-    fetch(import.meta.env.VITE_API_URL + "/api/content/competition")
+    fetch(import.meta.env.VITE_API_URL + "/content/competition")
       .then(res => res.json())
       .then(data => {
         if (data && data.length > 0) {
