@@ -47,7 +47,23 @@ export const teamData = [
 
 export const qualifiedContestants = [
   { name: "Adaa", subtitle: "Grand Finalist", role: "Junior", season: "Season 4", imageUrl: "/seasons/adaa.png" },
-  { name: "Arijit", subtitle: "Grand Finalist", role: "Senior", season: "Season 4", imageUrl: "/seasons/arijit.png" }
+  { name: "Arijit", subtitle: "Grand Finalist", role: "Senior", season: "Season 4", imageUrl: "/seasons/arijit.png" },
+  { name: "Ayaami", subtitle: "Grand Finalist", role: "Junior", season: "Season 4", imageUrl: "/seasons/ayaami.png" },
+  { name: "Deepshikha", subtitle: "Grand Finalist", role: "Senior", season: "Season 4", imageUrl: "/seasons/deepshikha.png" },
+  { name: "Kuvam", subtitle: "Grand Finalist", role: "Senior", season: "Season 4", imageUrl: "/seasons/kuvam.png" },
+  { name: "Mandeep", subtitle: "Grand Finalist", role: "Senior", season: "Season 4", imageUrl: "/seasons/mandeep.png" },
+  { name: "Pritika", subtitle: "Grand Finalist", role: "Senior", season: "Season 4", imageUrl: "/seasons/pratikia.png" },
+  { name: "Rahul", subtitle: "Grand Finalist", role: "Senior", season: "Season 4", imageUrl: "/seasons/rahul.png" },
+  { name: "Rajesh", subtitle: "Grand Finalist", role: "Senior", season: "Season 4", imageUrl: "/seasons/rajesh.png" },
+  { name: "Srishti", subtitle: "Grand Finalist", role: "Senior", season: "Season 4", imageUrl: "/seasons/sristi.png" },
+  { name: "Vineet", subtitle: "Grand Finalist", role: "Senior", season: "Season 4", imageUrl: "/seasons/vineet.png" },
+  { name: "Chetan", subtitle: "Grand Finalist", role: "Senior", season: "Season 4", imageUrl: "/legacy/pp.jpg" },
+  { name: "Khushjit", subtitle: "Grand Finalist", role: "Senior", season: "Season 4", imageUrl: "/legacy/pa.jpg" },
+  { name: "Aarav Sharma", subtitle: "Grand Finalist", role: "Super Senior", season: "Season 4", imageUrl: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&h=150&q=80" },
+  { name: "Priya Singh", subtitle: "Semi Finalist", role: "Super Senior", season: "Season 4", imageUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&h=150&q=80" },
+  { name: "Rohan Kapoor", subtitle: "Round 1 Qualified", role: "Super Senior", season: "Season 4", imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150&q=80" },
+  { name: "Neha Verma", subtitle: "Round 1 Qualified", role: "Super Senior", season: "Season 4", imageUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&h=150&q=80" },
+  { name: "Vikram Desai", subtitle: "Audition Selected", role: "Super Senior", season: "Season 4", imageUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&h=150&q=80" }
 ];
 
 export const successStories = [
