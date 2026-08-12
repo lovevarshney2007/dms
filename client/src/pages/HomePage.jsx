@@ -33,22 +33,11 @@ function HeroVideoLink({ videoUrl, settings }) {
       href={videoUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="relative block rounded-[1.5rem] overflow-hidden shadow-2xl border-[3px] border-white w-full aspect-square sm:aspect-auto sm:h-[480px] lg:h-[550px] xl:h-[600px] group cursor-pointer"
+      className="relative block rounded-[1.5rem] overflow-hidden shadow-2xl border-[3px] border-white w-full aspect-square sm:aspect-auto sm:h-[300px] lg:h-[350px] xl:h-[400px] group cursor-pointer"
     >
       <img src={thumbnail} alt="Watch Video Highlight" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
       <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300"></div>
       
-      {/* Top Left Pill */}
-      <div className="absolute top-4 left-4 bg-white/80 backdrop-blur-md rounded-full px-4 py-2 flex items-center gap-3 shadow-lg transform transition-transform group-hover:scale-105">
-        <div className="w-10 h-10 rounded-full bg-orange-500 text-white flex items-center justify-center shrink-0">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><rect x="3" y="4" width="18" height="18" rx="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></svg>
-        </div>
-        <div className="pr-2">
-          <p className="text-[10px] font-black uppercase tracking-widest text-stone-500">{settings?.hero_video_pill_label || "Upcoming Event"}</p>
-          <p className="text-sm font-black text-stone-900">{settings?.hero_video_pill_text || "Dates TBA"}</p>
-        </div>
-      </div>
-
       {/* Bottom Left Text */}
       <div className="absolute bottom-6 left-6 right-6">
         <h3 className="text-2xl sm:text-3xl font-black text-white drop-shadow-lg mb-1">{settings?.hero_video_bottom_title || "Voice of Delhi NCR"}</h3>
@@ -180,10 +169,10 @@ function HomePage() {
       {/* ===== 1. HERO SECTION ===== */}
       <section
         id="hero"
-        className="relative min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden pt-12 md:pt-16 pb-4 md:pb-6"
+        className="relative flex items-center justify-center overflow-hidden pt-20 md:pt-24 pb-10 md:pb-12"
       >
         {/* Top Marquee */}
-        <div className="w-full bg-orange-600 text-white overflow-hidden py-1.5 md:py-2 absolute top-0 left-0 z-40">
+        <div className="w-full bg-orange-600 text-white overflow-hidden py-1.5 md:py-2 absolute top-4 sm:top-6 left-0 z-40">
           <div className="animate-marquee font-bold text-[10px] md:text-xs tracking-widest uppercase flex items-center whitespace-nowrap">
             <span>🎤 UPCOMING SEASON ANNOUNCING SOON</span>
             <span className="mx-3 md:mx-4">•</span>
@@ -226,59 +215,14 @@ function HomePage() {
               <h1 className="text-4xl sm:text-5xl md:text-[4rem] font-black font-serif text-stone-900 leading-[1.1] mb-4 drop-shadow-sm" dangerouslySetInnerHTML={{ __html: settings.hero_headline || 'Voice of Delhi NCR<br /><span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">- Upcoming Season</span>' }} />
             </ScrollReveal>
 
-            <ScrollReveal direction="up" delay={0.25}>
-              <p className="text-lg sm:text-xl md:text-2xl font-bold text-orange-700 mb-4">
-                {settings.hero_subtitle || "🎤 Auditions & Dates Announcing Soon"}
-              </p>
-            </ScrollReveal>
-
             <ScrollReveal direction="up" delay={0.3}>
-              <p className="text-base md:text-lg lg:text-xl text-stone-700 mb-6 max-w-xl leading-relaxed font-medium mx-auto lg:mx-0">
-                {settings.hero_desc || "DMS Aarohi is preparing for another magical season of music! We have discovered incredible voices over 4 successful seasons and hosted 50+ live shows. Pre-register now to be the first to know when auditions open!"}
-              </p>
-            </ScrollReveal>
-
-            {/* Season 5 Pre-Registration Info Block */}
-            <ScrollReveal direction="up" delay={0.4}>
-              <div className="mb-8 bg-white/80 backdrop-blur-lg border-2 border-orange-200 rounded-3xl p-5 sm:p-6 max-w-xl mx-auto lg:mx-0 shadow-xl hover:shadow-2xl hover:border-orange-300 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-white to-amber-50 opacity-90 -z-10 group-hover:opacity-100 transition-opacity"></div>
-
-                <div className="flex items-center gap-3 mb-4 border-b border-orange-100 pb-3">
-                  <span className="w-2.5 h-2.5 rounded-full bg-orange-600 animate-pulse shadow-[0_0_8px_rgba(234,88,12,0.6)]"></span>
-                  <span className="text-xs sm:text-sm font-black tracking-widest text-orange-800 uppercase">{settings.hero_info_title || "Season 5 Pre-Registration"}</span>
-                  <span className="ml-auto px-3 py-1 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-[10px] sm:text-xs font-black rounded-full uppercase tracking-widest shadow-md">{settings.hero_info_status || "OPEN"}</span>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  <div className="flex items-center gap-3 text-stone-800">
-                    <div className="p-2.5 bg-orange-100 text-orange-600 rounded-xl shadow-inner shrink-0 group-hover:scale-110 transition-transform">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><rect x="3" y="4" width="18" height="18" rx="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></svg>
-                    </div>
-                    <span className="text-sm font-bold">{settings.hero_info_date || "Dates TBA"}</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-stone-800">
-                    <div className="p-2.5 bg-amber-100 text-amber-600 rounded-xl shadow-inner shrink-0 group-hover:scale-110 transition-transform">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
-                    </div>
-                    <span className="text-sm font-bold">All Categories</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-stone-800">
-                    <div className="p-2.5 bg-rose-100 text-rose-600 rounded-xl shadow-inner shrink-0 group-hover:scale-110 transition-transform">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
-                    </div>
-                    <span className="text-sm font-bold leading-tight">{settings.hero_info_venue || "Auditions Pan-India"}</span>
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal direction="up" delay={0.6}>
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mt-6">
                 <Link
-                  to="/join-us"
+                  to="/register"
                   onClick={scrollToTop}
                   className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold text-base shadow-[0_8px_20px_rgba(234,88,12,0.3)] hover:shadow-[0_12px_25px_rgba(234,88,12,0.4)] hover:-translate-y-1 text-center transition-all duration-300 border border-orange-400"
                 >
-                  📝 Pre-Register Now
+                  📝 Register Now
                 </Link>
                 <Link
                   to="/voice-of-delhi-ncr"
