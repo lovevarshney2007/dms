@@ -11,6 +11,10 @@ import SEO from "../../components/common/SEO";
 
 const fallbackQC = defaultQualifiedContestants.map((contestant, index) => ({
   score: index === 0 ? "98.5" : "96.0",
+  name: contestant.name || contestant.title,
+  category: contestant.role || contestant.subtitle,
+  image: contestant.imageUrl,
+  season: contestant.season || "Season 4",
   ...contestant
 }));
 const fallbackSS = defaultSuccessStories;
@@ -29,9 +33,9 @@ const categoryColors = {
 
 function MusicSocietyTalentsPage() {
   const [successStories, setSuccessStories] = useState(fallbackSS);
-  const [finalists, setFinalists] = useState([]);
-  const [availableSeasons, setAvailableSeasons] = useState([]);
-  const [activeSeason, setActiveSeason] = useState("");
+  const [finalists, setFinalists] = useState(fallbackQC);
+  const [availableSeasons, setAvailableSeasons] = useState(["Season 4"]);
+  const [activeSeason, setActiveSeason] = useState("Season 4");
   const [activeCategory, setActiveCategory] = useState("All");
   const [visibleCount, setVisibleCount] = useState(15);
 

@@ -45,7 +45,10 @@ export const teamData = [
   { name: "Shalini Lal", role: "Executive Member", image: "/team/Shalini Lal (Executive Member).png" },
 ];
 
-export const qualifiedContestants = [];
+export const qualifiedContestants = [
+  { name: "Adaa", subtitle: "Grand Finalist", role: "Junior", season: "Season 4", imageUrl: "/seasons/adaa.png" },
+  { name: "Arijit", subtitle: "Grand Finalist", role: "Senior", season: "Season 4", imageUrl: "/seasons/arijit.png" }
+];
 
 export const successStories = [
   {
