@@ -19,10 +19,10 @@ const TermsOfServicePage = lazy(() => import("./pages/TermsOfServicePage"));
 const BecomeASponsorPage = lazy(() => import("./pages/BecomeASponsorPage"));
 const OldMusicHome = lazy(() => import("./pages/musicSociety/MusicSocietyMainPage")); // Temp route for user reference
 
-// Admin
 const AdminPage = lazy(() => import("./pages/admin/AdminPage"));
 const AdminLoginPage = lazy(() => import("./pages/admin/AdminLoginPage"));
 const AdminGuard = lazy(() => import("./pages/admin/AdminGuard"));
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
 function App() {
   return (
@@ -65,7 +65,7 @@ function App() {
           </Route>
 
           {/* 404 fallback */}
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
     </BrowserRouter>

@@ -145,7 +145,7 @@ function HomePage() {
   const contactDetails = [
     ["Email", settings?.contact_email || "dmsaarohi@gmail.com"],
     ["Phone", settings?.contact_phone || "+91-9810225442"],
-    ["Address", settings?.contact_address || "A5, 272, Paschim Vihar, New Delhi"]
+    ["Address", settings?.contact_address || "A5, 272, Paschim Vihar, New Delhi - 110063"]
   ];
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'instant' });

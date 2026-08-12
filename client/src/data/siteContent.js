@@ -118,7 +118,7 @@ export const pastEvents = [
 export const contactDetails = [
   ["Email", "dmsaarohi@gmail.com"],
   ["Phone", "+91-9810225442"],
-  ["Address", "A5, 272, Paschim Vihar, New Delhi"]
+  ["Address", "A5, 272, Paschim Vihar, New Delhi - 110063"]
 ];
 
 export const eventDetails = [
@@ -144,10 +144,8 @@ export const defaultJoinUsForm = {
   whatsapp: "",
   email: "",
   languagePreference: "Hindi",
-  stageName: "",
-  talentCategory: "Singer",
-  videoLink: "",
-  shortIntroduction: ""
+  talentCategory: "",
+  videoLink: ""
 };
 
 export const testimonials = [

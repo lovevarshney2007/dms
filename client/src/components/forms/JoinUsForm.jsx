@@ -49,8 +49,7 @@ function JoinUsForm({ onClose, onStatusChange, showClose = true }) {
     if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) errs.email = "Enter a valid email address";
     if (!form.languagePreference) errs.languagePreference = "Please select a language";
     if (!form.talentCategory) errs.talentCategory = "Please select a talent category";
-    if (!form.videoLink.trim() || !/^https?:\/\/[^\s]+$/i.test(form.videoLink.trim())) errs.videoLink = "Please enter a valid URL starting with http:// or https://";
-    if (!form.shortIntroduction.trim()) errs.shortIntroduction = "Please provide a short introduction";
+    if (form.videoLink && form.videoLink.trim() && !/^https?:\/\/[^\s]+$/i.test(form.videoLink.trim())) errs.videoLink = "Please enter a valid URL starting with http:// or https://";
     return errs;
   }
 
@@ -75,12 +74,18 @@ function JoinUsForm({ onClose, onStatusChange, showClose = true }) {
         languagePreference: form.languagePreference,
         talentCategory: form.talentCategory,
         videoLink: form.videoLink,
-        shortIntroduction: form.shortIntroduction
       };
 
       const result = await submitForm("/forms/join-us", payload);
-      setStatus({ type: "success", message: result.message || "Registration submitted successfully! We'll contact you soon." });
-      onStatusChange?.({ type: "success", message: result.message });
+      // Generate a reference number
+      const refNo = `DMS-${Math.floor(100000 + Math.random() * 900000)}`;
+      
+      const successMessage = result.message 
+        ? `${result.message} Your Reference No is ${refNo}.`
+        : `Registration submitted successfully! Your Reference No is ${refNo}. We'll contact you soon.`;
+
+      setStatus({ type: "success", message: successMessage });
+      onStatusChange?.({ type: "success", message: successMessage });
       setForm(defaultJoinUsForm);
       setErrors({});
       onClose?.();
@@ -269,7 +274,7 @@ function JoinUsForm({ onClose, onStatusChange, showClose = true }) {
         {/* Video Link */}
         <div className="sm:col-span-2">
           <label className={labelBase}>
-            Audition Video Link (YouTube / Google Drive) <RequiredStar />
+            Audition Video Link (Optional)
           </label>
           <input
             type="url"
@@ -279,21 +284,6 @@ function JoinUsForm({ onClose, onStatusChange, showClose = true }) {
             placeholder="https://youtube.com/watch?v=..."
           />
           {errors.videoLink && <p className="mt-1.5 text-xs text-red-500 font-medium">{errors.videoLink}</p>}
-        </div>
-
-        {/* Short Introduction */}
-        <div className="sm:col-span-2">
-          <label className={labelBase}>
-            Short Introduction & Background <RequiredStar />
-          </label>
-          <textarea
-            rows="3"
-            className={`${inputBase} ${errors.shortIntroduction ? "border-red-300 focus:border-red-400 focus:ring-red-100" : ""}`}
-            value={form.shortIntroduction}
-            onChange={set("shortIntroduction")}
-            placeholder="Tell us briefly about your musical journey and training..."
-          ></textarea>
-          {errors.shortIntroduction && <p className="mt-1.5 text-xs text-red-500 font-medium">{errors.shortIntroduction}</p>}
         </div>
 
         {/* Submit */}
