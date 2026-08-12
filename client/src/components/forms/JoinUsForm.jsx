@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { defaultJoinUsForm } from "../../data/siteContent";
 import { submitForm } from "../../lib/api";
+import RegistrationSuccessModal from "./RegistrationSuccessModal";
 
 const INDIAN_STATES = [
   "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh",
@@ -37,6 +38,7 @@ function JoinUsForm({ onClose, onStatusChange, showClose = true }) {
   const [status, setStatus] = useState({ type: "", message: "" });
   const [submitting, setSubmitting] = useState(false);
   const [errors, setErrors] = useState({});
+  const [successModal, setSuccessModal] = useState({ open: false, refNo: "", name: "" });
 
   function validate() {
     const errs = {};
@@ -77,18 +79,13 @@ function JoinUsForm({ onClose, onStatusChange, showClose = true }) {
       };
 
       const result = await submitForm("/forms/join-us", payload);
-      // Generate a reference number
       const refNo = `DMS-${Math.floor(100000 + Math.random() * 900000)}`;
-      
-      const successMessage = result.message 
-        ? `${result.message} Your Reference No is ${refNo}.`
-        : `Registration submitted successfully! Your Reference No is ${refNo}. We'll contact you soon.`;
 
-      setStatus({ type: "success", message: successMessage });
-      onStatusChange?.({ type: "success", message: successMessage });
+      // Show beautiful success popup instead of plain banner
+      setSuccessModal({ open: true, refNo, name: form.fullName });
+      onStatusChange?.({ type: "success", message: `Registration submitted! Your Reference No is ${refNo}.` });
       setForm(defaultJoinUsForm);
       setErrors({});
-      onClose?.();
     } catch (error) {
       setStatus({ type: "error", message: error.message || "Something went wrong. Please try again." });
       onStatusChange?.({ type: "error", message: error.message });
@@ -103,15 +100,12 @@ function JoinUsForm({ onClose, onStatusChange, showClose = true }) {
   };
 
   return (
+    <>
     <form onSubmit={handleSubmit} noValidate>
-      {/* Status Banner */}
-      {status.message && (
-        <div className={`mb-6 flex items-start gap-3 rounded-2xl border px-5 py-4 text-sm font-medium ${
-          status.type === "success"
-            ? "border-emerald-200 bg-emerald-50 text-emerald-800"
-            : "border-red-200 bg-red-50 text-red-800"
-        }`}>
-          <span className="text-lg shrink-0">{status.type === "success" ? "✅" : "❌"}</span>
+      {/* Only show error status banner inline; success is shown via modal */}
+      {status.message && status.type === "error" && (
+        <div className="mb-6 flex items-start gap-3 rounded-2xl border border-red-200 bg-red-50 px-5 py-4 text-sm font-medium text-red-800">
+          <span className="text-lg shrink-0">❌</span>
           <span>{status.message}</span>
         </div>
       )}
@@ -328,6 +322,18 @@ function JoinUsForm({ onClose, onStatusChange, showClose = true }) {
         </div>
       </div>
     </form>
+
+    {/* Beautiful success popup */}
+    <RegistrationSuccessModal
+      isOpen={successModal.open}
+      refNo={successModal.refNo}
+      name={successModal.name}
+      onClose={() => {
+        setSuccessModal({ open: false, refNo: "", name: "" });
+        onClose?.();
+      }}
+    />
+    </>
   );
 }
 
