@@ -123,18 +123,12 @@ function MusicNavbar() {
         <div className="mx-auto flex w-full max-w-7xl flex-nowrap items-center justify-between gap-2 md:gap-4 px-4 py-3 md:px-6 md:py-4">
           {/* Logo */}
           <Link to="/" className="relative flex items-center shrink-0 group">
-            <div className="relative flex items-center justify-center py-1 px-2">
-              {/* Soundwave Rings Animation */}
-              <div className="absolute inset-0 border-2 border-orange-600 rounded-full animate-ping opacity-40"></div>
-              <div className="absolute inset-[-4px] border-2 border-orange-500 rounded-full animate-pulse opacity-60 delay-75"></div>
-              
-              <img
-                className="h-9 w-auto md:h-11 object-contain brightness-0 relative z-10 group-hover:scale-105 transition-transform duration-300"
-                src="/images/logo.png"
-                alt="DMS Aarohi Musical Society"
-                decoding="async"
-              />
-            </div>
+            <img
+              className="h-10 w-auto md:h-12 object-contain relative z-10 group-hover:scale-105 transition-transform duration-300"
+              src="/images/DMS_Logoo.png"
+              alt="DMS Aarohi"
+              decoding="async"
+            />
           </Link>
 
           {/* Mobile hamburger */}
